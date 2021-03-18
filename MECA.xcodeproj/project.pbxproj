@@ -3,18 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B0D7A140C9D6C13C302EB87 /* Pods_MECA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D61B7ED3E7640341B905810 /* Pods_MECA.framework */; };
+		611821E4844831EC29E202AB /* Pods_MECA_MECAUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43CD30254567C339D5B7A431 /* Pods_MECA_MECAUITests.framework */; };
+		E3045C322603C4BF00D1A678 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3045C312603C4BF00D1A678 /* Home.storyboard */; };
+		E3045C3D2603C95E00D1A678 /* FooterTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3045C3C2603C95E00D1A678 /* FooterTabView.swift */; };
+		E3045C422603C96C00D1A678 /* FooterTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3045C412603C96C00D1A678 /* FooterTabView.xib */; };
+		E3045C712603D87A00D1A678 /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3045C6F2603D87A00D1A678 /* HomeTVCell.swift */; };
+		E3045C722603D87A00D1A678 /* HomeTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3045C702603D87A00D1A678 /* HomeTVCell.xib */; };
+		E3045C7A2603DD7E00D1A678 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3045C792603DD7E00D1A678 /* HomeVC.swift */; };
 		E30F661926033A970036D183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F661826033A970036D183 /* AppDelegate.swift */; };
-		E30F661B26033A970036D183 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F661A26033A970036D183 /* SceneDelegate.swift */; };
 		E30F661D26033A970036D183 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F661C26033A970036D183 /* ViewController.swift */; };
 		E30F662026033A970036D183 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30F661E26033A970036D183 /* Main.storyboard */; };
 		E30F662226033A970036D183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E30F662126033A970036D183 /* Assets.xcassets */; };
 		E30F662526033A970036D183 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30F662326033A970036D183 /* LaunchScreen.storyboard */; };
 		E30F663026033A970036D183 /* MECATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F662F26033A970036D183 /* MECATests.swift */; };
 		E30F663B26033A970036D183 /* MECAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F663A26033A970036D183 /* MECAUITests.swift */; };
+		E3D7D0E526035CF8001EEE65 /* RCustomClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D7D0E426035CF8001EEE65 /* RCustomClass.swift */; };
+		F6B3B5C51F2B9AF006B9A25E /* Pods_MECATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D349929F1D641DA57D095FFC /* Pods_MECATests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +44,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C544A2E17F0C21D6504ABFF /* Pods-MECATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MECATests.release.xcconfig"; path = "Target Support Files/Pods-MECATests/Pods-MECATests.release.xcconfig"; sourceTree = "<group>"; };
+		3D61B7ED3E7640341B905810 /* Pods_MECA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MECA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43CD30254567C339D5B7A431 /* Pods_MECA_MECAUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MECA_MECAUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FE522E2E6FF1631AE49AED2 /* Pods-MECA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MECA.debug.xcconfig"; path = "Target Support Files/Pods-MECA/Pods-MECA.debug.xcconfig"; sourceTree = "<group>"; };
+		895ECCCD3FF854C12B9CCDEF /* Pods-MECA-MECAUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MECA-MECAUITests.release.xcconfig"; path = "Target Support Files/Pods-MECA-MECAUITests/Pods-MECA-MECAUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A44EBEB2A27DD029F82D69E3 /* Pods-MECATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MECATests.debug.xcconfig"; path = "Target Support Files/Pods-MECATests/Pods-MECATests.debug.xcconfig"; sourceTree = "<group>"; };
+		D349929F1D641DA57D095FFC /* Pods_MECATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MECATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D700C3D0B650360B031EF7A4 /* Pods-MECA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MECA.release.xcconfig"; path = "Target Support Files/Pods-MECA/Pods-MECA.release.xcconfig"; sourceTree = "<group>"; };
+		E3045C312603C4BF00D1A678 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		E3045C3C2603C95E00D1A678 /* FooterTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterTabView.swift; sourceTree = "<group>"; };
+		E3045C412603C96C00D1A678 /* FooterTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterTabView.xib; sourceTree = "<group>"; };
+		E3045C6F2603D87A00D1A678 /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
+		E3045C702603D87A00D1A678 /* HomeTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTVCell.xib; sourceTree = "<group>"; };
+		E3045C792603DD7E00D1A678 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		E30F661526033A970036D183 /* MECA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MECA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E30F661826033A970036D183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E30F661A26033A970036D183 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E30F661C26033A970036D183 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E30F661F26033A970036D183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E30F662126033A970036D183 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +71,55 @@
 		E30F663626033A970036D183 /* MECAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MECAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E30F663A26033A970036D183 /* MECAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MECAUITests.swift; sourceTree = "<group>"; };
 		E30F663C26033A970036D183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3D7D08A260354E5001EEE65 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
+		E3D7D08B260354E5001EEE65 /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
+		E3D7D08C260354E5001EEE65 /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
+		E3D7D08D260354E5001EEE65 /* SF-Pro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Italic.ttf"; sourceTree = "<group>"; };
+		E3D7D08E260354E5001EEE65 /* SF-Pro-Text-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-HeavyItalic.otf"; sourceTree = "<group>"; };
+		E3D7D08F260354E6001EEE65 /* SF-Pro-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Bold.otf"; sourceTree = "<group>"; };
+		E3D7D090260354E6001EEE65 /* SF-Pro-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Bold.otf"; sourceTree = "<group>"; };
+		E3D7D091260354E6001EEE65 /* SF-Pro-Rounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Medium.otf"; sourceTree = "<group>"; };
+		E3D7D092260354E6001EEE65 /* SF-Pro-Display-UltralightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-UltralightItalic.otf"; sourceTree = "<group>"; };
+		E3D7D093260354E6001EEE65 /* SF-Pro-Display-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-LightItalic.otf"; sourceTree = "<group>"; };
+		E3D7D094260354E6001EEE65 /* SF-Pro-Rounded-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Black.otf"; sourceTree = "<group>"; };
+		E3D7D095260354E6001EEE65 /* SF-Pro-Rounded-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Semibold.otf"; sourceTree = "<group>"; };
+		E3D7D096260354E6001EEE65 /* SF-Pro-Display-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-ThinItalic.otf"; sourceTree = "<group>"; };
+		E3D7D097260354E6001EEE65 /* SF-Pro-Display-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BoldItalic.otf"; sourceTree = "<group>"; };
+		E3D7D098260354E6001EEE65 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
+		E3D7D099260354E6001EEE65 /* SF-Pro-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Regular.otf"; sourceTree = "<group>"; };
+		E3D7D09A260354E6001EEE65 /* SF-Pro-Display-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-BlackItalic.otf"; sourceTree = "<group>"; };
+		E3D7D09B260354E7001EEE65 /* SF-Pro-Text-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Black.otf"; sourceTree = "<group>"; };
+		E3D7D09C260354E7001EEE65 /* SF-Pro-Text-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-MediumItalic.otf"; sourceTree = "<group>"; };
+		E3D7D09D260354E7001EEE65 /* SF-Pro-Text-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-RegularItalic.otf"; sourceTree = "<group>"; };
+		E3D7D09E260354E7001EEE65 /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
+		E3D7D09F260354E7001EEE65 /* SF-Pro-Text-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-ThinItalic.otf"; sourceTree = "<group>"; };
+		E3D7D0A0260354E7001EEE65 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
+		E3D7D0A1260354E7001EEE65 /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
+		E3D7D0A2260354E7001EEE65 /* SF-Pro-Text-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Heavy.otf"; sourceTree = "<group>"; };
+		E3D7D0A3260354E7001EEE65 /* SF-Pro-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Ultralight.otf"; sourceTree = "<group>"; };
+		E3D7D0A4260354E7001EEE65 /* SF-Pro-Text-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Thin.otf"; sourceTree = "<group>"; };
+		E3D7D0A5260354E7001EEE65 /* SF-Pro-Display-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-MediumItalic.otf"; sourceTree = "<group>"; };
+		E3D7D0A6260354E7001EEE65 /* SF-Pro-Rounded-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Light.otf"; sourceTree = "<group>"; };
+		E3D7D0A7260354E7001EEE65 /* SF-Pro-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		E3D7D0A8260354E8001EEE65 /* SF-Pro-Display-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Medium.otf"; sourceTree = "<group>"; };
+		E3D7D0A9260354E8001EEE65 /* SF-Pro-Rounded-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Thin.otf"; sourceTree = "<group>"; };
+		E3D7D0AA260354E8001EEE65 /* SF-Pro-Display-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-HeavyItalic.otf"; sourceTree = "<group>"; };
+		E3D7D0AB260354E8001EEE65 /* SF-Pro-Rounded-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Ultralight.otf"; sourceTree = "<group>"; };
+		E3D7D0AC260354E8001EEE65 /* SF-Pro-Text-BlackItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-BlackItalic.otf"; sourceTree = "<group>"; };
+		E3D7D0AD260354E8001EEE65 /* SF-Pro-Text-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-LightItalic.otf"; sourceTree = "<group>"; };
+		E3D7D0AE260354E8001EEE65 /* SF-Pro-Display-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Light.otf"; sourceTree = "<group>"; };
+		E3D7D0AF260354E8001EEE65 /* SF-Pro-Display-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-RegularItalic.otf"; sourceTree = "<group>"; };
+		E3D7D0B0260354E8001EEE65 /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
+		E3D7D0B1260354E8001EEE65 /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
+		E3D7D0B2260354E8001EEE65 /* SF-Pro-Text-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Ultralight.otf"; sourceTree = "<group>"; };
+		E3D7D0B3260354E8001EEE65 /* SF-Pro-Text-UltralightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-UltralightItalic.otf"; sourceTree = "<group>"; };
+		E3D7D0B4260354E8001EEE65 /* SF-Pro-Rounded-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Heavy.otf"; sourceTree = "<group>"; };
+		E3D7D0B5260354E9001EEE65 /* SF-Pro-Display-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		E3D7D0B6260354E9001EEE65 /* SF-Pro-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Black.otf"; sourceTree = "<group>"; };
+		E3D7D0B7260354E9001EEE65 /* SF-Pro-Display-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Regular.otf"; sourceTree = "<group>"; };
+		E3D7D0B8260354E9001EEE65 /* SF-Pro-Text-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-BoldItalic.otf"; sourceTree = "<group>"; };
+		E3D7D0E426035CF8001EEE65 /* RCustomClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RCustomClass.swift; sourceTree = "<group>"; };
+		E5463E498DB5BF78569E8411 /* Pods-MECA-MECAUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MECA-MECAUITests.debug.xcconfig"; path = "Target Support Files/Pods-MECA-MECAUITests/Pods-MECA-MECAUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B0D7A140C9D6C13C302EB87 /* Pods_MECA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6B3B5C51F2B9AF006B9A25E /* Pods_MECATests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +143,79 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				611821E4844831EC29E202AB /* Pods_MECA_MECAUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45D878962F3FEF235403930D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7FE522E2E6FF1631AE49AED2 /* Pods-MECA.debug.xcconfig */,
+				D700C3D0B650360B031EF7A4 /* Pods-MECA.release.xcconfig */,
+				E5463E498DB5BF78569E8411 /* Pods-MECA-MECAUITests.debug.xcconfig */,
+				895ECCCD3FF854C12B9CCDEF /* Pods-MECA-MECAUITests.release.xcconfig */,
+				A44EBEB2A27DD029F82D69E3 /* Pods-MECATests.debug.xcconfig */,
+				3C544A2E17F0C21D6504ABFF /* Pods-MECATests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E3045C302603C4A600D1A678 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E30F661E26033A970036D183 /* Main.storyboard */,
+				E30F662326033A970036D183 /* LaunchScreen.storyboard */,
+				E3045C312603C4BF00D1A678 /* Home.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		E3045C362603C90800D1A678 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E3045C6E2603D85900D1A678 /* HomeTableviewCell */,
+				E3045C372603C91500D1A678 /* ViewXib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E3045C372603C91500D1A678 /* ViewXib */ = {
+			isa = PBXGroup;
+			children = (
+				E3045C382603C91F00D1A678 /* TabBar */,
+			);
+			path = ViewXib;
+			sourceTree = "<group>";
+		};
+		E3045C382603C91F00D1A678 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E3045C3C2603C95E00D1A678 /* FooterTabView.swift */,
+				E3045C412603C96C00D1A678 /* FooterTabView.xib */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		E3045C652603D17B00D1A678 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E3045C792603DD7E00D1A678 /* HomeVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E3045C6E2603D85900D1A678 /* HomeTableviewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E3045C6F2603D87A00D1A678 /* HomeTVCell.swift */,
+				E3045C702603D87A00D1A678 /* HomeTVCell.xib */,
+			);
+			path = HomeTableviewCell;
+			sourceTree = "<group>";
+		};
 		E30F660C26033A970036D183 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +223,8 @@
 				E30F662E26033A970036D183 /* MECATests */,
 				E30F663926033A970036D183 /* MECAUITests */,
 				E30F661626033A970036D183 /* Products */,
+				45D878962F3FEF235403930D /* Pods */,
+				EABE62317FB3B0692D935BD7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,12 +241,14 @@
 		E30F661726033A970036D183 /* MECA */ = {
 			isa = PBXGroup;
 			children = (
+				E3045C652603D17B00D1A678 /* ViewController */,
+				E3045C302603C4A600D1A678 /* Storyboard */,
+				E3045C362603C90800D1A678 /* View */,
+				E3D7D0E326035CDA001EEE65 /* Helper */,
+				E3936BC32603497F006ACF47 /* Resource */,
 				E30F661826033A970036D183 /* AppDelegate.swift */,
-				E30F661A26033A970036D183 /* SceneDelegate.swift */,
 				E30F661C26033A970036D183 /* ViewController.swift */,
-				E30F661E26033A970036D183 /* Main.storyboard */,
 				E30F662126033A970036D183 /* Assets.xcassets */,
-				E30F662326033A970036D183 /* LaunchScreen.storyboard */,
 				E30F662626033A970036D183 /* Info.plist */,
 			);
 			path = MECA;
@@ -128,6 +272,86 @@
 			path = MECAUITests;
 			sourceTree = "<group>";
 		};
+		E3936BC32603497F006ACF47 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E3D7D089260354D8001EEE65 /* SF_Fonts */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		E3D7D089260354D8001EEE65 /* SF_Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E3D7D0B6260354E9001EEE65 /* SF-Pro-Display-Black.otf */,
+				E3D7D09A260354E6001EEE65 /* SF-Pro-Display-BlackItalic.otf */,
+				E3D7D090260354E6001EEE65 /* SF-Pro-Display-Bold.otf */,
+				E3D7D097260354E6001EEE65 /* SF-Pro-Display-BoldItalic.otf */,
+				E3D7D08C260354E5001EEE65 /* SF-Pro-Display-Heavy.otf */,
+				E3D7D0AA260354E8001EEE65 /* SF-Pro-Display-HeavyItalic.otf */,
+				E3D7D0AE260354E8001EEE65 /* SF-Pro-Display-Light.otf */,
+				E3D7D093260354E6001EEE65 /* SF-Pro-Display-LightItalic.otf */,
+				E3D7D0A8260354E8001EEE65 /* SF-Pro-Display-Medium.otf */,
+				E3D7D0A5260354E7001EEE65 /* SF-Pro-Display-MediumItalic.otf */,
+				E3D7D0B7260354E9001EEE65 /* SF-Pro-Display-Regular.otf */,
+				E3D7D0AF260354E8001EEE65 /* SF-Pro-Display-RegularItalic.otf */,
+				E3D7D098260354E6001EEE65 /* SF-Pro-Display-Semibold.otf */,
+				E3D7D0B5260354E9001EEE65 /* SF-Pro-Display-SemiboldItalic.otf */,
+				E3D7D08B260354E5001EEE65 /* SF-Pro-Display-Thin.otf */,
+				E3D7D096260354E6001EEE65 /* SF-Pro-Display-ThinItalic.otf */,
+				E3D7D0A3260354E7001EEE65 /* SF-Pro-Display-Ultralight.otf */,
+				E3D7D092260354E6001EEE65 /* SF-Pro-Display-UltralightItalic.otf */,
+				E3D7D08D260354E5001EEE65 /* SF-Pro-Italic.ttf */,
+				E3D7D094260354E6001EEE65 /* SF-Pro-Rounded-Black.otf */,
+				E3D7D08F260354E6001EEE65 /* SF-Pro-Rounded-Bold.otf */,
+				E3D7D0B4260354E8001EEE65 /* SF-Pro-Rounded-Heavy.otf */,
+				E3D7D0A6260354E7001EEE65 /* SF-Pro-Rounded-Light.otf */,
+				E3D7D091260354E6001EEE65 /* SF-Pro-Rounded-Medium.otf */,
+				E3D7D099260354E6001EEE65 /* SF-Pro-Rounded-Regular.otf */,
+				E3D7D095260354E6001EEE65 /* SF-Pro-Rounded-Semibold.otf */,
+				E3D7D0A9260354E8001EEE65 /* SF-Pro-Rounded-Thin.otf */,
+				E3D7D0AB260354E8001EEE65 /* SF-Pro-Rounded-Ultralight.otf */,
+				E3D7D09B260354E7001EEE65 /* SF-Pro-Text-Black.otf */,
+				E3D7D0AC260354E8001EEE65 /* SF-Pro-Text-BlackItalic.otf */,
+				E3D7D0B1260354E8001EEE65 /* SF-Pro-Text-Bold.otf */,
+				E3D7D0B8260354E9001EEE65 /* SF-Pro-Text-BoldItalic.otf */,
+				E3D7D0A2260354E7001EEE65 /* SF-Pro-Text-Heavy.otf */,
+				E3D7D08E260354E5001EEE65 /* SF-Pro-Text-HeavyItalic.otf */,
+				E3D7D08A260354E5001EEE65 /* SF-Pro-Text-Light.otf */,
+				E3D7D0AD260354E8001EEE65 /* SF-Pro-Text-LightItalic.otf */,
+				E3D7D0B0260354E8001EEE65 /* SF-Pro-Text-Medium.otf */,
+				E3D7D09C260354E7001EEE65 /* SF-Pro-Text-MediumItalic.otf */,
+				E3D7D0A1260354E7001EEE65 /* SF-Pro-Text-Regular.otf */,
+				E3D7D09D260354E7001EEE65 /* SF-Pro-Text-RegularItalic.otf */,
+				E3D7D09E260354E7001EEE65 /* SF-Pro-Text-Semibold.otf */,
+				E3D7D0A7260354E7001EEE65 /* SF-Pro-Text-SemiboldItalic.otf */,
+				E3D7D0A4260354E7001EEE65 /* SF-Pro-Text-Thin.otf */,
+				E3D7D09F260354E7001EEE65 /* SF-Pro-Text-ThinItalic.otf */,
+				E3D7D0B2260354E8001EEE65 /* SF-Pro-Text-Ultralight.otf */,
+				E3D7D0B3260354E8001EEE65 /* SF-Pro-Text-UltralightItalic.otf */,
+				E3D7D0A0260354E7001EEE65 /* SF-Pro.ttf */,
+			);
+			path = SF_Fonts;
+			sourceTree = "<group>";
+		};
+		E3D7D0E326035CDA001EEE65 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E3D7D0E426035CF8001EEE65 /* RCustomClass.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		EABE62317FB3B0692D935BD7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D61B7ED3E7640341B905810 /* Pods_MECA.framework */,
+				43CD30254567C339D5B7A431 /* Pods_MECA_MECAUITests.framework */,
+				D349929F1D641DA57D095FFC /* Pods_MECATests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +359,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
+				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
 				E30F661326033A970036D183 /* Resources */,
+				3FB7E1CEB57417F4362CC796 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +378,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F664226033A970036D183 /* Build configuration list for PBXNativeTarget "MECATests" */;
 			buildPhases = (
+				71F4B1B1C1D07D4BCED4718B /* [CP] Check Pods Manifest.lock */,
 				E30F662726033A970036D183 /* Sources */,
 				E30F662826033A970036D183 /* Frameworks */,
 				E30F662926033A970036D183 /* Resources */,
@@ -170,9 +397,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F664526033A970036D183 /* Build configuration list for PBXNativeTarget "MECAUITests" */;
 			buildPhases = (
+				CCA13B1BED8415595C6533D2 /* [CP] Check Pods Manifest.lock */,
 				E30F663226033A970036D183 /* Sources */,
 				E30F663326033A970036D183 /* Frameworks */,
 				E30F663426033A970036D183 /* Resources */,
+				916334E4F53B85B2AC4F083A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,9 +460,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3045C722603D87A00D1A678 /* HomeTVCell.xib in Resources */,
 				E30F662526033A970036D183 /* LaunchScreen.storyboard in Resources */,
+				E3045C422603C96C00D1A678 /* FooterTabView.xib in Resources */,
 				E30F662226033A970036D183 /* Assets.xcassets in Resources */,
 				E30F662026033A970036D183 /* Main.storyboard in Resources */,
+				E3045C322603C4BF00D1A678 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +485,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3FB7E1CEB57417F4362CC796 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MECA/Pods-MECA-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MECA/Pods-MECA-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MECA/Pods-MECA-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MECA-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71F4B1B1C1D07D4BCED4718B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MECATests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		916334E4F53B85B2AC4F083A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MECA-MECAUITests/Pods-MECA-MECAUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MECA-MECAUITests/Pods-MECA-MECAUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MECA-MECAUITests/Pods-MECA-MECAUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCA13B1BED8415595C6533D2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MECA-MECAUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E30F661126033A970036D183 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -260,7 +595,10 @@
 			files = (
 				E30F661D26033A970036D183 /* ViewController.swift in Sources */,
 				E30F661926033A970036D183 /* AppDelegate.swift in Sources */,
-				E30F661B26033A970036D183 /* SceneDelegate.swift in Sources */,
+				E3045C712603D87A00D1A678 /* HomeTVCell.swift in Sources */,
+				E3045C7A2603DD7E00D1A678 /* HomeVC.swift in Sources */,
+				E3D7D0E526035CF8001EEE65 /* RCustomClass.swift in Sources */,
+				E3045C3D2603C95E00D1A678 /* FooterTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +771,7 @@
 		};
 		E30F664026033A970036D183 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FE522E2E6FF1631AE49AED2 /* Pods-MECA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -451,6 +790,7 @@
 		};
 		E30F664126033A970036D183 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D700C3D0B650360B031EF7A4 /* Pods-MECA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -469,6 +809,7 @@
 		};
 		E30F664326033A970036D183 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A44EBEB2A27DD029F82D69E3 /* Pods-MECATests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +831,7 @@
 		};
 		E30F664426033A970036D183 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C544A2E17F0C21D6504ABFF /* Pods-MECATests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -511,6 +853,7 @@
 		};
 		E30F664626033A970036D183 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5463E498DB5BF78569E8411 /* Pods-MECA-MECAUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -530,6 +873,7 @@
 		};
 		E30F664726033A970036D183 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 895ECCCD3FF854C12B9CCDEF /* Pods-MECA-MECAUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
