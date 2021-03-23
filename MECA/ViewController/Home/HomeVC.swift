@@ -11,11 +11,13 @@ class HomeVC: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     
     @IBOutlet weak var viewTabbar: FooterTabView!
-  
+    var viewModel : HomeVM!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        viewModel = HomeVM.init(controller: self)
         
         tblView.register(HomeTVCell.nib(), forCellReuseIdentifier: "HomeTVCell")
         tblView.delegate = self
@@ -23,13 +25,11 @@ class HomeVC: UIViewController {
         viewTabbar.footerTabViewDelegate = self
     }
     
+    
     @IBAction func btnPlusAction(_ sender: UIButton) {
         
-        let story = UIStoryboard(name: "Home", bundle:nil)
-        let vc = story.instantiateViewController(withIdentifier: "PlusSelectCategoryVC") as! PlusSelectCategoryVC
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
-
+        let vc = FlowController().instantiateViewController(identifier: "PlusSelectCategoryVC", storyBoard: "Home")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
@@ -40,8 +40,26 @@ extension HomeVC: FooterTabViewDelegate{
 
         }else if strType == "Calendar"{
             
-        }else if strType == "Categories"{
             
+            
+        }else if strType == "Categories"{
+
+            let mainVC = FlowController().instantiateViewController(identifier: "NavCategory", storyBoard: "Category")
+            let appDel = UIApplication.shared.delegate as! AppDelegate
+            appDel.window?.rootViewController = mainVC
+            let options: UIView.AnimationOptions = .transitionCrossDissolve
+                // The duration of the transition animation, measured in seconds.
+            let duration: TimeInterval = 0.3
+
+            // Creates a transition animation.
+            // Though `animations` is optional, the documentation tells us that it must not be nil. ¯\_(ツ)_/¯
+            UIView.transition(with: appDel.window!, duration: duration, options: options, animations: {}, completion:
+            { completed in
+                // maybe do something on completion here
+            })
+            appDel.window?.makeKeyAndVisible()
+
+       
         }else if strType == "Notification"{
             
         }else{
@@ -54,13 +72,15 @@ extension HomeVC: FooterTabViewDelegate{
 
 //MARK:- UITableview Delegate Datasource
 extension HomeVC:UITableViewDelegate,UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        viewModel.getNumbersOfRows(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tblView.dequeueReusableCell(withIdentifier: "HomeTVCell", for: indexPath) as! HomeTVCell
-        return cell
+        viewModel.getCellForRowAt(indexPath, tableView: tblView)
     }
     
     

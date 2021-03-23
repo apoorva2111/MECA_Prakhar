@@ -8,15 +8,20 @@
 import UIKit
 
 class SignUpListViewVC: UIViewController {
+    
     @IBOutlet weak var tblList: UITableView!
+    var viewModel : SignUpListViewVM!
+    
+    
+    
     @IBAction func btnBackAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tblList.register(SignUpListTVCell.nib(), forCellReuseIdentifier: "SignUpListTVCell")
-
+        viewModel = SignUpListViewVM.init(controller: self)
+        tblList.register(SignUpListTVCell.nib(), forCellReuseIdentifier: viewModel.identifierItemCell)
     }
 
 
@@ -24,16 +29,13 @@ class SignUpListViewVC: UIViewController {
 
 extension SignUpListViewVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        viewModel.getNumbersOfRows(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tblList.dequeueReusableCell(withIdentifier: "SignUpListTVCell", for: indexPath) as! SignUpListTVCell
-        return cell
+        viewModel.getCellForRowAt(indexPath, tableView: tblList)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
-        
+        viewModel.getHeightForRowAt(indexPath, tableView: tblList)
     }
-    
 }

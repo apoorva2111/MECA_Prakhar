@@ -8,6 +8,7 @@ target 'MECA' do
   use_frameworks!
   pod 'IQKeyboardManagerSwift'
   pod 'NVActivityIndicatorView'
+  pod "BSImagePicker", "~> 3.1"
 
   # Pods for MECA
 

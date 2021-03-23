@@ -202,7 +202,7 @@
                                                                     <fragment content="SING UP">
                                                                         <attributes>
                                                                             <color key="NSColor" red="0.18431372549019609" green="0.32549019607843138" blue="0.65098039215686276" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            <font key="NSFont" size="14" name="SFPro-Medium"/>
+                                                                            <font key="NSFont" metaFont="system" size="14"/>
                                                                             <integer key="NSUnderline" value="1"/>
                                                                         </attributes>
                                                                     </fragment>
@@ -242,7 +242,7 @@
                                                                 <fragment content="ADMIN LOGIN">
                                                                     <attributes>
                                                                         <color key="NSColor" red="0.1843137255" green="0.32549019610000002" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <font key="NSFont" size="14" name="SFPro-Medium"/>
+                                                                        <font key="NSFont" metaFont="system" size="14"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                         <integer key="NSUnderline" value="1"/>
                                                                     </attributes>
@@ -689,23 +689,26 @@
                                                                 <real key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="btnSignUpAction:" destination="Fws-q2-9qZ" eventType="touchUpInside" id="zta-WH-Vy6"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4FH-P9-YdU">
-                                                        <rect key="frame" x="68" y="815.5" width="278" height="30"/>
+                                                        <rect key="frame" x="64" y="815.5" width="286" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you already have an account, " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oms-SP-Gyb">
-                                                                <rect key="frame" x="11.5" y="0.0" width="199" height="30"/>
+                                                                <rect key="frame" x="10" y="0.0" width="209" height="30"/>
                                                                 <fontDescription key="fontDescription" name="SFPro-Medium" family="SF Pro" pointSize="14"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWF-um-s65">
-                                                                <rect key="frame" x="210.5" y="0.0" width="43" height="30"/>
+                                                                <rect key="frame" x="219" y="0.0" width="42.5" height="30"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="LOGIN">
                                                                         <attributes>
                                                                             <color key="NSColor" red="0.1843137255" green="0.32549019610000002" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            <font key="NSFont" size="14" name="SFPro-Medium"/>
+                                                                            <font key="NSFont" metaFont="system" size="14"/>
                                                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                             <integer key="NSUnderline" value="1"/>
                                                                         </attributes>
@@ -714,7 +717,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Woh-Wn-uhO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="278" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="286" height="30"/>
                                                                 <connections>
                                                                     <action selector="btnLoginAction:" destination="Fws-q2-9qZ" eventType="touchUpInside" id="Yb6-pw-b41"/>
                                                                 </connections>
@@ -938,7 +941,7 @@
         <!--Navigation Controller-->
         <scene sceneID="deQ-Ug-tU0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="PIb-7W-a8c" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavMain" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="PIb-7W-a8c" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="N5c-nI-IBo">
                         <autoresizingMask key="autoresizingMask"/>

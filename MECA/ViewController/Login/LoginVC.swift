@@ -9,10 +9,12 @@ import UIKit
 
 class LoginVC: UIViewController {
 
+    var viewmodel : LoginVM!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewmodel = LoginVM.init(controller: self)
         // Do any additional setup after loading the view.
     }
     
@@ -22,15 +24,16 @@ class LoginVC: UIViewController {
 
 extension LoginVC{
     @IBAction func btnSignUPAction(_ sender: UIButton) {
-        let story = UIStoryboard(name: "Main", bundle:nil)
-        let vc = story.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
+        let vc = FlowController().instantiateViewController(identifier: "SignUpVC", storyBoard: "Main")
+
         self.navigationController?.pushViewController(vc, animated: true)
 
     }
     @IBAction func btnLogin(_ sender: UIButton) {
-        let story = UIStoryboard(name: "Home", bundle:nil)
-        let vc = story.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        let mainVC = FlowController().instantiateViewController(identifier: "HomeNav", storyBoard: "Home")
+        let appDel = UIApplication.shared.delegate as! AppDelegate
+        appDel.window?.rootViewController = mainVC
+        appDel.window?.makeKeyAndVisible()
 
     }
 }
