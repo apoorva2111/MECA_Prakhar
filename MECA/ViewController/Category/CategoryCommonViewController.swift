@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class CategoryCommonViewController: UIViewController {
     
@@ -125,6 +126,7 @@ class CategoryCommonViewController: UIViewController {
     
     
     @IBAction func onClickAddFile(_ sender: UIButton) {
+      //
     }
     
     @IBAction func onClickAdddData(_ sender: UIButton) {
@@ -221,3 +223,24 @@ extension CategoryCommonViewController: UIImagePickerControllerDelegate, UINavig
 
 }
 
+extension CategoriesViewController : GIDSignInDelegate{
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+           if let _ = error {
+               
+           } else {
+               print("Authenticate successfully")
+           }
+       }
+       
+       func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+           print("Did disconnect to user")
+       }
+    
+//    private func setupGoogleSignIn() {
+//        GIDSignIn.sharedInstance().delegate = self
+//        GIDSignIn.sharedInstance().uiDelegate = self
+//        GIDSignIn.sharedInstance().scopes = [kGTLRAuthScopeDrive]
+//        GIDSignIn.sharedInstance()?.signInSilently()
+//    }
+   }
+ 

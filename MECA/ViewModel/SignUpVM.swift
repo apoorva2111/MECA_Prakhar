@@ -16,5 +16,10 @@ class SignUpVM: NSObject {
 }
 
 extension SignUpVM{
-    
+    func callSignUpWebservice(param:[String:Any]) {
+        GlobalObj.displayLoader(true, show: true)
+        APIClient.webServiceForSignUp(params: param) { (response) in
+            print(response)
+        }
+    }
 }

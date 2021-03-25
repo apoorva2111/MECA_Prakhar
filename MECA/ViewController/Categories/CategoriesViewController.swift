@@ -68,10 +68,24 @@ extension CategoriesViewController: UICollectionViewDelegate, UICollectionViewDa
 extension CategoriesViewController: FooterTabViewDelegate{
     func footerBarAction(strType: String) {
         if strType == "Home"{
-            let story = UIStoryboard(name: "Home", bundle:nil)
-            let vc = story.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
+//            let story = UIStoryboard(name: "Home", bundle:nil)
+//            let vc = story.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+//            vc.modalPresentationStyle = .fullScreen
+//            self.present(vc, animated: true)
+            
+
+                let mainVC = FlowController().instantiateViewController(identifier: "NavCategory", storyBoard: "Category")
+                let appDel = UIApplication.shared.delegate as! AppDelegate
+                appDel.window?.rootViewController = mainVC
+                let options: UIView.AnimationOptions = .transitionCrossDissolve
+                let duration: TimeInterval = 0.3
+
+                UIView.transition(with: appDel.window!, duration: duration, options: options, animations: {}, completion:
+                { completed in
+                    // maybe do something on completion here
+                })
+                appDel.window?.makeKeyAndVisible()
+        
         }else if strType == "Calendar"{
             
             

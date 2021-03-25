@@ -847,7 +847,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="onClickAddFile:" destination="ucE-Z5-Zjj" eventType="touchUpInside" id="443-2L-qrr"/>
-                                                    <action selector="onClickAddPhoto:" destination="qQ4-cs-lcj" eventType="touchUpInside" id="FlT-ZM-d9S"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="External Links" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDg-6K-rbC">

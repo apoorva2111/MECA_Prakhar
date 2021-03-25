@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PIb-7W-a8c">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -55,11 +56,11 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3L7-Rt-lJb">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="shaikrilwan@gmail.com" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3L7-Rt-lJb">
                                                                         <rect key="frame" x="47" y="0.0" width="301" height="49"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="16"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -97,11 +98,11 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ef0-it-bZj">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="password123#" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ef0-it-bZj">
                                                                         <rect key="frame" x="47" y="0.0" width="271" height="49"/>
                                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="16"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                     </textField>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PnK-TD-Mwq">
                                                                         <rect key="frame" x="318" y="10" width="30" height="30"/>
@@ -110,6 +111,9 @@
                                                                             <constraint firstAttribute="height" constant="30" id="gbk-Mx-lfG"/>
                                                                         </constraints>
                                                                         <state key="normal" image="show_password"/>
+                                                                        <connections>
+                                                                            <action selector="onClickShowPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hAK-0u-XmC"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -129,7 +133,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywh-Zq-lmf">
-                                                                <rect key="frame" x="233" y="135" width="115" height="32"/>
+                                                                <rect key="frame" x="237" y="135" width="111" height="32"/>
                                                                 <fontDescription key="fontDescription" name="SFPro-Ultralight" family="SF Pro" pointSize="14"/>
                                                                 <state key="normal" title="Forgot Password?">
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -145,7 +149,7 @@
                                                             <constraint firstItem="gnm-BR-8Lo" firstAttribute="top" secondItem="1t7-FT-xnY" secondAttribute="top" id="cSz-T9-gDi"/>
                                                             <constraint firstItem="qgj-zT-Ezs" firstAttribute="leading" secondItem="1t7-FT-xnY" secondAttribute="leading" id="eEG-xD-vIT"/>
                                                             <constraint firstAttribute="bottom" secondItem="ywh-Zq-lmf" secondAttribute="bottom" constant="7" id="ggv-Sc-tMh"/>
-                                                            <constraint firstItem="ywh-Zq-lmf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1t7-FT-xnY" secondAttribute="leading" symbolic="YES" id="hJN-7q-dZN"/>
+                                                            <constraint firstItem="ywh-Zq-lmf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1t7-FT-xnY" secondAttribute="leading" constant="20" symbolic="YES" id="hJN-7q-dZN"/>
                                                             <constraint firstAttribute="trailing" secondItem="ywh-Zq-lmf" secondAttribute="trailing" id="vll-U6-EYA"/>
                                                             <constraint firstAttribute="trailing" secondItem="qgj-zT-Ezs" secondAttribute="trailing" id="yaf-91-MGW"/>
                                                             <constraint firstItem="gnm-BR-8Lo" firstAttribute="leading" secondItem="1t7-FT-xnY" secondAttribute="leading" id="zui-Ex-R4h"/>
@@ -191,13 +195,13 @@
                                                         <rect key="frame" x="60" y="659" width="294" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you don’t have an account, " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATh-Hl-7Ie">
-                                                                <rect key="frame" x="24.5" y="0.0" width="186" height="30"/>
+                                                                <rect key="frame" x="20.5" y="0.0" width="194.5" height="30"/>
                                                                 <fontDescription key="fontDescription" name="SFPro-Medium" family="SF Pro" pointSize="14"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zro-hm-qqT">
-                                                                <rect key="frame" x="210.5" y="0.0" width="83.5" height="30"/>
+                                                                <rect key="frame" x="215" y="0.0" width="79" height="30"/>
                                                                 <attributedString key="attributedText">
                                                                     <fragment content="SING UP">
                                                                         <attributes>
@@ -300,6 +304,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2hv-17-sMl"/>
+                    <connections>
+                        <outlet property="txtEmail" destination="3L7-Rt-lJb" id="EgH-Xg-VRs"/>
+                        <outlet property="txtPassword" destination="ef0-it-bZj" id="dSv-Cg-C4w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -486,7 +494,7 @@
                                                                         <rect key="frame" x="15" y="0.0" width="318" height="50.5"/>
                                                                         <color key="textColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -550,7 +558,7 @@
                                                                         <rect key="frame" x="100" y="0.0" width="233" height="50"/>
                                                                         <color key="textColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -578,17 +586,20 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oc3-lS-yFm" customClass="RCustomView" customModule="MECA" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="373" width="348" height="50.5"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCM-vi-Ajo">
+                                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCM-vi-Ajo">
                                                                         <rect key="frame" x="298" y="0.0" width="50" height="50.5"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="50" id="WSi-bO-Cxb"/>
                                                                         </constraints>
                                                                         <state key="normal" image="show_password"/>
+                                                                        <connections>
+                                                                            <action selector="btnEyeAction:" destination="Fws-q2-9qZ" eventType="touchUpInside" id="bem-PB-c07"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CSi-B6-rb3">
                                                                         <rect key="frame" x="15" y="0.0" width="283" height="50.5"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -616,18 +627,21 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZK-Xw-Bac" customClass="RCustomView" customModule="MECA" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="435.5" width="348" height="50"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBN-qw-Mfm">
+                                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBN-qw-Mfm">
                                                                         <rect key="frame" x="297.5" y="0.0" width="50.5" height="50"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="50.5" id="hPf-g5-7CU"/>
                                                                         </constraints>
                                                                         <state key="normal" image="show_password"/>
+                                                                        <connections>
+                                                                            <action selector="btnEyeAction:" destination="Fws-q2-9qZ" eventType="touchUpInside" id="gyq-O1-n7k"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r8Z-YY-R70">
                                                                         <rect key="frame" x="15" y="0.0" width="282.5" height="50"/>
                                                                         <color key="textColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -785,6 +799,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5Ou-ce-Zpn"/>
+                    <connections>
+                        <outlet property="lblSelectDistributor" destination="7su-Rc-a75" id="x7p-fl-ok5"/>
+                        <outlet property="lblSelectDivision" destination="Spi-hX-NTj" id="l07-Cz-p8L"/>
+                        <outlet property="txtConfirmPassword" destination="r8Z-YY-R70" id="HwK-XD-BCk"/>
+                        <outlet property="txtEmail" destination="ajk-XA-7ON" id="TmA-cP-2nU"/>
+                        <outlet property="txtFirstname" destination="aIy-CT-vQW" id="aQQ-hi-dUq"/>
+                        <outlet property="txtLastname" destination="CIC-mr-rrh" id="yG2-5U-4Tt"/>
+                        <outlet property="txtPassword" destination="CSi-B6-rb3" id="oxV-lD-nEC"/>
+                        <outlet property="txtPhoneNum" destination="JZO-oA-eNP" id="BoU-52-teD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uUV-zV-kvP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -958,7 +982,7 @@
     </scenes>
     <designables>
         <designable name="Vxz-hk-M3m">
-            <size key="intrinsicContentSize" width="35" height="29"/>
+            <size key="intrinsicContentSize" width="37" height="29"/>
         </designable>
         <designable name="rwu-RN-SsL">
             <size key="intrinsicContentSize" width="57" height="29"/>
