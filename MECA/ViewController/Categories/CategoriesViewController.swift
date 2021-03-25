@@ -68,13 +68,8 @@ extension CategoriesViewController: UICollectionViewDelegate, UICollectionViewDa
 extension CategoriesViewController: FooterTabViewDelegate{
     func footerBarAction(strType: String) {
         if strType == "Home"{
-//            let story = UIStoryboard(name: "Home", bundle:nil)
-//            let vc = story.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
-//            vc.modalPresentationStyle = .fullScreen
-//            self.present(vc, animated: true)
             
-
-                let mainVC = FlowController().instantiateViewController(identifier: "NavCategory", storyBoard: "Category")
+                let mainVC = FlowController().instantiateViewController(identifier: "HomeNav", storyBoard: "Home")
                 let appDel = UIApplication.shared.delegate as! AppDelegate
                 appDel.window?.rootViewController = mainVC
                 let options: UIView.AnimationOptions = .transitionCrossDissolve

@@ -627,7 +627,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZK-Xw-Bac" customClass="RCustomView" customModule="MECA" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="435.5" width="348" height="50"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBN-qw-Mfm">
+                                                                    <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBN-qw-Mfm">
                                                                         <rect key="frame" x="297.5" y="0.0" width="50.5" height="50"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="50.5" id="hPf-g5-7CU"/>
@@ -956,6 +956,7 @@
                     </view>
                     <connections>
                         <outlet property="tblList" destination="d0B-HL-grm" id="lEO-9T-vt4"/>
+                        <outlet property="txtSearch" destination="tCU-LM-Cgd" id="850-2h-Qw9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LlG-AB-DWk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

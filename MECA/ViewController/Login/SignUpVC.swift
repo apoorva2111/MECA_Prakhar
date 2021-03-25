@@ -90,13 +90,17 @@ extension SignUpVC{
         }else if txtConfirmPassword.text == ""{
             GlobalObj.showAlertVC(title: "Oops", message: "Please Enter Confrim Password", controller: self)
 
+        }else if txtConfirmPassword.text != txtPassword.text{
+            GlobalObj.showAlertVC(title: "Oops", message: "Password and Confirm password is not match", controller: self)
+            
         }else if lblSelectDistributor.text == "Select Distributor"{
             GlobalObj.showAlertVC(title: "Oops", message: "Please Enter Password", controller: self)
 
         }else if lblSelectDivision.text == "Select Division"{
             GlobalObj.showAlertVC(title: "Oops", message: "Please Enter Password", controller: self)
        
-        }else if !(GlobalObj.isValidatePhoneNumber(value: txtPhoneNum.text!)) {
+        }else if !(txtPhoneNum.text!.isPhoneNumber){
+//        if !(GlobalObj.isValidatePhoneNumber(value: txtPhoneNum.text!)) {
             GlobalObj.showAlertVC(title: "Oops", message: "Please Enter Valid Phone Number", controller: self)
 
 
@@ -108,7 +112,7 @@ extension SignUpVC{
                                         "distributor":disctributorID,
                                         "division":divisionID,
                                         "confirm_password":txtConfirmPassword.text!,
-                                        "txtPhoneNum":txtPhoneNum.text!]
+                                        "phone":txtPhoneNum.text!]
             print(param)
             viewModel.callSignUpWebservice(param: param)
         }
@@ -152,12 +156,23 @@ extension SignUpVC{
     }
   
     @IBAction func btnEyeAction(_ sender: UIButton) {
-        if(iconClick == true) {
-                   txtPassword.isSecureTextEntry = false
-                } else {
-                    txtPassword.isSecureTextEntry = true
-                }
+        if sender.tag == 10{
+            if(iconClick == true) {
+                       txtPassword.isSecureTextEntry = false
+                    } else {
+                        txtPassword.isSecureTextEntry = true
+                    }
 
-                iconClick = !iconClick
+                    iconClick = !iconClick
+        }else{
+            if(iconClick == true) {
+                       txtConfirmPassword.isSecureTextEntry = false
+                    } else {
+                        txtConfirmPassword.isSecureTextEntry = true
+                    }
+
+                    iconClick = !iconClick
+        }
+       
     }
 }

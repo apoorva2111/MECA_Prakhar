@@ -36,12 +36,8 @@ extension LoginVM{
             
             }else{
               
-                    print("Failure")
                     UserDefaults.standard.set(false, forKey: "ISLOGGEDIN")
-                    let mainVC = FlowController().instantiateViewController(identifier: "LoginVC", storyBoard: "Main")
-                    UIApplication.shared.windows.first?.rootViewController = mainVC
-                    UIApplication.shared.windows.first?.makeKeyAndVisible()
-                GlobalObj.displayLoader(false, show: false)
+                GlobalObj.displayLoader(true, show: false)
                 GlobalObj.showAlertVC(title: "Alert", message: "Invalid email or password", controller: (self.actualController as! LoginVC).self)
             }
         }

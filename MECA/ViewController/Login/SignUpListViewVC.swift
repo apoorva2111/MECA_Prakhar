@@ -13,24 +13,24 @@ protocol SignUpListViewDelgate {
 
 class SignUpListViewVC: UIViewController {
     
+    @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var tblList: UITableView!
     var viewModel : SignUpListViewVM!
     
     var Distributor_Id = ""
 
     var signUpListViewDelgate : SignUpListViewDelgate!
-    
+    var tableFilterDistributorData:[DistributorModel] = []
+    var tableFilterDivisionData:[DivisionModel] = []
+
+    var searching:Bool = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = SignUpListViewVM.init(controller: self)
         tblList.register(SignUpListTVCell.nib(), forCellReuseIdentifier: viewModel.identifierItemCell)
-       
-        
-      //  viewModel = SignUpListViewVM.init(controller: self)
-      //  tblList.register(SignUpListTVCell.nib(), forCellReuseIdentifier: viewModel.identifierItemCell)
-      //  viewModel.callWebserviceForDivision()
-        
+        txtSearch.delegate = self
         if BoolValue.isFromDistributor{
             viewModel.callWebserviceForDistributor()
         }else{
@@ -59,5 +59,38 @@ extension SignUpListViewVC: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectRowAt(indexPath, tableView: tblList)
+    }
+}
+
+extension SignUpListViewVC : UITextFieldDelegate{
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool{
+
+        if BoolValue.isFromDistributor{
+            let searchText  = textField.text! + string
+          //add matching text to arrya
+            tableFilterDistributorData = viewModel.arrDistribute.filter({(($0.name)!.localizedCaseInsensitiveContains(searchText))})
+
+          if(tableFilterDistributorData.count == 0){
+            searching = false
+          }else{
+            searching = true
+            print(tableFilterDistributorData.count)
+         }
+        }else{
+            let searchText  = textField.text! + string
+          //add matching text to arrya
+            tableFilterDivisionData = viewModel.arrDivision.filter({(($0.division_name)!.localizedCaseInsensitiveContains(searchText))})
+
+          if(tableFilterDivisionData.count == 0){
+            searching = false
+          }else{
+            searching = true
+            print(tableFilterDivisionData.count)
+         }
+        }
+        
+      self.tblList.reloadData()
+
+      return true
     }
 }

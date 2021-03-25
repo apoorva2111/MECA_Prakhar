@@ -21,22 +21,48 @@ class SignUpListViewVM: BaseTableViewVM {
    
     override func getNumbersOfRows(in section: Int) -> Int {
         if BoolValue.isFromDistributor{
-            return arrDistribute.count
+            if (self.actualController as! SignUpListViewVC).searching{
+                
+                return (self.actualController as! SignUpListViewVC).tableFilterDistributorData.count
+                
+            }else{
+                
+                return arrDistribute.count
+                
+            }
         }else{
-            return arrDivision.count
-
+            if (self.actualController as! SignUpListViewVC).searching{
+              
+                return (self.actualController as! SignUpListViewVC).tableFilterDivisionData.count
+            }else{
+                
+                return arrDivision.count
+            }
         }
     }
     override func getCellForRowAt(_ indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
         if BoolValue.isFromDistributor{
             let cell = tableView.dequeueReusableCell(withIdentifier: "SignUpListTVCell", for: indexPath) as! SignUpListTVCell
-            let ListModel = arrDistribute[indexPath.row]
-            cell.lblTitle.text = ListModel.name
+            
+            if (self.actualController as! SignUpListViewVC).searching{
+                let listModel = (self.actualController as! SignUpListViewVC).tableFilterDistributorData[indexPath.row]
+                cell.lblTitle.text = listModel.name
+            }else{
+                let ListModel = arrDistribute[indexPath.row]
+                cell.lblTitle.text = ListModel.name
+            }
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "SignUpListTVCell", for: indexPath) as! SignUpListTVCell
-            let ListModel = arrDivision[indexPath.row]
-            cell.lblTitle.text = ListModel.division_name
+            if (self.actualController as! SignUpListViewVC).searching{
+                
+                let listModel = (self.actualController as! SignUpListViewVC).tableFilterDivisionData[indexPath.row]
+                cell.lblTitle.text = listModel.division_name
+                
+            }else{
+                let ListModel = arrDivision[indexPath.row]
+                cell.lblTitle.text = ListModel.division_name
+            }
             return cell
         }
         
@@ -44,13 +70,32 @@ class SignUpListViewVM: BaseTableViewVM {
     }
     override func didSelectRowAt(_ indexPath: IndexPath, tableView: UITableView) {
         if BoolValue.isFromDistributor{
-            let ListModel = arrDistribute[indexPath.row]
-            (actualController as! SignUpListViewVC).signUpListViewDelgate.distributorListData(distributor: ListModel.name ?? "Select Distributor", distributorId: ListModel.id ?? 0)
-            (actualController as! SignUpListViewVC).dismiss(animated: true, completion: nil)
+            if (self.actualController as! SignUpListViewVC).searching{
+             
+                let ListModel = (self.actualController as! SignUpListViewVC).tableFilterDistributorData[indexPath.row]
+                (actualController as! SignUpListViewVC).signUpListViewDelgate.distributorListData(distributor: ListModel.name ?? "Select Distributor", distributorId: ListModel.id ?? 0)
+                (actualController as! SignUpListViewVC).dismiss(animated: true, completion: nil)
+
+            }else{
+                let ListModel = arrDistribute[indexPath.row]
+                (actualController as! SignUpListViewVC).signUpListViewDelgate.distributorListData(distributor: ListModel.name ?? "Select Distributor", distributorId: ListModel.id ?? 0)
+                (actualController as! SignUpListViewVC).dismiss(animated: true, completion: nil)
+
+            }
+            
         }else{
-            let ListModel = arrDivision[indexPath.row]
-            (actualController as! SignUpListViewVC).signUpListViewDelgate.divisionListData(division: ListModel.division_name ?? "Select Division", disionId: ListModel.id ?? 0)
-            (actualController as! SignUpListViewVC).dismiss(animated: true, completion: nil)
+         
+            if (self.actualController as! SignUpListViewVC).searching{
+                let ListModel = (self.actualController as! SignUpListViewVC).tableFilterDivisionData[indexPath.row]
+                (actualController as! SignUpListViewVC).signUpListViewDelgate.divisionListData(division: ListModel.division_name ?? "Select Division", disionId: ListModel.id ?? 0)
+                (actualController as! SignUpListViewVC).dismiss(animated: true, completion: nil)
+            }else{
+                let ListModel = arrDivision[indexPath.row]
+                (actualController as! SignUpListViewVC).signUpListViewDelgate.divisionListData(division: ListModel.division_name ?? "Select Division", disionId: ListModel.id ?? 0)
+                (actualController as! SignUpListViewVC).dismiss(animated: true, completion: nil)
+            }
+            
+            
 
         }
         
