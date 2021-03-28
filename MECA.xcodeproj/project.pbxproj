@@ -29,6 +29,8 @@
 		E3045C712603D87A00D1A678 /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3045C6F2603D87A00D1A678 /* HomeTVCell.swift */; };
 		E3045C722603D87A00D1A678 /* HomeTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3045C702603D87A00D1A678 /* HomeTVCell.xib */; };
 		E3045C7A2603DD7E00D1A678 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3045C792603DD7E00D1A678 /* HomeVC.swift */; };
+		E30751AF260F3908000EB1EA /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30751AD260F3908000EB1EA /* Data.swift */; };
+		E30751B0260F3908000EB1EA /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30751AE260F3908000EB1EA /* HomeModel.swift */; };
 		E30F661926033A970036D183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F661826033A970036D183 /* AppDelegate.swift */; };
 		E30F662026033A970036D183 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30F661E26033A970036D183 /* Main.storyboard */; };
 		E30F662226033A970036D183 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E30F662126033A970036D183 /* Assets.xcassets */; };
@@ -118,6 +120,8 @@
 		E3045C6F2603D87A00D1A678 /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
 		E3045C702603D87A00D1A678 /* HomeTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTVCell.xib; sourceTree = "<group>"; };
 		E3045C792603DD7E00D1A678 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		E30751AD260F3908000EB1EA /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		E30751AE260F3908000EB1EA /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		E30F661526033A970036D183 /* MECA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MECA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E30F661826033A970036D183 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E30F661F26033A970036D183 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -359,6 +363,15 @@
 				E3045C702603D87A00D1A678 /* HomeTVCell.xib */,
 			);
 			path = HomeTableviewCell;
+			sourceTree = "<group>";
+		};
+		E30751AC260F38EE000EB1EA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E30751AD260F3908000EB1EA /* Data.swift */,
+				E30751AE260F3908000EB1EA /* HomeModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		E30F660C26033A970036D183 = {
@@ -631,6 +644,7 @@
 		E3E2CC2A260B4FE5009BDB6E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E30751AC260F38EE000EB1EA /* Home */,
 				5C1A09DC260C351B00223D3D /* Division */,
 				E33F879B260B965400F8A424 /* Distributor */,
 				E3E2CC2B260B4FF0009BDB6E /* Login */,
@@ -978,6 +992,7 @@
 				E32AED44260754C700AEAB6F /* Utility.swift in Sources */,
 				E32AECF426073E3000AEAB6F /* BaseTableViewVM.swift in Sources */,
 				E32AED3B260754A100AEAB6F /* Extension.swift in Sources */,
+				E30751AF260F3908000EB1EA /* Data.swift in Sources */,
 				5C0314A32605119300406382 /* AddNewsViewController.swift in Sources */,
 				E387A99A2604797100CC675A /* LoginVC.swift in Sources */,
 				E32AECF226073E3000AEAB6F /* SignUpListViewVM.swift in Sources */,
@@ -1000,6 +1015,7 @@
 				5CED90F92605A67F001053DD /* AddImageCollectionViewCell.swift in Sources */,
 				E32AED3C260754A100AEAB6F /* UIColor.swift in Sources */,
 				E3E2CCCF260B6029009BDB6E /* LoginUserModel.swift in Sources */,
+				E30751B0260F3908000EB1EA /* HomeModel.swift in Sources */,
 				E3AE791B2604C5F4004B83C9 /* PlusSelectCategoryVC.swift in Sources */,
 				E32AECF326073E3000AEAB6F /* LoginVM.swift in Sources */,
 				5CED90F226059540001053DD /* CategoryCommonViewController.swift in Sources */,

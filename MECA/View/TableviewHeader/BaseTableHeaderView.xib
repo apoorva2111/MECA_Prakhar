@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -15,7 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BaseTableHeaderView" customModule="MECA" customModuleProvider="target">
             <connections>
-                <outlet property="lbl_header" destination="MLv-DE-cw2" id="Gfq-JF-uxA"/>
+                <outlet property="lbl_header" destination="MLv-DE-cw2" id="DcH-ec-cu7"/>
                 <outlet property="view" destination="iN0-l3-epB" id="bhV-Oq-Wxe"/>
             </connections>
         </placeholder>

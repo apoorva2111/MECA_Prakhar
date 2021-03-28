@@ -15,6 +15,7 @@ target 'MECA' do
   pod 'SwiftyJSON'
   pod 'KRProgressHUD'
   pod 'ObjectMapper'
+  pod 'SDWebImage', '~> 5.0'
 
   # Pods for MECA
 

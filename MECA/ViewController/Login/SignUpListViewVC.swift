@@ -70,7 +70,7 @@ extension SignUpListViewVC : UITextFieldDelegate{
           //add matching text to arrya
             tableFilterDistributorData = viewModel.arrDistribute.filter({(($0.name)!.localizedCaseInsensitiveContains(searchText))})
 
-          if(tableFilterDistributorData.count == 0){
+        if searchText.count == 1{
             searching = false
           }else{
             searching = true
@@ -81,11 +81,10 @@ extension SignUpListViewVC : UITextFieldDelegate{
           //add matching text to arrya
             tableFilterDivisionData = viewModel.arrDivision.filter({(($0.division_name)!.localizedCaseInsensitiveContains(searchText))})
 
-          if(tableFilterDivisionData.count == 0){
+            if searchText.count == 1{
             searching = false
           }else{
             searching = true
-            print(tableFilterDivisionData.count)
          }
         }
         

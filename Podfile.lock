@@ -34,6 +34,9 @@ PODS:
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
   - ObjectMapper (4.2.0)
+  - SDWebImage (5.10.4):
+    - SDWebImage/Core (= 5.10.4)
+  - SDWebImage/Core (5.10.4)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
@@ -45,6 +48,7 @@ DEPENDENCIES:
   - KRProgressHUD
   - NVActivityIndicatorView
   - ObjectMapper
+  - SDWebImage (~> 5.0)
   - SwiftyJSON
 
 SPEC REPOS:
@@ -61,6 +65,7 @@ SPEC REPOS:
     - KRProgressHUD
     - NVActivityIndicatorView
     - ObjectMapper
+    - SDWebImage
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -76,8 +81,9 @@ SPEC CHECKSUMS:
   KRProgressHUD: a248f0bc6c9c2aed40a37b76e03ffecc7f85c887
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 461f621db86387d6e3bd3f669fb267ada5f2889e
+PODFILE CHECKSUM: b9f74c335a0861d1ca470afa6e5b201b97321bad
 
 COCOAPODS: 1.10.1

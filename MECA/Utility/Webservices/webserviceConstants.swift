@@ -9,13 +9,14 @@
 import Foundation
 
 // API Base URLS
-let BaseURL : String = "https://mecacampus.com/API/user/"
+let BaseURL : String = "https://mecacampus.com/API/"
 
 // End Points
-let login = "login"
-let register = "register"
-let distributor = "distributor/list"
-let divisionList = "division/list/"
+let login = "user/login"
+let register = "user/register"
+let distributor = "user/distributor/list"
+let divisionList = "user/division/list/"
+let homeFeed = "mobile/user/home/meca"
 
 
 

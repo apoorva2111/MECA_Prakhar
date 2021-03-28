@@ -31,6 +31,6 @@ class BaseTableHeaderView: UIView {
 
     }
     func setTitle(_ title:String){
-        lbl_header.text = title.uppercased()
-    }
+        lbl_header.text = title
+}
 }

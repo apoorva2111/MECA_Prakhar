@@ -23,6 +23,7 @@ class HomeVC: UIViewController {
         tblView.delegate = self
         tblView.dataSource = self
         viewTabbar.footerTabViewDelegate = self
+        viewModel.callHomeFeedWebservice()
     }
     
     
@@ -80,9 +81,16 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         viewModel.getCellForRowAt(indexPath, tableView: tblView)
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 292
-        
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        viewModel.getHeightForHeaderAt(section, tableView: tblView)
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        viewModel.getBaseTableHeaderViewFor(section, tableView: tblView)
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectRowAt(indexPath, tableView: tblView)
     }
 }

@@ -101,5 +101,39 @@ class APIClient {
             }
 }
 
+    //Home Feed
+    
+   // static func wevserviceForHomeFeed(completion:@escaping(HomeModel) -> Void){
+    static func wevserviceForHomeFeed(completion:@escaping(HomeModel) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        let url = BaseURL + homeFeed
+       
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    return }
+                
+                do{
+                    let objRes: HomeModel = try JSONDecoder().decode(HomeModel.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                   }
+                }catch let error{
+                    print(error)
+                }
+            }
+    }
     
 }
