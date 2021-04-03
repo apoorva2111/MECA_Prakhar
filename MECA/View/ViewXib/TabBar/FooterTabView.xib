@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,20 +14,28 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FooterTabView" customModule="MECA" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FooterTabView" customModule="MECA" customModuleProvider="target">
+            <connections>
+                <outlet property="imgCalender" destination="WZR-xd-uQV" id="xGX-JP-k9E"/>
+                <outlet property="imgCategory" destination="d4U-SM-iRk" id="kjP-pd-pK6"/>
+                <outlet property="imgHome" destination="D7s-6z-KWP" id="OeG-1j-w9e"/>
+                <outlet property="imgMore" destination="2vA-jT-Cpb" id="b2F-KD-XFB"/>
+                <outlet property="imgNotification" destination="yMB-Av-bFM" id="Q0C-dQ-N9y"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B1f-9N-d0A">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dos-mQ-Cdj" customClass="RCustomView" customModule="MECA" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="33" width="414" height="100"/>
+                            <rect key="frame" x="0.0" y="43" width="414" height="110"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="100" id="8bq-dg-RoG"/>
+                                <constraint firstAttribute="height" constant="110" id="8bq-dg-RoG"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -47,10 +56,10 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="A1l-wx-f99">
-                            <rect key="frame" x="10" y="33" width="394" height="67"/>
+                            <rect key="frame" x="10" y="45" width="394" height="75"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vRo-6s-bie">
-                                    <rect key="frame" x="0.0" y="0.0" width="79" height="67"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="79" height="75"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home_active" translatesAutoresizingMaskIntoConstraints="NO" id="D7s-6z-KWP">
                                             <rect key="frame" x="24.5" y="4" width="30" height="30"/>
@@ -66,7 +75,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jBc-81-42Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="79" height="67"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="79" height="75"/>
                                             <connections>
                                                 <action selector="btnTabAction:" destination="-1" eventType="touchUpInside" id="6Gg-aF-9g1"/>
                                             </connections>
@@ -86,7 +95,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBy-GA-Jcp">
-                                    <rect key="frame" x="79" y="0.0" width="78.5" height="67"/>
+                                    <rect key="frame" x="79" y="0.0" width="78.5" height="75"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calendar" translatesAutoresizingMaskIntoConstraints="NO" id="WZR-xd-uQV">
                                             <rect key="frame" x="24" y="4" width="30" height="30"/>
@@ -102,7 +111,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ae-Ko-JMR">
-                                            <rect key="frame" x="0.0" y="0.0" width="78.5" height="67"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="78.5" height="75"/>
                                             <connections>
                                                 <action selector="btnTabAction:" destination="-1" eventType="touchUpInside" id="LWi-Q0-MPw"/>
                                             </connections>
@@ -122,7 +131,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ctW-fa-hkd">
-                                    <rect key="frame" x="157.5" y="0.0" width="79" height="67"/>
+                                    <rect key="frame" x="157.5" y="0.0" width="79" height="75"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="knp-Ya-Wnm" customClass="RCustomView" customModule="MECA" customModuleProvider="target">
                                             <rect key="frame" x="9.5" y="-25" width="60" height="60"/>
@@ -173,7 +182,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voC-sl-phw">
-                                            <rect key="frame" x="0.0" y="0.0" width="79" height="67"/>
+                                            <rect key="frame" x="0.0" y="-25" width="79" height="100"/>
                                             <connections>
                                                 <action selector="btnTabAction:" destination="-1" eventType="touchUpInside" id="JLM-oq-ixf"/>
                                             </connections>
@@ -185,14 +194,14 @@
                                         <constraint firstAttribute="trailing" secondItem="voC-sl-phw" secondAttribute="trailing" id="HyS-Bi-G8i"/>
                                         <constraint firstAttribute="bottom" secondItem="voC-sl-phw" secondAttribute="bottom" id="MNk-Sz-tqt"/>
                                         <constraint firstItem="knp-Ya-Wnm" firstAttribute="top" secondItem="ctW-fa-hkd" secondAttribute="top" constant="-25" id="UVm-Cs-NFu"/>
-                                        <constraint firstItem="voC-sl-phw" firstAttribute="top" secondItem="ctW-fa-hkd" secondAttribute="top" id="Vbt-73-IWB"/>
+                                        <constraint firstItem="voC-sl-phw" firstAttribute="top" secondItem="ctW-fa-hkd" secondAttribute="top" constant="-25" id="Vbt-73-IWB"/>
                                         <constraint firstAttribute="trailing" secondItem="OJ2-0c-W0C" secondAttribute="trailing" id="Y2X-0k-28g"/>
                                         <constraint firstItem="OJ2-0c-W0C" firstAttribute="leading" secondItem="ctW-fa-hkd" secondAttribute="leading" id="bJS-uZ-ugV"/>
                                         <constraint firstItem="voC-sl-phw" firstAttribute="leading" secondItem="ctW-fa-hkd" secondAttribute="leading" id="ecV-6t-p5d"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fmh-uq-fMf">
-                                    <rect key="frame" x="236.5" y="0.0" width="78.5" height="67"/>
+                                    <rect key="frame" x="236.5" y="0.0" width="78.5" height="75"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Notification" translatesAutoresizingMaskIntoConstraints="NO" id="yMB-Av-bFM">
                                             <rect key="frame" x="24.5" y="4" width="30" height="30"/>
@@ -208,7 +217,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="40" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZF-Sz-X8p">
-                                            <rect key="frame" x="0.0" y="0.0" width="78.5" height="67"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="78.5" height="75"/>
                                             <connections>
                                                 <action selector="btnTabAction:" destination="-1" eventType="touchUpInside" id="vf7-60-JO7"/>
                                             </connections>
@@ -228,7 +237,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Qp-gq-sqV">
-                                    <rect key="frame" x="315" y="0.0" width="79" height="67"/>
+                                    <rect key="frame" x="315" y="0.0" width="79" height="75"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="More" translatesAutoresizingMaskIntoConstraints="NO" id="2vA-jT-Cpb">
                                             <rect key="frame" x="24.5" y="4" width="30" height="30"/>
@@ -244,7 +253,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="50" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTF-Yq-VZv">
-                                            <rect key="frame" x="0.0" y="0.0" width="79" height="67"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="79" height="75"/>
                                             <connections>
                                                 <action selector="btnTabAction:" destination="-1" eventType="touchUpInside" id="End-mC-lDl"/>
                                             </connections>
@@ -267,7 +276,7 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="OJ2-0c-W0C" firstAttribute="centerY" secondItem="gni-3K-Jg3" secondAttribute="centerY" id="ME0-ea-f3C"/>
-                                <constraint firstAttribute="height" constant="67" id="TYw-OF-0XN"/>
+                                <constraint firstAttribute="height" constant="75" id="TYw-OF-0XN"/>
                             </constraints>
                         </stackView>
                     </subviews>

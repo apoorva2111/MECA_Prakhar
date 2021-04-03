@@ -16,16 +16,17 @@ class MEBITViewController: UIViewController {
     @IBOutlet weak var MEBITTableView: UITableView!
     @IBOutlet weak var footerView: OrangeFooterView!
     var headerImageValue = ""
-    
+    var viewModel : MEBITHomeVM!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        viewModel = MEBITHomeVM.init(controller: self)
         MEBITTableView.register(HomeTVCell.nib(), forCellReuseIdentifier: "HomeTVCell")
         MEBITTableView.delegate = self
         MEBITTableView.dataSource = self
         footerView.orangeFooterViewDelegate = self
         setupUI()
+        viewModel.callMEBITFeedWebservice()
         // Do any additional setup after loading the view.
     }
     func setupUI() {
@@ -50,66 +51,91 @@ class MEBITViewController: UIViewController {
             
         }
         
+        footerView.imgWhatsnew.image = UIImage.init(named: "Whats New active")
+        footerView.imgFromDistributor.image = UIImage.init(named: "From Distributor")
+        footerView.imgFromTMC.image = UIImage.init(named: "From TMC")
         
     }
     
     @IBAction func onClickDismiss(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        let mainVC = FlowController().instantiateViewController(identifier: "NavCategory", storyBoard: "Category")
+        let appDel = UIApplication.shared.delegate as! AppDelegate
+        appDel.window?.rootViewController = mainVC
+        let options: UIView.AnimationOptions = .transitionCrossDissolve
+        let duration: TimeInterval = 0.3
+
+        UIView.transition(with: appDel.window!, duration: duration, options: options, animations: {}, completion:
+        { completed in
+            // maybe do something on completion here
+        })
+        appDel.window?.makeKeyAndVisible()
+        
     }
     
 }
 extension  MEBITViewController : OrangeFooterViewDelegate{
    
 
-    func footerBarAction1(strType: String) {
+    func footerBarAction1(strType: String){
+   
         if strType == "WhatsNew"{
             print("Type1")
+            
 
+            
         }else if strType == "FromDistributor"{
             print("Type2")
             
-            
+            let vc = FlowController().instantiateViewController(identifier: "CategoryDistributorVC", storyBoard: "Category")
+            self.navigationController?.pushViewController(vc, animated: false)
         }else if strType == "FromTMC"{
             print("Type3")
-//            let story = UIStoryboard(name: "Home", bundle:nil)
-//            let vc = story.instantiateViewController(withIdentifier: "MEBITViewController") as! MEBITViewController
-//            vc.modalPresentationStyle = .fullScreen
-//            self.present(vc, animated: true)
             
-            
+            let vc = FlowController().instantiateViewController(identifier: "TMCViewController", storyBoard: "Category")
+            self.navigationController?.pushViewController(vc, animated: false)
+
+        }
+        
         
     }
     
-    
+
 }
-}
+
 //MARK:- UITableview Delegate Datasource
 extension MEBITViewController:UITableViewDelegate,UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        viewModel.getNumbersOfRows(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = MEBITTableView.dequeueReusableCell(withIdentifier: "HomeTVCell", for: indexPath) as! HomeTVCell
-        cell.newImage.image = UIImage(named: "new1")
-        
-        return cell
+        viewModel.getCellForRowAt(indexPath, tableView: MEBITTableView)
     }
-    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 292
-        
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        viewModel.getHeightForHeaderAt(section, tableView: MEBITTableView)
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        viewModel.getBaseTableHeaderViewFor(section, tableView: MEBITTableView)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-                       let story = UIStoryboard(name: "Category", bundle:nil)
+                    let story = UIStoryboard(name: "Category", bundle:nil)
                        let vc = story.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
                        vc.modalPresentationStyle = .fullScreen
+                        vc.navValue = "1"
                        self.present(vc, animated: true)
+           
         }
         else if indexPath.row == 1 {
             
         }
     }
 }
+

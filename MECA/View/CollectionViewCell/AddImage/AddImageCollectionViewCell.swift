@@ -12,6 +12,7 @@ class AddImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var myImage: UIImageView!
     
+    @IBOutlet weak var playBtnRef: UIButton!
     
     
     

@@ -9,7 +9,6 @@ import UIKit
 
 class HomeVC: UIViewController {
     @IBOutlet weak var tblView: UITableView!
-    
     @IBOutlet weak var viewTabbar: FooterTabView!
     var viewModel : HomeVM!
     
@@ -23,6 +22,7 @@ class HomeVC: UIViewController {
         tblView.delegate = self
         tblView.dataSource = self
         viewTabbar.footerTabViewDelegate = self
+        viewTabbar.imgHome.image = UIImage.init(named: "Home_active")
         viewModel.callHomeFeedWebservice()
     }
     
@@ -61,7 +61,8 @@ extension HomeVC: FooterTabViewDelegate{
         }else if strType == "Notification"{
             
         }else{
-            
+            let vc = FlowController().instantiateViewController(identifier: "MoreVC", storyBoard: "Home")
+            self.navigationController?.pushViewController(vc, animated:false)
         }
     }
     
@@ -91,6 +92,14 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         viewModel.getBaseTableHeaderViewFor(section, tableView: tblView)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didSelectRowAt(indexPath, tableView: tblView)
+        //viewModel.didSelectRowAt(indexPath, tableView: tblView)
+        
+            let story = UIStoryboard(name: "Category", bundle:nil)
+                       let vc = story.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+                       vc.modalPresentationStyle = .fullScreen
+                        vc.navValue = "0"
+                       self.present(vc, animated: true)
+           
+            
     }
 }

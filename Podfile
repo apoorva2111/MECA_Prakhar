@@ -9,8 +9,8 @@ target 'MECA' do
   pod 'IQKeyboardManagerSwift'
   pod 'NVActivityIndicatorView'
   pod "BSImagePicker", "~> 3.1"
-  pod 'GoogleAPIClientForREST/Drive', '~> 1.2.1'
-  pod 'GoogleSignIn', '~> 4.1.1'
+  #pod 'GoogleAPIClientForREST/Drive', '~> 1.2.1'
+  #pod 'GoogleSignIn', '~> 4.1.1'
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'KRProgressHUD'

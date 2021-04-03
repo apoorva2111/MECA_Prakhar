@@ -21,12 +21,12 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         viewmodel = LoginVM.init(controller: self)
 
-        if UserDefaults.standard.bool(forKey: "ISLOGGEDIN") == true {
-            let mainVC = FlowController().instantiateViewController(identifier: "HomeNav", storyBoard: "Home")
-            UIApplication.shared.windows.first?.rootViewController = mainVC
-            UIApplication.shared.windows.first?.makeKeyAndVisible()
-
-        }
+//        if UserDefaults.standard.bool(forKey: "ISLOGGEDIN") == true {
+//            let mainVC = FlowController().instantiateViewController(identifier: "HomeNav", storyBoard: "Home")
+//            UIApplication.shared.windows.first?.rootViewController = mainVC
+//            UIApplication.shared.windows.first?.makeKeyAndVisible()
+//
+//        }
         // Do any additional setup after loading the view.
     }
     

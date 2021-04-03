@@ -14,6 +14,12 @@ protocol FooterTabViewDelegate{
 
 class FooterTabView: UIView {
 
+    @IBOutlet weak var imgHome: UIImageView!
+    @IBOutlet weak var imgCalender: UIImageView!
+    @IBOutlet weak var imgCategory: UIImageView!
+    @IBOutlet weak var imgNotification: UIImageView!
+    @IBOutlet weak var imgMore: UIImageView!
+  
     let nibName = "FooterTabView"
     var contentView: UIView?
     var footerTabViewDelegate : FooterTabViewDelegate!

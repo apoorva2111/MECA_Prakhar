@@ -16,17 +16,14 @@ class HomeTVCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblWritternBy: UILabel!
     @IBOutlet weak var lblDate: UILabel!
-   
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-//        viewIMG.backgroundColor = .red
-//        viewIMG.roundCorners([.topRight, .topLeft], radius: 16, fream: viewIMG)
         imgFeed.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         imgFeed.layer.cornerRadius = 16
-
-        
     }
+  
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -36,24 +33,30 @@ class HomeTVCell: UITableViewCell {
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-    func setCell(feed:Data) {
-      lblTitle.text = feed.title
+    func setCell(feed:Data_Home) {
+        lblTitle.text = feed.title
         lblEventName.text = feed.whatsnew_type_lable
         let writerName = feed.writer_name!
         lblWritternBy.text = "Written by: \(writerName)"
         if feed.cover_image != "" {
             let imgUrl = BaseURL + feed.cover_image!
-            //imgFeed.contentMode = .scaleAspectFill
             imgFeed.sd_imageIndicator = SDWebImageActivityIndicator.gray
             imgFeed.sd_setImage(with: URL(string: imgUrl), completed: nil)
-          // imgFeed.roundCorners([.topLeft, .topRight], radius: 16)
-
-
         }
-
     }
     
+    func setCell2(feed:MEBITDataModel) {
+        lblTitle.text = feed.title
+        lblEventName.text = feed.whatsnew_type_lable
+        let writerName = feed.writer_name!
+        lblWritternBy.text = "Written by: \(writerName)"
+        if feed.cover_image != "" {
+            let imgUrl = BaseURL + feed.cover_image!
+            imgFeed.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            imgFeed.sd_setImage(with: URL(string: imgUrl), completed: nil)
+        }
+    }
 }

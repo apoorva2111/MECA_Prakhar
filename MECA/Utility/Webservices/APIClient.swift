@@ -136,4 +136,170 @@ class APIClient {
             }
     }
     
+    
+    //MEBIT Home
+    static func webserviceForMEBITFeed(completion:@escaping(MEBITModel) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        let url = BaseURL + mebitFeed
+       
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    return }
+                
+                do{
+                    let objRes: MEBITModel = try JSONDecoder().decode(MEBITModel.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                   }
+                }catch let error{
+                    print(error)
+                }
+            }
+    }
+ //Event Info
+    static func webserviceForEventInfo(completion:@escaping(EventInfoModel) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        let url = BaseURL + eventInfo
+       
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    return }
+                
+                do{
+                    let objRes: EventInfoModel = try JSONDecoder().decode(EventInfoModel.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                   }
+                }catch let error{
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+                }
+            }
+    }
+    
+    //Kaizen info
+    static func webserviceForKaizenInfo(completion:@escaping(KaizenInfoModel) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        let url = BaseURL + kaizenInfo
+       
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    return }
+                
+                do{
+                    let objRes: KaizenInfoModel = try JSONDecoder().decode(KaizenInfoModel.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                   }
+                }catch let error{
+                    print(error)
+                }
+            }
+    }
+    
+    //New Car
+    static func webserviceForNewCarSale(params:[String:Any],completion:@escaping(NewCarKaizenModel) -> Void){
+           if !NetworkReachabilityManager()!.isReachable{
+                     GlobalObj.showNetworkAlert()
+                     return
+           }
+           let url = BaseURL + kaizenList
+          
+           var headers = HTTPHeaders()
+
+           let accessToken = userDef.string(forKey: UserDefaultKey.token)
+            headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+           AF.request(url, method: .post, headers: headers)
+               .responseJSON { response in
+                   
+                   guard let dataResponse = response.data else {
+                       print("Response Error")
+                       return }
+                   
+                   do{
+                       let objRes: NewCarKaizenModel = try JSONDecoder().decode(NewCarKaizenModel.self, from: dataResponse)
+                       switch response.result{
+                                      case .success( _):
+                                              completion(objRes)
+                                      case .failure(let error):
+                                          print(error)
+                                      }
+                   }catch let error{
+                       print(error)
+                   }
+               }
+       }
+
+    
+    //MEBIT List
+    static func webserviceForMEBITList(completion:@escaping(MedbiListModel) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        let url = BaseURL + mebitFeed
+       
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    return }
+                
+                do{
+                    let objRes: MedbiListModel = try JSONDecoder().decode(MedbiListModel.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                   }
+                }catch let error{
+                    print(error)
+                }
+            }
+    }
 }

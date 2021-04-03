@@ -17,6 +17,10 @@ protocol OrangeFooterViewDelegate{
 
 class OrangeFooterView: UIView {
 
+    @IBOutlet weak var imgWhatsnew: UIImageView!
+
+    @IBOutlet weak var imgFromDistributor: UIImageView!
+    @IBOutlet weak var imgFromTMC: UIImageView!
     let nibName = "OrangeFooterView"
     var contentView: UIView?
     var orangeFooterViewDelegate : OrangeFooterViewDelegate!

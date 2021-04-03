@@ -1,31 +1,6 @@
 PODS:
   - Alamofire (5.4.1)
   - BSImagePicker (3.3.1)
-  - GoogleAPIClientForREST/Core (1.2.1):
-    - GTMSessionFetcher (>= 1.1.7)
-  - GoogleAPIClientForREST/Drive (1.2.1):
-    - GoogleAPIClientForREST/Core
-    - GTMSessionFetcher (>= 1.1.7)
-  - GoogleSignIn (4.1.2):
-    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
-    - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
-    - GTMOAuth2 (~> 1.0)
-    - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleToolboxForMac/DebugUtils (2.3.1):
-    - GoogleToolboxForMac/Defines (= 2.3.1)
-  - GoogleToolboxForMac/Defines (2.3.1)
-  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.3.1)":
-    - GoogleToolboxForMac/DebugUtils (= 2.3.1)
-    - GoogleToolboxForMac/Defines (= 2.3.1)
-    - "GoogleToolboxForMac/NSString+URLArguments (= 2.3.1)"
-  - "GoogleToolboxForMac/NSString+URLArguments (2.3.1)"
-  - GTMOAuth2 (1.1.6):
-    - GTMSessionFetcher (~> 1.1)
-  - GTMSessionFetcher (1.5.0):
-    - GTMSessionFetcher/Full (= 1.5.0)
-  - GTMSessionFetcher/Core (1.5.0)
-  - GTMSessionFetcher/Full (1.5.0):
-    - GTMSessionFetcher/Core (= 1.5.0)
   - IQKeyboardManagerSwift (6.5.6)
   - KRActivityIndicatorView (3.0.7)
   - KRProgressHUD (3.4.7):
@@ -42,8 +17,6 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - BSImagePicker (~> 3.1)
-  - GoogleAPIClientForREST/Drive (~> 1.2.1)
-  - GoogleSignIn (~> 4.1.1)
   - IQKeyboardManagerSwift
   - KRProgressHUD
   - NVActivityIndicatorView
@@ -55,11 +28,6 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - BSImagePicker
-    - GoogleAPIClientForREST
-    - GoogleSignIn
-    - GoogleToolboxForMac
-    - GTMOAuth2
-    - GTMSessionFetcher
     - IQKeyboardManagerSwift
     - KRActivityIndicatorView
     - KRProgressHUD
@@ -71,11 +39,6 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   BSImagePicker: 0fe04b574d4d6b81093785d2af6c26227efc8428
-  GoogleAPIClientForREST: a8b95a252014ce2e618df6b75dc72eca2c00b4af
-  GoogleSignIn: d9ef55b10f0aa401a5de2747f59b725e4b9732ac
-  GoogleToolboxForMac: 471e0c05d39506e50e6398f46fa9a12ae0efeff9
-  GTMOAuth2: e8b6512c896235149df975c41d9a36c868ab7fba
-  GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   KRActivityIndicatorView: ad69e89c4ce40c986cf580595be4829dcad0e35a
   KRProgressHUD: a248f0bc6c9c2aed40a37b76e03ffecc7f85c887
@@ -84,6 +47,6 @@ SPEC CHECKSUMS:
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: b9f74c335a0861d1ca470afa6e5b201b97321bad
+PODFILE CHECKSUM: 1a7820695a525873e0ee67af575d1b309ceeadb1
 
 COCOAPODS: 1.10.1

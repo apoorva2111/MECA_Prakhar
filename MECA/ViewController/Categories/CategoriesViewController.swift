@@ -34,6 +34,7 @@ class CategoriesViewController: UIViewController {
         screenHeight = screenSize.height
         setupUI()
         footerView.footerTabViewDelegate = self
+        footerView.imgHome.image = UIImage.init(named: "Home_Inactive")
         // Do any additional setup after loading the view.
     }
     
@@ -87,15 +88,11 @@ extension CategoriesViewController: FooterTabViewDelegate{
             
         }else if strType == "Categories"{
             
-//            let story = UIStoryboard(name: "Category", bundle:nil)
-//            let vc = story.instantiateViewController(withIdentifier: "CategoriesViewController") as! CategoriesViewController
-//            vc.modalPresentationStyle = .fullScreen
-//            self.present(vc, animated: true)
-            
         }else if strType == "Notification"{
             
         }else{
-            
+            let vc = FlowController().instantiateViewController(identifier: "MoreVC", storyBoard: "Home")
+            self.navigationController?.pushViewController(vc, animated:false)
         }
     }
     

@@ -13,7 +13,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 import Foundation
 struct HomeModel : Codable {
-	let data : [Data]?
+	let data : [Data_Home]?
 	let resp_code : Int?
 
 	enum CodingKeys: String, CodingKey {
@@ -24,7 +24,7 @@ struct HomeModel : Codable {
 
 	init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		data = try values.decodeIfPresent([Data].self, forKey: .data)
+		data = try values.decodeIfPresent([Data_Home].self, forKey: .data)
 		resp_code = try values.decodeIfPresent(Int.self, forKey: .resp_code)
 	}
 

@@ -10,7 +10,7 @@ import UIKit
 class HomeVM: BaseTableViewVM {
    
     let identifierItemCell = "HomeTVCell"
-    var arrHomeFeed:[Data] = []
+    var arrHomeFeed:[Data_Home] = []
 
     
     override init(controller: UIViewController?) {
@@ -29,8 +29,8 @@ class HomeVM: BaseTableViewVM {
     }
     override func didSelectRowAt(_ indexPath: IndexPath, tableView: UITableView) {
         
-        let vc = FlowController().instantiateViewController(identifier: "DetailViewController", storyBoard: "Category")
-        vc.navigationController?.pushViewController(vc, animated: true)
+        
+       
     }
     override func getHeightForRowAt(_ indexPath: IndexPath, tableView: UITableView) -> CGFloat {
         return 50

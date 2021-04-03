@@ -17,6 +17,12 @@ let register = "user/register"
 let distributor = "user/distributor/list"
 let divisionList = "user/division/list/"
 let homeFeed = "mobile/user/home/meca"
+let mebitFeed = "mobile/user/home/mebit"
+let eventInfo = "mobile/user/event/4"
+let kaizenInfo = "mobile/user/kaizen/5"
+let add_event = "mobile/user/kaizen"
+let kaizenList = "mobile/user/kaizen/list/10/1"
+
 
 
 

@@ -13,7 +13,13 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrangeFooterView" customModule="MECA" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrangeFooterView" customModule="MECA" customModuleProvider="target">
+            <connections>
+                <outlet property="imgFromDistributor" destination="ehT-Bc-iao" id="qu3-yz-8d0"/>
+                <outlet property="imgFromTMC" destination="R0W-hd-IEB" id="uum-kI-yMy"/>
+                <outlet property="imgWhatsnew" destination="LT5-3x-DbN" id="oIr-pX-XVB"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
