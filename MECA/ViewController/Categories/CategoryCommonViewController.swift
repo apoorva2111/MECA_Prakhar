@@ -331,6 +331,11 @@ class CategoryCommonViewController: UIViewController {
     
     @IBAction func onClickAddFile(_ sender: UIButton) {
         //
+        let importMenu = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF)], in: .import)
+            importMenu.delegate = self
+            importMenu.modalPresentationStyle = .formSheet
+            self.present(importMenu, animated: true, completion: nil)
+
     }
     
     @IBAction func onClickAdddData(_ sender: UIButton) {
@@ -687,6 +692,8 @@ extension CategoryCommonViewController{
         }
         
         if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
                   GlobalObj.showNetworkAlert()
                   return
         }
@@ -810,7 +817,35 @@ extension CategoryCommonViewController : UIPickerViewDelegate, UIPickerViewDataS
         chooseTypeTextField.text = typePickerData[row]
     }
 }
+//MARK:- Document picker
 
+extension CategoryCommonViewController : UIDocumentMenuDelegate,UIDocumentPickerDelegate{
+    func documentMenu(_ documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
+        documentPicker.delegate = self
+        present(documentPicker, animated: true, completion: nil)
+
+    }
+    
+    public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let myURL = urls.first else {
+            return
+        }
+        print("import result : \(myURL)")
+    }
+          
+
+//    func documentMenu(_ documentMenu: UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
+//        documentPicker.delegate = self
+//        present(documentPicker, animated: true, completion: nil)
+//    }
+
+
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        print("view was cancelled")
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
 //Generating Thumbnail
 import AVKit
 

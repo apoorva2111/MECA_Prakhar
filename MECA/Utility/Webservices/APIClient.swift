@@ -14,6 +14,8 @@ class APIClient {
 //Login
     static func webServicesToSignIn(params:[String:Any],completion:@escaping(LoginUserModel) -> Void){
         if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
                   GlobalObj.showNetworkAlert()
                   return
         }
@@ -42,6 +44,7 @@ class APIClient {
    //Registration
     static func webServiceForSignUp(params:[String:Any],completion:@escaping(Any) -> Void){
         if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
             GlobalObj.showNetworkAlert()
             return
         }
@@ -62,6 +65,7 @@ class APIClient {
    
     static func webServicesForDistributorList(params:[String:Any],completion:@escaping(Any) -> Void){
         if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
                   GlobalObj.showNetworkAlert()
                   return
         }
@@ -83,6 +87,7 @@ class APIClient {
     //Division List
     static func webServicesForDivisionList(Division_Id:String,params:[String:Any],completion:@escaping(Any) -> Void){
         if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
                   GlobalObj.showNetworkAlert()
                   return
         }
@@ -106,6 +111,8 @@ class APIClient {
    // static func wevserviceForHomeFeed(completion:@escaping(HomeModel) -> Void){
     static func wevserviceForHomeFeed(completion:@escaping(HomeModel) -> Void){
         if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
                   GlobalObj.showNetworkAlert()
                   return
         }
@@ -140,6 +147,7 @@ class APIClient {
     //MEBIT Home
     static func webserviceForMEBITFeed(completion:@escaping(MEBITModel) -> Void){
         if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
                   GlobalObj.showNetworkAlert()
                   return
         }
@@ -172,6 +180,8 @@ class APIClient {
  //Event Info
     static func webserviceForEventInfo(completion:@escaping(EventInfoModel) -> Void){
         if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
                   GlobalObj.showNetworkAlert()
                   return
         }
@@ -206,6 +216,8 @@ class APIClient {
     //Kaizen info
     static func webserviceForKaizenInfo(completion:@escaping(KaizenInfoModel) -> Void){
         if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
                   GlobalObj.showNetworkAlert()
                   return
         }
@@ -239,6 +251,8 @@ class APIClient {
     //New Car
     static func webserviceForNewCarSale(params:[String:Any],completion:@escaping(NewCarKaizenModel) -> Void){
            if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
                      GlobalObj.showNetworkAlert()
                      return
            }
@@ -273,6 +287,8 @@ class APIClient {
     //MEBIT List
     static func webserviceForMEBITList(completion:@escaping(MedbiListModel) -> Void){
         if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
                   GlobalObj.showNetworkAlert()
                   return
         }

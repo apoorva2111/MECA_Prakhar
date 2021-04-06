@@ -34,6 +34,7 @@ class Global {
   //MARK:- Network Alert
     func isNetworkAvailable() -> Bool{
         if !NetworkReachabilityManager()!.isReachable{
+
             return false
         }else{
             return true
@@ -43,7 +44,10 @@ class Global {
         let alert = UIAlertController(title: "No network", message: "Please check your internet connection.", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
-        //alert.show()
+        // show the alert
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+
+//        alert.show()
     }
        //MARK:- Alert for Login
        func alertAndPopToPreviousController(title:String,message:String,controller:UIViewController,isForRoot:Bool){
