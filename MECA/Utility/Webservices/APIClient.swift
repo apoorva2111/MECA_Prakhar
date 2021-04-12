@@ -1,9 +1,4 @@
-//
-//  APIClient.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 24/03/21.
-//
+
 
 import Foundation
 import Alamofire
@@ -35,9 +30,13 @@ class APIClient {
                                            completion(objRes)
                                    case .failure(let error):
                                        print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
                                    }
                 }catch let error{
                     print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
                 }
             }
 }
@@ -57,6 +56,8 @@ class APIClient {
                     completion(response.value!)
                 case .failure(let error):
                     print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
                 }
             }
     }
@@ -78,6 +79,8 @@ class APIClient {
                     completion(response.value!)
                 case .failure(let error):
                     print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
                 }
 
                
@@ -100,6 +103,8 @@ class APIClient {
                     completion(response.value!)
                 case .failure(let error):
                     print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
                 }
 
                
@@ -136,9 +141,13 @@ class APIClient {
                                            completion(objRes)
                                    case .failure(let error):
                                        print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
                                    }
                 }catch let error{
                     print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
                 }
             }
     }
@@ -171,22 +180,25 @@ class APIClient {
                                            completion(objRes)
                                    case .failure(let error):
                                        print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
                                    }
                 }catch let error{
                     print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
                 }
             }
     }
  //Event Info
-    static func webserviceForEventInfo(completion:@escaping(EventInfoModel) -> Void){
+	static func webserviceForEventInfo(eventID:String, isEvent: Bool,completion:@escaping(EventInfoModel) -> Void){
         if !NetworkReachabilityManager()!.isReachable{
             GlobalObj.displayLoader(true, show: false)
-
-                  GlobalObj.showNetworkAlert()
+				GlobalObj.showNetworkAlert()
                   return
         }
-        let url = BaseURL + eventInfo
-       
+        let url = BaseURL + eventInfo + eventID
+
         var headers = HTTPHeaders()
 
         let accessToken = userDef.string(forKey: UserDefaultKey.token)
@@ -205,6 +217,8 @@ class APIClient {
                                            completion(objRes)
                                    case .failure(let error):
                                        print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
                                    }
                 }catch let error{
                     print(error)
@@ -214,14 +228,14 @@ class APIClient {
     }
     
     //Kaizen info
-    static func webserviceForKaizenInfo(completion:@escaping(KaizenInfoModel) -> Void){
+	static func webserviceForKaizenInfo(eventId: String = "5",completion:@escaping(KaizenInfoModel) -> Void){
         if !NetworkReachabilityManager()!.isReachable{
             GlobalObj.displayLoader(true, show: false)
 
                   GlobalObj.showNetworkAlert()
                   return
         }
-        let url = BaseURL + kaizenInfo
+        let url = BaseURL + kaizenInfo + eventId
        
         var headers = HTTPHeaders()
 
@@ -241,9 +255,12 @@ class APIClient {
                                            completion(objRes)
                                    case .failure(let error):
                                        print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
                                    }
                 }catch let error{
                     print(error)
+                    GlobalObj.displayLoader(true, show: false)
                 }
             }
     }
@@ -262,13 +279,14 @@ class APIClient {
 
            let accessToken = userDef.string(forKey: UserDefaultKey.token)
             headers = ["Authorization":"Bearer \(accessToken ?? "")"]
-           AF.request(url, method: .post, headers: headers)
+//           AF.request(url, method: .post, headers: headers)
+        AF.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: headers)
                .responseJSON { response in
-                   
+                print(response)
                    guard let dataResponse = response.data else {
                        print("Response Error")
                        return }
-                   
+
                    do{
                        let objRes: NewCarKaizenModel = try JSONDecoder().decode(NewCarKaizenModel.self, from: dataResponse)
                        switch response.result{
@@ -276,9 +294,13 @@ class APIClient {
                                               completion(objRes)
                                       case .failure(let error):
                                           print(error)
+                                        GlobalObj.displayLoader(true, show: false)
+
                                       }
                    }catch let error{
                        print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
                    }
                }
        }
@@ -312,9 +334,13 @@ class APIClient {
                                            completion(objRes)
                                    case .failure(let error):
                                        print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
                                    }
                 }catch let error{
                     print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
                 }
             }
     }

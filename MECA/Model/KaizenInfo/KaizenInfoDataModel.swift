@@ -1,9 +1,3 @@
-//
-//  KaizenInfoDataModel.swift
-//  MECA
-//
-//  Created by Mohammed Sulaiman on 28/03/21.
-//
 
 
 import Foundation
@@ -19,7 +13,7 @@ struct KaizenInfoDataModel : Codable {
     let kaizen_files : [String]?
     let video_links : [KaizenVideoLinkModel]?
     let kaizen_documents : [String]?
-    let document_links : [String]?
+    let document_links : [Document_links]?
     let status : Int?
     let is_admin : Int?
     let likes : Int?
@@ -28,8 +22,11 @@ struct KaizenInfoDataModel : Codable {
     let created_at : String?
     let updated_at : String?
     let has_access : Int?
-    let isliked : String?
-    let ownerprofile : String?
+    let isliked : Int?
+    let event_images : [Event_videos]?
+    let event_videos : [Event_videos]?
+
+    let ownerprofile : OwnerprofileKaizen?
 
     enum CodingKeys: String, CodingKey {
 
@@ -55,6 +52,8 @@ struct KaizenInfoDataModel : Codable {
         case has_access = "has_access"
         case isliked = "isliked"
         case ownerprofile = "ownerprofile"
+        case event_videos = "event_videos"
+        case event_images = "event_images"
     }
 
     init(from decoder: Decoder) throws {
@@ -70,7 +69,7 @@ struct KaizenInfoDataModel : Codable {
         kaizen_files = try values.decodeIfPresent([String].self, forKey: .kaizen_files)
         video_links = try values.decodeIfPresent([KaizenVideoLinkModel].self, forKey: .video_links)
         kaizen_documents = try values.decodeIfPresent([String].self, forKey: .kaizen_documents)
-        document_links = try values.decodeIfPresent([String].self, forKey: .document_links)
+        document_links = try values.decodeIfPresent([Document_links].self, forKey: .document_links)
         status = try values.decodeIfPresent(Int.self, forKey: .status)
         is_admin = try values.decodeIfPresent(Int.self, forKey: .is_admin)
         likes = try values.decodeIfPresent(Int.self, forKey: .likes)
@@ -79,8 +78,11 @@ struct KaizenInfoDataModel : Codable {
         created_at = try values.decodeIfPresent(String.self, forKey: .created_at)
         updated_at = try values.decodeIfPresent(String.self, forKey: .updated_at)
         has_access = try values.decodeIfPresent(Int.self, forKey: .has_access)
-        isliked = try values.decodeIfPresent(String.self, forKey: .isliked)
-        ownerprofile = try values.decodeIfPresent(String.self, forKey: .ownerprofile)
+        isliked = try values.decodeIfPresent(Int.self, forKey: .isliked)
+        ownerprofile = try values.decodeIfPresent(OwnerprofileKaizen.self, forKey: .ownerprofile)
+        event_videos = try values.decodeIfPresent([Event_videos].self, forKey: .event_videos)
+        event_images = try values.decodeIfPresent([Event_videos].self, forKey: .event_images)
+
     }
 
 }

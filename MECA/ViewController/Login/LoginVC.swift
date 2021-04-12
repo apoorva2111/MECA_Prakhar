@@ -1,9 +1,3 @@
-//
-//  LoginVC.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 19/03/21.
-//
 
 import UIKit
 import KRProgressHUD

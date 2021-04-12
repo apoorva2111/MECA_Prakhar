@@ -1,9 +1,4 @@
 //
-//  NewCarSalesViewController.swift
-//  MECA
-//
-//  Created by Mohammed Sulaiman on 30/03/21.
-//
 
 import UIKit
 
@@ -77,22 +72,30 @@ extension NewCarSalesViewController:UITableViewDelegate,UITableViewDataSource{
         return 292
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let story = UIStoryboard(name: "Category", bundle:nil)
+        let obj = arrList[indexPath.row]
+        let vc = story.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        vc.navValue = "3"
+        vc.eventID = String(obj.id ?? 0)
+       vc.isEvent =  "kaizen" == "kaizen" ? true : false
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func callNewCarSaleWebservice(adminId: Int, type: Int) {
 
         let param : [String:Any] = ["is_admin" : adminId,
-                                    "type" : type,
-                                    "keyword" : "test"]
+                                    "type" : type]//"keyword" : "test"
         print(param)
         GlobalObj.displayLoader(true, show: true)
         APIClient.webserviceForNewCarSale(params: param) { (result) in
             if let repo = result.resp_code{
-              
                 GlobalObj.displayLoader(true, show: false)
                
                 if repo == 200 {
                     
                     if let arrList = result.data{
-                        
+                        print(arrList)
                         for obj in arrList {
                             self.arrList.append(obj)
                         }

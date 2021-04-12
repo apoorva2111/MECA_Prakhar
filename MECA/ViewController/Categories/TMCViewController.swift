@@ -1,9 +1,4 @@
-//
-//  TMCViewController.swift
-//  MECA
-//
-//  Created by Mohammed Sulaiman on 30/03/21.
-//
+
 
 import UIKit
 

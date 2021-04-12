@@ -1,10 +1,4 @@
-//
-//  ANCustomView.swift
-//  UIViewLaywerEffect
-//
-//  Created by ANSCoder on 14/01/16.
-//  Copyright © 2016 Anand. All rights reserved.
-//
+
 
 import Foundation
 import UIKit

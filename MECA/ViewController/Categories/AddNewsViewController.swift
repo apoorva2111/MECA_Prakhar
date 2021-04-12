@@ -1,9 +1,4 @@
-//
-//  AddNewsViewController.swift
-//  MECA
-//
-//  Created by Mohammed Sulaiman on 19/03/21.
-//
+
 
 import UIKit
 import Photos

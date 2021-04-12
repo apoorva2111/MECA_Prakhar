@@ -1,10 +1,4 @@
-//
-//  Global.swift
-//  Spotslot
-//
-//  Created by mac on 20/08/20.
-//  Copyright © 2020 Infograins. All rights reserved.
-//
+
 import Foundation
 import UIKit
 import KRProgressHUD

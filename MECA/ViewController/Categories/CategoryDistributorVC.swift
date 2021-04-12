@@ -1,9 +1,4 @@
-//
-//  CategoryDistributorVC.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 29/03/21.
-//
+
 
 import UIKit
 

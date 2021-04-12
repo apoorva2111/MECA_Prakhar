@@ -285,7 +285,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRf-Pg-etq">
-                                                        <rect key="frame" x="16" y="30" width="29.5" height="21"/>
+                                                        <rect key="frame" x="16" y="30" width="26.5" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="RgH-ie-zMb"/>
                                                         </constraints>
@@ -352,7 +352,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zqb-2k-a5n">
-                                                        <rect key="frame" x="16" y="428" width="31.5" height="21"/>
+                                                        <rect key="frame" x="16" y="428" width="29.5" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="7Mr-xr-VK8"/>
                                                         </constraints>
@@ -444,7 +444,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7y-34-v59">
-                                                        <rect key="frame" x="45.5" y="30" width="10" height="21"/>
+                                                        <rect key="frame" x="42.5" y="30" width="10" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="6ye-vf-LTv"/>
                                                             <constraint firstAttribute="width" constant="10" id="etX-6o-Zaw"/>
@@ -454,7 +454,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHT-7E-JAb">
-                                                        <rect key="frame" x="47.5" y="428" width="8" height="21"/>
+                                                        <rect key="frame" x="45.5" y="428" width="8" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="DBC-Cn-lHs"/>
                                                             <constraint firstAttribute="width" constant="8" id="Mup-yE-3iL"/>
@@ -598,7 +598,7 @@
                                             <constraint firstAttribute="height" constant="50" id="4qc-VJ-wXc"/>
                                             <constraint firstAttribute="width" constant="50" id="6Yd-V8-0G7"/>
                                         </constraints>
-                                        <state key="normal">
+                                        <state key="normal" image="backward">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -917,7 +917,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="zbA-pV-u0m"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Dck-Hi-kpF">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Dck-Hi-kpF">
                                                     <size key="itemSize" width="128" height="128"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>

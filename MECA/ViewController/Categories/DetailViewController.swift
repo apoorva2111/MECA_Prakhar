@@ -1,12 +1,9 @@
-//
-//  DetailViewController.swift
-//  MECA
-//
-//  Created by Mohammed Sulaiman on 21/03/21.
-//
+
 
 import UIKit
 import SDWebImage
+import AVFoundation
+import AVKit
 
 class DetailViewController: UIViewController {
 
@@ -63,12 +60,31 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var likeBtnRef: UIButton!
     @IBOutlet weak var commentBtnRef: UIButton!
     @IBOutlet weak var separatorlabel3: UILabel!
+    
+    @IBOutlet weak var viewSurvayLinkHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var viewImagCollection: UIView!
+    @IBOutlet weak var viewImgCollectHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var viewVideoCollection: UIView!
+   
+    @IBOutlet weak var viewViideoHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var locationviewHeightConstraint: NSLayoutConstraint!
+ 
+    @IBOutlet weak var viewLinkTopContraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var viewImgTopConstrint: NSLayoutConstraint!
+    @IBOutlet weak var viewVideoTopCOnstrint: NSLayoutConstraint!
+    
     var navValue = ""
     
     var screenSize: CGRect!
     var screenWidth: CGFloat!
     var screenHeight: CGFloat!
-    
+    var eventID = ""
+	var isEvent = false
+
     var arrcatImg = [UIImage.init(named: "News"),UIImage.init(named: "MEBIT"),UIImage.init(named: "MaaS"),UIImage.init(named: "Hydrogen"),UIImage.init(named: "SDGs"),UIImage.init(named: "GR")]
     
     
@@ -80,34 +96,123 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if navValue == "0" {
-            //rootVC : Home vc
-            print("From Home VC")
-            viewModel = EventInfoVM.init(controller: self)
-            viewModel.callEventInfoWebservice()
-            
-            
-        }
-        else if navValue == "1" {
-            //root VC : MEBIT VC
-            print("From MEBIT VC")
-            viewModel1 = KaizenVM.init(controller: self)
-            viewModel1.callKaizenInfoWebservice()
-        }
+//        self.imageCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+//        imageCollectionView.dataSource = self
+//        imageCollectionView.delegate = self
+       
+//        self.videoCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+//        videoCollectionView.dataSource = self
+//        videoCollectionView.delegate = self
         
-        self.imageCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
-        imageCollectionView.dataSource = self
-        imageCollectionView.delegate = self
-        self.videoCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
-        videoCollectionView.dataSource = self
-        videoCollectionView.delegate = self
         screenSize = UIScreen.main.bounds
         screenWidth = screenSize.width
         screenHeight = screenSize.height
         setupUI()
-
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if navValue == "0" {
+            //rootVC : Home vc
+            print("From Home VC")
+            if isEvent
+            {
+                self.imageCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+
+                self.videoCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+
+                viewModel = EventInfoVM.init(controller: self)
+                viewModel.callEventInfoWebservice()
+                
+            }
+            else
+            {
+                viewModel1 = KaizenVM.init(controller: self)
+                viewModel1.callKaizenInfoWebservice { (info) in
+                    if info == true{
+                        if self.viewModel1.arrEventImg.count>0{
+                            self.imageCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+                            
+                            self.setupUI()
+                            self.imageCollectionView.delegate = self
+                            self.imageCollectionView.dataSource = self
+                            self.imageCollectionView.reloadData()
+                        }
+                        
+                        if self.viewModel1.arrEventVideos.count>0{
+                            self.videoCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+                            self.videoCollectionView.dataSource = self
+                            self.videoCollectionView.delegate = self
+                            self.videoCollectionView.delegate = self
+                            self.videoCollectionView.dataSource = self
+                            self.videoCollectionView.reloadData()
+                        }
+                    }
+                }
+            }
+            
+        }
+        else if navValue == "1" {
+            //root VC : MEBIT VC
+         
+            if isEvent
+            {
+                self.imageCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+
+                self.videoCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+                
+                viewModel = EventInfoVM.init(controller: self)
+                viewModel.callEventInfoWebservice()
+            }
+            else
+            {
+                viewModel1 = KaizenVM.init(controller: self)
+                viewModel1.callKaizenInfoWebservice { (info) in
+                    if info == true{
+                        if self.viewModel1.arrEventImg.count>0{
+                            self.imageCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+
+                            self.imageCollectionView.delegate = self
+                            self.imageCollectionView.dataSource = self
+                            self.imageCollectionView.reloadData()
+                        }
+                        
+                        if self.viewModel1.arrEventVideos.count>0{
+                            self.videoCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+
+                            self.videoCollectionView.delegate = self
+                            self.videoCollectionView.dataSource = self
+                            self.videoCollectionView.reloadData()
+                        }
+                    }
+                }
+            }
+        }else{
+            viewModel1 = KaizenVM.init(controller: self)
+            viewModel1.callKaizenInfoWebservice { (info) in
+                if info == true{
+                    if self.viewModel1.arrEventImg.count>0{
+                        self.imageCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+
+                        self.imageCollectionView.delegate = self
+                        self.imageCollectionView.dataSource = self
+                        self.imageCollectionView.reloadData()
+                    }
+                    
+                    if self.viewModel1.arrEventVideos.count>0{
+                        self.videoCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+
+                        self.videoCollectionView.delegate = self
+                        self.videoCollectionView.dataSource = self
+                        self.videoCollectionView.reloadData()
+                    }
+                }        }
+            
+            
+        }
+    }
+
     func setupUI() {
         presentation1TextField.layer.borderWidth = 1
         presentation1TextField.layer.borderColor = #colorLiteral(red: 0.9803921569, green: 0.6235294118, blue: 0.2039215686, alpha: 1)
@@ -119,24 +224,52 @@ class DetailViewController: UIViewController {
         commentBtnRef.layer.cornerRadius = 15
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    
         layout.itemSize = CGSize(width: screenWidth/2, height: 120)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal
         imageCollectionView!.collectionViewLayout = layout
         videoCollectionView!.collectionViewLayout = layout
-        
+
+        videoCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        imageCollectionView.translatesAutoresizingMaskIntoConstraints = false
     }
    
 
     
     
     @IBAction func onClickDismissVC(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+       // self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+        
     }
     
     @IBAction func onClickReadMore(_ sender: UIButton) {
+        if isEvent
+        {
+        if viewModel.strdescription != ""{
+            let vc = FlowController().instantiateViewController(identifier: "AboutDetailVC", storyBoard: "Category") as! AboutDetailVC
+            vc.strdescrtiption = viewModel.strdescription
+            //vc.navigationController?.pushViewController(vc, animated: true)
+            vc.modalPresentationStyle = .fullScreen
+
+            self.present(vc, animated: true, completion: nil)
+            
+        }
+        }else{
+            if viewModel1.strdescription != ""{
+                let vc = FlowController().instantiateViewController(identifier: "AboutDetailVC", storyBoard: "Category") as! AboutDetailVC
+                vc.strdescrtiption = viewModel1.strdescription
+                //vc.navigationController?.pushViewController(vc, animated: true)
+                vc.modalPresentationStyle = .fullScreen
+
+                self.present(vc, animated: true, completion: nil)
+                
+            }
+        }
     }
+   
     
     
     @IBAction func onClickSurveyLink(_ sender: UIButton) {
@@ -161,31 +294,348 @@ class DetailViewController: UIViewController {
 }
 //MARK:- UICollectionView
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if navValue == "0" {
+            //rootVC : Home vc
+            if isEvent
+            {
+                if collectionView == imageCollectionView{
+                    return viewModel.arrEventImg.count
+                }else{
+                    return viewModel.arrEventVideos.count
+                }
+                
+            }
+            else
+            {
+                if collectionView == imageCollectionView{
+                    return viewModel1.arrEventImg.count
+                }else{
+                    return viewModel1.arrEventVideos.count
+                }
+            }
+
+        }
+        else if navValue == "1" {
+            //root VC : MEBIT VC
+            if isEvent
+            {
+                if collectionView == imageCollectionView{
+                    return viewModel.arrEventImg.count
+                }else{
+                    return viewModel.arrEventVideos.count
+                }
+                
+            }
+            else
+            {
+                if collectionView == imageCollectionView{
+                    return viewModel1.arrEventImg.count
+                }else{
+                    return viewModel1.arrEventVideos.count
+                }
+            }
+        }else{
+            if collectionView == imageCollectionView{
+                return viewModel1.arrEventImg.count
+            }else{
+                return viewModel1.arrEventVideos.count
+            }
+        }
+    }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if (collectionView == imageCollectionView) {
-            let cell  = imageCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageVideoCollectionViewCell", for: indexPath) as! ImageVideoCollectionViewCell
-           // cell.myImageView.image = arrcatImg[indexPath.row]
-            cell.myImageView.image = UIImage(named: "image 1")
-            cell.playBtnRef.isHidden = true
-            return cell
-        }
-        else if (collectionView == videoCollectionView) {
-            let cell1  = videoCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageVideoCollectionViewCell", for: indexPath) as! ImageVideoCollectionViewCell
-            cell1.myImageView.image = UIImage(named: "image 2")
-            cell1.playBtnRef.isHidden = false
-            cell1.playVideo = {
-                print("Video is atpped")
+        if navValue == "0" {
+            if isEvent{
+                
+                if (collectionView == imageCollectionView) {
+                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageVideoCollectionViewCell", for: indexPath) as! ImageVideoCollectionViewCell
+                    cell.isHidden = false
+                    let objImage = viewModel.arrEventImg[indexPath.row]
+                    if objImage.file != ""{
+                        let url = BaseURL + (objImage.file)!
+                        cell.myImageView.sd_setImage(with: URL(string:url), completed: nil)
+                    }else{
+                        cell.myImageView.image = UIImage(named: "image 1")
+                    }
+                    
+                    cell.playBtnRef.isHidden = true
+                    return cell
+                }
+                else if (collectionView == videoCollectionView) {
+                    let cell1  = videoCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageVideoCollectionViewCell", for: indexPath) as! ImageVideoCollectionViewCell
+                    
+                    let objImage = viewModel.arrEventVideos[indexPath.row]
+                    if objImage.file != ""{
+                        let urlimg = BaseURL + (objImage.file)!
+                        let url = URL(string: urlimg)!
+                        
+                        if let thumbnailImage = getThumbnailImage(forUrl: url) {
+                            cell1.myImageView.image = thumbnailImage
+                        }
+                    }
+                    
+                    
+                    cell1.playBtnRef.isHidden = false
+                    cell1.playVideo = {
+                        print("Video is atpped")
+                    }
+                    return cell1
+                }
+            }else{
+                
+                if (collectionView == imageCollectionView) {
+                    let cell  = imageCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageVideoCollectionViewCell", for: indexPath) as! ImageVideoCollectionViewCell
+                    let objImage = viewModel1.arrEventImg[indexPath.row]
+                    if objImage.file != ""{
+                        let url = BaseURL + (objImage.file)!
+                        cell.myImageView.sd_setImage(with: URL(string:url), completed: nil)
+                    }else{
+                        cell.myImageView.image = UIImage(named: "image 1")
+                    }
+                    
+                    cell.playBtnRef.isHidden = true
+                    return cell
+                }
+                else if (collectionView == videoCollectionView) {
+                    let cell1  = videoCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageVideoCollectionViewCell", for: indexPath) as! ImageVideoCollectionViewCell
+                    let objImage = viewModel1.arrEventVideos[indexPath.row]
+                    cell1.playBtnRef.isHidden = false
+                    if objImage.file != ""{
+                        let urlimg = BaseURL + (objImage.file)!
+                        let url = URL(string: urlimg)!
+                        
+                        if let thumbnailImage = getThumbnailImage(forUrl: url) {
+                            cell1.myImageView.image = thumbnailImage
+                        }
+                    }
+                    cell1.playVideo = {
+                        print("Video is atpped")
+                    }
+                    return cell1
+                }
             }
-            return cell1
+        }else if navValue == "1"{
+            if isEvent{
+                
+                if (collectionView == imageCollectionView) {
+                    let cell  = imageCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageVideoCollectionViewCell", for: indexPath) as! ImageVideoCollectionViewCell
+                    let objImage = viewModel.arrEventImg[indexPath.row]
+                    if objImage.file != ""{
+                        let url = BaseURL + (objImage.file)!
+                        cell.myImageView.sd_setImage(with: URL(string:url), completed: nil)
+                    }else{
+                        cell.myImageView.image = UIImage(named: "image 1")
+                    }
+                    cell.playBtnRef.isHidden = true
+                    return cell
+                }
+                else if (collectionView == videoCollectionView) {
+                    let cell1  = videoCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageVideoCollectionViewCell", for: indexPath) as! ImageVideoCollectionViewCell
+                    let objImage = viewModel.arrEventVideos[indexPath.row]
+                    if objImage.file != ""{
+                        let urlimg = BaseURL + (objImage.file)!
+                        let url = URL(string: urlimg)!
+                        
+                        if let thumbnailImage = getThumbnailImage(forUrl: url) {
+                            cell1.myImageView.image = thumbnailImage
+                        }
+                    }
+                    cell1.playBtnRef.isHidden = false
+                    cell1.playVideo = {
+                        print("Video is atpped")
+                    }
+                    return cell1
+                }
+            }else{
+                
+                if (collectionView == imageCollectionView) {
+                    let cell  = imageCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageVideoCollectionViewCell", for: indexPath) as! ImageVideoCollectionViewCell
+                    // cell.myImageView.image = arrcatImg[indexPath.row]
+                    cell.myImageView.image = UIImage(named: "image 1")
+                    cell.playBtnRef.isHidden = true
+                    return cell
+                }
+                else if (collectionView == videoCollectionView) {
+                    let cell1  = videoCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageVideoCollectionViewCell", for: indexPath) as! ImageVideoCollectionViewCell
+                    cell1.myImageView.image = UIImage(named: "image 2")
+                    cell1.playBtnRef.isHidden = false
+                    cell1.playVideo = {
+                        print("Video is atpped")
+                    }
+                    return cell1
+                }
+            }
+        }else{
+            
+            if (collectionView == imageCollectionView) {
+                let cell  = imageCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageVideoCollectionViewCell", for: indexPath) as! ImageVideoCollectionViewCell
+                // cell.myImageView.image = arrcatImg[indexPath.row]
+                cell.myImageView.image = UIImage(named: "image 1")
+                cell.playBtnRef.isHidden = true
+                return cell
+            }
+            else if (collectionView == videoCollectionView) {
+                let cell1  = videoCollectionView.dequeueReusableCell(withReuseIdentifier: "ImageVideoCollectionViewCell", for: indexPath) as! ImageVideoCollectionViewCell
+                let objImage = viewModel1.arrEventVideos[indexPath.row]
+                if objImage.file != ""{
+                    let urlimg = BaseURL + (objImage.file)!
+                    let url = URL(string: urlimg)!
+                    
+                    if let thumbnailImage = getThumbnailImage(forUrl: url) {
+                        cell1.myImageView.image = thumbnailImage
+                    }
+                }
+                cell1.playBtnRef.isHidden = false
+                cell1.playVideo = {
+                    print("Video is atpped")
+                }
+                return cell1
+            }
         }
+        
         return UICollectionViewCell()
         
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if navValue == "0" {
+            if isEvent{
+                
+                if (collectionView == imageCollectionView) {
+                  
+                }
+                else if (collectionView == videoCollectionView) {
+                    let obj = viewModel.arrEventVideos[indexPath.row]
+                    if obj.file != ""{
+                        let urlimg = BaseURL + (obj.file)!
+
+                    guard let videoURL = URL(string: urlimg) else {
+                              return
+                        }
+                        let player = AVPlayer(url: videoURL)
+                        let playerViewController = AVPlayerViewController()
+                        playerViewController.player = player
+                        self.present(playerViewController, animated: true) {
+                          playerViewController.player?.play()
+                        }
+                    }
+                   
+                }
+            }else{
+                
+                if (collectionView == imageCollectionView) {
+                    
+                }
+                else if (collectionView == videoCollectionView) {
+                    let obj = viewModel1.arrEventVideos[indexPath.row]
+                    if obj.file != ""{
+                        let urlimg = BaseURL + (obj.file)!
+
+                    guard let videoURL = URL(string: urlimg) else {
+                              return
+                        }
+                        let player = AVPlayer(url: videoURL)
+                        let playerViewController = AVPlayerViewController()
+                        playerViewController.player = player
+                        self.present(playerViewController, animated: true) {
+                          playerViewController.player?.play()
+                        }
+                    }
+                }
+            }
+        }else if navValue == "1"{
+            if isEvent{
+                
+                if (collectionView == imageCollectionView) {
+                    
+                }
+                else if (collectionView == videoCollectionView) {
+                    let obj = viewModel.arrEventVideos[indexPath.row]
+                    if obj.file != ""{
+                        let urlimg = BaseURL + (obj.file)!
+
+                    guard let videoURL = URL(string: urlimg) else {
+                              return
+                        }
+                        let player = AVPlayer(url: videoURL)
+                        let playerViewController = AVPlayerViewController()
+                        playerViewController.player = player
+                        self.present(playerViewController, animated: true) {
+                          playerViewController.player?.play()
+                        }
+                    }
+                   
+                }
+            }else{
+                
+                if (collectionView == imageCollectionView) {
+                   
+                }
+                else if (collectionView == videoCollectionView) {
+                    let obj = viewModel1.arrEventVideos[indexPath.row]
+                    if obj.file != ""{
+                        let urlimg = BaseURL + (obj.file)!
+
+                    guard let videoURL = URL(string: urlimg) else {
+                              return
+                        }
+                        let player = AVPlayer(url: videoURL)
+                        let playerViewController = AVPlayerViewController()
+                        playerViewController.player = player
+                        self.present(playerViewController, animated: true) {
+                          playerViewController.player?.play()
+                        }
+                    }
+                }
+            }
+        }else{
+            
+            if (collectionView == imageCollectionView) {
+                let obj = viewModel1.arrEventVideos[indexPath.row]
+                if obj.file != ""{
+                    let urlimg = BaseURL + (obj.file)!
+
+                guard let videoURL = URL(string: urlimg) else {
+                          return
+                    }
+                    let player = AVPlayer(url: videoURL)
+                    let playerViewController = AVPlayerViewController()
+                    playerViewController.player = player
+                    self.present(playerViewController, animated: true) {
+                      playerViewController.player?.play()
+                    }
+                }
+               
+            }
+            else if (collectionView == videoCollectionView) {
+                let obj = viewModel1.arrEventVideos[indexPath.row]
+                if obj.file != ""{
+                    let urlimg = BaseURL + (obj.file)!
+
+                guard let videoURL = URL(string: urlimg) else {
+                          return
+                    }
+                    let player = AVPlayer(url: videoURL)
+                    let playerViewController = AVPlayerViewController()
+                    playerViewController.player = player
+                    self.present(playerViewController, animated: true) {
+                      playerViewController.player?.play()
+                    }
+                }
+            }
+        }
+        
+        
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if (collectionView == imageCollectionView) {
@@ -198,5 +648,19 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
         return CGSize()
         
+    }
+    
+    func getThumbnailImage(forUrl url: URL) -> UIImage? {
+        let asset: AVAsset = AVAsset(url: url)
+        let imageGenerator = AVAssetImageGenerator(asset: asset)
+
+        do {
+            let thumbnailImage = try imageGenerator.copyCGImage(at: CMTimeMake(value: 1, timescale: 60) , actualTime: nil)
+            return UIImage(cgImage: thumbnailImage)
+        } catch let error {
+            print(error)
+        }
+
+        return nil
     }
 }

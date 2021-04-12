@@ -1,9 +1,3 @@
-//
-//  NewCarSalesVM.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 31/03/21.
-//
 
 import UIKit
 

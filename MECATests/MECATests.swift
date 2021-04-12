@@ -1,9 +1,4 @@
-//
-//  MECATests.swift
-//  MECATests
-//
-//  Created by Apoorva Gangrade on 18/03/21.
-//
+
 
 import XCTest
 @testable import MECA

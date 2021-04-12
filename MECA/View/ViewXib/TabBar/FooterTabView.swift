@@ -1,9 +1,4 @@
-//
-//  FooterTabView.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 18/03/21.
-//
+
 
 import UIKit
 

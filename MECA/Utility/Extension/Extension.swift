@@ -1,9 +1,4 @@
-//
-//  Extension.swift
-//  DoubtNut
-//
-//  Created by Apoorva Gangrade on 05/03/21.
-//
+
 
 import UIKit
 

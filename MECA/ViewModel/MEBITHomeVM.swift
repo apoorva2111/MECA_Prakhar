@@ -1,9 +1,4 @@
-//
-//  MEBITHomeVM.swift
-//  MECA
-//
-//  Created by Mohammed Sulaiman on 27/03/21.
-//
+
 
 import Foundation
 

@@ -1,9 +1,3 @@
-//
-//  MECAUITests.swift
-//  MECAUITests
-//
-//  Created by Apoorva Gangrade on 18/03/21.
-//
 
 import XCTest
 

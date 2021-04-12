@@ -1,9 +1,3 @@
-//
-//  CategoryCommonViewController.swift
-//  MECA
-//
-//  Created by Mohammed Sulaiman on 20/03/21.
-//
 
 import UIKit
 import Photos
@@ -11,6 +5,7 @@ import BSImagePicker
 import MobileCoreServices
 import AVFoundation
 import Alamofire
+import PDFKit
 
 class CategoryCommonViewController: UIViewController {
     
@@ -61,7 +56,7 @@ class CategoryCommonViewController: UIViewController {
     var myTitle = ""
     var coverImageArr = [UIImage]()
     var imageVideoArray = [String]()
-    var DocumentArray = [String]()
+    var DocumentArray = [UIImage]()
     var viewModel : CreateKaizenVM!
     var mutipleImageArr = [UIImage]()
     var SelectedAssests = [PHAsset]()
@@ -73,7 +68,6 @@ class CategoryCommonViewController: UIViewController {
     var arrvideos : [Data] = []
     var arrDoc : [Data] = []
     var arrCoverimage : [Data] = []
-
     let datePicker = UIDatePicker()
     let thePicker = UIPickerView()
     let typePickerData = [String](arrayLiteral: "New Car Sales", "After Sales", "Trade In", "BIT Foundation")
@@ -220,6 +214,15 @@ class CategoryCommonViewController: UIViewController {
         layout3.minimumLineSpacing = 0
         layout3.scrollDirection = .horizontal
         videoCollectionView!.collectionViewLayout = layout3
+        
+        documentCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        let layout4: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout4.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout4.itemSize = CGSize(width: screenWidth/2, height: 70)
+        layout4.minimumInteritemSpacing = 0
+        layout4.minimumLineSpacing = 0
+        layout4.scrollDirection = .horizontal
+        documentCollectionView!.collectionViewLayout = layout4
         
     }
     
@@ -425,6 +428,7 @@ extension CategoryCommonViewController : UICollectionViewDelegate, UICollectionV
             let cell  = videoCollectionView.dequeueReusableCell(withReuseIdentifier: "AddImageCollectionViewCell", for: indexPath) as! AddImageCollectionViewCell
             
             cell.myImage.image = thumbNailImageArr[indexPath.row]
+            
             cell.playBtnRef.isHidden = false
             
             
@@ -432,6 +436,10 @@ extension CategoryCommonViewController : UICollectionViewDelegate, UICollectionV
         }
         else if (collectionView == documentCollectionView) {
             let cell  = documentCollectionView.dequeueReusableCell(withReuseIdentifier: "AddImageCollectionViewCell", for: indexPath) as! AddImageCollectionViewCell
+            cell.myImage.image = DocumentArray[indexPath.row]
+            
+            cell.playBtnRef.isHidden = true
+
             return cell
         }
         return UICollectionViewCell()
@@ -705,7 +713,7 @@ extension CategoryCommonViewController{
 
         let accessToken = userDef.string(forKey: UserDefaultKey.token)
 
-        headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        headers = ["Authorization":"Bearer \(accessToken ?? "")"	]
 
         
         var videoLinkArr = [[String:Any]]()
@@ -732,22 +740,15 @@ extension CategoryCommonViewController{
        
         AF.upload(multipartFormData: { (multipartFormData) in
            
-//            for (key, value) in parameters {
-//                       if key == "video_links" {
-//                           let arrData =  try! JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
-//                        print(arrData)
-//                           multipartFormData.append(arrData, withName: key as String)
-//                       }
-//                       else {
-//                        let arrData =  try! JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
-//                        print(arrData)
-//                        multipartFormData.append(arrData, withName: key as String)
-//                       }
-//                   }
+
             for (key, value) in parameters {
                 
                 if let jsonData = try? JSONSerialization.data(withJSONObject: value, options:[]) {
-                    multipartFormData.append(jsonData, withName: key as String)
+//                    multipartFormData.append(jsonData, withName: key as String)
+                    let data = (String(data: jsonData, encoding: String.Encoding.utf8) ?? "") as String
+                    let somedata = data.data(using: String.Encoding.utf8)
+                    multipartFormData.append(somedata ?? Data(), withName: key as String)
+
                 }
             }
                                
@@ -761,13 +762,20 @@ extension CategoryCommonViewController{
             
             multipartFormData.append(self.endDateTextField.text!.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"end_date")
 
-            for img in self.arrimages{
-                multipartFormData.append(img, withName: "event_images" , fileName: "file.jpeg", mimeType: "image/jpeg")
+           
+            for i in 0..<self.arrimages.count{
+                let name = "event_images[\(i)]"
+                let img = self.arrimages[i]
+                let timestamp = NSDate().timeIntervalSince1970
+                multipartFormData.append(img, withName: name , fileName: "\(timestamp).jpeg", mimeType: "image/jpeg")
                                 
             }
-            for img in self.arrvideos{
-                
-                multipartFormData.append(img, withName: "event_videos" , fileName: "file.jpeg", mimeType: "image/jpeg")
+          
+            for i in 0..<self.arrvideos.count{
+                let name = "event_videos[\(i)]"
+                let img = self.arrvideos[i]
+                let timestamp = NSDate().timeIntervalSince1970
+                multipartFormData.append(img, withName: name , fileName: "\(timestamp).mp4", mimeType: "\(timestamp)/mp4")
                                 
             }
             
@@ -776,6 +784,7 @@ extension CategoryCommonViewController{
                 multipartFormData.append(img, withName: "newcover" , fileName: "file.jpeg", mimeType: "image/jpeg")
                                 
             }
+
         }, to: url, method: .post,headers:headers).responseJSON(completionHandler: { (response) in
             print(response.value as Any)
             GlobalObj.displayLoader(true, show: false)
@@ -794,7 +803,8 @@ extension CategoryCommonViewController{
         })
 print("error")
     }
-    
+   
+
   
 }
 // MARK: UIPickerView Delegation
@@ -830,7 +840,15 @@ extension CategoryCommonViewController : UIDocumentMenuDelegate,UIDocumentPicker
         guard let myURL = urls.first else {
             return
         }
-        print("import result : \(myURL)")
+    //    print("import result : \(myURL)")
+        drawPDFfromURL(url: myURL) { (img) in
+            if img != nil{
+            self.DocumentArray.append(img!)
+            }
+            if self.DocumentArray.count>0{
+                self.setupCollectionView2()
+            }
+        }
     }
           
 
@@ -845,6 +863,25 @@ extension CategoryCommonViewController : UIDocumentMenuDelegate,UIDocumentPicker
         dismiss(animated: true, completion: nil)
     }
     
+    func drawPDFfromURL(url: URL,completion: @escaping (UIImage?) -> Void) -> UIImage? {
+        guard let document = CGPDFDocument(url as CFURL) else { return nil }
+        guard let page = document.page(at: 1) else { return nil }
+        
+        let pageRect = page.getBoxRect(.cropBox)
+        let renderer = UIGraphicsImageRenderer(size: pageRect.size)
+        let img = renderer.image { ctx in
+            UIColor.white.set()
+            //ctx.fill(pageRect)
+            ctx.fill(CGRect.init(x: 0, y: 0, width: 70, height: 70))
+            ctx.cgContext.translateBy(x: 0.0, y: pageRect.size.height)
+            ctx.cgContext.scaleBy(x: 1.0, y: -1.0)
+            
+            ctx.cgContext.drawPDFPage(page)
+            
+        }
+        completion(img)
+        return img
+    }
 }
 //Generating Thumbnail
 import AVKit

@@ -1,9 +1,3 @@
-//
-//  UIColor.swift
-//  DoubtNut
-//
-//  Created by Apoorva Gangrade on 13/03/21.
-//
 
 import UIKit
 extension UIColor {

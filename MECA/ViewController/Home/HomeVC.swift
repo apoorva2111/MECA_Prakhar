@@ -1,9 +1,4 @@
-//
-//  HomeVC.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 19/03/21.
-//
+
 
 import UIKit
 
@@ -23,9 +18,12 @@ class HomeVC: UIViewController {
         tblView.dataSource = self
         viewTabbar.footerTabViewDelegate = self
         viewTabbar.imgHome.image = UIImage.init(named: "Home_active")
-        viewModel.callHomeFeedWebservice()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated )
+        viewModel.callHomeFeedWebservice()
+
+    }
     
     @IBAction func btnPlusAction(_ sender: UIButton) {
         
@@ -92,14 +90,10 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         viewModel.getBaseTableHeaderViewFor(section, tableView: tblView)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //viewModel.didSelectRowAt(indexPath, tableView: tblView)
+        viewModel.didSelectRowAt(indexPath, tableView: tblView)
         
-            let story = UIStoryboard(name: "Category", bundle:nil)
-                       let vc = story.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-                       vc.modalPresentationStyle = .fullScreen
-                        vc.navValue = "0"
-                       self.present(vc, animated: true)
-           
-            
+        
+        
+        
     }
 }

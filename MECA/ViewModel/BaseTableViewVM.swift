@@ -1,9 +1,3 @@
-//
-//  BaseTableViewVM.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 20/03/21.
-//
 
 import Foundation
 import UIKit

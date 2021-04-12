@@ -1,9 +1,4 @@
-//
-//  DivisionModel.swift
-//  MECA
-//
-//  Created by Mohammed Sulaiman on 25/03/21.
-//
+
 
 import Foundation
 public class DivisionModel {

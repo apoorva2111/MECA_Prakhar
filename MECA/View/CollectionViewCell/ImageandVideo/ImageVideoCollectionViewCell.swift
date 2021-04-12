@@ -1,9 +1,3 @@
-//
-//  ImageVideoCollectionViewCell.swift
-//  MECA
-//
-//  Created by Mohammed Sulaiman on 21/03/21.
-//
 
 import UIKit
 

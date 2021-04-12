@@ -1,9 +1,4 @@
-//
-//  MEBITViewController.swift
-//  MECA
-//
-//  Created by Mohammed Sulaiman on 20/03/21.
-//
+
 
 import UIKit
 
@@ -125,17 +120,18 @@ extension MEBITViewController:UITableViewDelegate,UITableViewDataSource{
         viewModel.getBaseTableHeaderViewFor(section, tableView: MEBITTableView)
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-                    let story = UIStoryboard(name: "Category", bundle:nil)
-                       let vc = story.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-                       vc.modalPresentationStyle = .fullScreen
-                        vc.navValue = "1"
-                       self.present(vc, animated: true)
-           
-        }
-        else if indexPath.row == 1 {
-            
-        }
+        
+        let story = UIStoryboard(name: "Category", bundle:nil)
+        let vc = story.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        // vc.modalPresentationStyle = .fullScree
+        let obj = viewModel.arrMEBITFeed[indexPath.row]
+        vc.eventID = String(obj.id ?? 0)
+        vc.isEvent =  obj.whatsnew_type == "event" ? true : false
+        vc.navValue = "1"
+        // self.present(vc, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
     }
 }
 
