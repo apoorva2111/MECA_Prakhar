@@ -3,7 +3,9 @@
 import Foundation
 
 // API Base URLS
-let BaseURL : String = "https://mecacampus.com/API/"
+//let BaseURL : String = "https://mecacampus.com/API/"
+let BaseURL : String = "http://67.205.159.216:8001/Toyota/API/"
+
 
 // End Points
 let login = "user/login"

