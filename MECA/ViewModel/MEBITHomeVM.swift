@@ -61,7 +61,8 @@ class MEBITHomeVM: BaseTableViewVM {
         GlobalObj.displayLoader(true, show: true)
         APIClient.webserviceForMEBITFeed { (result) in
             if let respCode = result.resp_code{
-             
+                GlobalObj.displayLoader(true, show: false)
+
                 if respCode == 200{
                     if let arrDate = result.data{
                         for objData in arrDate {
@@ -69,6 +70,9 @@ class MEBITHomeVM: BaseTableViewVM {
                         }
                     }
                     (self.actualController as! MEBITViewController).MEBITTableView.reloadData()
+                }else{
+                    GlobalObj.displayLoader(true, show: false)
+
                 }
             }
             

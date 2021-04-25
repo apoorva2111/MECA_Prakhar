@@ -17,7 +17,7 @@ class VideoLinkVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var videoLinkArr1 = [[String:Any]]()
     var docLinkArr1 = [[String:Any]]()
     var viewModel: VideoLinkVM!
-    
+
     
     
     override func viewDidLoad() {
@@ -35,10 +35,10 @@ class VideoLinkVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         else {
             //VideoLink
         }
-
+     
         // Do any additional setup after loading the view.
     }
-    
+
     @IBAction func DismissBtnAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }

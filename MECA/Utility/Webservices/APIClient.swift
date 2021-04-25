@@ -20,6 +20,7 @@ class APIClient {
                 
                 guard let dataResponse = response.data else {
                     print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
                     return }
                 
                 do{
@@ -27,6 +28,7 @@ class APIClient {
 //                    completion(objRes)
                     switch response.result{
                                    case .success( _):
+                                    
                                            completion(objRes)
                                    case .failure(let error):
                                        print(error)
@@ -39,6 +41,7 @@ class APIClient {
 
                 }
             }
+
 }
    //Registration
     static func webServiceForSignUp(params:[String:Any],completion:@escaping(Any) -> Void){
@@ -132,6 +135,8 @@ class APIClient {
                 
                 guard let dataResponse = response.data else {
                     print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
                     return }
                 
                 do{
@@ -171,6 +176,8 @@ class APIClient {
                 
                 guard let dataResponse = response.data else {
                     print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
                     return }
                 
                 do{
@@ -208,6 +215,8 @@ class APIClient {
                 
                 guard let dataResponse = response.data else {
                     print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
                     return }
                 
                 do{
@@ -246,6 +255,8 @@ class APIClient {
                 
                 guard let dataResponse = response.data else {
                     print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
                     return }
                 
                 do{
@@ -266,14 +277,14 @@ class APIClient {
     }
     
     //New Car
-    static func webserviceForNewCarSale(params:[String:Any],completion:@escaping(NewCarKaizenModel) -> Void){
+    static func webserviceForNewCarSale(limit: String,page: String, params:[String:Any],completion:@escaping(NewCarKaizenModel) -> Void){
            if !NetworkReachabilityManager()!.isReachable{
             GlobalObj.displayLoader(true, show: false)
 
                      GlobalObj.showNetworkAlert()
                      return
            }
-           let url = BaseURL + kaizenList
+           let url = BaseURL + kaizenList + limit + "/" + page
           
            var headers = HTTPHeaders()
 
@@ -285,6 +296,8 @@ class APIClient {
                 print(response)
                    guard let dataResponse = response.data else {
                        print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
                        return }
 
                    do{
@@ -325,6 +338,8 @@ class APIClient {
                 
                 guard let dataResponse = response.data else {
                     print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
                     return }
                 
                 do{
@@ -363,6 +378,8 @@ class APIClient {
                 
                 guard let dataResponse = response.data else {
                     print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
                     return }
                 
                 do{
@@ -385,14 +402,14 @@ class APIClient {
     
     
    // CategoryList Bottom
-    static func webserviceForCategory(params:[String:Any],completion:@escaping(CatListModel) -> Void){
+    static func webserviceForCategory(limit:String,page:String,params:[String:Any],completion:@escaping(CatListModel) -> Void){
            if !NetworkReachabilityManager()!.isReachable{
             GlobalObj.displayLoader(true, show: false)
 
                      GlobalObj.showNetworkAlert()
                      return
            }
-           let url = BaseURL + eventList
+           let url = BaseURL + eventList + limit + "/" + page
           
            var headers = HTTPHeaders()
 
@@ -404,6 +421,8 @@ class APIClient {
                 print(response)
                    guard let dataResponse = response.data else {
                        print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
                        return }
 
                    do{

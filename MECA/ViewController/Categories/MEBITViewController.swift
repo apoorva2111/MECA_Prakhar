@@ -12,7 +12,8 @@ class MEBITViewController: UIViewController {
     @IBOutlet weak var footerView: OrangeFooterView!
     var headerImageValue = ""
     var viewModel : MEBITHomeVM!
-    
+    private var pullControl = UIRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = MEBITHomeVM.init(controller: self)
@@ -23,7 +24,20 @@ class MEBITViewController: UIViewController {
         setupUI()
         viewModel.callMEBITFeedWebservice()
         // Do any additional setup after loading the view.
+        pullControl.tintColor = UIColor.gray
+        pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            MEBITTableView.refreshControl = pullControl
+        } else {
+            MEBITTableView.addSubview(pullControl)
+        }
     }
+    @objc private func refreshListData(_ sender: Any) {
+        viewModel.callMEBITFeedWebservice()
+        self.pullControl.endRefreshing()
+
+        
+        }
     func setupUI() {
         if headerImageValue == "0" {
             headerImage.image = UIImage(named: "MEBIT1")

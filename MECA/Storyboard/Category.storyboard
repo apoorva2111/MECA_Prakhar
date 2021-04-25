@@ -2361,7 +2361,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="search" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wd2-X4-gsp">
                                                         <rect key="frame" x="30" y="0.0" width="352" height="40"/>
                                                         <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2479,6 +2479,7 @@
                     </view>
                     <connections>
                         <outlet property="lblHeader" destination="7tT-kJ-afj" id="jjW-an-yKt"/>
+                        <outlet property="txtSearch" destination="Wd2-X4-gsp" id="Se8-Mi-yDg"/>
                         <outlet property="varNewCarSaleTblView" destination="CVL-9w-l0D" id="rVM-vh-8uZ"/>
                     </connections>
                 </viewController>
@@ -2600,7 +2601,7 @@
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Y7g-Lb-IgL">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.85882352941176465" green="0.85882352941176465" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="O9t-g0-4jo"/>
                                                 </constraints>

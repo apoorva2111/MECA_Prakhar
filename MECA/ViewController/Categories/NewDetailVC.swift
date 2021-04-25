@@ -15,7 +15,8 @@ class NewDetailVC: UIViewController {
     var eventID = ""
     @IBOutlet weak var viewImgPreview: UIView!
     @IBOutlet weak var imgPreview: UIImageView!
-    
+    private var pullControl = UIRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -31,6 +32,14 @@ class NewDetailVC: UIViewController {
         tblDetailView.register(DetailCommentLikeTVCell.nib(), forCellReuseIdentifier: viewModel.identifierCommentLikeCell)
 
         viewImgPreview.isHidden = true
+       
+        pullControl.tintColor = UIColor.gray
+        pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            tblDetailView.refreshControl = pullControl
+        } else {
+            tblDetailView.addSubview(pullControl)
+        }
         
         if isEvent{
             viewModel.callEventInfoWebservice()
@@ -42,6 +51,20 @@ class NewDetailVC: UIViewController {
             }
         }
         
+    }
+    @objc private func refreshListData(_ sender: Any) {
+        
+        if isEvent{
+            viewModel.callEventInfoWebservice()
+        }else{
+            viewModel.callKaizenInfoWebservice { (result) in
+                if result{
+                    //self.tblDetailView.reloadData()
+                }
+            }
+        }
+        self.pullControl.endRefreshing() // You can stop after API Call
+
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
         {

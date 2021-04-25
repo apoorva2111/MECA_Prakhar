@@ -10,7 +10,7 @@ import SDWebImage
 
 class MEBITEventVC: UIViewController{
     
-
+    
     
     @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var headerView: RCustomView!
@@ -25,13 +25,20 @@ class MEBITEventVC: UIViewController{
     var categoryArr = [Event_MEBITCat]()
     var arrAllData = [Data_CatList]()
     
+    private var pullControl = UIRefreshControl()
+
     var catID = ""
     var allEvent = ""
+    var updatedText = ""
+
+    var currentPage : Int = 1
+    var checkPagination = ""
     
+    var isLoadingList : Bool = false
     
     
     var index = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -42,8 +49,24 @@ class MEBITEventVC: UIViewController{
         MebitTblView.delegate = self
         MebitTblView.dataSource = self
         callWebserviceEventCategory()
-        CallWebserviceEventList()
+        checkPagination = "get"
+        CallWebserviceEventList(page: String(currentPage))
+        
+        pullControl.tintColor = UIColor.gray
+        pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            MebitTblView.refreshControl = pullControl
+        } else {
+            MebitTblView.addSubview(pullControl)
+        }
     }
+    @objc private func refreshListData(_ sender: Any) {
+        checkPagination = "get"
+
+            self.CallWebserviceEventList(page: String(currentPage))
+        self.pullControl.endRefreshing() // You can stop after API Call
+
+        }
     func setupUI() {
         filterationBtnRef.layer.cornerRadius = 8
         upcomingBtnRef.layer.cornerRadius = 12
@@ -51,10 +74,10 @@ class MEBITEventVC: UIViewController{
         pastBtnRef.layer.cornerRadius = 12
         EventsBtnRef.backgroundColor = #colorLiteral(red: 0.9617725015, green: 0.4417187572, blue: 0.2027035654, alpha: 1)
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-         layout.itemSize = CGSize(width: 90, height: 35)
-         layout.minimumInteritemSpacing = 0
-         layout.minimumLineSpacing = 0
-         CategoryCollectionView!.collectionViewLayout = layout
+        layout.itemSize = CGSize(width: 90, height: 35)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        CategoryCollectionView!.collectionViewLayout = layout
         layout.scrollDirection = .horizontal
     }
     
@@ -70,8 +93,9 @@ class MEBITEventVC: UIViewController{
         pastBtnRef.backgroundColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
         upcomingBtnRef.backgroundColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
         allEvent = ""
-        CallWebserviceEventList()
-
+        checkPagination = "get"
+        CallWebserviceEventList(page: String(currentPage))
+        
         
     }
     @IBAction func upcomingBtnAction(_ sender: UIButton) {
@@ -79,8 +103,9 @@ class MEBITEventVC: UIViewController{
         pastBtnRef.backgroundColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
         upcomingBtnRef.backgroundColor = #colorLiteral(red: 0.9617725015, green: 0.4417187572, blue: 0.2027035654, alpha: 1)
         allEvent = "2"
-        CallWebserviceEventList()
-
+        checkPagination = "get"
+        CallWebserviceEventList(page: String(currentPage))
+        
     }
     
     @IBAction func pastBtnAction(_ sender: UIButton) {
@@ -88,18 +113,19 @@ class MEBITEventVC: UIViewController{
         pastBtnRef.backgroundColor = #colorLiteral(red: 0.9617725015, green: 0.4417187572, blue: 0.2027035654, alpha: 1)
         upcomingBtnRef.backgroundColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
         allEvent = "1"
-        CallWebserviceEventList()
-
+        checkPagination = "get"
+        CallWebserviceEventList(page: String(currentPage))
+        
     }
     
     func callWebserviceEventCategory() {
         APIClient.webserviceForCategoryList { (result) in
             
             if let respCode = result.resp_code{
-             
+                
                 if respCode == 200{
                     GlobalObj.displayLoader(true, show: false)
-
+                    
                     if let arrDate = result.data{
                         if self.categoryArr.count>0{
                             self.categoryArr.removeAll()
@@ -111,32 +137,37 @@ class MEBITEventVC: UIViewController{
                     self.CategoryCollectionView.reloadData()
                 }else{
                     GlobalObj.displayLoader(true, show: false)
-
+                    
                 }
             }
             
             GlobalObj.displayLoader(true, show: false)
-
+            
         }
         
     }
-    func CallWebserviceEventList() {
+    func CallWebserviceEventList(page:String) {
         GlobalObj.displayLoader(true, show: true)
-
+        
         let param : [String:Any] = ["status":allEvent,
-                                    "category":catID]
+                                    "category":catID,
+                                    "keyword":updatedText]
         print(param)
-        APIClient.webserviceForCategory(params: param) { (result) in
+        APIClient.webserviceForCategory(limit: "10",page: page, params: param) { (result) in
             
             if let respCode = result.resp_code{
-             
+                
                 if respCode == 200{
                     GlobalObj.displayLoader(true, show: false)
-
+                    if self.checkPagination == "get"{
+                        self.arrAllData.removeAll()
+                    }
                     if let arrDate = result.data{
-                        if self.arrAllData.count>0{
-                            self.arrAllData.removeAll()
+                        print(arrDate)
+                        if arrDate.count == 0{
+                            return
                         }
+                        
                         for obj in arrDate {
                             self.arrAllData.append(obj)
                         }
@@ -145,19 +176,16 @@ class MEBITEventVC: UIViewController{
                     self.MebitTblView.reloadData()
                 }else{
                     GlobalObj.displayLoader(true, show: false)
-
+                    
                 }
             }
             
             GlobalObj.displayLoader(true, show: false)
-
-        }
+            
         }
     }
+}
     
-    
-    
-
 extension MEBITEventVC :  UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categoryArr.count + 1
@@ -195,7 +223,8 @@ extension MEBITEventVC :  UICollectionViewDelegate, UICollectionViewDataSource,U
             
             
         }
-        CallWebserviceEventList()
+        checkPagination = "get"
+        CallWebserviceEventList(page: String(currentPage))
         CategoryCollectionView.reloadData()
 
         
@@ -241,4 +270,22 @@ extension MEBITEventVC : UITableViewDelegate,UITableViewDataSource {
         return 280
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+            if indexPath == lastVisibleIndexPath {
+                if indexPath.row == self.arrAllData.count-1{
+                    self.checkPagination = "pagination"
+                    currentPage += 1
+                    GlobalObj.displayLoader(true, show: true)
+                    run(after: 2) {
+                        self.CallWebserviceEventList(page: String(self.currentPage))
+                    }
+                }
+            }
+    }
+}
+    func run(after wait: TimeInterval, closure: @escaping () -> Void) {
+        let queue = DispatchQueue.main
+        queue.asyncAfter(deadline: DispatchTime.now() + wait, execute: closure)
+    }
 }

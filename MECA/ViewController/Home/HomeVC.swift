@@ -6,7 +6,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var viewTabbar: FooterTabView!
     var viewModel : HomeVM!
-    
+    private var pullControl = UIRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,13 +19,26 @@ class HomeVC: UIViewController {
         tblView.dataSource = self
         viewTabbar.footerTabViewDelegate = self
         viewTabbar.imgHome.image = UIImage.init(named: "Home_active")
+        pullControl.tintColor = UIColor.gray
+        pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            tblView.refreshControl = pullControl
+        } else {
+            tblView.addSubview(pullControl)
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated )
         viewModel.callHomeFeedWebservice()
 
     }
-    
+    @objc private func refreshListData(_ sender: Any) {
+
+        viewModel.callHomeFeedWebservice()
+        self.pullControl.endRefreshing() // You can stop after API Call
+
+
+        }
     @IBAction func btnPlusAction(_ sender: UIButton) {
         
         let vc = FlowController().instantiateViewController(identifier: "PlusSelectCategoryVC", storyBoard: "Home")
