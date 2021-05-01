@@ -32,6 +32,7 @@ class MEBITViewController: UIViewController {
             MEBITTableView.addSubview(pullControl)
         }
     }
+    
     @objc private func refreshListData(_ sender: Any) {
         viewModel.callMEBITFeedWebservice()
         self.pullControl.endRefreshing()
@@ -66,6 +67,11 @@ class MEBITViewController: UIViewController {
         
     }
     
+    
+    
+}
+//MARK:- UIButton Action
+extension  MEBITViewController{
     @IBAction func onClickDismiss(_ sender: UIButton) {
         let mainVC = FlowController().instantiateViewController(identifier: "NavCategory", storyBoard: "Category")
         let appDel = UIApplication.shared.delegate as! AppDelegate
@@ -80,8 +86,8 @@ class MEBITViewController: UIViewController {
         appDel.window?.makeKeyAndVisible()
         
     }
-    
 }
+//MARK:- Footer view
 extension  MEBITViewController : OrangeFooterViewDelegate{
    
 

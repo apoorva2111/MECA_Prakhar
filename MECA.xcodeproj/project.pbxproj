@@ -82,6 +82,7 @@
 		E32F3BF8262AFCDC0000D92A /* MEBITCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F3BF6262AFCDC0000D92A /* MEBITCollectionViewCell.swift */; };
 		E33F879D260B968800F8A424 /* DistributorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33F879C260B968800F8A424 /* DistributorModel.swift */; };
 		E373B53626115B3D00BEC2B5 /* CreateKaizenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E373B53526115B3D00BEC2B5 /* CreateKaizenVM.swift */; };
+		E374598F2639F2B10021F51D /* AddNewsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374598E2639F2B10021F51D /* AddNewsVM.swift */; };
 		E375EA22262EABD900646A0A /* NewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA21262EABD900646A0A /* NewDetailVC.swift */; };
 		E375EA27262EABEE00646A0A /* NewDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA26262EABEE00646A0A /* NewDetailVM.swift */; };
 		E375EA2E262EADAE00646A0A /* DetailCoverImageTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA2C262EADAE00646A0A /* DetailCoverImageTVCell.swift */; };
@@ -257,6 +258,7 @@
 		E32F3BF6262AFCDC0000D92A /* MEBITCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MEBITCollectionViewCell.swift; sourceTree = "<group>"; };
 		E33F879C260B968800F8A424 /* DistributorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistributorModel.swift; sourceTree = "<group>"; };
 		E373B53526115B3D00BEC2B5 /* CreateKaizenVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateKaizenVM.swift; sourceTree = "<group>"; };
+		E374598E2639F2B10021F51D /* AddNewsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsVM.swift; sourceTree = "<group>"; };
 		E375EA21262EABD900646A0A /* NewDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailVC.swift; sourceTree = "<group>"; };
 		E375EA26262EABEE00646A0A /* NewDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailVM.swift; sourceTree = "<group>"; };
 		E375EA2C262EADAE00646A0A /* DetailCoverImageTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoverImageTVCell.swift; sourceTree = "<group>"; };
@@ -651,6 +653,7 @@
 				5C021C5B26102B4900759B96 /* KaizenVM.swift */,
 				E3F7C5CF2614560C0018C377 /* NewCarSalesVM.swift */,
 				E375EA26262EABEE00646A0A /* NewDetailVM.swift */,
+				E374598E2639F2B10021F51D /* AddNewsVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -993,7 +996,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
-				4D261EA06DF1A7350B6D902C /* Build Project Frameworks */,
+				C73F3ADAB1732A7CBE6D902C /* [CP] Build Pods Frameworks */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
@@ -1144,7 +1147,7 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 
-	4D261EA06DF1A7350B6D902C /* Build Project Frameworks */ = {
+	C73F3ADAB1732A7CBE6D902C /* [CP] Build Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1153,7 +1156,7 @@
 			);
 			inputPaths = (
 			);
-			name = "Build Project Frameworks";
+			name = "[CP] Build Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -1162,130 +1165,8 @@
 			shellPath = /bin/sh;
 			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
 
-\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/build.file\" false";			
+\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Asset.xcasset\" false";			
 		};
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
 	
 
 	
@@ -1457,6 +1338,7 @@
 				E32AED3B260754A100AEAB6F /* Extension.swift in Sources */,
 				E3254458261098910083BDD9 /* Data_Event.swift in Sources */,
 				E39467862614EA3400B9503B /* DataMedbiList.swift in Sources */,
+				E374598F2639F2B10021F51D /* AddNewsVM.swift in Sources */,
 				E32F3BD7262AF24B0000D92A /* VideoLinkTableViewCell.swift in Sources */,
 				E30751AF260F3908000EB1EA /* Data_Home.swift in Sources */,
 				5C0314A32605119300406382 /* AddNewsViewController.swift in Sources */,
@@ -1873,66 +1755,6 @@
 
 		
 			/* Begin PBXBuildRule section */
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
 
 
 			

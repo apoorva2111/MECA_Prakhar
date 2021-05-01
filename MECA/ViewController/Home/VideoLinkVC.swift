@@ -5,7 +5,7 @@
 
 import UIKit
 
-class VideoLinkVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class VideoLinkVC: UIViewController {
    
     
 
@@ -42,6 +42,12 @@ class VideoLinkVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     @IBAction func DismissBtnAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+   
+
+}
+//MARK:- UITableview Delegate
+extension VideoLinkVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if videoLinkValue == "0" {
             return docLinkArr1.count
@@ -58,5 +64,4 @@ class VideoLinkVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         viewModel.getHeightForRowAt(indexPath, tableView: tblView)
     }
-
 }

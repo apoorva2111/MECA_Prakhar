@@ -26,15 +26,6 @@ class MEBITHomeVM: BaseTableViewVM {
     }
     override func didSelectRowAt(_ indexPath: IndexPath, tableView: UITableView) {
         
-//        if indexPath.row == 0 {
-//            
-//            let vc = FlowController().instantiateViewController(identifier: "DetailViewController", storyBoard: "Category")
-//            vc.navigationController?.pushViewController(vc, animated: true)
-//            
-//        }
-//        else if indexPath.row == 1 {
-//            
-//        }
     }
     override func getHeightForRowAt(_ indexPath: IndexPath, tableView: UITableView) -> CGFloat {
         return 50

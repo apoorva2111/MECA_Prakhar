@@ -12,6 +12,9 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+       setView()
+    }
+    func setView() {
         viewModel = HomeVM.init(controller: self)
         
         tblView.register(HomeTVCell.nib(), forCellReuseIdentifier: "HomeTVCell")
@@ -39,13 +42,18 @@ class HomeVC: UIViewController {
 
 
         }
+   
+    
+}
+//MARK:- UIButton Action
+extension HomeVC{
     @IBAction func btnPlusAction(_ sender: UIButton) {
         
         let vc = FlowController().instantiateViewController(identifier: "PlusSelectCategoryVC", storyBoard: "Home")
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
 }
+
 //MARK:- Footerview Delegate
 extension HomeVC: FooterTabViewDelegate{
     func footerBarAction(strType: String) {
@@ -105,9 +113,6 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectRowAt(indexPath, tableView: tblView)
-        
-        
-        
-        
+   
     }
 }

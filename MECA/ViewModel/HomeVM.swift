@@ -54,12 +54,13 @@ class HomeVM: BaseTableViewVM {
             return headerView
 
 }
+    
     func callHomeFeedWebservice() {
         GlobalObj.displayLoader(true, show: true)
         APIClient.wevserviceForHomeFeed { (result) in
 
             if let respCode = result.resp_code{
-             
+                GlobalObj.displayLoader(true, show: false)
                 if respCode == 200{
                     if let arrDate = result.data{
                         if self.arrHomeFeed.count>0{

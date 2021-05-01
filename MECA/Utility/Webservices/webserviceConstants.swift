@@ -9,7 +9,7 @@ let BaseURL : String = "https://mecacampus.com/API/"
 
 // End Points
 let login = "user/login"
-let register = "user/register"
+let register = "mobile/user/register"
 let distributor = "user/distributor/list"
 let divisionList = "user/division/list/"
 let homeFeed = "mobile/user/home/meca"
