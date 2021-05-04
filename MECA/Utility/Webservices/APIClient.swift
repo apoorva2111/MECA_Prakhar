@@ -116,7 +116,6 @@ class APIClient {
 
     //Home Feed
     
-   // static func wevserviceForHomeFeed(completion:@escaping(HomeModel) -> Void){
     static func wevserviceForHomeFeed(completion:@escaping(HomeModel) -> Void){
         if !NetworkReachabilityManager()!.isReachable{
             GlobalObj.displayLoader(true, show: false)
@@ -375,7 +374,7 @@ class APIClient {
         // headers = ["Authorization":"Bearer \(accessToken ?? "")"]
         AF.request(url, method: .get, headers: [:])
             .responseJSON { response in
-                
+                print(response)
                 guard let dataResponse = response.data else {
                     print("Response Error")
                     GlobalObj.displayLoader(true, show: false)
@@ -442,6 +441,142 @@ class APIClient {
                    }
                }
        }
+    
+    //GRLinkList
+    
+    static func webserviceForGRLinkList(limit: String,page: String, params:[String:Any],completion:@escaping(LinkModel) -> Void){
+           if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                     GlobalObj.showNetworkAlert()
+                     return
+           }
+           let url = BaseURL + GRlinks + limit + "/" + page
+          
+           var headers = HTTPHeaders()
+
+           let accessToken = userDef.string(forKey: UserDefaultKey.token)
+            headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+//           AF.request(url, method: .post, headers: headers)
+        AF.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: headers)
+               .responseJSON { response in
+                print(response)
+                   guard let dataResponse = response.data else {
+                       print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
+                       return }
+
+                   do{
+                       let objRes: LinkModel = try JSONDecoder().decode(LinkModel.self, from: dataResponse)
+                       switch response.result{
+                                      case .success( _):
+                                              completion(objRes)
+                                      case .failure(let error):
+                                          print(error)
+                                        GlobalObj.displayLoader(true, show: false)
+
+                                      }
+                   }catch let error{
+                       print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                   }
+               }
+       }
+    
+    
+    //GRHomeList
+    
+    static func webserviceForGRHomeList(limit: String,page: String,Type:String,params:[String:Any],isFromGRHome:Bool, completion:@escaping(GRHomeLisModel) -> Void){
+           if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                     GlobalObj.showNetworkAlert()
+                     return
+           }
+        var url = ""
+        if isFromGRHome {
+             url = BaseURL + GRHomeList + limit + "/" + page
+        }else{
+             url = BaseURL + GRHomeList + limit + "/" + page + "/" +  Type
+        }
+        
+           
+          
+           var headers = HTTPHeaders()
+
+           let accessToken = userDef.string(forKey: UserDefaultKey.token)
+            headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+//           AF.request(url, method: .post, headers: headers)
+        AF.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: headers)
+               .responseJSON { response in
+                print(response)
+                   guard let dataResponse = response.data else {
+                       print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
+                       return }
+
+                   do{
+                       let objRes: GRHomeLisModel = try JSONDecoder().decode(GRHomeLisModel.self, from: dataResponse)
+                       switch response.result{
+                                      case .success( _):
+                                              completion(objRes)
+                                      case .failure(let error):
+                                          print(error)
+                                        GlobalObj.displayLoader(true, show: false)
+
+                                      }
+                   }catch let error{
+                       print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                   }
+               }
+       }
+  
+    //GR Detail
+    
+    static func wevserviceForGRDetailFeed(feedId:String,completion:@escaping(GRDetailModel) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        let url = BaseURL + GRDetail + feedId
+       
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                print(response)
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
+                    return }
+                
+                do{
+                    let objRes: GRDetailModel = try JSONDecoder().decode(GRDetailModel.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
+                                   }
+                }catch let error{
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                }
+            }
+    }
 }
 
 

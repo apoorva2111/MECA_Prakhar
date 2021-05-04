@@ -13,6 +13,7 @@ class NewDetailVC: UIViewController {
     var viewModel : NewDetailVM!
     var isEvent = false
     var eventID = ""
+    var isFromGR = false
     @IBOutlet weak var viewImgPreview: UIView!
     @IBOutlet weak var imgPreview: UIImageView!
     private var pullControl = UIRefreshControl()
@@ -40,8 +41,9 @@ class NewDetailVC: UIViewController {
         } else {
             tblDetailView.addSubview(pullControl)
         }
-        
-        if isEvent{
+        if isFromGR{
+            viewModel.callGRDetailWebservice()
+        }else if isEvent{
             viewModel.callEventInfoWebservice()
         }else{
             viewModel.callKaizenInfoWebservice { (result) in

@@ -133,7 +133,36 @@ class DetailImagesAndVideosCell: UITableViewCell {
                 imagesCollectionVIew.reloadData()
             }
         }
+    func setGRData(grData:GRDetail_Data){
+            viewSurveyLink.isHidden = true
 
+            if grData.event_videos?.count == 0{
+                viewVIdeos.isHidden = true
+                
+            }else{
+                self.videosCollectionView.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+                setUpUI()
+                viewVIdeos.isHidden = false
+                if arrEventVideos.count>0{
+                    arrEventVideos.removeAll()
+                }
+                arrEventVideos = grData.event_videos!
+                videosCollectionView.reloadData()
+                
+            }
+            if grData.event_images?.count == 0{
+                viewImages.isHidden = true
+            }else{
+                self.imagesCollectionVIew.register(UINib(nibName: "ImageVideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageVideoCollectionViewCell")
+                setUpUI()
+                viewImages.isHidden = false
+                if arrEventImg.count>0{
+                    arrEventImg.removeAll()
+                }
+                arrEventImg = grData.event_images!
+                imagesCollectionVIew.reloadData()
+            }
+        }
     }
 
 extension DetailImagesAndVideosCell:  UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{

@@ -8,19 +8,33 @@ class MEBITHomeVM: BaseTableViewVM {
    
     let identifierItemCell = "HomeTVCell"
     var arrMEBITFeed:[MEBITDataModel] = []
-
+    var arrGRList = [GRHomeLis_Data]()
+    
     
     override init(controller: UIViewController?) {
         super.init(controller: controller)
         baseHeaderTableViewHeight = 70
     }
     override func getNumbersOfRows(in section: Int) -> Int {
-        return arrMEBITFeed.count
+        if GlobalValue.tabCategory == "MEBIT"{
+            return arrMEBITFeed.count
+        }else if GlobalValue.tabCategory == "GR"{
+            return arrGRList.count
+        }
+        return 2
     }
     override func getCellForRowAt(_ indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifierItemCell, for: indexPath) as! HomeTVCell
-        let objFeed = arrMEBITFeed[indexPath.row]
-        cell.setCell2(feed: objFeed)
+        if GlobalValue.tabCategory == "MEBIT"{
+            let objFeed = arrMEBITFeed[indexPath.row]
+            cell.setCell2(feed: objFeed)
+        
+        }else if GlobalValue.tabCategory == "GR"{
+            let objFeed = arrGRList[indexPath.row]
+            cell.setCellGR(feed: objFeed)
+        }
+        
+        
         return cell
 
     }
@@ -58,6 +72,38 @@ class MEBITHomeVM: BaseTableViewVM {
                     if let arrDate = result.data{
                         for objData in arrDate {
                             self.arrMEBITFeed.append(objData)
+                        }
+                    }
+                    (self.actualController as! MEBITViewController).MEBITTableView.reloadData()
+                }else{
+                    GlobalObj.displayLoader(true, show: false)
+
+                }
+            }
+            
+            GlobalObj.displayLoader(true, show: false)
+
+        }
+    }
+    
+    func callWebserviceForGRHome(){
+        GlobalObj.displayLoader(true, show: true)
+        APIClient.webserviceForGRHomeList(limit: "10", page: String((self.actualController as! MEBITViewController).currentPage), Type: "", params: [:], isFromGRHome: true) { (result) in
+            if let respCode = result.resp_code{
+                GlobalObj.displayLoader(true, show: false)
+                if respCode == 200{
+                    if let arrDate = result.data{
+                        if (self.actualController as! MEBITViewController).checkPagination == "get"{
+                            self.arrGRList.removeAll()
+                        }
+                        for objData in arrDate {
+                            self.arrGRList.append(objData)
+                        }
+                        if self.arrGRList.count > 0{
+                            (self.actualController as! MEBITViewController).MEBITTableView.isHidden = false
+                        }else{
+                            (self.actualController as! MEBITViewController).MEBITTableView.isHidden = true
+
                         }
                     }
                     (self.actualController as! MEBITViewController).MEBITTableView.reloadData()

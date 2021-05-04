@@ -21,4 +21,7 @@ let kaizenList = "mobile/user/kaizen/list/"
 let kaizenInfoForHome = "mobile/user/kaizen/"
 let eventList = "mobile/user/event/list/"
 let categories = "mobile/user/module/categories"
+let GRlinks =  "mobile/user/gr/links/"
+let GRHomeList =  "mobile/user/gr/list/"
+let GRDetail = "/mobile/user/gr/"
 

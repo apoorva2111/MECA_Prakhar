@@ -15,10 +15,18 @@ class DocumentContentCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        txtPresentation.layer.borderWidth = 1
-        txtPresentation.layer.borderColor = #colorLiteral(red: 0.9803921569, green: 0.6235294118, blue: 0.2039215686, alpha: 1)
-        txtPresentation.layer.cornerRadius = 4
+        if GlobalValue.tabCategory == "GR"{
+            txtPresentation.layer.borderWidth = 1
+            txtPresentation.layer.borderColor = #colorLiteral(red: 1, green: 0.1473276019, blue: 0, alpha: 1)
+            txtPresentation.layer.cornerRadius = 4
+            btnDownloadOutlet.setImage(#imageLiteral(resourceName: "download_document_Red"), for: .normal)
+        }else{
+            txtPresentation.layer.borderWidth = 1
+            txtPresentation.layer.borderColor = #colorLiteral(red: 0.9803921569, green: 0.6235294118, blue: 0.2039215686, alpha: 1)
+            txtPresentation.layer.cornerRadius = 4
+            btnDownloadOutlet.setImage(#imageLiteral(resourceName: "download document"), for: .normal)
 
+        }
     }
     static func nib() -> UINib {
         return UINib(nibName: "DocumentContentCell", bundle: nil)

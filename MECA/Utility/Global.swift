@@ -164,6 +164,11 @@ class Global {
         return str
     }
     
+    func run(after wait: TimeInterval, closure: @escaping () -> Void) {
+        let queue = DispatchQueue.main
+        queue.asyncAfter(deadline: DispatchTime.now() + wait, execute: closure)
+    }
+    
     class func getDateFormate() -> DateFormatter {
           let dateFormatter = DateFormatter()
           dateFormatter.dateFormat = "dd MMM yyyy"

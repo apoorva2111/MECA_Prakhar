@@ -31,6 +31,7 @@ class CategoriesVM: BaseCollectionViewVM {
             let story = UIStoryboard(name: "Category", bundle:nil)
                        let vc = story.instantiateViewController(withIdentifier: "MEBITViewController") as! MEBITViewController
             vc.headerImageValue  = "1"
+            GlobalValue.tabCategory = "MEBIT"
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 2{
@@ -55,6 +56,7 @@ class CategoriesVM: BaseCollectionViewVM {
             let story = UIStoryboard(name: "Category", bundle:nil)
                        let vc = story.instantiateViewController(withIdentifier: "MEBITViewController") as! MEBITViewController
             vc.headerImageValue  = "5"
+            GlobalValue.tabCategory = "GR"
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
         }
         

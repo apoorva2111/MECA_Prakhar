@@ -54,4 +54,16 @@ class HomeTVCell: UITableViewCell {
             imgFeed.sd_setImage(with: URL(string: imgUrl), completed: nil)
         }
     }
+    
+    func setCellGR(feed:GRHomeLis_Data) {
+        lblTitle.text = feed.title
+        lblEventName.text = ""
+        let writerName = feed.writer_name ?? ""
+        lblWritternBy.text = "Written by: \(writerName)"
+        if feed.cover_image != "" {
+            let imgUrl = BaseURL + feed.cover_image!
+            imgFeed.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            imgFeed.sd_setImage(with: URL(string: imgUrl), completed: nil)
+        }
+    }
 }

@@ -29,7 +29,6 @@ class NewCarSalesViewController: UIViewController {
         varNewCarSaleTblView.register(UINib.init(nibName: "DistributorListTVCell", bundle: nil), forCellReuseIdentifier: "DistributorListTVCell")
         varNewCarSaleTblView.delegate = self
         varNewCarSaleTblView.dataSource = self
-        //GlobalObj.displayLoader(true, show: true)
         if strComeFrom == "Distributor"{
            
             if type == 1{
@@ -157,7 +156,7 @@ extension NewCarSalesViewController:UITableViewDelegate,UITableViewDataSource{
                     if self.updatedText == ""{
                     GlobalObj.displayLoader(true, show: true)
                     }
-                    run(after: 2) {
+                    GlobalObj.run(after: 2) {
                         if self.strComeFrom == "Distributor"{
 
                             self.callNewCarSaleWebservice(adminId: 0, type: self.type, keyword: self.updatedText, page: String(self.currentPage))
@@ -171,10 +170,7 @@ extension NewCarSalesViewController:UITableViewDelegate,UITableViewDataSource{
             }
     }
 }
-    func run(after wait: TimeInterval, closure: @escaping () -> Void) {
-        let queue = DispatchQueue.main
-        queue.asyncAfter(deadline: DispatchTime.now() + wait, execute: closure)
-    }
+   
     
     func callNewCarSaleWebservice(adminId: Int, type: Int, keyword:String, page:String) {
 

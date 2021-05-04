@@ -205,4 +205,78 @@ class DetailCoverImageTVCell: UITableViewCell {
 
         
     }
+    
+    func setGRData(grData:GRDetail_Data){
+        print(grData)
+        lblTitle.text = grData.title
+        let imgURL = BaseURL + grData.cover_image!
+        imgCover.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        imgCover.sd_setImage(with: URL(string:imgURL), completed: nil)
+        
+        if grData.start_date != ""{
+            
+            let startDate = NSString.convertFormatOfDate(date: grData.start_date ?? "", originalFormat: "yyyy-mm-dd", destinationFormat: "dd MMMM yyyy")
+            lblStartDate.text = startDate
+            
+            
+            if let weekday = UtilesSwift.shared.getDayOfWeek(startDate!) {
+                print(weekday)
+                switch weekday {
+                case 1:
+                  lblStartDay.text = "Sunday"
+                case 2:
+                    lblStartDay.text = "Monday"
+                case 3:
+                    lblStartDay.text = "Tuesday"
+                case 4:
+                    lblStartDay.text = "Wednesday"
+                    
+                case 5:
+                    lblStartDay.text = "Thursday"
+                case 6:
+                    lblStartDay.text = "Friday"
+                case 7:
+                    lblStartDay.text = "Saturday"
+                default:
+                    print("Error fetching days")
+                ///  return "Day"
+                }
+            } else {
+                print("bad input")
+            }
+        }
+       
+        if grData.end_date != ""{
+            let endDate = NSString.convertFormatOfDate(date: grData.end_date ?? "", originalFormat: "yyyy-mm-dd", destinationFormat: "dd MMMM yyyy")
+                lblEndDate.text = endDate
+            
+            if let weekday = UtilesSwift.shared.getDayOfWeek(endDate!) {
+                print(weekday)
+                switch weekday {
+                case 1:
+                    lblEndDay.text = "Sunday"
+                case 2:
+                    lblEndDay.text = "Monday"
+                case 3:
+                    lblEndDay.text = "Tuesday"
+                case 4:
+                    lblEndDay.text = "Wednesday"
+                    
+                case 5:
+                    lblEndDay.text = "Thursday"
+                case 6:
+                    lblEndDay.text = "Friday"
+                case 7:
+                    lblEndDay.text = "Saturday"
+                default:
+                    print("Error fetching days")
+                ///  return "Day"
+                }
+            } else {
+                print("bad input")
+            }
+        }
+
+        
+    }
 }
