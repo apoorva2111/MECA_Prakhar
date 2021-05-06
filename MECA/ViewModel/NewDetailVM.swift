@@ -211,7 +211,7 @@ class NewDetailVM: BaseTableViewVM {
     override func getHeightForRowAt(_ indexPath: IndexPath, tableView: UITableView) -> CGFloat {
        
         if indexPath.row == 0{
-            return 440
+            return UITableView.automaticDimension//440
         }else  if indexPath.row == 1{
             return 0//225
         }else  if indexPath.row == 2{
@@ -423,6 +423,76 @@ class NewDetailVM: BaseTableViewVM {
             }
         }
     }
+    
+    func callSdgsInfoWebservice(completion:@escaping(Bool) -> Void) {
+        GlobalObj.displayLoader(true, show: true)
+        APIClient.webserviceForSdgsInfo(eventId: (actualController as! NewDetailVC).eventID) { (result) in
+            
+            print("sdgs details response ..\(result)")
+            if let respCode = result.resp_code{
+                if respCode == 200{
+                    GlobalObj.displayLoader(true, show: false)
+
+                    if let objDate = result.data {
+                        print(objDate)
+                        self.kaizenData = objDate
+                        (self.actualController as! NewDetailVC).tblDetailView.reloadData()
+
+                      
+                        completion(true)
+                    }else{
+                        GlobalObj.displayLoader(true, show: false)
+                    }
+                }
+
+            }
+        }
+    }
+    func callhydrogenInfoWebservice(completion:@escaping(Bool) -> Void) {
+            GlobalObj.displayLoader(true, show: true)
+            APIClient.webserviceForHydrogenInfo(eventId: (actualController as! NewDetailVC).eventID) { (result) in
+                if let respCode = result.resp_code{
+                    if respCode == 200{
+                        GlobalObj.displayLoader(true, show: false)
+
+                        if let objDate = result.data {
+                            print(objDate)
+                            self.kaizenData = objDate
+                            (self.actualController as! NewDetailVC).tblDetailView.reloadData()
+
+                          
+                            completion(true)
+                        }else{
+                            GlobalObj.displayLoader(true, show: false)
+                        }
+                    }
+
+                }
+            }
+        }
+        
+        func callMaasInfoWebservice(completion:@escaping(Bool) -> Void) {
+            GlobalObj.displayLoader(true, show: true)
+            APIClient.webserviceForMaasInfo(eventId: (actualController as! NewDetailVC).eventID) { (result) in
+                if let respCode = result.resp_code{
+                    if respCode == 200{
+                        GlobalObj.displayLoader(true, show: false)
+
+                        if let objDate = result.data {
+                            print(objDate)
+                            self.kaizenData = objDate
+                            (self.actualController as! NewDetailVC).tblDetailView.reloadData()
+
+                          
+                            completion(true)
+                        }else{
+                            GlobalObj.displayLoader(true, show: false)
+                        }
+                    }
+
+                }
+            }
+        }
 }
 
 /**/

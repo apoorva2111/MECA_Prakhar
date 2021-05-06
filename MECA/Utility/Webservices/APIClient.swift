@@ -485,7 +485,43 @@ class APIClient {
                }
        }
     
-    
+    //Hydrogen Info
+           static func webserviceForHydrogenInfo(eventId: String = "5",completion:@escaping(KaizenInfoModel) -> Void){
+            if !NetworkReachabilityManager()!.isReachable{
+                GlobalObj.displayLoader(true, show: false)
+
+                      GlobalObj.showNetworkAlert()
+                      return
+            }
+            let url = BaseURL + HydrogenInfo + eventId
+           
+            var headers = HTTPHeaders()
+
+            let accessToken = userDef.string(forKey: UserDefaultKey.token)
+             headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+            AF.request(url, method: .get, headers: headers)
+                .responseJSON { response in
+                    print("Response \(response)")
+                    guard let dataResponse = response.data else {
+                        print("Response Error")
+                        return }
+                    
+                    do{
+                        let objRes: KaizenInfoModel = try JSONDecoder().decode(KaizenInfoModel.self, from: dataResponse)
+                        switch response.result{
+                                       case .success( _):
+                                               completion(objRes)
+                                       case .failure(let error):
+                                           print(error)
+                                        GlobalObj.displayLoader(true, show: false)
+
+                                       }
+                    }catch let error{
+                        print(error)
+                        GlobalObj.displayLoader(true, show: false)
+                    }
+                }
+        }
     //GRHomeList
     
     static func webserviceForGRHomeList(limit: String,page: String,Type:String,params:[String:Any],isFromGRHome:Bool, completion:@escaping(GRHomeLisModel) -> Void){
@@ -577,6 +613,207 @@ class APIClient {
                 }
             }
     }
+    
+    //SDGS List
+    static func webserviceForSDGSlistapi(params:[String:Any],completion:@escaping(Maasallvalue) -> Void){
+           if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                     GlobalObj.showNetworkAlert()
+                     return
+           }
+           let url = BaseURL + SdgsList
+          print("kaizen\(url)")
+           var headers = HTTPHeaders()
+
+           let accessToken = userDef.string(forKey: UserDefaultKey.token)
+            headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+//           AF.request(url, method: .post, headers: headers)
+        AF.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: headers)
+               .responseJSON { response in
+                print(response)
+                   guard let dataResponse = response.data else {
+                       print("Response Error")
+                       return }
+
+                   do{
+                       let objRes: Maasallvalue = try JSONDecoder().decode(Maasallvalue.self, from: dataResponse)
+                       switch response.result{
+                                      case .success( _):
+                                              completion(objRes)
+                                      case .failure(let error):
+                                          print(error)
+                                        GlobalObj.displayLoader(true, show: false)
+
+                                      }
+                   }catch let error{
+                       print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                   }
+               }
+       }
+    
+    //Sdgs Info
+       static func webserviceForSdgsInfo(eventId: String = "5",completion:@escaping(KaizenInfoModel) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        let url = BaseURL + SdgsInfo + eventId
+       
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                print("Response \(response)")
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    return }
+                
+                do{
+                    let objRes: KaizenInfoModel = try JSONDecoder().decode(KaizenInfoModel.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
+                                   }
+                }catch let error{
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+                }
+            }
+    }
+    
+    //Maas Info
+       static func webserviceForMaasInfo(eventId: String = "5",completion:@escaping(KaizenInfoModel) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        let url = BaseURL + MaasInfo + eventId
+       
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                print("Response \(response)")
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    return }
+                
+                do{
+                    let objRes: KaizenInfoModel = try JSONDecoder().decode(KaizenInfoModel.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
+                                   }
+                }catch let error{
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+                }
+            }
+    }
+    
+    //maas list
+    
+    static func webserviceForMaas(params:[String:Any],completion:@escaping(Maasallvalue) -> Void){
+           if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                     GlobalObj.showNetworkAlert()
+                     return
+           }
+           let url = BaseURL + MaasList
+        print("Maas \(url)")
+           var headers = HTTPHeaders()
+
+           let accessToken = userDef.string(forKey: UserDefaultKey.token)
+            headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+//           AF.request(url, method: .post, headers: headers)
+        AF.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: headers)
+               .responseJSON { response in
+                print(response.result)
+                   guard let dataResponse = response.data else {
+                       print("Response Error")
+                       return }
+
+                   do{
+                    print("dataResponse \(dataResponse)")
+                       let objRes: Maasallvalue = try JSONDecoder().decode(Maasallvalue.self, from: dataResponse)
+                    print("objRes \(objRes)")
+                       switch response.result{
+                                      case .success( _):
+                                              completion(objRes)
+                                      case .failure(let error):
+                                          print(error)
+                                        GlobalObj.displayLoader(true, show: false)
+
+                                      }
+                   }catch let error{
+                       print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                   }
+               }
+       }
+    //Hydrogen list
+        
+        static func webserviceForHydrogen(params:[String:Any],completion:@escaping(Hydrogenallvalue) -> Void){
+               if !NetworkReachabilityManager()!.isReachable{
+                GlobalObj.displayLoader(true, show: false)
+
+                         GlobalObj.showNetworkAlert()
+                         return
+               }
+               let url = BaseURL + HydrogenList
+            print("Maas \(url)")
+               var headers = HTTPHeaders()
+
+               let accessToken = userDef.string(forKey: UserDefaultKey.token)
+                headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+    //           AF.request(url, method: .post, headers: headers)
+            AF.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: headers)
+                   .responseJSON { response in
+                    print(response.result)
+                       guard let dataResponse = response.data else {
+                           print("Response Error")
+                           return }
+
+                       do{
+                        print("dataResponse \(dataResponse)")
+                           let objRes: Hydrogenallvalue = try JSONDecoder().decode(Hydrogenallvalue.self, from: dataResponse)
+                        print("objRes \(objRes)")
+                           switch response.result{
+                                          case .success( _):
+                                                  completion(objRes)
+                                          case .failure(let error):
+                                              print(error)
+                                            GlobalObj.displayLoader(true, show: false)
+
+                                          }
+                       }catch let error{
+                           print(error)
+                        GlobalObj.displayLoader(true, show: false)
+
+                       }
+                   }
+           }
 }
 
 

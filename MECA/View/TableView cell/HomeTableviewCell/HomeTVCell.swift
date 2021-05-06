@@ -66,4 +66,24 @@ class HomeTVCell: UITableViewCell {
             imgFeed.sd_setImage(with: URL(string: imgUrl), completed: nil)
         }
     }
+    func setCellSdgs(feed:DataMaas) {
+        print(feed)
+        lblTitle.text = feed.title!
+        let convertedFormat = GlobalObj.convertToString(dateString: feed.created_at!)
+       
+        
+        lblDate.text = convertedFormat
+        print("\(String(describing: feed.writername))")
+        lblWritternBy.text = feed.writername
+        if let ownerprofile = feed.ownerprofile {
+           // lblAdmin.text = ownerprofile.username
+        }
+        
+        if feed.cover_image != "" {
+            let imgUrl = BaseURL + feed.cover_image!
+            imgFeed.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            imgFeed.sd_setImage(with: URL(string: imgUrl), completed: nil)
+        }
+        
+    }
 }

@@ -32,6 +32,7 @@ class HomeVM: BaseTableViewVM {
         let vc = story.instantiateViewController(withIdentifier: "NewDetailVC") as! NewDetailVC
         vc.eventID = String(obj.id ?? 0)
         vc.isEvent =  obj.whatsnew_type == "event" ? true : false
+        vc.Maasview = false
         (actualController as! HomeVC).navigationController?.pushViewController(vc, animated: true)
     }
     override func getHeightForRowAt(_ indexPath: IndexPath, tableView: UITableView) -> CGFloat {

@@ -20,10 +20,42 @@ class DetailCoverImageTVCell: UITableViewCell {
     @IBOutlet weak var lblEndToTime: UILabel!
     @IBOutlet weak var lblEndDate: UILabel!
     @IBOutlet weak var lblEndDay: UILabel!
+    @IBOutlet weak var viewStartDateHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var viewEndDateHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imgTimeEndDate: UIImageView!
+    @IBOutlet weak var imgTimeStartdate: UIImageView!
+    @IBOutlet weak var imgDateStartDate: UIImageView!
+    @IBOutlet weak var imgDateEndDate: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        if  GlobalValue.tabCategory == "Maas" || GlobalValue.tabCategory == "Hydrogen" || GlobalValue.tabCategory == "SDGS"{
+            viewStartDateHeightConstraint.constant = 50
+            viewEndDateHeightConstraint.constant = 50
+            imgTimeEndDate.isHidden = true
+            imgTimeStartdate.isHidden = true
+            lblStartFromTime.isHidden = true
+            lblStartToTime.isHidden = true
+            lblEndFromTime.isHidden = true
+            lblEndToTime.isHidden = true
+            imgDateEndDate.image = #imageLiteral(resourceName: "Start_Date")
+            imgDateStartDate.image = #imageLiteral(resourceName: "Start_Date")
+
+            //Start_Date
+           
+        }else{
+            viewStartDateHeightConstraint.constant = 100
+            viewEndDateHeightConstraint.constant = 100
+            imgTimeEndDate.isHidden = false
+            imgTimeStartdate.isHidden = false
+            lblStartFromTime.isHidden = false
+            lblStartToTime.isHidden = false
+            lblEndToTime.isHidden = false
+            lblEndFromTime.isHidden = false
+            imgDateEndDate.image = #imageLiteral(resourceName: "date")
+            imgDateStartDate.image = #imageLiteral(resourceName: "date")
+        }
     }
     static func nib() -> UINib {
         return UINib(nibName: "DetailCoverImageTVCell", bundle: nil)

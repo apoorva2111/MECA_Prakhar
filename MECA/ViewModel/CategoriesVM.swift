@@ -35,21 +35,24 @@ class CategoriesVM: BaseCollectionViewVM {
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 2{
+
             let story = UIStoryboard(name: "Category", bundle:nil)
-                       let vc = story.instantiateViewController(withIdentifier: "MEBITViewController") as! MEBITViewController
-            vc.headerImageValue  = "2"
+                       let vc = story.instantiateViewController(withIdentifier: "MaasVC") as! MaasViewController
+            GlobalValue.tabCategory = "Maas"
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
+
         }
         else if indexPath.row == 3{
             let story = UIStoryboard(name: "Category", bundle:nil)
-                       let vc = story.instantiateViewController(withIdentifier: "MEBITViewController") as! MEBITViewController
-            vc.headerImageValue  = "3"
+                       let vc = story.instantiateViewController(withIdentifier: "Hydrogenvc") as! HydrogenVC
+            GlobalValue.tabCategory = "Hydrogen"
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 4{
             let story = UIStoryboard(name: "Category", bundle:nil)
-                       let vc = story.instantiateViewController(withIdentifier: "MEBITViewController") as! MEBITViewController
-            vc.headerImageValue  = "4"
+                       let vc = story.instantiateViewController(withIdentifier: "SDGSvc") as! SDGSVC
+            GlobalValue.tabCategory = "SDGS"
+
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 5{

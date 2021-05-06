@@ -14,6 +14,9 @@ class NewDetailVC: UIViewController {
     var isEvent = false
     var eventID = ""
     var isFromGR = false
+    var Maasview = true
+    var ComingfromVC = ""
+
     @IBOutlet weak var viewImgPreview: UIView!
     @IBOutlet weak var imgPreview: UIImageView!
     private var pullControl = UIRefreshControl()
@@ -41,16 +44,74 @@ class NewDetailVC: UIViewController {
         } else {
             tblDetailView.addSubview(pullControl)
         }
+//        if isFromGR{
+//            viewModel.callGRDetailWebservice()
+//        }else if isEvent{
+//            viewModel.callEventInfoWebservice()
+//        }else{
+//            viewModel.callKaizenInfoWebservice { (result) in
+//                if result{
+//                    //self.tblDetailView.reloadData()
+//                }
+//            }
+//        }
+        
+        
         if isFromGR{
             viewModel.callGRDetailWebservice()
         }else if isEvent{
+            //            print("Maasview ..\(Maasview)")
+            //            if Maasview {
+            //                if ComingfromVC == "Sdgs" {
+            //                    viewModel.callSdgsInfoWebservice()
+            //                }else{
+            //                    viewModel.callMaasInfoWebservice()
+            //                }
+            //
+            //            }else{
+            //                print("else Maasview ..\(Maasview)")
             viewModel.callEventInfoWebservice()
+            //            }
+            
         }else{
-            viewModel.callKaizenInfoWebservice { (result) in
-                if result{
-                    //self.tblDetailView.reloadData()
+            
+            print("Maasview ..\(Maasview)")
+            if Maasview {
+                if ComingfromVC == "Sdgs" {
+                    viewModel.callSdgsInfoWebservice{ (result) in
+                        if result{
+                            //self.tblDetailView.reloadData()
+                        }
+                    }
+                }
+                else if ComingfromVC == "hydrogen"{
+                    print("else Maasview ..\(Maasview)")
+                    viewModel.callhydrogenInfoWebservice{ (result) in
+                        if result{
+                            //self.tblDetailView.reloadData()
+                        }
+                    }
+                }
+                
+                else{
+                    print("else Maasview ..\(Maasview)")
+                    viewModel.callMaasInfoWebservice{ (result) in
+                        if result{
+                            //self.tblDetailView.reloadData()
+                        }
+                    }
+                }
+                
+                
+                
+            }else {
+                viewModel.callKaizenInfoWebservice { (result) in
+                    if result{
+                        //self.tblDetailView.reloadData()
+                    }
                 }
             }
+            
         }
         
     }

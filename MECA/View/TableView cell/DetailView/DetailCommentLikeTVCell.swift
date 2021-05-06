@@ -21,6 +21,11 @@ class DetailCommentLikeTVCell: UITableViewCell {
             lblLike.textColor = .black
             imgComment.image = #imageLiteral(resourceName: "Comments_red")
             lblComment.textColor = #colorLiteral(red: 0.9882352941, green: 0, blue: 0, alpha: 1)
+        }else if  GlobalValue.tabCategory == "Maas" || GlobalValue.tabCategory == "Hydrogen" || GlobalValue.tabCategory == "SDGS"{
+            imgLikes.image = #imageLiteral(resourceName: "likes_Blue")
+            lblLike.textColor = #colorLiteral(red: 0.1490196078, green: 0.2784313725, blue: 0.5529411765, alpha: 1)
+            imgComment.image = #imageLiteral(resourceName: "comments_Blue")
+            lblComment.textColor = #colorLiteral(red: 0.2392156863, green: 0.4823529412, blue: 0.831372549, alpha: 1)
         }else{
             imgLikes.image = #imageLiteral(resourceName: "Likes")
             lblLike.textColor = #colorLiteral(red: 0.9650015235, green: 0.4383477867, blue: 0.2127818763, alpha: 1)
