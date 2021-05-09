@@ -1165,6 +1165,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sGU-M4-fl9">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yYY-Tn-C1k">
+                                        <rect key="frame" x="158.5" y="439.5" width="97" height="17"/>
+                                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dlt-kX-XB9">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1173,8 +1179,21 @@
                                             <outlet property="delegate" destination="1Qt-xY-oxr" id="a4W-aG-qDh"/>
                                         </connections>
                                     </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDy-3D-kn2">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1x-gZ-OLW">
+                                        <rect key="frame" x="10" y="50" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="MI7-fa-ffd"/>
+                                            <constraint firstAttribute="width" constant="40" id="xFE-gL-p7T"/>
+                                        </constraints>
+                                        <state key="normal" image="backward">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnBackAction:" destination="1Qt-xY-oxr" eventType="touchUpInside" id="XyD-Qx-oUa"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UDy-3D-kn2">
+                                        <rect key="frame" x="500" y="0.0" width="414" height="896"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8zx-Hc-8gm">
                                                 <rect key="frame" x="20.5" y="261.5" width="373" height="373"/>
@@ -1195,11 +1214,15 @@
                                 <constraints>
                                     <constraint firstItem="dlt-kX-XB9" firstAttribute="top" secondItem="sGU-M4-fl9" secondAttribute="top" id="CLD-gV-C65"/>
                                     <constraint firstItem="UDy-3D-kn2" firstAttribute="top" secondItem="sGU-M4-fl9" secondAttribute="top" id="EoV-XC-SKx"/>
+                                    <constraint firstItem="yYY-Tn-C1k" firstAttribute="centerY" secondItem="sGU-M4-fl9" secondAttribute="centerY" id="H8f-PP-8lC"/>
+                                    <constraint firstItem="yYY-Tn-C1k" firstAttribute="centerX" secondItem="sGU-M4-fl9" secondAttribute="centerX" id="Wqr-Ne-FFJ"/>
                                     <constraint firstAttribute="bottom" secondItem="UDy-3D-kn2" secondAttribute="bottom" id="fGp-ds-Rua"/>
                                     <constraint firstItem="UDy-3D-kn2" firstAttribute="leading" secondItem="sGU-M4-fl9" secondAttribute="leading" id="g92-kE-96t"/>
                                     <constraint firstAttribute="bottom" secondItem="dlt-kX-XB9" secondAttribute="bottom" id="jRd-jF-3Oo"/>
                                     <constraint firstAttribute="trailing" secondItem="dlt-kX-XB9" secondAttribute="trailing" id="lgZ-33-IeB"/>
+                                    <constraint firstItem="N1x-gZ-OLW" firstAttribute="top" secondItem="sGU-M4-fl9" secondAttribute="top" constant="50" id="qIl-kt-aoK"/>
                                     <constraint firstItem="dlt-kX-XB9" firstAttribute="leading" secondItem="sGU-M4-fl9" secondAttribute="leading" id="u6f-yO-owj"/>
+                                    <constraint firstItem="N1x-gZ-OLW" firstAttribute="leading" secondItem="sGU-M4-fl9" secondAttribute="leading" constant="10" id="vgC-e2-cUY"/>
                                     <constraint firstAttribute="trailing" secondItem="UDy-3D-kn2" secondAttribute="trailing" id="ygp-vN-s7O"/>
                                 </constraints>
                             </view>
@@ -1221,7 +1244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rJe-fJ-C2U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6820" y="811"/>
+            <point key="canvasLocation" x="6818.8405797101459" y="810.9375"/>
         </scene>
         <!--About DetailVC-->
         <scene sceneID="oUH-Cc-Hzf">
@@ -1415,7 +1438,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="373"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Distributor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BB-49-3QT">
-                                                                <rect key="frame" x="16" y="27.5" width="160" height="26.5"/>
+                                                                <rect key="frame" x="16" y="27.5" width="168.5" height="26.5"/>
                                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="22"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -1430,7 +1453,7 @@
                                                                                 <rect key="frame" x="2" y="2" width="369" height="130"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Car Sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGV-nb-4eR">
-                                                                                        <rect key="frame" x="15" y="54.5" width="119" height="21"/>
+                                                                                        <rect key="frame" x="15" y="54.5" width="123.5" height="21.5"/>
                                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1520,7 +1543,7 @@
                                                                                                 <rect key="frame" x="3" y="3" width="160" height="124"/>
                                                                                                 <subviews>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trade in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oY-rm-aNn">
-                                                                                                        <rect key="frame" x="15" y="27" width="64" height="21"/>
+                                                                                                        <rect key="frame" x="15" y="27" width="69" height="21.5"/>
                                                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
@@ -1605,7 +1628,7 @@
                                                                                                 <rect key="frame" x="20" y="3" width="160" height="124"/>
                                                                                                 <subviews>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcj-4o-Esw">
-                                                                                                        <rect key="frame" x="15" y="27" width="85" height="21"/>
+                                                                                                        <rect key="frame" x="15" y="27" width="93" height="21.5"/>
                                                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
@@ -2381,7 +2404,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Car Sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tT-kJ-afj">
-                                                <rect key="frame" x="154" y="151.5" width="106" height="19"/>
+                                                <rect key="frame" x="151.5" y="151.5" width="111.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -3458,7 +3481,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Car Sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8m-5S-rds">
-                                                <rect key="frame" x="154" y="151.5" width="106" height="19"/>
+                                                <rect key="frame" x="151.5" y="151.5" width="111.5" height="19"/>
                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -3786,6 +3809,26 @@
             <point key="canvasLocation" x="2767" y="1483"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Dba-eJ-IEd">
+            <size key="intrinsicContentSize" width="74" height="28"/>
+        </designable>
+        <designable name="F20-FG-OGB">
+            <size key="intrinsicContentSize" width="74" height="28"/>
+        </designable>
+        <designable name="Sjn-c7-IWN">
+            <size key="intrinsicContentSize" width="74" height="28"/>
+        </designable>
+        <designable name="WjA-Tw-i06">
+            <size key="intrinsicContentSize" width="111" height="34"/>
+        </designable>
+        <designable name="h1z-3o-Khd">
+            <size key="intrinsicContentSize" width="74" height="28"/>
+        </designable>
+        <designable name="r07-kr-Kx9">
+            <size key="intrinsicContentSize" width="125" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <image name="After sales" width="70" height="70"/>
         <image name="Arrow Down" width="20" height="19"/>
@@ -3796,7 +3839,7 @@
         <image name="Comment" width="22" height="22"/>
         <image name="Comments" width="22" height="22"/>
         <image name="Cover image" width="393" height="238"/>
-        <image name="Hydrogen" width="60" height="60"/>
+        <image name="Hydrogen" width="46" height="46"/>
         <image name="Likes" width="22" height="22"/>
         <image name="MEBIT1" width="46" height="46"/>
         <image name="MaaS" width="60" height="60"/>

