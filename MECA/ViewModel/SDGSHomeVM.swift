@@ -18,6 +18,7 @@ class SDGSHomeVM: BaseTableViewVM {
         super.init(controller: controller)
         baseHeaderTableViewHeight = 70
     }
+
     override func getNumbersOfRows(in section: Int) -> Int {
         return arrList.count
     }
@@ -70,7 +71,7 @@ class SDGSHomeVM: BaseTableViewVM {
                                     "type" : 0]//"keyword" : "test"
         print(param)
         GlobalObj.displayLoader(true, show: true)
-        APIClient.webserviceForSDGSlistapi(params: param) { (result) in
+        APIClient.webserviceForSDGSlistapi(limit: "10",page: "1",params: param) { (result) in
             print("whats new api response \(result)")
             if let repo = result.resp_code{
                 GlobalObj.displayLoader(true, show: false)

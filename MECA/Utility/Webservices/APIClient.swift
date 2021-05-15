@@ -615,14 +615,14 @@ class APIClient {
     }
     
     //SDGS List
-    static func webserviceForSDGSlistapi(params:[String:Any],completion:@escaping(Maasallvalue) -> Void){
+    static func webserviceForSDGSlistapi(limit: String,page: String, params:[String:Any],completion:@escaping(Maasallvalue) -> Void){
            if !NetworkReachabilityManager()!.isReachable{
             GlobalObj.displayLoader(true, show: false)
 
                      GlobalObj.showNetworkAlert()
                      return
            }
-           let url = BaseURL + SdgsList
+           let url = BaseURL + SdgsList + limit + "/" + page
           print("kaizen\(url)")
            var headers = HTTPHeaders()
 
@@ -732,14 +732,14 @@ class APIClient {
     
     //maas list
     
-    static func webserviceForMaas(params:[String:Any],completion:@escaping(Maasallvalue) -> Void){
+    static func webserviceForMaas(limit: String,page: String, params:[String:Any],completion:@escaping(Maasallvalue) -> Void){
            if !NetworkReachabilityManager()!.isReachable{
             GlobalObj.displayLoader(true, show: false)
 
                      GlobalObj.showNetworkAlert()
                      return
            }
-           let url = BaseURL + MaasList
+           let url = BaseURL + MaasList + limit + "/" + page
         print("Maas \(url)")
            var headers = HTTPHeaders()
 
@@ -774,14 +774,15 @@ class APIClient {
        }
     //Hydrogen list
         
-        static func webserviceForHydrogen(params:[String:Any],completion:@escaping(Hydrogenallvalue) -> Void){
+        static func webserviceForHydrogen(limit: String,page: String, params:[String:Any], completion:@escaping(Hydrogenallvalue) -> Void){
                if !NetworkReachabilityManager()!.isReachable{
                 GlobalObj.displayLoader(true, show: false)
 
                          GlobalObj.showNetworkAlert()
                          return
                }
-               let url = BaseURL + HydrogenList
+            //10/1
+               let url = BaseURL + HydrogenList + limit + "/" + page
             print("Maas \(url)")
                var headers = HTTPHeaders()
 

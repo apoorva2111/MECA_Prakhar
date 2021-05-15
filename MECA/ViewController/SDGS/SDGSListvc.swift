@@ -11,10 +11,13 @@ class SDGSListvc: UIViewController {
     
     @IBOutlet weak var varsdgslistTblView : UITableView!
     @IBOutlet weak var lblHeader: UILabel!
-    
+    private var pullControl = UIRefreshControl()
     var arrList = [DataMaas]()
     var headerImageValue = ""
     var idvalue = ""
+    var currentPage : Int = 1
+    var checkPagination = ""
+    var updatedText = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         varsdgslistTblView.register(UINib.init(nibName: "MaasListTVCell", bundle: nil), forCellReuseIdentifier: "MaasListTVCell")
@@ -24,9 +27,21 @@ class SDGSListvc: UIViewController {
         
         callSDGSLISTWebservice(type: Int(idvalue)!)
         
-        // Do any additional setup after loading the view.
+        pullControl.tintColor = UIColor.gray
+        pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            varsdgslistTblView.refreshControl = pullControl
+        } else {
+            varsdgslistTblView.addSubview(pullControl)
+        }
     }
+    @objc private func refreshListData(_ sender: Any) {
+        self.pullControl.endRefreshing()
+        currentPage = 1
+        self.checkPagination = "get"
+        callSDGSLISTWebservice(type: Int(idvalue)!)
 
+    }
     
     func callSDGSLISTWebservice( type: Int) {
 
@@ -34,7 +49,7 @@ class SDGSListvc: UIViewController {
                                     "type" : type]//"keyword" : "test"
         print(param)
         GlobalObj.displayLoader(true, show: true)
-        APIClient.webserviceForSDGSlistapi(params: param) { (result) in
+        APIClient.webserviceForSDGSlistapi(limit: "10",page: String(currentPage), params: param) { (result) in
             if let repo = result.resp_code{
                 GlobalObj.displayLoader(true, show: false)
                
@@ -42,7 +57,7 @@ class SDGSListvc: UIViewController {
                     
                     if let arrList = result.data{
                         print(arrList)
-                        if arrList.count > 0 {
+                        if self.checkPagination == "get"{
                             self.arrList.removeAll()
                         }
                         for obj in arrList {
@@ -100,7 +115,21 @@ extension SDGSListvc:UITableViewDelegate,UITableViewDataSource{
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+            if indexPath == lastVisibleIndexPath {
+                if indexPath.row == arrList.count-1{
+                    self.checkPagination = "pagination"
+                    currentPage += 1
+                    GlobalObj.run(after: 2) {
+                        GlobalObj.displayLoader(true, show: true)
+                        self.callSDGSLISTWebservice(type: Int(self.idvalue)!)
 
+                    }
+                }
+            }
+        }
+    }
     
 
 

@@ -6,41 +6,45 @@
 //
 
 import UIKit
-
+import SDWebImage
 class MaasViewController: UIViewController {
     
     
     @IBOutlet weak var MaasBottomview: UIView!
     @IBOutlet weak var MaasCategoryCollectionView: UICollectionView!
     @IBOutlet weak var varNewCarSaleTblView : UITableView!
-    @IBOutlet weak var varmaassearchbar : UISearchBar!
+    @IBOutlet weak var txtMaassearchbar : UITextField!
+    @IBOutlet weak var viewFilter: UIView!
+    @IBOutlet weak var btnEventAscOutlet: UIButton!
+    @IBOutlet weak var btnEventDsc: UIButton!
+    @IBOutlet weak var btnDateAsc: UIButton!
+    @IBOutlet weak var btnDateDsc: UIButton!
+    @IBOutlet weak var imgEventACS: UIImageView!
+    @IBOutlet weak var imgEventDsc: UIImageView!
+    @IBOutlet weak var imgDateAsc: UIImageView!
+    @IBOutlet weak var imgDateDsc: UIImageView!
+    private var pullControl = UIRefreshControl()
+
     var actualController:UIViewController!
     var viewModel : HomeVM!
     var strComeFrom = ""
     var type  = 0
     var arrAllData =  [DataMaas]()
     var arrList = [Maas_MEBITCat]()
+    var sortingArr = [Sorting_options]()
     var param : [String:Any] = [:]
     var index = 0
     var catID = ""
     var allEvent = ""
     var categorytitle :[String] = []
-//    var sections:[String] = []
-    //filter menu
+    var sortKey = ""
+    var sortOrder = ""
+    var currentPage : Int = 1
+    var checkPagination = ""
+    var updatedText = ""
+    var isFromCat = false
     
-    @IBAction func btnCreateNewAction(_ sender: RCustomButton) {
-        categorytitle.remove(at: 0)
-        print("categorytitle\(categorytitle)")
-//        let vcs = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home")
-//        vcs.mytitle = categorytitle
-//        self.navigationController?.pushViewController(vcs, animated: true)
-        
-        let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
-     
-       // vc.passcategoryvalue = categorytitle
-
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let searchController = UISearchController(searchResultsController: nil)
@@ -55,17 +59,25 @@ class MaasViewController: UIViewController {
         varNewCarSaleTblView.delegate = self
         varNewCarSaleTblView.dataSource = self
         callWebserviceEventCategory()
-        CallWebserviceMaasList()
-//        sgTextOnlyBar.selectorType = .bottomBar
-//        sgTextOnlyBar.SelectedFont = UIFont(name: "ChalkboardSE-Bold", size: 15)!
-//        sgTextOnlyBar.normalFont = UIFont(name: "ChalkboardSE-Regular", size: 15)!
-        
-        //Using callbacks
-        //Filter menu calling title
-        
-//        let myClassmates = oldClassmates.appending(newClassmate)
+        CallWebserviceMaasList(sortkey: sortKey, sortorder: sortOrder)
+        viewFilter.isHidden = true
+        txtMaassearchbar.delegate = self
+       
+        pullControl.tintColor = UIColor.gray
+        pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            varNewCarSaleTblView.refreshControl = pullControl
+        } else {
+            varNewCarSaleTblView.addSubview(pullControl)
+        }
+     
         setupUI()
-        // Do any additional setup after loading the view.
+    }
+    @objc private func refreshListData(_ sender: Any) {
+        self.pullControl.endRefreshing()
+        currentPage = 1
+        self.checkPagination = "get"
+        CallWebserviceMaasList(sortkey: sortKey, sortorder: sortOrder)
     }
     
     func setupUI()  {
@@ -82,26 +94,6 @@ class MaasViewController: UIViewController {
             let stringArray = array.map{ String($0) }
             return stringArray.joined(separator: ",")
         }
-//    @IBAction func segmentValueChange(_ sender: TZSegmentedControl) {
-//        print("selected index = \(sender.selectedSegmentIndex)")
-//        switch sender.selectedSegmentIndex {
-//        case 0:
-//            print("first item")
-//            param.removeAll()
-//            arrList.removeAll()
-//             callMaaslistWebservice(adminId: 0, type: type)
-//        case 1:
-//            print("second item")
-//            arrList.removeAll()
-//             callMaaslistWebservice(adminId: 0, type: 1)
-//        case 2:
-//            print("Third item")
-//            arrList.removeAll()
-//             callMaaslistWebservice(adminId: 0, type: 2)
-//        default:
-//            print("default item")
-//        }
-//    }
     
     func callWebserviceEventCategory() {
         APIClient.webserviceForCategoryList { (result) in
@@ -117,6 +109,13 @@ class MaasViewController: UIViewController {
                         }
                         if arrDate.maas!.count>0{
                             self.arrList = arrDate.maas!
+                        }
+                        
+                        if self.sortingArr.count>0{
+                            self.sortingArr.removeAll()
+                        }
+                        if arrDate.sorting_options!.count>0{
+                            self.sortingArr = arrDate.sorting_options!
                         }
                     }
                     self.MaasCategoryCollectionView.reloadData()
@@ -135,16 +134,90 @@ class MaasViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
-    /*
-    // MARK: - Navigation
+    
+    @IBAction func btnApplyFilterActon(_ sender: UIButton) {
+        if sender.tag == 10{
+            viewFilter.isHidden = true
+        
+            sortKey = sortingArr[0].sortkey ?? ""
+            sortOrder = sortingArr[0].sortorder ?? ""
+            checkPagination = "get"
+            currentPage = 1
+            CallWebserviceMaasList(sortkey: sortKey, sortorder: sortOrder)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        }else if sender.tag == 20 {
+            viewFilter.isHidden = true
+            sortKey = sortingArr[1].sortkey ?? ""
+            sortOrder = sortingArr[1].sortorder ?? ""
+            checkPagination = "get"
+            currentPage = 1
+            CallWebserviceMaasList(sortkey: sortKey, sortorder: sortOrder)
+
+        }else if sender.tag == 30 {
+            viewFilter.isHidden = true
+            sortKey = sortingArr[2].sortkey ?? ""
+            sortOrder = sortingArr[2].sortorder ?? ""
+            checkPagination = "get"
+            currentPage = 1
+            CallWebserviceMaasList(sortkey: sortKey, sortorder: sortOrder)
+
+        }else{
+            viewFilter.isHidden = true
+            sortKey = sortingArr[3].sortkey ?? ""
+            sortOrder = sortingArr[3].sortorder ?? ""
+            checkPagination = "get"
+            currentPage = 1
+            CallWebserviceMaasList(sortkey: sortKey, sortorder: sortOrder)
+
+        }
     }
-    */
+    @IBAction func btnFilterAction(_ sender: UIButton) {
+        for i in 0..<sortingArr.count {
+            let objSorting = sortingArr[i]
+            if i == 0 {
+                btnEventAscOutlet.setTitle(objSorting.lable, for: .normal)
+                if let img = objSorting.icon{
+                    let imgUrl = BaseURL + img
+                    
+                    imgEventACS.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                    imgEventACS.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                }
+               
+                
+            }else if i == 1{
+                btnEventDsc.setTitle(objSorting.lable, for: .normal)
+                if let img = objSorting.icon{
+                    let imgUrl = BaseURL + img
+                    imgEventDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                    imgEventDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                }
+            }else if i == 2{
+                btnDateAsc.setTitle(objSorting.lable, for: .normal)
+                if let img = objSorting.icon{
+                    let imgUrl = BaseURL + img
+                    imgDateAsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                    imgDateAsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                }
+            }else if i == 3{
+                btnDateDsc.setTitle(objSorting.lable, for: .normal)
+                if let img = objSorting.icon{
+                    let imgUrl = BaseURL + img
+                    imgDateDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                    imgDateDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                }
+            }
+        }
+        viewFilter.isHidden = false
+    }
+    
+    @IBAction func btnCreateNewAction(_ sender: RCustomButton) {
+        categorytitle.remove(at: 0)
+        print("categorytitle\(categorytitle)")
+    
+        let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
 
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 //MARK:- UICollectionview Delegate Datasource
 extension MaasViewController :  UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout  {
@@ -184,7 +257,9 @@ extension MaasViewController :  UICollectionViewDelegate, UICollectionViewDataSo
             
             print("catID \(catID)")
         }
-        CallWebserviceMaasList()
+        self.isFromCat = true
+        currentPage = 1
+        CallWebserviceMaasList(sortkey: sortKey, sortorder: sortOrder)
         MaasCategoryCollectionView.reloadData()
 
         
@@ -229,20 +304,40 @@ extension MaasViewController:UITableViewDelegate,UITableViewDataSource{
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func CallWebserviceMaasList() {
-        if catID == "1" {
-            param = [ "type" : catID]
-        }else if catID == "2"{
-            param = [ "type" : catID]
-        }else if type == 0 {
-            
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+            if indexPath == lastVisibleIndexPath {
+                if indexPath.row == arrAllData.count-1{
+                    self.checkPagination = "pagination"
+                    currentPage += 1
+                    GlobalObj.run(after: 2) {
+                        GlobalObj.displayLoader(true, show: true)
+                        self.CallWebserviceMaasList(sortkey: self.sortKey, sortorder: self.sortOrder)
+                    }
+                }
+            }
         }
-        
-       // let param : [String:Any] = ["is_admin" : adminId,
-                                  //  "type" : type]//"keyword" : "test"
+    }
+    func CallWebserviceMaasList(sortkey: String, sortorder: String) {
+        if catID == "1" {
+            param = [ "type" : catID,
+                      "keyword" : updatedText,
+                      "sortkey" : sortkey,
+                      "sortorder" : sortorder]
+        }else if catID == "2"{
+            param = [ "type" : catID,
+                      "keyword" : updatedText,
+                      "sortkey" : sortkey,
+                      "sortorder" : sortorder]
+        }else if type == 0 {
+            param = ["keyword" : updatedText,
+                      "sortkey" : sortkey,
+                      "sortorder" : sortorder]
+        }
+
         print(param)
         GlobalObj.displayLoader(true, show: true)
-        APIClient.webserviceForMaas(params: param) { (result) in
+        APIClient.webserviceForMaas(limit: "10", page: String(currentPage), params: param) { (result) in
             
             if let respCode = result.resp_code{
              
@@ -250,23 +345,32 @@ extension MaasViewController:UITableViewDelegate,UITableViewDataSource{
                     GlobalObj.displayLoader(true, show: false)
 
                     if let arrDate = result.data{
-                        if self.arrAllData.count>0{
+                        if self.checkPagination == "get"{
                             self.arrAllData.removeAll()
                         }
                         for obj in arrDate {
                             self.arrAllData.append(obj)
                         }
-                        
+                        if self.isFromCat{
+                            self.isFromCat = false
+                        }else{
+                            if arrDate.count == 0 {
+                                GlobalObj.displayLoader(true, show: false)
+                                return
+                            }
+                        }
+                    }
+                    if self.arrAllData.count == 0{
+                        self.varNewCarSaleTblView.isHidden = true
+                    }else{
+                        self.varNewCarSaleTblView.isHidden = false
                     }
                     self.varNewCarSaleTblView.reloadData()
                 }else{
                     GlobalObj.displayLoader(true, show: false)
-
                 }
             }
-            
             GlobalObj.displayLoader(true, show: false)
-
         }
         
         
@@ -301,4 +405,19 @@ extension MaasViewController:UITableViewDelegate,UITableViewDataSource{
 //        }
 //    }
 
+}
+
+//MARK:- Textfeild delegate
+extension MaasViewController : UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let text = textField.text,
+                   let textRange = Range(range, in: text) {
+            updatedText = text.replacingCharacters(in: textRange,with: string)
+            currentPage = 1
+            self.checkPagination = "get"
+            CallWebserviceMaasList(sortkey: sortKey, sortorder: sortOrder)
+
+        }
+        return true
+    }
 }

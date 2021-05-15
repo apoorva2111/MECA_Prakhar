@@ -88,10 +88,14 @@ class MEBITHomeVM: BaseTableViewVM {
                             self.arrMEBITFeed.append(objData)
                         }
                     }
+                    if self.arrMEBITFeed.count>0{
+                        (self.actualController as! MEBITViewController).MEBITTableView.isHidden = false
+                    }else{
+                        (self.actualController as! MEBITViewController).MEBITTableView.isHidden = true
+                    }
                     (self.actualController as! MEBITViewController).MEBITTableView.reloadData()
                 }else{
                     GlobalObj.displayLoader(true, show: false)
-
                 }
             }
             
