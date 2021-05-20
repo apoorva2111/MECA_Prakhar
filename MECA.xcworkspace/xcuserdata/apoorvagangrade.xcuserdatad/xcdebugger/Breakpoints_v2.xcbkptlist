@@ -7,64 +7,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FD789075-8962-481C-8A9C-D3C9F7FBE19E"
+            uuid = "C38C3C84-3C0A-4931-94E8-862F3C9DD43E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MECA/ViewController/SDGS/SDGSListvc.swift"
+            filePath = "MECA/ViewModel/LikeOrCommentVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "callSDGSLISTWebservice(type:)"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "callWebserviceForAddComment(module:item:parent:isfile:is_reply:comment:imgData:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "692D52FD-A9B3-469A-8C85-4B39C9842170"
+            uuid = "1E93552E-9CE2-465B-AB8F-23E962E57968"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MECA/ViewController/GR/MaasViewController.swift"
+            filePath = "MECA/ViewModel/LikeOrCommentVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "callWebserviceForAddComment(module:item:parent:isfile:is_reply:comment:imgData:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "288C4C6D-2C6C-4A55-8735-56666006AE90"
+            uuid = "E4E6A5EE-EF0D-4A6E-A95D-A158F9C877B1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MECA/ViewController/GR/HydrogenVC.swift"
+            filePath = "MECA/ViewModel/LikeOrCommentVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "callWebserviceForAddComment(module:item:parent:isfile:is_reply:comment:imgData:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7E79F420-007F-4B47-9A05-4F28B3E0BDC3"
+            uuid = "42C4E881-27D5-4D1B-AFBF-485DB6DBA497"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MECA/ViewController/GR/HydrogenVC.swift"
+            filePath = "MECA/ViewModel/LikeOrCommentVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
-            landmarkName = "CallWebserviceHydrogenList(strType:sortkey:sortorder:)"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "callWebserviceForAddComment(module:item:parent:isfile:is_reply:comment:imgData:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F7FA532B-CA5B-48F2-AF2F-C30704E268C2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MECA/ViewModel/LikeOrCommentVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "callWebserviceForCommentList(module:item:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "519F0C9E-7219-486D-91CA-F1E2F6F5ADE2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MECA/View/TableView cell/DetailView/Like&amp;Comment/CommentDetailTVCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "setCell(commentData:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
