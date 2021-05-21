@@ -54,7 +54,6 @@ class NewDetailVC: UIViewController {
             
             viewModel.callEventInfoWebservice()
         
-            
         }else{
             
             print("Maasview ..\(Maasview)")

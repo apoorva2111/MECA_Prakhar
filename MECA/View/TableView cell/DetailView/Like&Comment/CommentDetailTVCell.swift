@@ -30,6 +30,9 @@ class CommentDetailTVCell: UITableViewCell {
         //
         //viewSendCommentBoxHeightConstraint.constant = 0
         
+        self.tblSublist.estimatedRowHeight = 100.0
+        self.tblSublist.rowHeight = UITableView.automaticDimension
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -56,8 +59,8 @@ class CommentDetailTVCell: UITableViewCell {
             tblSublist.isHidden = false
             tblSublist.reloadData()
             tblSubListHeughtConstriaint.constant = tblSublist.contentSize.height
-//            tblSublist.layoutIfNeeded()
-           // self.updateConstraints()
+            tblSublist.layoutIfNeeded()
+            self.updateConstraints()
             tblComment.reloadData()
             
         }else{
@@ -103,7 +106,7 @@ extension CommentDetailTVCell : UITableViewDelegate, UITableViewDataSource{
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100//UITableView.automaticDimension
+        return UITableView.automaticDimension
     }
    
  
