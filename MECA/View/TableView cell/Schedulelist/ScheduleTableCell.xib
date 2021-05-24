@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro.ttf">
+            <string>SFPro-Bold</string>
+            <string>SFPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="ScheduleTableCell" customModule="MECA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kA2-zr-DMh" customClass="RCustomView" customModule="MECA" customModuleProvider="target">
+                        <rect key="frame" x="7" y="8" width="306" height="64"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9-mar-2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxC-0K-4L7">
+                                <rect key="frame" x="8" y="6" width="232" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="5cl-Vn-StI"/>
+                                    <constraint firstAttribute="width" constant="232" id="QfD-gO-A7r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
+                                <color key="textColor" red="0.14901960780000001" green="0.2784313725" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toyota Production System" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7JE-Sc-k3W">
+                                <rect key="frame" x="8" y="34" width="251" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="YZW-0V-w09"/>
+                                    <constraint firstAttribute="width" constant="251" id="doF-5h-0dZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pmz-YJ-Ygs">
+                                <rect key="frame" x="261" y="17" width="31" height="31"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="31" id="Kk7-ih-djH"/>
+                                    <constraint firstAttribute="height" constant="31" id="uBz-FO-VHa"/>
+                                </constraints>
+                                <state key="normal" image="next_arrow"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="15.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Pmz-YJ-Ygs" firstAttribute="top" secondItem="kA2-zr-DMh" secondAttribute="top" constant="17" id="6zo-XX-2Db"/>
+                            <constraint firstAttribute="bottom" secondItem="Pmz-YJ-Ygs" secondAttribute="bottom" constant="16" id="Bch-26-Yc9"/>
+                            <constraint firstItem="XxC-0K-4L7" firstAttribute="top" secondItem="kA2-zr-DMh" secondAttribute="top" constant="6" id="OKo-0p-z8N"/>
+                            <constraint firstItem="XxC-0K-4L7" firstAttribute="leading" secondItem="kA2-zr-DMh" secondAttribute="leading" constant="8" id="QW3-Sd-rpb"/>
+                            <constraint firstAttribute="trailing" secondItem="Pmz-YJ-Ygs" secondAttribute="trailing" constant="14" id="USQ-o2-1Xx"/>
+                            <constraint firstItem="7JE-Sc-k3W" firstAttribute="leading" secondItem="XxC-0K-4L7" secondAttribute="leading" id="VGe-fV-hM9"/>
+                            <constraint firstAttribute="height" constant="64" id="jVM-Tx-R2A"/>
+                            <constraint firstItem="Pmz-YJ-Ygs" firstAttribute="leading" secondItem="7JE-Sc-k3W" secondAttribute="trailing" constant="2" id="pGB-lB-iG4"/>
+                            <constraint firstItem="7JE-Sc-k3W" firstAttribute="bottom" secondItem="kA2-zr-DMh" secondAttribute="bottomMargin" constant="-1" id="sC3-Xn-5Zb"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" systemColor="systemGray4Color"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="2" height="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="kA2-zr-DMh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="9dF-K2-Z3c"/>
+                    <constraint firstAttribute="bottom" secondItem="kA2-zr-DMh" secondAttribute="bottom" constant="8" id="LkV-SA-k9r"/>
+                    <constraint firstItem="kA2-zr-DMh" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="YP2-a0-8y4"/>
+                    <constraint firstItem="kA2-zr-DMh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="7" id="ccR-1k-WfZ"/>
+                    <constraint firstAttribute="trailing" secondItem="kA2-zr-DMh" secondAttribute="trailing" constant="7" id="fEK-ja-noU"/>
+                    <constraint firstItem="kA2-zr-DMh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-9" id="k4T-Zl-nZV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="datelbl" destination="XxC-0K-4L7" id="XOn-Sj-Zk9"/>
+                <outlet property="schedulebtn" destination="Pmz-YJ-Ygs" id="GaO-Qs-X2p"/>
+                <outlet property="schedulenamelbl" destination="7JE-Sc-k3W" id="ypc-I1-MN6"/>
+                <outlet property="topView" destination="kA2-zr-DMh" id="0xg-W5-X9c"/>
+            </connections>
+            <point key="canvasLocation" x="-1.4492753623188408" y="81.696428571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="next_arrow" width="32" height="32"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

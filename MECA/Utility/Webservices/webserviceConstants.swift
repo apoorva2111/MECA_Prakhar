@@ -9,6 +9,7 @@ let BaseURL : String = "https://mecacampus.com/API/"
 
 // End Points
 let login = "user/login"
+let getuserprofile = "mobile/user/getauthenticateduser"
 let register = "mobile/user/register"
 let distributor = "user/distributor/list"
 let divisionList = "user/division/list/"
@@ -35,7 +36,11 @@ let likeUpdate = "mobile/user/module/item/like/update"
 let CommentList = "/mobile/user/comments/"
 let AddModuleItem = "mobile/user/create/module/item"
 let AddComment = "mobile/user/comment/item"
+let changepassword = "mobile/user/password/update"
+let profileedit = "mobile/user/profile/update"
+let chatlist = "mobile/user/chat/users/list"
+let supportlist = "mobile/user/contact/support/list"
+let calendarlist = "mobile/user/calendar/info/"
+
 let likesList = "mobile/user/likes/"
 let DeleteComment = "mobile/user/comment/"
-
-

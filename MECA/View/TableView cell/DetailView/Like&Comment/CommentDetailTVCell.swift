@@ -34,7 +34,6 @@ class CommentDetailTVCell: UITableViewCell {
         // Initialization code
         //
         //viewSendCommentBoxHeightConstraint.constant = 0
-            
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -89,7 +88,13 @@ class CommentDetailTVCell: UITableViewCell {
             lblDescription.isHidden = false
             imgComment.isHidden = true
         }
-        
+        if let imgPro = commentData.avatar{
+            let img = BaseURL + imgPro
+            imgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            imgProfile.sd_setImage(with: URL.init(string: img), completed: nil)
+        }else{
+            imgProfile.image = #imageLiteral(resourceName: "editprofile")
+        }
         lblUserName.text = commentData.writer_name
         lblUserName.font = UIFont.init(name: "SF-Pro-Display-Bold", size: 13)
         lblDay.text =  commentData.created_at

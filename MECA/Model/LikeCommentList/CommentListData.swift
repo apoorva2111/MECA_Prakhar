@@ -14,6 +14,7 @@ struct CommentListData : Codable {
 	let updated_at : String?
 	let showreply : Int?
 	let writer_name : String?
+    let avatar : String?
 	let subcomments : [Subcomments]?
 
 	enum CodingKeys: String, CodingKey {
@@ -31,6 +32,7 @@ struct CommentListData : Codable {
 		case showreply = "showreply"
 		case writer_name = "writer_name"
 		case subcomments = "subcomments"
+        case avatar = "avatar"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -48,6 +50,8 @@ struct CommentListData : Codable {
 		showreply = try values.decodeIfPresent(Int.self, forKey: .showreply)
 		writer_name = try values.decodeIfPresent(String.self, forKey: .writer_name)
 		subcomments = try values.decodeIfPresent([Subcomments].self, forKey: .subcomments)
+        avatar = try values.decodeIfPresent(String.self, forKey: .avatar)
+
 	}
 
 }

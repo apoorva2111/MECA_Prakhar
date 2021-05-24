@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class CommentReplyTVCell: UITableViewCell {
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var lblComment: UILabel!
@@ -53,6 +53,13 @@ class CommentReplyTVCell: UITableViewCell {
             imgCommentHeightConstraint.constant = 0
             lblComment.isHidden = false
             imgComment.isHidden = true
+        }
+        if let imgPro = commentData.avatar{
+            let img = BaseURL + imgPro
+            imgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            imgProfile.sd_setImage(with: URL.init(string: img), completed: nil)
+        }else{
+            imgProfile.image = #imageLiteral(resourceName: "editprofile")
         }
     }
 }

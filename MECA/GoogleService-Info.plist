@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>773088280208-nha6bfod606i3tj2opq0elok5h2b9vnu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.773088280208-nha6bfod606i3tj2opq0elok5h2b9vnu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDfqOrxxP3bPyyNFb70t7TbFNFb2ep05v4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>773088280208</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.MECA</string>
+	<key>PROJECT_ID</key>
+	<string>toyotamebit</string>
+	<key>STORAGE_BUCKET</key>
+	<string>toyotamebit.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:773088280208:ios:c36761ce99d658e2902215</string>
+	<key>DATABASE_URL</key>
+	<string>https://toyotamebit.firebaseio.com</string>
+</dict>
+</plist>

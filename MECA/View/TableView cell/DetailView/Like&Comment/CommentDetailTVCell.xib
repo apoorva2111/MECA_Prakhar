@@ -28,7 +28,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="721-KU-4ho">
                         <rect key="frame" x="16" y="0.0" width="288" height="260"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image 1" translatesAutoresizingMaskIntoConstraints="NO" id="mDe-cZ-ncM" customClass="RCustomImageView" customModule="MECA" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="editprofile" translatesAutoresizingMaskIntoConstraints="NO" id="mDe-cZ-ncM" customClass="RCustomImageView" customModule="MECA" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="10" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="JMR-gc-euC"/>
@@ -190,6 +190,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mDe-cZ-ncM" firstAttribute="leading" secondItem="721-KU-4ho" secondAttribute="leading" id="3gq-gm-5Ag"/>
                             <constraint firstAttribute="trailing" secondItem="5sl-Cr-YNQ" secondAttribute="trailing" id="7Qk-k0-ckK"/>
@@ -238,12 +239,12 @@
     </objects>
     <designables>
         <designable name="mDe-cZ-ncM">
-            <size key="intrinsicContentSize" width="166" height="100"/>
+            <size key="intrinsicContentSize" width="332.5" height="332.5"/>
         </designable>
     </designables>
     <resources>
         <image name="attach " width="22" height="22"/>
-        <image name="image 1" width="166" height="100"/>
+        <image name="editprofile" width="332.5" height="332.5"/>
         <image name="orange_comment" width="86.333335876464844" height="95"/>
     </resources>
 </document>
