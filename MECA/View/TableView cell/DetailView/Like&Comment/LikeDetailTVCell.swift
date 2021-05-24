@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SDWebImage
 class LikeDetailTVCell: UITableViewCell {
     @IBOutlet weak var imgLike: UIImageView!
     @IBOutlet weak var lblUserName: UILabel!
@@ -32,5 +32,12 @@ class LikeDetailTVCell: UITableViewCell {
     }
     static func nib() -> UINib {
         return UINib(nibName: "LikeDetailTVCell", bundle: nil)
+    }
+    func setCell(linkListData : Like_ListData) {
+        lblUserName.text = linkListData.username
+        let img = BaseURL + (linkListData.avatar ?? "")
+        imgUserProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        imgUserProfile.sd_setImage(with: URL.init(string: img), completed: nil)
+
     }
 }

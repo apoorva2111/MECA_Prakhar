@@ -844,6 +844,32 @@ class APIClient {
              }
      }
     
+    //Delete post
+    static func webServiceForDeleteComment(commentId : String ,completion:@escaping(Any) -> Void){
+         if !NetworkReachabilityManager()!.isReachable{
+             GlobalObj.displayLoader(true, show: false)
+             GlobalObj.showNetworkAlert()
+             return
+         }
+         let url = BaseURL + DeleteComment + commentId
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+
+        AF.request(url, method: .delete, parameters: [:], headers: headers)
+             .responseJSON { response in
+ //                completion(response)
+                 switch response.result{
+                 case .success( _):
+                     completion(response.value!)
+                 case .failure(let error):
+                     print(error)
+                     GlobalObj.displayLoader(true, show: false)
+
+                 }
+             }
+     }
     
     //Comment List
     
@@ -871,6 +897,49 @@ class APIClient {
                 
                 do{
                     let objRes: CommentListModel = try JSONDecoder().decode(CommentListModel.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
+                                   }
+                }catch let error{
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                }
+            }
+    }
+    
+    
+    //Like List
+    
+    static func wevserviceForLikeList(module:String, item:String, completion:@escaping(Like_ListModel) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        let url = BaseURL + likesList + module + "/" + item
+       
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                print(response)
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
+                    return }
+                
+                do{
+                    let objRes: Like_ListModel = try JSONDecoder().decode(Like_ListModel.self, from: dataResponse)
                     switch response.result{
                                    case .success( _):
                                            completion(objRes)

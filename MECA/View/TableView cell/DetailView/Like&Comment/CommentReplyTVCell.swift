@@ -13,6 +13,9 @@ class CommentReplyTVCell: UITableViewCell {
     @IBOutlet weak var imgProfile: RCustomImageView!
     @IBOutlet weak var lbDay: UILabel!
     @IBOutlet weak var btnReplyOutlet: UIButton!
+    @IBOutlet weak var imgComment: UIImageView!
+    @IBOutlet weak var imgCommentHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var btnDeleteOutlet: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,8 +30,29 @@ class CommentReplyTVCell: UITableViewCell {
     }
     func setCell(commentData : Subcomments) {
         print(commentData)
-        lblComment.text = commentData.comment
+        if BoolValue.isFromReplyComment{
+            btnReplyOutlet.setTitle("Reply", for: .normal)
+            btnReplyOutlet.isSelected = false
+        }
         lblUserName.text = commentData.writer_name
-        lbDay.text = commentData.created_at
+        let date = GlobalObj.convertToString(dateString: commentData.created_at ?? "")
+
+        lbDay.text = date
+        
+        if commentData.isfile == 1{
+            if let urlstr = commentData.comment {
+                let url = BaseURL + urlstr
+                imgComment.contentMode = .scaleToFill
+                imgCommentHeightConstraint.constant = 150
+                lblComment.isHidden = true
+                imgComment.sd_setImage(with: URL.init(string: url), completed: nil)
+      
+            }
+        }else{
+            lblComment.text = commentData.comment
+            imgCommentHeightConstraint.constant = 0
+            lblComment.isHidden = false
+            imgComment.isHidden = true
+        }
     }
 }

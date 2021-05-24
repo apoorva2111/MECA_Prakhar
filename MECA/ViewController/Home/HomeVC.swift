@@ -42,8 +42,7 @@ class HomeVC: UIViewController {
 
 
         }
-   
-    
+ 
 }
 //MARK:- UIButton Action
 extension HomeVC{

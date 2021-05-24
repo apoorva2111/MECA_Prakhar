@@ -35,6 +35,7 @@ let likeUpdate = "mobile/user/module/item/like/update"
 let CommentList = "/mobile/user/comments/"
 let AddModuleItem = "mobile/user/create/module/item"
 let AddComment = "mobile/user/comment/item"
-
+let likesList = "mobile/user/likes/"
+let DeleteComment = "mobile/user/comment/"
 
 

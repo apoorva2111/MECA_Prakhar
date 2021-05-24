@@ -271,20 +271,191 @@ class NewDetailVM: BaseTableViewVM {
     }
     
     @objc func didTapCommentButton(sender:UIButton) {
-        //        let vc = FlowController().instantiateViewController(identifier: "LikeOrCommentVC", storyBoard: "Category") as! LikeOrCommentVC
-        //        vc.isFromLike = "Comment"
-        //        vc.modalPresentationStyle = .fullScreen
-        //        (actualController as! NewDetailVC).present(vc, animated: true, completion: nil)
         
+        if (actualController as! NewDetailVC).isFromGR{
+            if GRData != nil{
+                //                print(GRData!.id)
+                //                print(GRData!.type)
+                
+                for obj in arrModule{
+                    print(obj)
+                    if (actualController as! NewDetailVC).module == obj.module{
+
+                        let vc = FlowController().instantiateViewController(identifier: "LikeOrCommentVC", storyBoard: "Category") as! LikeOrCommentVC
+                        vc.isFromLike = "Comment"
+                        vc.module = obj.id ?? 0
+                        vc.item = GRData?.id ?? 0
+                        vc.detailVC = (actualController as! NewDetailVC).self
+                        vc.modalPresentationStyle = .fullScreen
+                        (actualController as! NewDetailVC).present(vc, animated: true, completion: nil)
+                 
+                        
+                    }
+                }
+            }
+        }else if (actualController as! NewDetailVC).isEvent{
+            if eventData != nil{
+                
+                
+                for obj in arrModule{
+                    if (actualController as! NewDetailVC).module.capitalized == obj.module{
+//                        if eventData?.isliked == 1{
+//                            // self.callWebserviceForLikePost(module: obj.id, item: GRData?.id, status: 0)
+//                            callWebserviceForLikePost(module: obj.id!, item: eventData?.id ?? 0, status: 0)
+//                        }else{
+//                            callWebserviceForLikePost(module: obj.id!, item: eventData?.id ?? 0, status: 1)
+//
+//                        }
+                        let vc = FlowController().instantiateViewController(identifier: "LikeOrCommentVC", storyBoard: "Category") as! LikeOrCommentVC
+                        vc.isFromLike = "Comment"
+                        vc.module = obj.id ?? 0
+                        vc.item = eventData?.id ?? 0
+                        vc.detailVC = (actualController as! NewDetailVC).self
+                        vc.modalPresentationStyle = .fullScreen
+                        (actualController as! NewDetailVC).present(vc, animated: true, completion: nil)
+                    }
+                }
+                
+            }
+        }else{
+            
+            if kaizenData != nil{
+                
+                for obj in arrModule{
+                    print(obj)
+                    if (actualController as! NewDetailVC).module == "SDGs"{
+                        
+                       if (actualController as! NewDetailVC).module == obj.module{
+//                            if kaizenData?.isliked == 1{
+//                                // self.callWebserviceForLikePost(module: obj.id, item: GRData?.id, status: 0)
+//                                callWebserviceForLikePost(module: obj.id!, item: kaizenData?.id ?? 0, status: 0)
+//                            }else{
+//                                callWebserviceForLikePost(module: obj.id!, item: kaizenData?.id ?? 0, status: 1)
+//
+//                            }
+                        let vc = FlowController().instantiateViewController(identifier: "LikeOrCommentVC", storyBoard: "Category") as! LikeOrCommentVC
+                        vc.isFromLike = "Comment"
+                        vc.module = obj.id ?? 0
+                        vc.item = kaizenData?.id ?? 0
+                        vc.detailVC = (actualController as! NewDetailVC).self
+                        vc.modalPresentationStyle = .fullScreen
+                        (actualController as! NewDetailVC).present(vc, animated: true, completion: nil)
+                 
+                            
+                        }
+                    }else{
+                        
+                        if (actualController as! NewDetailVC).module.capitalized == obj.module{
+
+                            let vc = FlowController().instantiateViewController(identifier: "LikeOrCommentVC", storyBoard: "Category") as! LikeOrCommentVC
+                            vc.isFromLike = "Comment"
+                            vc.module = obj.id ?? 0
+                            vc.item = kaizenData?.id ?? 0
+                            vc.detailVC = (actualController as! NewDetailVC).self
+                            vc.modalPresentationStyle = .fullScreen
+                            (actualController as! NewDetailVC).present(vc, animated: true, completion: nil)
+                        }
+                    }
+                }
+            }
+        }
     }
     
-    @objc func didTapLikeCountButton(sender:UIButton) {
-        let vc = FlowController().instantiateViewController(identifier: "LikeOrCommentVC", storyBoard: "Category") as! LikeOrCommentVC
-        vc.isFromLike = "Like"
-        vc.modalPresentationStyle = .fullScreen
-        (actualController as! NewDetailVC).present(vc, animated: true, completion: nil)
+    @objc func didTapLikeCountButton(sender:UIButton)
+    {
         
+        if (actualController as! NewDetailVC).isFromGR{
+            if GRData != nil{
+                //                print(GRData!.id)
+                //                print(GRData!.type)
+                
+                for obj in arrModule{
+                    print(obj)
+                    if (actualController as! NewDetailVC).module == obj.module{
+
+                        let vc = FlowController().instantiateViewController(identifier: "LikeOrCommentVC", storyBoard: "Category") as! LikeOrCommentVC
+                        vc.isFromLike = "Like"
+                        vc.module = obj.id ?? 0
+                        vc.item = GRData?.id ?? 0
+                        vc.detailVC = (actualController as! NewDetailVC).self
+                        vc.modalPresentationStyle = .fullScreen
+                        (actualController as! NewDetailVC).present(vc, animated: true, completion: nil)
+                 
+                        
+                    }
+                }
+            }
+        }else if (actualController as! NewDetailVC).isEvent{
+            if eventData != nil{
+                
+                
+                for obj in arrModule{
+                    if (actualController as! NewDetailVC).module.capitalized == obj.module{
+//                        if eventData?.isliked == 1{
+//                            // self.callWebserviceForLikePost(module: obj.id, item: GRData?.id, status: 0)
+//                            callWebserviceForLikePost(module: obj.id!, item: eventData?.id ?? 0, status: 0)
+//                        }else{
+//                            callWebserviceForLikePost(module: obj.id!, item: eventData?.id ?? 0, status: 1)
+//
+//                        }
+                        let vc = FlowController().instantiateViewController(identifier: "LikeOrCommentVC", storyBoard: "Category") as! LikeOrCommentVC
+                        vc.isFromLike = "Like"
+                        vc.module = obj.id ?? 0
+                        vc.item = eventData?.id ?? 0
+                        vc.detailVC = (actualController as! NewDetailVC).self
+                        vc.modalPresentationStyle = .fullScreen
+                        (actualController as! NewDetailVC).present(vc, animated: true, completion: nil)
+                 
+                        
+                    }
+                }
+                
+            }
+            
+        }else{
+            
+            if kaizenData != nil{
+                
+                for obj in arrModule{
+                    print(obj)
+                    if (actualController as! NewDetailVC).module == "SDGs"{
+                        
+                       if (actualController as! NewDetailVC).module == obj.module{
+
+                        let vc = FlowController().instantiateViewController(identifier: "LikeOrCommentVC", storyBoard: "Category") as! LikeOrCommentVC
+                        vc.isFromLike = "Like"
+                        vc.module = obj.id ?? 0
+                        vc.item = kaizenData?.id ?? 0
+                        vc.detailVC = (actualController as! NewDetailVC).self
+                        vc.modalPresentationStyle = .fullScreen
+                        (actualController as! NewDetailVC).present(vc, animated: true, completion: nil)
+                 
+                            
+                        }
+                    }else{
+                        
+                        if (actualController as! NewDetailVC).module.capitalized == obj.module{
+
+                            let vc = FlowController().instantiateViewController(identifier: "LikeOrCommentVC", storyBoard: "Category") as! LikeOrCommentVC
+                            vc.isFromLike = "Like"
+                            vc.module = obj.id ?? 0
+                            vc.item = kaizenData?.id ?? 0
+                            vc.detailVC = (actualController as! NewDetailVC).self
+                            vc.modalPresentationStyle = .fullScreen
+                            (actualController as! NewDetailVC).present(vc, animated: true, completion: nil)
+                        }
+                    }
+                }
+            }
+        }
     }
+//    {
+//        let vc = FlowController().instantiateViewController(identifier: "LikeOrCommentVC", storyBoard: "Category") as! LikeOrCommentVC
+//        vc.isFromLike = "Like"
+//        vc.modalPresentationStyle = .fullScreen
+//        (actualController as! NewDetailVC).present(vc, animated: true, completion: nil)
+//
+//    }
     @objc func didTapCommentCountButton(sender:UIButton) {
         
         if (actualController as! NewDetailVC).isFromGR{
@@ -372,22 +543,13 @@ class NewDetailVM: BaseTableViewVM {
                             vc.detailVC = (actualController as! NewDetailVC).self
                             vc.modalPresentationStyle = .fullScreen
                             (actualController as! NewDetailVC).present(vc, animated: true, completion: nil)
-                     
-                            
                         }
                     }
                 }
-                
-                
             }
         }
-        
-        
     }
-         
-   
-    
-    
+           
     @objc func didTapReadmoreButton(sender:UIButton) {
         if (actualController as! NewDetailVC).isFromGR{
             if GRData?.description != ""{

@@ -45,16 +45,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01 Mar 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Gn-QE-xG2">
-                                <rect key="frame" x="199.5" y="235.5" width="74.5" height="16"/>
+                                <rect key="frame" x="184" y="235.5" width="90" height="16"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="74.5" id="5eg-eL-pTT"/>
+                                    <constraint firstAttribute="width" constant="90" id="5eg-eL-pTT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
                                 <color key="textColor" red="0.14901960780000001" green="0.2784313725" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Written by: Admin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZ6-jC-nuc">
-                                <rect key="frame" x="15" y="235.5" width="174.5" height="16"/>
+                                <rect key="frame" x="15" y="235.5" width="159" height="16"/>
                                 <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

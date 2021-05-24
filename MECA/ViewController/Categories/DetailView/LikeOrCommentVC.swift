@@ -16,6 +16,7 @@ class LikeOrCommentVC: UIViewController {
     
     @IBOutlet weak var viewSendCommentHeightConstraint: NSLayoutConstraint!
    
+   
     @IBOutlet weak var lblHeader: UILabel!
     
     var viewModel : LikeOrCommentVM!
@@ -33,6 +34,8 @@ class LikeOrCommentVC: UIViewController {
             viewSendCommentHeightConstraint.constant = 0
             tblList.register(LikeDetailTVCell.nib(), forCellReuseIdentifier: "LikeDetailTVCell")
             lblHeader.text = "Like"
+            viewModel.callWebserviceForLikeList(module: String(module), item: String(item))
+            
         }else{
             lblHeader.text = "Comments"
             tblList.register(CommentDetailTVCell.nib(), forCellReuseIdentifier: "CommentDetailTVCell")
@@ -64,6 +67,9 @@ class LikeOrCommentVC: UIViewController {
 
         }
     }
+    @IBAction func btnDocumentAction(_ sender: UIButton) {
+        presentPhotoActionSheet()
+    }
 }
 
 extension LikeOrCommentVC : UITableViewDelegate, UITableViewDataSource{
@@ -77,4 +83,87 @@ extension LikeOrCommentVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         viewModel.getHeightForRowAt(indexPath, tableView: tblList)
     }
+}
+
+extension LikeOrCommentVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  
+    
+    func presentPhotoActionSheet() {
+        
+        let alert = UIAlertController(title: "Add Cover Image", message: "How would you like to select a picture?", preferredStyle: .actionSheet)
+        let cameraAlert = UIAlertAction(title: "Camera",
+                                        style: .default,
+                                        handler:{ [weak self] _ in
+                                            self?.presentCamera()
+                                           
+                                            
+                                            
+                                        })
+        let galleryAlert = UIAlertAction(title: "Gallery",
+                                         style: .default,
+                                         handler:{ [weak self] _ in
+                                            
+                                            self?.presentPhotoPicker()
+                                         })
+        let dismiss = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(dismiss)
+        alert.addAction(cameraAlert)
+        alert.addAction(galleryAlert)
+        self.present(alert, animated: true)
+        alert.view.superview?.isUserInteractionEnabled = true
+        alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissOnTapOutside)))
+        
+    }
+    @objc func dismissOnTapOutside(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    func presentCamera() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    
+    func presentPhotoPicker() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    
+    
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func presentCamera1() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .camera
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+       
+            var selectedImageFromPicker: UIImage?
+            if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+                selectedImageFromPicker = editedImage
+            } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                selectedImageFromPicker = originalImage
+            }
+            
+            if let selectedImage = selectedImageFromPicker {
+                imgDoc = selectedImage.jpegData(compressionQuality: 0.5)! as NSData
+
+            }
+            
+            dismiss(animated: true, completion: nil)
+        viewModel.callWebserviceForAddComment(module: String(module), item: String(item), parent: "0", isfile: "1", is_reply: "0", comment: txtViewSendComment.text!, imgData: imgDoc)
+
+    }
+    
 }

@@ -58,6 +58,7 @@ class NewDetailVC: UIViewController {
             
             print("Maasview ..\(Maasview)")
             if Maasview {
+//                Maasview = false
                 if ComingfromVC == "Sdgs" {
                     viewModel.callSdgsInfoWebservice{ (result) in
                         if result{

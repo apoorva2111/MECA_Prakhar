@@ -11,6 +11,7 @@ static var token = "token"
 
 struct BoolValue {
     static var isFromDistributor = false
+    static var isFromReplyComment = false
 }
 
 struct GlobalValue {

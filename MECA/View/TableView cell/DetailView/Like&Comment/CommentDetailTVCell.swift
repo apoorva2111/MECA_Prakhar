@@ -7,32 +7,34 @@
 
 import UIKit
 import SDWebImage
+
 class CommentDetailTVCell: UITableViewCell {
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var imgProfile: RCustomImageView!
     @IBOutlet weak var lblDay: UILabel!
     @IBOutlet weak var btnReplyOutlet: UIButton!
-    @IBOutlet weak var tblSublist: UITableView!
+    @IBOutlet weak var tblSublist: customTblView!
     @IBOutlet weak var tblSubListHeughtConstriaint: NSLayoutConstraint!
     @IBOutlet weak var viewSendComment: UIView!
     @IBOutlet weak var viewSendCommentBoxHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var imgComment: UIImageView!
     @IBOutlet weak var imgCommentHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var btnSendCommentOutlet: UIButton!
+    @IBOutlet weak var txtsendComment: UITextView!
+    @IBOutlet weak var btnDeleteOutlet: UIButton!
+    @IBOutlet weak var btnUploadImg: UIButton!
     
     var arrSubComment = [Subcomments]()
     var tableViewHeight: CGFloat = 0
     var tblComment = UITableView()
-
+    var viewcontroller : LikeOrCommentVC!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         //
         //viewSendCommentBoxHeightConstraint.constant = 0
-        
-        self.tblSublist.estimatedRowHeight = 100.0
-        self.tblSublist.rowHeight = UITableView.automaticDimension
-        
+            
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -44,8 +46,11 @@ class CommentDetailTVCell: UITableViewCell {
         return UINib(nibName: "CommentDetailTVCell", bundle: nil)
     }
     
+   
+    
     func setCell(commentData : CommentListData) {
         print(commentData)
+       
         if commentData.subcomments!.count>0{
             if arrSubComment.count>0{
                 arrSubComment.removeAll()
@@ -57,16 +62,16 @@ class CommentDetailTVCell: UITableViewCell {
             viewSendComment.isHidden = true
             viewSendCommentBoxHeightConstraint.constant = 0
             tblSublist.isHidden = false
+ 
+            tblSublist.estimatedRowHeight = 100
+           tblSublist.rowHeight = UITableView.automaticDimension
+
             tblSublist.reloadData()
-            tblSubListHeughtConstriaint.constant = tblSublist.contentSize.height
             tblSublist.layoutIfNeeded()
-            self.updateConstraints()
-            tblComment.reloadData()
-            
+
         }else{
             viewSendComment.isHidden = true
             tblSublist.isHidden = true
-            tblSubListHeughtConstriaint.constant = 0
             viewSendCommentBoxHeightConstraint.constant = 0
         }
         if commentData.isfile == 1{
@@ -88,7 +93,11 @@ class CommentDetailTVCell: UITableViewCell {
         lblUserName.text = commentData.writer_name
         lblUserName.font = UIFont.init(name: "SF-Pro-Display-Bold", size: 13)
         lblDay.text =  commentData.created_at
+        let date = GlobalObj.convertToString(dateString: commentData.created_at ?? "")
+            
+        lblDay.text = date
         
+
     }
 }
 
@@ -102,13 +111,17 @@ extension CommentDetailTVCell : UITableViewDelegate, UITableViewDataSource{
         
         cell.setCell(commentData: arrSubComment[indexPath.row])
         cell.btnReplyOutlet.addTarget(self, action: #selector(btnReplyViewOpenAtion), for: .touchUpInside)
+        cell.btnDeleteOutlet.addTarget(self, action: #selector(btnDeleteCommentAtion), for: .touchUpInside)
+        cell.btnDeleteOutlet.tag = indexPath.row
         return cell
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-   
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+
+    }
  
     
     @objc func btnReplyViewOpenAtion(sender : UIButton){
@@ -122,6 +135,7 @@ extension CommentDetailTVCell : UITableViewDelegate, UITableViewDataSource{
             tblComment.endUpdates()
         }else{
             sender.isSelected = true
+            BoolValue.isFromReplyComment = true
             viewSendCommentBoxHeightConstraint.constant = 40
             viewSendComment.isHidden = false
             sender.setTitle("Cancel", for: .normal)
@@ -129,5 +143,32 @@ extension CommentDetailTVCell : UITableViewDelegate, UITableViewDataSource{
              tblComment.endUpdates()
         }
     }
+    @objc func btnDeleteCommentAtion(sender : UIButton){
+
+        let obj = arrSubComment[sender.tag]
+        arrSubComment.remove(at: sender.tag)
+        tblSublist.reloadData()
+
+        viewcontroller.viewModel.callWebserviceForDeleteComment(commentId: String(obj.id!))
+    }
     
+}
+
+
+class customTblView: UITableView {
+    override var intrinsicContentSize: CGSize {
+        self.layoutIfNeeded()
+        return self.contentSize
+    }
+    
+    override var contentSize: CGSize {
+        didSet{
+            self.invalidateIntrinsicContentSize()
+        }
+    }
+    
+    override func reloadData() {
+        super.reloadData()
+        self.invalidateIntrinsicContentSize()
+    }
 }
