@@ -44,9 +44,9 @@ class MEBITHomeVM: BaseTableViewVM {
         let vc = story.instantiateViewController(withIdentifier: "NewDetailVC") as! NewDetailVC
         let obj = arrMEBITFeed[indexPath.row]
         vc.eventID = String(obj.id ?? 0)
-        vc.module = obj.whatsnew_type ?? ""
+            print(obj.whatsnew_type)
+            vc.module = obj.whatsnew_type ?? "event"
         vc.isEvent =  obj.whatsnew_type == "event" ? true : false
-            vc.Maasview = false
             (self.actualController as! MEBITViewController).navigationController?.pushViewController(vc, animated: true)
         }else if GlobalValue.tabCategory == "GR"{
             let story = UIStoryboard(name: "Category", bundle:nil)

@@ -6,6 +6,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var viewTabbar: FooterTabView!
     var viewModel : HomeVM!
+    @IBOutlet weak var calendarView: CalendarView!
     private var pullControl = UIRefreshControl()
 
     override func viewDidLoad() {
@@ -42,7 +43,8 @@ class HomeVC: UIViewController {
 
 
         }
- 
+   
+    
 }
 //MARK:- UIButton Action
 extension HomeVC{
@@ -60,7 +62,8 @@ extension HomeVC: FooterTabViewDelegate{
 
         }else if strType == "Calendar"{
             
-            
+            let vc = FlowController().instantiateViewController(identifier: "Calendervc", storyBoard: "Home")
+            self.navigationController?.pushViewController(vc, animated:false)
             
         }else if strType == "Categories"{
 
@@ -114,4 +117,80 @@ extension HomeVC:UITableViewDelegate,UITableViewDataSource{
         viewModel.didSelectRowAt(indexPath, tableView: tblView)
    
     }
+}
+extension HomeVC: CalendarViewDataSource {
+    
+      func startDate() -> Date {
+          
+          var dateComponents = DateComponents()
+          dateComponents.month = -5
+          
+          let today = Date()
+          print("startDate dateComponents\(dateComponents)")
+          let threeMonthsAgo = self.calendarView.calendar.date(byAdding: dateComponents, to: today)!
+          
+          return threeMonthsAgo
+      }
+      
+      func endDate() -> Date {
+          
+          var dateComponents = DateComponents()
+        
+          dateComponents.month = 12
+          let today = Date()
+          
+          let twoYearsFromNow = self.calendarView.calendar.date(byAdding: dateComponents, to: today)!
+          
+          return twoYearsFromNow
+    
+      }
+    
+}
+
+extension HomeVC: CalendarViewDelegate {
+    
+    func calendar(_ calendar: CalendarView, didSelectDate date : Date, withEvents events: [CalendarEvent]) {
+           
+           print("Did Select: \(date) with \(events.count) events")
+           for event in events {
+               print("\t\"\(event.title)\" - Starting at:\(event.startDate)")
+           }
+           
+       }
+       
+       func calendar(_ calendar: CalendarView, didScrollToMonth date : Date) {
+           print(self.calendarView.selectedDates)
+        
+          // self.datePicker.setDate(date, animated: true)
+       }
+       
+       
+       func calendar(_ calendar: CalendarView, didLongPressDate date : Date, withEvents events: [CalendarEvent]?) {
+           
+           if let events = events {
+               for event in events {
+                   print("\t\"\(event.title)\" - Starting at:\(event.startDate)")
+               }
+           }
+           
+           let alert = UIAlertController(title: "Create New Event", message: "Message", preferredStyle: .alert)
+           
+           alert.addTextField { (textField: UITextField) in
+               textField.placeholder = "Event Title"
+           }
+           
+           let addEventAction = UIAlertAction(title: "Create", style: .default, handler: { (action) -> Void in
+               let title = alert.textFields?.first?.text
+               //self.calendarView.addEvent(title!, date: date)
+           })
+           
+           let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+           
+           alert.addAction(addEventAction)
+           alert.addAction(cancelAction)
+           
+           self.present(alert, animated: true, completion: nil)
+           
+       }
+    
 }

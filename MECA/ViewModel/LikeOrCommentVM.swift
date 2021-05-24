@@ -34,7 +34,7 @@ class LikeOrCommentVM: BaseTableViewVM {
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "CommentDetailTVCell", for: indexPath) as! CommentDetailTVCell
             let objDict = arrCommentList[indexPath.row]
-            cell.viewcontroller = (actualController as! LikeOrCommentVC).self
+            cell.viewcontroller = (actualController as? LikeOrCommentVC).self
             cell.btnReplyOutlet.addTarget(self, action: #selector(btnReplyViewOpenAtion), for: .touchUpInside)
             cell.btnReplyOutlet.tag = indexPath.row
             cell.setCell(commentData: objDict)
@@ -101,6 +101,7 @@ class LikeOrCommentVM: BaseTableViewVM {
         if comment == ""{
             (actualController as! LikeOrCommentVC).showToast(message: "Please Enter Your Comment")
         }else{
+            BoolValue.isFromReplyComment = true
             callWebserviceForAddComment(module: String((actualController as! LikeOrCommentVC).module), item: String((actualController as! LikeOrCommentVC).item), parent: String(obj.id!), isfile: "0", is_reply: "1", comment: comment, imgData: (actualController as! LikeOrCommentVC).imgDoc)
 
         }
@@ -125,6 +126,7 @@ class LikeOrCommentVM: BaseTableViewVM {
                             self.arrCommentList.removeAll()
                         }
                         for objData in arrData {
+                            print(objData)
                             self.arrCommentList.append(objData)
                         }
                         if self.arrCommentList.count>0 {
@@ -218,7 +220,18 @@ class LikeOrCommentVM: BaseTableViewVM {
                             if let msg = objData["message"] as? String{
                                 print(msg)
                                 (self.actualController as! LikeOrCommentVC).txtViewSendComment.text = ""
-                                self.callWebserviceForCommentList(module: module, item: item)
+//                                self.callWebserviceForCommentList(module: module, item: item)
+                                
+                                if BoolValue.isFromReplyComment{
+                                    BoolValue.isFromReplyComment = false
+                                    self.callWebserviceForCommentList(module: module, item: item)
+                                    
+                                }else{
+                                    
+                                    (self.actualController as! LikeOrCommentVC).dismiss(animated: false) {
+                                        (self.actualController as! LikeOrCommentVC).detailVC.viewDidLoad()
+                                    }
+                                }
                         }
                         
                         }

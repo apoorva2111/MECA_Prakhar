@@ -51,7 +51,13 @@ extension UIView {
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
         layer.add(animation, forKey: "shake")
     }
+    func roundCorners(_ corners: CACornerMask, radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) {
+           self.layer.maskedCorners = corners
+           self.layer.cornerRadius = radius
+           self.layer.borderWidth = borderWidth
+           self.layer.borderColor = borderColor.cgColor
 
+       }
 }
 
 extension UIViewController {
@@ -184,53 +190,61 @@ class FileDownloader {
 
     static func loadFileAsync(url: URL, completion: @escaping (String?, Error?) -> Void)
     {
-        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-
-        let destinationUrl = documentsUrl.appendingPathComponent(url.lastPathComponent)
-
-        if FileManager().fileExists(atPath: destinationUrl.path)
-        {
-            print("File already exists [\(destinationUrl.path)]")
-            completion(destinationUrl.path, nil)
-        }
-        else
-        {
-            let session = URLSession(configuration: URLSessionConfiguration.default, delegate: nil, delegateQueue: nil)
-            var request = URLRequest(url: url)
-            request.httpMethod = "GET"
-            let task = session.dataTask(with: request, completionHandler:
+        do {
+             let documentsUrl = try FileManager.default.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: true)
+           
+            let destinationUrl = documentsUrl.appendingPathComponent(url.lastPathComponent)
+            if FileManager().fileExists(atPath: destinationUrl.path)
             {
-                data, response, error in
-                if error == nil
+                print("File already exists [\(destinationUrl.path)]")
+                completion(destinationUrl.path, nil)
+            }
+            else{
+                let session = URLSession(configuration: URLSessionConfiguration.default, delegate: nil, delegateQueue: nil)
+                var request = URLRequest(url: url)
+                request.httpMethod = "GET"
+                let task = session.dataTask(with: request, completionHandler:
                 {
-                    if let response = response as? HTTPURLResponse
+                    data, response, error in
+                    if error == nil
                     {
-                        if response.statusCode == 200
+                        if let response = response as? HTTPURLResponse
                         {
-                            if let data = data
+                            if response.statusCode == 200
                             {
-                                if let _ = try? data.write(to: destinationUrl, options: Data.WritingOptions.atomic)
+                                if let data = data
                                 {
-                                    completion(destinationUrl.path, error)
+                                    if let _ = try? data.write(to: destinationUrl, options: Data.WritingOptions.atomic)
+                                    {
+                                        completion(destinationUrl.path, error)
+                                    }
+                                    else
+                                    {
+                                        completion(destinationUrl.path, error)
+                                    }
                                 }
                                 else
                                 {
                                     completion(destinationUrl.path, error)
                                 }
                             }
-                            else
-                            {
-                                completion(destinationUrl.path, error)
-                            }
                         }
                     }
-                }
-                else
-                {
-                    completion(destinationUrl.path, error)
-                }
-            })
-            task.resume()
+                    else
+                    {
+                        completion(destinationUrl.path, error)
+                    }
+                })
+                task.resume()
+           }
+        } catch{
+              print(error)
         }
+        
+
+       
+
+        
+        
     }
 }

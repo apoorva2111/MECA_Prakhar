@@ -21,7 +21,7 @@ struct LoginUserModel : Codable {
 	let unread : Int?
 	let distributorinformation : Distributorinformation?
 	let divisioninformation : Divisioninformation?
-
+    let username : String?
 	enum CodingKeys: String, CodingKey {
 
 		case id = "id"
@@ -29,6 +29,7 @@ struct LoginUserModel : Codable {
 		case division = "division"
 		case first_name = "first_name"
 		case last_name = "last_name"
+        case username = "username"
 		case email = "email"
 		case phone = "phone"
 		case avatar = "avatar"
@@ -68,6 +69,7 @@ struct LoginUserModel : Codable {
 		unread = try values.decodeIfPresent(Int.self, forKey: .unread)
 		distributorinformation = try values.decodeIfPresent(Distributorinformation.self, forKey: .distributorinformation)
 		divisioninformation = try values.decodeIfPresent(Divisioninformation.self, forKey: .divisioninformation)
+        username = try values.decodeIfPresent(String.self, forKey: .username)
 	}
 
 }

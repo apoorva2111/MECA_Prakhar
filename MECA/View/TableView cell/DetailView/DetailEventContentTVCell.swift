@@ -154,10 +154,26 @@ extension DetailEventContentTVCell:UITableViewDelegate,UITableViewDataSource{
         let objUrl = arrEventDocument[sender.tag].file
       
         if let url = URL(string: BaseURL + objUrl!){
-            GlobalObj.run(after: 2) {
+            GlobalObj.run(after: 1) {
+                guard let url = URL(string: BaseURL + objUrl!)else{return}
+                
+                
                 
                 FileDownloader.loadFileAsync(url: url) { (path, error) in
                     print("PDF File downloaded to : \(path!)")
+                    let pdfData = NSMutableData()
+                            UIGraphicsBeginPDFContextToData(pdfData, CGRect(x: 0, y: 0, width: 0, height: 0), nil)
+
+
+
+                            UIGraphicsEndPDFContext();
+                            // 5. Save PDF file
+
+                            let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+
+                            pdfData.write(toFile: path!, atomically: true)
+                    
+
                     OperationQueue.main.addOperation {
 
                     GlobalObj.displayLoader(true, show: false)
@@ -167,5 +183,57 @@ extension DetailEventContentTVCell:UITableViewDelegate,UITableViewDataSource{
                 }
             }
         }
+    }
+    
+    func savePdf(urlString:String, fileName:String) {
+            DispatchQueue.main.async {
+                let url = URL(string: urlString)
+                let pdfData = try? Data.init(contentsOf: url!)
+                let resourceDocPath = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last! as URL
+                let pdfNameFromUrl = "YourAppName-\(fileName).pdf"
+                let actualPath = resourceDocPath.appendingPathComponent(pdfNameFromUrl)
+                do {
+                    try pdfData?.write(to: actualPath, options: .atomic)
+                    print("pdf successfully saved!")
+                } catch {
+                    print("Pdf could not be saved")
+                }
+            }
+        }
+
+        func showSavedPdf(url:String, fileName:String) {
+            if #available(iOS 10.0, *) {
+                do {
+                    let docURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                    let contents = try FileManager.default.contentsOfDirectory(at: docURL, includingPropertiesForKeys: [.fileResourceTypeKey], options: .skipsHiddenFiles)
+                    for url in contents {
+                        if url.description.contains("\(fileName).pdf") {
+                           // its your file! do what you want with it!
+
+                    }
+                }
+            } catch {
+                print("could not locate pdf file !!!!!!!")
+            }
+        }
+    }
+
+    // check to avoid saving a file multiple times
+    func pdfFileAlreadySaved(url:String, fileName:String)-> Bool {
+        var status = false
+        if #available(iOS 10.0, *) {
+            do {
+                let docURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                let contents = try FileManager.default.contentsOfDirectory(at: docURL, includingPropertiesForKeys: [.fileResourceTypeKey], options: .skipsHiddenFiles)
+                for url in contents {
+                    if url.description.contains("YourAppName-\(fileName).pdf") {
+                        status = true
+                    }
+                }
+            } catch {
+                print("could not locate pdf file !!!!!!!")
+            }
+        }
+        return status
     }
 }

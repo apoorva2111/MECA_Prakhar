@@ -17,7 +17,7 @@ class APIClient {
         let url = BaseURL + login
         AF.request(url, method: .post, parameters: params)
             .responseJSON { response in
-                
+                print("login response ...\(response)")
                 guard let dataResponse = response.data else {
                     print("Response Error")
                     GlobalObj.displayLoader(true, show: false)
@@ -43,6 +43,71 @@ class APIClient {
             }
 
 }
+    
+    //Profileedit
+        static func webServicesTochangeprofileedit(params:[String:Any], header: [String:String],image: UIImage,completion:@escaping(Profileupdatemodel) -> Void){
+            if !NetworkReachabilityManager()!.isReachable{
+                            GlobalObj.displayLoader(true, show: false)
+            
+                                  GlobalObj.showNetworkAlert()
+                                  return
+                        }
+            let url = BaseURL + profileedit
+            let httpHeaders = HTTPHeaders(header)
+            AF.upload(multipartFormData: { multiPart in
+                for p in params {
+                    multiPart.append("\(p.value)".data(using: String.Encoding.utf8)!, withName: p.key)
+                }
+                multiPart.append(image.jpegData(compressionQuality: 0.4)!, withName: "newavatar", fileName: "profile_image.jpg", mimeType: "image/jpg")
+
+            }, to: url, method: .post, headers: httpHeaders) .uploadProgress(queue: .main, closure: { progress in
+                print("Upload Progress: \(progress.fractionCompleted)")
+            }).responseJSON(completionHandler: { data in
+                print("upload finished: \(data)")
+                DispatchQueue.main.async {
+                    KRProgressHUD.dismiss()
+                }
+            }).response { (response) in
+                print("profileedit datas\(response)")
+                
+                guard let dataResponse = response.data else {
+                        print("Response Error")
+                        GlobalObj.displayLoader(true, show: false)
+                        return
+                }
+                do{
+                        let objRes: Profileupdatemodel = try JSONDecoder().decode(Profileupdatemodel.self, from: dataResponse)
+    //                    completion(objRes)
+                        switch response.result{
+                                       case .success( _):
+
+                                               completion(objRes)
+                                       case .failure(let error):
+                                           print(error)
+                                        GlobalObj.displayLoader(true, show: false)
+
+                                       }
+                    }catch let error{
+                        print(error)
+                        GlobalObj.displayLoader(true, show: false)
+
+                    }
+
+//                switch response.result {
+//                case .success(let resut):
+//                    print("upload success result: \(resut)")
+//                    DispatchQueue.main.async {
+//                        KRProgressHUD.dismiss()
+//                    }
+//                case .failure(let err):
+//                    print("upload err: \(err)")
+//                    DispatchQueue.main.async {
+//                        KRProgressHUD.dismiss()
+//                    }
+//                }
+            }
+        }
+    
    //Registration
     static func webServiceForSignUp(params:[String:Any],completion:@escaping(Any) -> Void){
         if !NetworkReachabilityManager()!.isReachable{
@@ -844,32 +909,6 @@ class APIClient {
              }
      }
     
-    //Delete post
-    static func webServiceForDeleteComment(commentId : String ,completion:@escaping(Any) -> Void){
-         if !NetworkReachabilityManager()!.isReachable{
-             GlobalObj.displayLoader(true, show: false)
-             GlobalObj.showNetworkAlert()
-             return
-         }
-         let url = BaseURL + DeleteComment + commentId
-        var headers = HTTPHeaders()
-
-        let accessToken = userDef.string(forKey: UserDefaultKey.token)
-         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
-
-        AF.request(url, method: .delete, parameters: [:], headers: headers)
-             .responseJSON { response in
- //                completion(response)
-                 switch response.result{
-                 case .success( _):
-                     completion(response.value!)
-                 case .failure(let error):
-                     print(error)
-                     GlobalObj.displayLoader(true, show: false)
-
-                 }
-             }
-     }
     
     //Comment List
     
@@ -914,6 +953,223 @@ class APIClient {
     }
     
     
+    //Chat List
+        static func webServicesToChatlist(params:[String:Any],completion:@escaping(Chatlistmodel) -> Void){
+            if !NetworkReachabilityManager()!.isReachable{
+                GlobalObj.displayLoader(true, show: false)
+
+                      GlobalObj.showNetworkAlert()
+                      return
+            }
+            let url = BaseURL + chatlist
+            print("chat url....\(url)")
+            print("chat param....\(params)")
+            var headers = HTTPHeaders()
+            let accessToken = userDef.string(forKey: UserDefaultKey.token)
+             headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+            AF.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: headers)
+                .responseJSON { response in
+                    print("chat datas\(response)")
+                    guard let dataResponse = response.data else {
+                        print("Response Error")
+                        GlobalObj.displayLoader(true, show: false)
+                        return }
+                    
+                    do{
+                        let objRes: Chatlistmodel = try JSONDecoder().decode(Chatlistmodel.self, from: dataResponse)
+    //                    completion(objRes)
+                        switch response.result{
+                                       case .success( _):
+                                        
+                                               completion(objRes)
+                                       case .failure(let error):
+                                           print(error)
+                                        GlobalObj.displayLoader(true, show: false)
+
+                                       }
+                    }catch let error{
+                        print(error)
+                        GlobalObj.displayLoader(true, show: false)
+
+                    }
+                }
+
+    }
+   
+    
+    //get profile
+    
+    static func webserviceForgetprofile(completion:@escaping(Getprofile) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+            GlobalObj.showNetworkAlert()
+            return
+        }
+        let url = BaseURL + getuserprofile
+        print("url\(url)")
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                print("get profile response\(response)")
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
+                    return }
+                
+                do{
+                    let objRes: Getprofile = try JSONDecoder().decode(Getprofile.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
+                                   }
+                }catch let error{
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                }
+            }
+        
+    }
+    //Change password
+        static func webServicesTochangepassword(params:[String:Any],completion:@escaping(Changepassword) -> Void){
+            if !NetworkReachabilityManager()!.isReachable{
+                GlobalObj.displayLoader(true, show: false)
+
+                      GlobalObj.showNetworkAlert()
+                      return
+            }
+            let url = BaseURL + changepassword
+            print("Chnagepassword url\(url)")
+            var headers = HTTPHeaders()
+
+            let accessToken = userDef.string(forKey: UserDefaultKey.token)
+             headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+            AF.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: headers)
+                .responseJSON { response in
+                    print("Chnagepassword datas\(response)")
+                    guard let dataResponse = response.data else {
+                        print("Response Error")
+                        GlobalObj.displayLoader(true, show: false)
+                        return }
+                    
+                    do{
+                        let objRes: Changepassword = try JSONDecoder().decode(Changepassword.self, from: dataResponse)
+    //                    completion(objRes)
+                        switch response.result{
+                                       case .success( _):
+
+                                               completion(objRes)
+                                       case .failure(let error):
+                                           print(error)
+                                        GlobalObj.displayLoader(true, show: false)
+
+                                       }
+                    }catch let error{
+                        print(error)
+                        GlobalObj.displayLoader(true, show: false)
+
+                    }
+                }
+
+    }
+    
+    
+    
+    //Support Api
+    
+    
+    static func webserviceForSupport(completion:@escaping(Supportmodel) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+            GlobalObj.showNetworkAlert()
+            return
+        }
+        let url = BaseURL + supportlist
+        print("Support Api url\(url)")
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                print("Support Api response\(response)")
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
+                    return }
+                
+                do{
+                    let objRes: Supportmodel = try JSONDecoder().decode(Supportmodel.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
+                                   }
+                }catch let error{
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                }
+            }
+        
+    }
+    
+    
+    //calendar Api
+    
+    
+    static func webserviceForCalendar(month:String,year:String,completion:@escaping(calendarlistdata) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+            GlobalObj.showNetworkAlert()
+            return
+        }
+        let url = BaseURL + calendarlist + month + "/" + year
+        print("calendar Api url\(url)")
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                print("calendar Api response\(response)")
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
+                    return }
+                
+                do{
+                    let objRes: calendarlistdata = try JSONDecoder().decode(calendarlistdata.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
+                                   }
+                }catch let error{
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                }
+            }
+        
+    }
+    
     //Like List
     
     static func wevserviceForLikeList(module:String, item:String, completion:@escaping(Like_ListModel) -> Void){
@@ -955,6 +1211,33 @@ class APIClient {
                 }
             }
     }
+    
+    //Delete post
+    static func webServiceForDeleteComment(commentId : String ,completion:@escaping(Any) -> Void){
+         if !NetworkReachabilityManager()!.isReachable{
+             GlobalObj.displayLoader(true, show: false)
+             GlobalObj.showNetworkAlert()
+             return
+         }
+         let url = BaseURL + DeleteComment + commentId
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+
+        AF.request(url, method: .delete, parameters: [:], headers: headers)
+             .responseJSON { response in
+ //                completion(response)
+                 switch response.result{
+                 case .success( _):
+                     completion(response.value!)
+                 case .failure(let error):
+                     print(error)
+                     GlobalObj.displayLoader(true, show: false)
+
+                 }
+             }
+     }
 }
 
 

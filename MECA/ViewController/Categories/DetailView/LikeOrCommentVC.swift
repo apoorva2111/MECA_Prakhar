@@ -1,9 +1,4 @@
-//
-//  LikeOrCommentVC.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 12/05/21.
-//
+
 
 import UIKit
 
@@ -28,6 +23,8 @@ class LikeOrCommentVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(module)
+        print(item)
         viewModel = LikeOrCommentVM.init(controller: self)
 
         if isFromLike == "Like"{
