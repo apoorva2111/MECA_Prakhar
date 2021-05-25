@@ -147,19 +147,45 @@ class MEBITEventVC: UIViewController{
                     GlobalObj.displayLoader(true, show: false)
                     if self.checkPagination == "get"{
                         self.arrAllData.removeAll()
-                    }
-                    if let arrDate = result.data{
-                        print(arrDate)
-                        if arrDate.count == 0{
-                            return
-                        }
                         
-                        for obj in arrDate {
-                            self.arrAllData.append(obj)
+                        if let arrDate = result.data{
+                            print(arrDate)
+                            
+                            for obj in arrDate {
+                                self.arrAllData.append(obj)
+                            }
+
+                            if self.arrAllData.count == 0{
+                                self.MebitTblView.isHidden = true
+                                
+                            }else{
+                                self.MebitTblView.reloadData()
+
+                                self.MebitTblView.isHidden = false
+                            }
+                            
+                        }else{
+                            
+                            if let arrDate = result.data{
+                                print(arrDate)
+                                
+                                for obj in arrDate {
+                                    self.arrAllData.append(obj)
+                                }
+
+                                if self.arrAllData.count == 0{
+                                
+                                    self.MebitTblView.isHidden = true
+                                    
+                                }else{
+                                    self.MebitTblView.reloadData()
+                                   
+                                    self.MebitTblView.isHidden = false
+                                }
+                                
+                            }
                         }
-                        
                     }
-                    self.MebitTblView.reloadData()
                 }else{
                     GlobalObj.displayLoader(true, show: false)
                     
@@ -174,42 +200,51 @@ class MEBITEventVC: UIViewController{
 //MARK:- UIButton Action
 extension MEBITEventVC{
     @IBAction func filterationBtnAction(_ sender: UIButton) {
-        for i in 0..<sortingArr.count {
-            let objSorting = sortingArr[i]
-            if i == 0 {
-                btnEventAscOutlet.setTitle(objSorting.lable, for: .normal)
-                if let img = objSorting.icon{
-                    let imgUrl = BaseURL + img
+        if sender.isSelected{
+            sender.isSelected = false
+            viewFilter.isHidden = true
+
+        }else{
+            sender.isSelected = true
+            for i in 0..<sortingArr.count {
+                let objSorting = sortingArr[i]
+                if i == 0 {
+                    btnEventAscOutlet.setTitle(objSorting.lable, for: .normal)
+                    if let img = objSorting.icon{
+                        let imgUrl = BaseURL + img
+                        
+                        imgEventACS.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                        imgEventACS.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                    }
+                   
                     
-                    imgEventACS.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                    imgEventACS.sd_setImage(with: URL(string: imgUrl), completed: nil)
-                }
-               
-                
-            }else if i == 1{
-                btnEventDsc.setTitle(objSorting.lable, for: .normal)
-                if let img = objSorting.icon{
-                    let imgUrl = BaseURL + img
-                    imgEventDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                    imgEventDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
-                }
-            }else if i == 2{
-                btnDateAsc.setTitle(objSorting.lable, for: .normal)
-                if let img = objSorting.icon{
-                    let imgUrl = BaseURL + img
-                    imgDateAsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                    imgDateAsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
-                }
-            }else if i == 3{
-                btnDateDsc.setTitle(objSorting.lable, for: .normal)
-                if let img = objSorting.icon{
-                    let imgUrl = BaseURL + img
-                    imgDateDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                    imgDateDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                }else if i == 1{
+                    btnEventDsc.setTitle(objSorting.lable, for: .normal)
+                    if let img = objSorting.icon{
+                        let imgUrl = BaseURL + img
+                        imgEventDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                        imgEventDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                    }
+                }else if i == 2{
+                    btnDateAsc.setTitle(objSorting.lable, for: .normal)
+                    if let img = objSorting.icon{
+                        let imgUrl = BaseURL + img
+                        imgDateAsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                        imgDateAsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                    }
+                }else if i == 3{
+                    btnDateDsc.setTitle(objSorting.lable, for: .normal)
+                    if let img = objSorting.icon{
+                        let imgUrl = BaseURL + img
+                        imgDateDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                        imgDateDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                    }
                 }
             }
+            viewFilter.isHidden = false
+
         }
-        viewFilter.isHidden = false
+
     }
     
     @IBAction func DismissBtnAction(_ sender: UIButton) {
@@ -314,7 +349,6 @@ extension MEBITEventVC :  UICollectionViewDelegate, UICollectionViewDataSource,U
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        CategoryCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
         index = indexPath.row
         if indexPath.row == 0{
             catID = ""
@@ -323,9 +357,11 @@ extension MEBITEventVC :  UICollectionViewDelegate, UICollectionViewDataSource,U
             
             
         }
+        arrAllData.removeAll()
         checkPagination = "get"
         currentPage = 1
         CallWebserviceEventList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder)
+        CategoryCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
         CategoryCollectionView.reloadData()
 
         
@@ -381,7 +417,9 @@ extension MEBITEventVC : UITableViewDelegate,UITableViewDataSource {
                     currentPage += 1
                     GlobalObj.displayLoader(true, show: true)
                     GlobalObj.run(after: 2) {
-                        self.CallWebserviceEventList(page: String(self.currentPage), sortkey: self.sortKey, sortorder: self.sortOrder)                    }
+                        self.CallWebserviceEventList(page: String(self.currentPage), sortkey: self.sortKey, sortorder: self.sortOrder)
+                        
+                    }
                 }
             }
     }

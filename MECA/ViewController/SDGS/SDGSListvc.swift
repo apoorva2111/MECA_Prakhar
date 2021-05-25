@@ -54,17 +54,41 @@ class SDGSListvc: UIViewController {
                 GlobalObj.displayLoader(true, show: false)
                
                 if repo == 200 {
-                    
-                    if let arrList = result.data{
-                        print(arrList)
-                        if self.checkPagination == "get"{
-                            self.arrList.removeAll()
+                    if self.checkPagination == "get"{
+                        self.arrList.removeAll()
+                        
+                        if let arrList = result.data{
+                            print(arrList)
+                           
+                            for obj in arrList {
+                                self.arrList.append(obj)
+                            }
+                            if self.arrList.count>0{
+                                self.varsdgslistTblView.isHidden = false
+                                self.varsdgslistTblView.reloadData()
+
+                            }else{
+                                self.varsdgslistTblView.isHidden = true
+                            }
                         }
-                        for obj in arrList {
-                            self.arrList.append(obj)
-                        }
-                        self.varsdgslistTblView.reloadData()
+                  
+                    }else{
+                        
+                        if let arrList = result.data{
+                            print(arrList)
+                           
+                            for obj in arrList {
+                                self.arrList.append(obj)
+                            }
+                            if self.arrList.count>0{
+                                self.varsdgslistTblView.isHidden = false
+                                self.varsdgslistTblView.reloadData()
+
+                            }else{
+                                self.varsdgslistTblView.isHidden = true
+                            }                        }
                     }
+                    
                 }else{
                     GlobalObj.displayLoader(true, show: false)
                 }

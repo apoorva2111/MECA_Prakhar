@@ -351,26 +351,50 @@ extension HydrogenVC:UITableViewDelegate,UITableViewDataSource{
                     GlobalObj.displayLoader(true, show: false)
                     if self.checkPagination == "get"{
                         self.arrAllData.removeAll()
-                    }
-                    if let arrDate = result.data{
-                        if self.isFromCat == false{
-                            if arrDate.count == 0 {
-                                GlobalObj.displayLoader(true, show: false)
-                                return
+                        
+                        if let arrDate = result.data{
+                            if self.isFromCat == false{
+                                if arrDate.count == 0 {
+                                    GlobalObj.displayLoader(true, show: false)
+                                    return
+                                }
+                            }else{
+                                self.isFromCat = false
                             }
-                        }else{
-                            self.isFromCat = false
+                            for obj in arrDate {
+                                self.arrAllData.append(obj)
+                            }
+                            if self.arrAllData.count>0{
+                                self.varhydrogenTblView.isHidden = false
+                                self.varhydrogenTblView.reloadData()
+                            }else{
+                                self.varhydrogenTblView.isHidden = true
+                            }
                         }
-                        for obj in arrDate {
-                            self.arrAllData.append(obj)
-                        }
-                    }
-                    if self.arrAllData.count>0{
-                        self.varhydrogenTblView.isHidden = false
                     }else{
-                        self.varhydrogenTblView.isHidden = true
+                        
+                        if let arrDate = result.data{
+                            if self.isFromCat == false{
+                                if arrDate.count == 0 {
+                                    GlobalObj.displayLoader(true, show: false)
+                                    return
+                                }
+                            }else{
+                                self.isFromCat = false
+                            }
+                            for obj in arrDate {
+                                self.arrAllData.append(obj)
+                            }
+                            if self.arrAllData.count>0{
+                                self.varhydrogenTblView.isHidden = false
+                                self.varhydrogenTblView.reloadData()
+
+                            }else{
+                                self.varhydrogenTblView.isHidden = true
+                            }
+                        }
                     }
-                    self.varhydrogenTblView.reloadData()
+                  
                 }else{
                     GlobalObj.displayLoader(true, show: false)
                 }

@@ -142,6 +142,7 @@ extension NewCarSalesViewController:UITableViewDelegate,UITableViewDataSource{
         vc.eventID = String(obj.id ?? 0)
        vc.isEvent =  false
         vc.module = "kaizen"
+        vc.Maasview = false
         self.navigationController?.pushViewController(vc, animated: true)
         
         
