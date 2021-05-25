@@ -4,9 +4,13 @@ import UIKit
 
 class PlusSelectCategoryVM: BaseCollectionViewVM {
    
-    var arrCat = ["News","MEBIT","MaaS","Hydrogen","SDGs","GR"]
-    var arrcatImg = [UIImage.init(named: "News"),UIImage.init(named: "MEBIT"),UIImage.init(named: "MaaS"),UIImage.init(named: "Hydrogen"),UIImage.init(named: "SDGs"),UIImage.init(named: "GR")]
+//    var arrCat = ["News","MEBIT","MaaS","Hydrogen","SDGs","GR"]
+//    var arrcatImg = [UIImage.init(named: "News"),UIImage.init(named: "MEBIT"),UIImage.init(named: "MaaS"),UIImage.init(named: "Hydrogen"),UIImage.init(named: "SDGs"),UIImage.init(named: "GR")]
+    var arrCat = ["MEBIT","MaaS","Hydrogen","SDGs","GR"]
+    var arrcatImg = [UIImage.init(named: "MEBIT"),UIImage.init(named: "MaaS"),UIImage.init(named: "Hydrogen"),UIImage.init(named: "SDGs"),UIImage.init(named: "GR")]
+
     var arrModule = [Modules]()
+    
 
     override init(controller: UIViewController?) {
         
@@ -27,27 +31,35 @@ class PlusSelectCategoryVM: BaseCollectionViewVM {
         
     }
     func didSelectRowAt(_ indexPath: IndexPath, collectionView: UICollectionView) {
-     
-        if indexPath.row == 0 {
-            let vc = FlowController().instantiateViewController(identifier: "AddNewsViewController", storyBoard: "Home")
-            let objCat = arrCat[indexPath.row]
-            for objModule in arrModule {
-                if objCat == objModule.module {
-                    print(objModule)
-                }
-            }
-            (actualController as! PlusSelectCategoryVC).navigationController?.pushViewController(vc, animated: true)
-        }
-        else if indexPath.row == 1{
+//
+//        if indexPath.row == 0 {
+//            let vc = FlowController().instantiateViewController(identifier: "AddNewsViewController", storyBoard: "Home")
+//            let objCat = arrCat[indexPath.row]
+//            for objModule in arrModule {
+//                if objCat == objModule.module {
+//                    print(objModule)
+//                }
+//            }
+//            (actualController as! PlusSelectCategoryVC).navigationController?.pushViewController(vc, animated: true)
+//        }
+//        else
+        if indexPath.row == 0{
             //CategoryCommonViewController
             let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
             
             vc.myTitle = "Add MEBIT Report"
-            vc.module = 0
+           // vc.module = 0
+            let objCat = arrCat[indexPath.row]
+            for objModule in arrModule {
+                if objModule.module == "Kaizen" {
+                    print(objModule)
+                    vc.module = objModule.id ?? 0
+                }
+            }
             (actualController as! PlusSelectCategoryVC).navigationController?.pushViewController(vc, animated: true)
 
         }
-        else if indexPath.row == 2{
+        else if indexPath.row == 1{
             let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
             let objCat = arrCat[indexPath.row]
             for objModule in arrModule {
@@ -61,7 +73,7 @@ class PlusSelectCategoryVM: BaseCollectionViewVM {
             (actualController as! PlusSelectCategoryVC).navigationController?.pushViewController(vc, animated: true)
 
         }
-        else if indexPath.row == 3{
+        else if indexPath.row == 2{
             
             let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
             let objCat = arrCat[indexPath.row]
@@ -76,7 +88,7 @@ class PlusSelectCategoryVM: BaseCollectionViewVM {
             (actualController as! PlusSelectCategoryVC).navigationController?.pushViewController(vc, animated: true)
        
         }
-        else if indexPath.row == 4{
+        else if indexPath.row == 3{
             let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
             let objCat = arrCat[indexPath.row]
             for objModule in arrModule {
@@ -90,7 +102,7 @@ class PlusSelectCategoryVM: BaseCollectionViewVM {
             (actualController as! PlusSelectCategoryVC).navigationController?.pushViewController(vc, animated: true)
        
         }
-        else if indexPath.row == 5{
+        else if indexPath.row == 4{
 
             let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
             let objCat = arrCat[indexPath.row]

@@ -113,15 +113,16 @@ class CategoryCommonViewController: UIViewController {
     var videoLinkArr = [[String:Any]]()
     var docLinkArr = [[String:Any]]()
     var module = 0
+    var chooseTypeId = ""
     
-    let typePickerData = [String](arrayLiteral: "New Car Sales", "After Sales", "Trade In", "BIT Foundation")
+    
+    var typePickerData = [Event_MEBITCat]()//[String](arrayLiteral: "New Car Sales", "After Sales", "Trade In", "BIT Foundation")
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = CreateKaizenVM.init(controller: self)
-        
-        registerNib()
+        viewModel.callWebserviceForCategoryType(moduleId: String(module))
         screenSize = UIScreen.main.bounds
         screenWidth = screenSize.width
         screenHeight = screenSize.height
@@ -131,8 +132,7 @@ class CategoryCommonViewController: UIViewController {
         setupCollectionView4()
         setupCollectionView5()
         setupUI()
-        chooseTypeTextField.inputView = thePicker
-        thePicker.delegate = self
+        
         startDateTextField.setInputViewDatePicker(target: self, selector: #selector(startDatetapDone)) //1
         endDateTextField.setInputViewDatePicker(target: self, selector: #selector(endDatetapDone)) //1
     }
@@ -677,30 +677,53 @@ extension CategoryCommonViewController{
 
 extension CategoryCommonViewController{
     func createKaizen(){
-        
-        
-        if titleInputTextField.text == "" && descriptionTextView.text == "" && chooseTypeTextField.text == "" && startDateTextField.text == "" {
-            GlobalObj.showAlertVC(title: "Oops", message: "Please Enter All Feilds", controller: self)
+        if myTitle == "GR"{
             
-        }else if titleInputTextField.text == ""{
-            GlobalObj.showAlertVC(title: "Oops", message: "Please Enter Title", controller: self)
-            
-        }else if descriptionTextView.text == ""{
-            GlobalObj.showAlertVC(title: "Oops", message: "Please Enter Description", controller: self)
-            
-        }else if chooseTypeTextField.text == ""{
-            GlobalObj.showAlertVC(title: "Oops", message: "Please Select the type", controller: self)
-            
-        }else if startDateTextField.text == ""{
-            GlobalObj.showAlertVC(title: "Oops", message: "Please Enter the Start Date", controller: self)
-            
-        }else{
-            if module == 0{
-                viewModel.callWebserviceForAdddEvent()
+            if titleInputTextField.text == "" && descriptionTextView.text == ""  && startDateTextField.text == "" {
+                GlobalObj.showAlertVC(title: "Oops", message: "Please Enter All Feilds", controller: self)
+                
+            }else if titleInputTextField.text == ""{
+                GlobalObj.showAlertVC(title: "Oops", message: "Please Enter Title", controller: self)
+                
+            }else if descriptionTextView.text == ""{
+                GlobalObj.showAlertVC(title: "Oops", message: "Please Enter Description", controller: self)
+                
+            }else if startDateTextField.text == ""{
+                GlobalObj.showAlertVC(title: "Oops", message: "Please Enter the Start Date", controller: self)
+                
             }else{
-                viewModel.callWebserviceForAddModuleItem(module: String(module))
+                if myTitle == "Add MEBIT Report"{
+                    viewModel.callWebserviceForAdddEvent()
+                }else{
+                    viewModel.callWebserviceForAddModuleItem(module: String(module))
+                }
             }
+       }else{
+            
+             if titleInputTextField.text == "" && descriptionTextView.text == "" && chooseTypeTextField.text == "" && startDateTextField.text == "" {
+                 GlobalObj.showAlertVC(title: "Oops", message: "Please Enter All Feilds", controller: self)
+                 
+             }else if titleInputTextField.text == ""{
+                 GlobalObj.showAlertVC(title: "Oops", message: "Please Enter Title", controller: self)
+                 
+             }else if descriptionTextView.text == ""{
+                 GlobalObj.showAlertVC(title: "Oops", message: "Please Enter Description", controller: self)
+                 
+             }else if chooseTypeTextField.text == ""{
+                 GlobalObj.showAlertVC(title: "Oops", message: "Please Select the type", controller: self)
+                 
+             }else if startDateTextField.text == ""{
+                 GlobalObj.showAlertVC(title: "Oops", message: "Please Enter the Start Date", controller: self)
+                 
+             }else{
+                 if myTitle == "Add MEBIT Report"{
+                     viewModel.callWebserviceForAdddEvent()
+                 }else{
+                     viewModel.callWebserviceForAddModuleItem(module: String(module))
+                 }
+             }
         }
+       
     }
 }
 

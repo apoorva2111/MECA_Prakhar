@@ -45,3 +45,5 @@ let calendarlist = "mobile/user/calendar/info/"
 
 let likesList = "mobile/user/likes/"
 let DeleteComment = "mobile/user/comment/"
+
+let MebitCategoryList = "mobile/user/category/list/"

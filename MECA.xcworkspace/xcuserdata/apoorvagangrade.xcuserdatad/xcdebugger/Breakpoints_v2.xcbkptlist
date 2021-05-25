@@ -7,80 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "48AF3D7C-444E-42B9-B6E0-DBE72DCF614B"
-            shouldBeEnabled = "No"
+            uuid = "7B936235-463C-4286-9660-3B43011C75E7"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MECA/ViewController/Categories/MEBITViewController.swift"
+            filePath = "MECA/ViewModel/PlusSelectCategoryVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "didSelectRowAt(_:collectionView:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6D1B3E4D-E20C-4C60-B7BB-46A0E8113F84"
+            uuid = "324BD0F7-A83C-43D9-B5D1-D092F7743A19"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MECA/ViewController/Categories/DetailView/NewDetailVC.swift"
+            filePath = "MECA/ViewController/Categories/CategoryCommonViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "680"
+            endingLineNumber = "680"
+            landmarkName = "createKaizen()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6D1B3E4D-E20C-4C60-B7BB-46A0E8113F84 - 8c9656dc481fd839"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MECA.NewDetailVC.viewDidLoad() -&gt; ()"
-                  moduleName = "MECA"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apoorvagangrade/Documents/Prakhar_Project/MECA_Prakhar/MECA/ViewController/Categories/DetailView/NewDetailVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "7692">
-               </Location>
-               <Location
-                  uuid = "6D1B3E4D-E20C-4C60-B7BB-46A0E8113F84 - a07eba9a6576ce48"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #4 (Swift.Bool) -&gt; () in MECA.NewDetailVC.viewDidLoad() -&gt; ()"
-                  moduleName = "MECA"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apoorvagangrade/Documents/Prakhar_Project/MECA_Prakhar/MECA/ViewController/Categories/DetailView/NewDetailVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "91"
-                  endingLineNumber = "91"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "009AF491-6909-44F7-94FA-7EB4235D0A2F"
+            uuid = "F312985D-29FB-4BF9-B2A2-D4E62F611F61"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MECA/ViewController/Categories/DetailView/NewDetailVC.swift"
+            filePath = "MECA/ViewModel/CreateKaizenVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "callWebserviceForAddModuleItem(module:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

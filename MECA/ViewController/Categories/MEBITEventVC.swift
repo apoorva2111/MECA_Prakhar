@@ -144,7 +144,7 @@ class MEBITEventVC: UIViewController{
         APIClient.webserviceForCategory(limit: "10",page: page, params: param) { (result) in
             
             if let respCode = result.resp_code{
-                
+                print(respCode)
                 if respCode == 200{
                     GlobalObj.displayLoader(true, show: false)
                     if self.checkPagination == "get"{

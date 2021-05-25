@@ -128,16 +128,18 @@ print("error")
     
     
     func callWebserviceForAddModuleItem(module:String){
-    var strType = ""
-        if (actualController as! CategoryCommonViewController).chooseTypeTextField.text == "New Car Sales"{
-            strType = "1"
-        }else if (actualController as! CategoryCommonViewController).chooseTypeTextField.text == "After Sales"{
-            strType = "2"
-        }else if (actualController as! CategoryCommonViewController).chooseTypeTextField.text == "Trade In"{
-            strType = "3"
-        }else if (actualController as! CategoryCommonViewController).chooseTypeTextField.text == "BIT Foundation"{
-            strType = "4"
-        }
+//    var strType = ""
+//        if (actualController as! CategoryCommonViewController).chooseTypeTextField.text == "New Car Sales"{
+//            strType = "1"
+//        }else if (actualController as! CategoryCommonViewController).chooseTypeTextField.text == "After Sales"{
+//            strType = "2"
+//        }else if (actualController as! CategoryCommonViewController).chooseTypeTextField.text == "Trade In"{
+//            strType = "3"
+//        }else if (actualController as! CategoryCommonViewController).chooseTypeTextField.text == "BIT Foundation"{
+//            strType = "4"
+//        }
+        
+        print((self.actualController as! CategoryCommonViewController).chooseTypeId)
         
         if !NetworkReachabilityManager()!.isReachable{
             GlobalObj.displayLoader(true, show: false)
@@ -166,11 +168,9 @@ print("error")
             for (key, value) in parameters {
                 
                 if let jsonData = try? JSONSerialization.data(withJSONObject: value, options:[]) {
-//                    multipartFormData.append(jsonData, withName: key as String)
                     let data = (String(data: jsonData, encoding: String.Encoding.utf8) ?? "") as String
                     let somedata = data.data(using: String.Encoding.utf8)
                     multipartFormData.append(somedata ?? Data(), withName: key as String)
-
                 }
             }
                                
@@ -178,7 +178,7 @@ print("error")
 
             multipartFormData.append((self.actualController as! CategoryCommonViewController).descriptionTextView.text!.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"description")
          
-            multipartFormData.append(strType.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"type")
+            multipartFormData.append((self.actualController as! CategoryCommonViewController).chooseTypeId.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"type")
          
             multipartFormData.append((self.actualController as! CategoryCommonViewController).startDateTextField.text!.data(using: String.Encoding.utf8, allowLossyConversion: false) ?? Data(), withName :"start_date")
             
@@ -193,9 +193,6 @@ print("error")
 
             }
             
-      
-
-
             for i in 0..<(self.actualController as! CategoryCommonViewController).arrvideos.count{
                 let name = "event_videos[\(i)]"
                 let img = (self.actualController as! CategoryCommonViewController).arrvideos[i]
@@ -215,10 +212,13 @@ print("error")
             GlobalObj.displayLoader(true, show: false)
 
             if let objData = response.value as? [String:Any]{
-                let msg = objData["message"] as! String
+               
                 let resp_code = objData["resp_code"] as! Int
                 if resp_code == 200 {
-                    (self.actualController as! CategoryCommonViewController).showToast(message: msg)
+                    if let msg = objData["message"] as? String{
+                        (self.actualController as! CategoryCommonViewController).showToast(message: msg)
+
+                    }
 
                     (self.actualController as! CategoryCommonViewController).navigationController?.popViewController(animated: true)
                 }
@@ -233,6 +233,42 @@ print("error")
             }
         })
 print("error")
+    }
+    
+    func callWebserviceForCategoryType(moduleId:String) {
+        
+        GlobalObj.displayLoader(true, show: false)
+        APIClient.webserviceForCategoryMebitList(moduleId: moduleId) { (result) in
+            if let respCode = result.resp_code{
+                
+                GlobalObj.displayLoader(true, show: false)
+                if respCode == 200{
+                    if (self.actualController as! CategoryCommonViewController).typePickerData.count>0{
+                        (self.actualController as! CategoryCommonViewController).typePickerData.removeAll()
+                    }
+                    if let arrDate = result.data{
+                        (self.actualController as! CategoryCommonViewController).typePickerData = arrDate
+                    }
+                    if (self.actualController as! CategoryCommonViewController).typePickerData.count>0{
+                        (self.actualController as! CategoryCommonViewController).chooseTypeTextField.isUserInteractionEnabled = true
+
+                        (self.actualController as! CategoryCommonViewController).chooseTypeTextField.inputView = (self.actualController as! CategoryCommonViewController).thePicker
+                        (self.actualController as! CategoryCommonViewController).thePicker.delegate = (self.actualController as! CategoryCommonViewController).self
+
+                    }else{
+                        (self.actualController as! CategoryCommonViewController).chooseTypeTextField.isUserInteractionEnabled = false
+                    }
+                }else{
+                    GlobalObj.displayLoader(true, show: false)
+
+                }
+            }else{
+                GlobalObj.displayLoader(true, show: false)
+
+            }
+
+        }
+
     }
 }
 
@@ -249,11 +285,12 @@ extension CategoryCommonViewController : UIPickerViewDelegate, UIPickerViewDataS
     }
 
     func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-     return typePickerData[row]
+        return typePickerData[row].lable
     }
 
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        chooseTypeTextField.text = typePickerData[row]
+        chooseTypeTextField.text = typePickerData[row].lable
+        chooseTypeId = typePickerData[row].id ?? "0"
     }
 }
 

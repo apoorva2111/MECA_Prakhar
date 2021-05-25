@@ -25,13 +25,23 @@ class MEBITViewController: UIViewController {
         MEBITTableView.dataSource = self
         footerView.orangeFooterViewDelegate = self
         setupUI()
-        if GlobalValue.tabCategory == "MEBIT"{
-            viewModel.callMEBITFeedWebservice()
-        }else if GlobalValue.tabCategory == "GR"{
-            currentPage = 1
-            self.checkPagination = "get"
-            viewModel.callWebserviceForGRHome()
+        
+        
+        if headerImageValue == "0"{
+            MEBITTableView.isHidden = true
+            footerView.isHidden = true
+
+        }else{
+            if GlobalValue.tabCategory == "MEBIT"{
+                viewModel.callMEBITFeedWebservice()
+            }else if GlobalValue.tabCategory == "GR"{
+                currentPage = 1
+                self.checkPagination = "get"
+                viewModel.callWebserviceForGRHome()
+            }
         }
+        
+    
         // Do any additional setup after loading the view.
         pullControl.tintColor = UIColor.gray
         pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
@@ -64,23 +74,24 @@ class MEBITViewController: UIViewController {
     func setupUI() {
         if headerImageValue == "0" {
             headerImage.image = UIImage(named: "MEBIT1")
-            
         }
         else if headerImageValue == "1" {
-            
+            MEBITTableView.isHidden = false
         }
         else if headerImageValue == "2" {
-            
+            MEBITTableView.isHidden = false
         }
         else if headerImageValue == "3" {
-            
+            MEBITTableView.isHidden = false
         }
         else if headerImageValue == "4" {
             //SDGS
             headerImage.image = UIImage(named: "SDGS")
+            MEBITTableView.isHidden = false
         }
         else if headerImageValue == "5" {
             headerImage.image = UIImage(named: "GR_Cat")
+            MEBITTableView.isHidden = false
         }
         
         if GlobalValue.tabCategory == "MEBIT"{

