@@ -40,6 +40,7 @@ let changepassword = "mobile/user/password/update"
 let profileedit = "mobile/user/profile/update"
 let chatlist = "mobile/user/chat/users/list"
 let supportlist = "mobile/user/contact/support/list"
+let reminderlist = "mobile/user/reminders/list"
 let calendarlist = "mobile/user/calendar/info/"
 
 let likesList = "mobile/user/likes/"

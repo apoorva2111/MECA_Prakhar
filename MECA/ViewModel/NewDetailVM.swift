@@ -761,15 +761,17 @@ class NewDetailVM: BaseTableViewVM {
         APIClient.webserviceForKaizenInfo(eventId: (actualController as! NewDetailVC).eventID) { (result) in
             if let respCode = result.resp_code{
                 if respCode == 200{
-                    GlobalObj.displayLoader(true, show: false)
+//                    GlobalObj.displayLoader(true, show: false)
                     
                     if let objDate = result.data {
                         print(objDate)
                         self.kaizenData = objDate
+                        
                         (self.actualController as! NewDetailVC).tblDetailView.isHidden = false
                         (self.actualController as! NewDetailVC).tblDetailView.reloadData()
-                        
-                        
+
+                        GlobalObj.displayLoader(true, show: false)
+
                         completion(true)
                     }else{
                         (self.actualController as! NewDetailVC).tblDetailView.isHidden = true

@@ -11,6 +11,7 @@ class ReminderVC: UIViewController {
 
     @IBOutlet weak var headerView: RCustomView!
     @IBOutlet weak var remindertblview:UITableView!
+    var reminderarrList = [Reminderdata]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,13 +20,43 @@ class ReminderVC: UIViewController {
         remindertblview?.register(ReminderTableCell.nib, forCellReuseIdentifier: ReminderTableCell.identifier)
         remindertblview?.dataSource = self
         remindertblview?.delegate = self
+        callwedservicereminderdata()
         // Do any additional setup after loading the view.
     }
     @IBAction func btnBackAction(_ sender: UIButton) {
         
         self.navigationController?.popViewController(animated: true)
     }
-    
+    func callwedservicereminderdata()
+    {
+        GlobalObj.displayLoader(true, show: true)
+        
+        APIClient.webserviceForReminder{ (result) in
+            print("result\(result)")
+            if let respCode = result.resp_code{
+                
+                if respCode == 200{
+                    GlobalObj.displayLoader(true, show: false)
+
+                    if let arrDate = result.data{
+                        if self.reminderarrList.count>0{
+                            self.reminderarrList.removeAll()
+                        }
+                        if arrDate.count>0{
+                            self.reminderarrList = arrDate
+                        }
+                    }
+                    self.remindertblview.reloadData()
+                }else{
+                    GlobalObj.displayLoader(true, show: false)
+
+                }
+            }
+            
+            GlobalObj.displayLoader(true, show: false)
+
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -41,13 +72,14 @@ class ReminderVC: UIViewController {
 //Mark: - Tableview Datasource Methods
 extension ReminderVC: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return reminderarrList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ReminderTableCell.identifier, for: indexPath) as? ReminderTableCell
-        
-         return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: ReminderTableCell.identifier, for: indexPath) as! ReminderTableCell
+        let objFeed = reminderarrList[indexPath.row]
+        cell.setCellreminderdetails(feed: objFeed)
+         return cell
     }
 }
 //MARK: - TableView Delegate Methods

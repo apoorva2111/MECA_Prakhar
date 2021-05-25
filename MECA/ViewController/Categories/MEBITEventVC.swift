@@ -131,7 +131,9 @@ class MEBITEventVC: UIViewController{
         
     }
     func CallWebserviceEventList(page:String, sortkey:String, sortorder:String) {
+        if self.checkPagination == "get"{
         GlobalObj.displayLoader(true, show: true)
+        }
         
         let param : [String:Any] = ["status":allEvent,
                                     "category":catID,
@@ -348,7 +350,7 @@ extension MEBITEventVC :  UICollectionViewDelegate, UICollectionViewDataSource,U
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        CategoryCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
         index = indexPath.row
         if indexPath.row == 0{
             catID = ""
@@ -357,11 +359,10 @@ extension MEBITEventVC :  UICollectionViewDelegate, UICollectionViewDataSource,U
             
             
         }
-        arrAllData.removeAll()
         checkPagination = "get"
         currentPage = 1
         CallWebserviceEventList(page: String(currentPage), sortkey: sortKey, sortorder: sortOrder)
-        CategoryCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
+        
         CategoryCollectionView.reloadData()
 
         
@@ -402,6 +403,7 @@ extension MEBITEventVC : UITableViewDelegate,UITableViewDataSource {
         vc.eventID = String(obj.id ?? 0)
         vc.isEvent = true
         vc.module = "Event"
+        vc.Maasview = false
 
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -415,11 +417,9 @@ extension MEBITEventVC : UITableViewDelegate,UITableViewDataSource {
                 if indexPath.row == self.arrAllData.count-1{
                     self.checkPagination = "pagination"
                     currentPage += 1
-                    GlobalObj.displayLoader(true, show: true)
+                //   GlobalObj.displayLoader(true, show: true)
                     GlobalObj.run(after: 2) {
-                        self.CallWebserviceEventList(page: String(self.currentPage), sortkey: self.sortKey, sortorder: self.sortOrder)
-                        
-                    }
+                        self.CallWebserviceEventList(page: String(self.currentPage), sortkey: self.sortKey, sortorder: self.sortOrder)                    }
                 }
             }
     }

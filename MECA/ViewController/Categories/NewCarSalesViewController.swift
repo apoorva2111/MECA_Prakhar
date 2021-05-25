@@ -175,7 +175,7 @@ extension NewCarSalesViewController:UITableViewDelegate,UITableViewDataSource{
    
     
     func callNewCarSaleWebservice(adminId: Int, type: Int, keyword:String, page:String) {
-
+        GlobalObj.displayLoader(true, show: true)
         let param : [String:Any] = ["is_admin" : adminId,
                                     "type" : type,
                                     "keyword" : keyword]
@@ -188,26 +188,41 @@ extension NewCarSalesViewController:UITableViewDelegate,UITableViewDataSource{
                 }
                
                 if repo == 200 {
-                    
-                    if let arrListData = result.data{
-                        if self.checkPagination == "get"{
-                            self.arrList.removeAll()
-                        }
-                        if arrListData.count == 0{
-                            GlobalObj.displayLoader(true, show: false)
-                            return
-                        }
+                    GlobalObj.displayLoader(true, show: false)
+
+                    if self.checkPagination == "get"{
+                        self.arrList.removeAll()
                         
-                        for obj in arrListData {
-                            self.arrList.append(obj)
+                        if let arrListData = result.data{
+                            
+                            for obj in arrListData {
+                                self.arrList.append(obj)
+                            }
+                            if self.arrList.count>0{
+                                self.varNewCarSaleTblView.isHidden = false
+                                self.varNewCarSaleTblView.reloadData()
+                                
+                            }else{
+                                self.varNewCarSaleTblView.isHidden = true
+                            }
                         }
-                        self.varNewCarSaleTblView.reloadData()
-                    }
-                    if self.arrList.count>0{
-                        self.varNewCarSaleTblView.isHidden = false
                     }else{
-                        self.varNewCarSaleTblView.isHidden = true
+                        
+                        if let arrListData = result.data{
+                            
+                            for obj in arrListData {
+                                self.arrList.append(obj)
+                            }
+                            if arrListData.count == 0{
+
+                            }else{
+                                self.varNewCarSaleTblView.isHidden = false
+                                self.varNewCarSaleTblView.reloadData()
+
+                            }
+                        }
                     }
+                    
                 }else{
                 GlobalObj.displayLoader(true, show: false)
                 }

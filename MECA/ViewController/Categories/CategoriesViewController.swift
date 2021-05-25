@@ -84,7 +84,8 @@ extension CategoriesViewController: FooterTabViewDelegate{
         }else if strType == "Categories"{
             
         }else if strType == "Notification"{
-            
+            let vc = FlowController().instantiateViewController(identifier: "NotificationVC", storyBoard: "Home")
+            self.navigationController?.pushViewController(vc, animated:false)
         }else{
             let vc = FlowController().instantiateViewController(identifier: "MoreVC", storyBoard: "Home")
             self.navigationController?.pushViewController(vc, animated:false)

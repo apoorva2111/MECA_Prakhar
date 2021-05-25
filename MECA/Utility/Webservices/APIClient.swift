@@ -1238,6 +1238,49 @@ class APIClient {
                  }
              }
      }
+    
+    //reminder Api
+    
+    
+    static func webserviceForReminder(completion:@escaping(Reminderlistdata) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+            GlobalObj.showNetworkAlert()
+            return
+        }
+        let url = BaseURL + reminderlist
+        print("reminder Api url\(url)")
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                print("reminder Api response\(response)")
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
+                    return }
+                
+                do{
+                    let objRes: Reminderlistdata = try JSONDecoder().decode(Reminderlistdata.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
+                                   }
+                }catch let error{
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                }
+            }
+        
+    }
 }
 
 

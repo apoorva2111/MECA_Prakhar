@@ -12,7 +12,7 @@ class PrivacyVC: UIViewController,WKUIDelegate {
         var videoId: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "https://numerique360.com/privacy-policy/")
+        let url = URL(string: "http://mecacampus.com/API/mobile/user/privacypolicy")
         webview2.load(URLRequest(url: url!))
         // Do any additional setup after loading the view.
     }

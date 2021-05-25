@@ -31,22 +31,22 @@ class MoreVC: UIViewController {
     
     }
     @IBAction func btnChatAction(_ sender: UIButton) {
-//        let story = UIStoryboard(name: "More", bundle:nil)
-//      //  let obj = arrList[indexPath.row]
-//        let vc = story.instantiateViewController(withIdentifier: "Chatvc") as! ChatVC
-//
-//
-//
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let story = UIStoryboard(name: "More", bundle:nil)
+      //  let obj = arrList[indexPath.row]
+        let vc = story.instantiateViewController(withIdentifier: "Chatvc") as! ChatVC
+
+
+
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func btnreminderAction(_ sender: UIButton) {
-//        let story = UIStoryboard(name: "More", bundle:nil)
-//
-//        let vc = story.instantiateViewController(withIdentifier: "Remindervc") as! ReminderVC
-//
-//
-//
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let story = UIStoryboard(name: "More", bundle:nil)
+
+        let vc = story.instantiateViewController(withIdentifier: "Remindervc") as! ReminderVC
+
+
+
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func btnchangepasswordAction(_ sender: UIButton) {
         let story = UIStoryboard(name: "More", bundle:nil)
@@ -159,7 +159,8 @@ extension MoreVC : FooterTabViewDelegate{
 
        
         }else if strType == "Notification"{
-            
+            let vc = FlowController().instantiateViewController(identifier: "NotificationVC", storyBoard: "Home")
+            self.navigationController?.pushViewController(vc, animated:false)
         }else{
             
         }

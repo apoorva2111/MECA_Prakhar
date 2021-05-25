@@ -172,42 +172,50 @@ class MaasViewController: UIViewController {
         }
     }
     @IBAction func btnFilterAction(_ sender: UIButton) {
-        for i in 0..<sortingArr.count {
-            let objSorting = sortingArr[i]
-            if i == 0 {
-                btnEventAscOutlet.setTitle(objSorting.lable, for: .normal)
-                if let img = objSorting.icon{
-                    let imgUrl = BaseURL + img
+        if sender.isSelected{
+            sender.isSelected = false
+            viewFilter.isHidden = true
+
+        }else{
+            sender.isSelected = true
+            for i in 0..<sortingArr.count {
+                let objSorting = sortingArr[i]
+                if i == 0 {
+                    btnEventAscOutlet.setTitle(objSorting.lable, for: .normal)
+                    if let img = objSorting.icon{
+                        let imgUrl = BaseURL + img
+                        
+                        imgEventACS.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                        imgEventACS.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                    }
+                   
                     
-                    imgEventACS.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                    imgEventACS.sd_setImage(with: URL(string: imgUrl), completed: nil)
-                }
-               
-                
-            }else if i == 1{
-                btnEventDsc.setTitle(objSorting.lable, for: .normal)
-                if let img = objSorting.icon{
-                    let imgUrl = BaseURL + img
-                    imgEventDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                    imgEventDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
-                }
-            }else if i == 2{
-                btnDateAsc.setTitle(objSorting.lable, for: .normal)
-                if let img = objSorting.icon{
-                    let imgUrl = BaseURL + img
-                    imgDateAsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                    imgDateAsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
-                }
-            }else if i == 3{
-                btnDateDsc.setTitle(objSorting.lable, for: .normal)
-                if let img = objSorting.icon{
-                    let imgUrl = BaseURL + img
-                    imgDateDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                    imgDateDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                }else if i == 1{
+                    btnEventDsc.setTitle(objSorting.lable, for: .normal)
+                    if let img = objSorting.icon{
+                        let imgUrl = BaseURL + img
+                        imgEventDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                        imgEventDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                    }
+                }else if i == 2{
+                    btnDateAsc.setTitle(objSorting.lable, for: .normal)
+                    if let img = objSorting.icon{
+                        let imgUrl = BaseURL + img
+                        imgDateAsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                        imgDateAsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                    }
+                }else if i == 3{
+                    btnDateDsc.setTitle(objSorting.lable, for: .normal)
+                    if let img = objSorting.icon{
+                        let imgUrl = BaseURL + img
+                        imgDateDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                        imgDateDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                    }
                 }
             }
+            viewFilter.isHidden = false
+
         }
-        viewFilter.isHidden = false
     }
     
     @IBAction func btnCreateNewAction(_ sender: RCustomButton) {
@@ -344,29 +352,54 @@ extension MaasViewController:UITableViewDelegate,UITableViewDataSource{
              
                 if respCode == 200{
                     GlobalObj.displayLoader(true, show: false)
+                    if self.checkPagination == "get"{
+                        self.arrAllData.removeAll()
+                        
+                        if let arrDate = result.data{
+                           
+                            for obj in arrDate {
+                                self.arrAllData.append(obj)
+                            }
+                            if self.isFromCat{
+                                self.isFromCat = false
+                            }else{
+//                                if arrDate.count == 0 {
+//                                    GlobalObj.displayLoader(true, show: false)
+//                                    return
+//                                }
+                            }
+                            if self.arrAllData.count == 0{
+                                self.varNewCarSaleTblView.isHidden = true
+                            }else{
+                                self.varNewCarSaleTblView.isHidden = false
+                                self.varNewCarSaleTblView.reloadData()
 
-                    if let arrDate = result.data{
-                        if self.checkPagination == "get"{
-                            self.arrAllData.removeAll()
+                            }
                         }
-                        for obj in arrDate {
-                            self.arrAllData.append(obj)
-                        }
-                        if self.isFromCat{
-                            self.isFromCat = false
-                        }else{
-                            if arrDate.count == 0 {
-                                GlobalObj.displayLoader(true, show: false)
-                                return
+                    }else{
+                        
+                        if let arrDate = result.data{
+                           
+                            for obj in arrDate {
+                                self.arrAllData.append(obj)
+                            }
+                            if self.isFromCat{
+                                self.isFromCat = false
+                            }else{
+                                if arrDate.count == 0 {
+                                //    GlobalObj.displayLoader(true, show: false)
+                                //    return
+                                }
+                            }
+                            if arrDate.count == 0{
+                            }else{
+                                self.varNewCarSaleTblView.isHidden = false
+                                self.varNewCarSaleTblView.reloadData()
+
                             }
                         }
                     }
-                    if self.arrAllData.count == 0{
-                        self.varNewCarSaleTblView.isHidden = true
-                    }else{
-                        self.varNewCarSaleTblView.isHidden = false
-                    }
-                    self.varNewCarSaleTblView.reloadData()
+                  
                 }else{
                     GlobalObj.displayLoader(true, show: false)
                 }

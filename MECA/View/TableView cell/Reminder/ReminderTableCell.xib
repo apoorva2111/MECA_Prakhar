@@ -55,6 +55,10 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="reminderdateLbl" destination="CJO-Vt-KEz" id="sga-Yj-nz6"/>
+                <outlet property="remindertitleLbl" destination="8h2-Ye-4hl" id="E8d-0E-4Kt"/>
+            </connections>
             <point key="canvasLocation" x="-1.4492753623188408" y="80.022321428571431"/>
         </tableViewCell>
     </objects>

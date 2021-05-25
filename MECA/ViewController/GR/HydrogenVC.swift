@@ -68,6 +68,8 @@ class HydrogenVC: UIViewController {
         varhydrogenTblView.delegate = self
         varhydrogenTblView.dataSource = self
         callWebserviceHydrogenCategory()
+        self.checkPagination = "get"
+        currentPage = 1
         CallWebserviceHydrogenList(strType: "", sortkey: sortKey, sortorder: sortOrder)
        
         pullControl.tintColor = UIColor.gray
@@ -148,42 +150,50 @@ class HydrogenVC: UIViewController {
     }
     
      @IBAction func btnFilterAction(_ sender: UIButton) {
-         for i in 0..<sortingArr.count {
-             let objSorting = sortingArr[i]
-             if i == 0 {
-                 btnEventAscOutlet.setTitle(objSorting.lable, for: .normal)
-                 if let img = objSorting.icon{
-                     let imgUrl = BaseURL + img
+        if sender.isSelected{
+            sender.isSelected = false
+            viewFilter.isHidden = true
 
-                     imgEventACS.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                     imgEventACS.sd_setImage(with: URL(string: imgUrl), completed: nil)
-                 }
+        }else{
+            sender.isSelected = true
+            viewFilter.isHidden = false
+
+             for i in 0..<sortingArr.count {
+                 let objSorting = sortingArr[i]
+                 if i == 0 {
+                     btnEventAscOutlet.setTitle(objSorting.lable, for: .normal)
+                     if let img = objSorting.icon{
+                         let imgUrl = BaseURL + img
+
+                         imgEventACS.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                         imgEventACS.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                     }
 
 
-             }else if i == 1{
-                 btnEventDsc.setTitle(objSorting.lable, for: .normal)
-                 if let img = objSorting.icon{
-                     let imgUrl = BaseURL + img
-                     imgEventDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                     imgEventDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
-                 }
-             }else if i == 2{
-                 btnDateAsc.setTitle(objSorting.lable, for: .normal)
-                 if let img = objSorting.icon{
-                     let imgUrl = BaseURL + img
-                     imgDateAsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                     imgDateAsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
-                 }
-             }else if i == 3{
-                 btnDateDsc.setTitle(objSorting.lable, for: .normal)
-                 if let img = objSorting.icon{
-                     let imgUrl = BaseURL + img
-                     imgDateDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
-                     imgDateDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                 }else if i == 1{
+                     btnEventDsc.setTitle(objSorting.lable, for: .normal)
+                     if let img = objSorting.icon{
+                         let imgUrl = BaseURL + img
+                         imgEventDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                         imgEventDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                     }
+                 }else if i == 2{
+                     btnDateAsc.setTitle(objSorting.lable, for: .normal)
+                     if let img = objSorting.icon{
+                         let imgUrl = BaseURL + img
+                         imgDateAsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                         imgDateAsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                     }
+                 }else if i == 3{
+                     btnDateDsc.setTitle(objSorting.lable, for: .normal)
+                     if let img = objSorting.icon{
+                         let imgUrl = BaseURL + img
+                         imgDateDsc.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                         imgDateDsc.sd_setImage(with: URL(string: imgUrl), completed: nil)
+                     }
                  }
              }
-         }
-         viewFilter.isHidden = false
+        }
      }
     
     @IBAction func btnApplyFilter(_ sender: UIButton)
@@ -354,37 +364,13 @@ extension HydrogenVC:UITableViewDelegate,UITableViewDataSource{
                         
                         if let arrDate = result.data{
                             if self.isFromCat == false{
-                                if arrDate.count == 0 {
-                                    GlobalObj.displayLoader(true, show: false)
-                                    return
-                                }
                             }else{
                                 self.isFromCat = false
                             }
                             for obj in arrDate {
                                 self.arrAllData.append(obj)
                             }
-                            if self.arrAllData.count>0{
-                                self.varhydrogenTblView.isHidden = false
-                                self.varhydrogenTblView.reloadData()
-                            }else{
-                                self.varhydrogenTblView.isHidden = true
-                            }
-                        }
-                    }else{
-                        
-                        if let arrDate = result.data{
-                            if self.isFromCat == false{
-                                if arrDate.count == 0 {
-                                    GlobalObj.displayLoader(true, show: false)
-                                    return
-                                }
-                            }else{
-                                self.isFromCat = false
-                            }
-                            for obj in arrDate {
-                                self.arrAllData.append(obj)
-                            }
+                            
                             if self.arrAllData.count>0{
                                 self.varhydrogenTblView.isHidden = false
                                 self.varhydrogenTblView.reloadData()
@@ -393,8 +379,26 @@ extension HydrogenVC:UITableViewDelegate,UITableViewDataSource{
                                 self.varhydrogenTblView.isHidden = true
                             }
                         }
+                    }else{
+                        
+                        if let arrDate = result.data{
+                            if self.isFromCat == false{
+                            }else{
+                                self.isFromCat = false
+                            }
+                            for obj in arrDate {
+                                self.arrAllData.append(obj)
+                            }
+                            
+                            if arrDate.count>0{
+                                self.varhydrogenTblView.isHidden = false
+                                self.varhydrogenTblView.reloadData()
+
+                            }else{
+                            }
+                        }
                     }
-                  
+                    
                 }else{
                     GlobalObj.displayLoader(true, show: false)
                 }

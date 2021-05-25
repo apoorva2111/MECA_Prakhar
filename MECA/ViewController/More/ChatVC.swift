@@ -163,6 +163,15 @@ extension ChatVC: UITableViewDataSource{
 extension ChatVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        
+        let story = UIStoryboard(name: "Chat", bundle:nil)
+      //  let obj = arrList[indexPath.row]
+        let vc = story.instantiateViewController(withIdentifier: "ChatdetailVC") as! ChatdetailController
+
+
+
+        self.navigationController?.pushViewController(vc, animated: true)
+        
 //        let cell = tableView.dequeueReusableCell(withIdentifier: SDGSListTableCell.identifier, for: indexPath) as? SDGSListTableCell
 //        cell!.backgroundColor = UIColor.white
 //

@@ -22,5 +22,10 @@ class ReminderTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    func setCellreminderdetails(feed:Reminderdata) {
+        reminderdateLbl.text! = feed.due_date!
+        remindertitleLbl.text! = feed.title!
+        
+        
+    }
 }
