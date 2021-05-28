@@ -223,7 +223,7 @@ class MaasViewController: UIViewController {
         print("categorytitle\(categorytitle)")
     
         let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
-
+		vc.module = 5
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

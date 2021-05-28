@@ -22,9 +22,9 @@ class CategoriesVM: BaseCollectionViewVM {
     }
     func didSelectRowAt(_ indexPath: IndexPath, collectionView: UICollectionView) {
         if indexPath.row == 0 {
-            let story = UIStoryboard(name: "Category", bundle:nil)
-                       let vc = story.instantiateViewController(withIdentifier: "MEBITViewController") as! MEBITViewController
-            vc.headerImageValue  = "0"
+            let story = UIStoryboard(name: "NewsRC", bundle:nil)
+                       let vc = story.instantiateViewController(withIdentifier: "NewsHomeVC") as! NewsHomeVC
+            
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == 1{

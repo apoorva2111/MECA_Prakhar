@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro.ttf">
+            <string>SFPro-Bold</string>
+            <string>SFPro-Regular</string>
+            <string>SFPro-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsHomePickTVCell" rowHeight="44" id="KGk-i7-Jjw" customClass="NewsHomePickTVCell" customModule="MECA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="423" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="423" height="300"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our Picks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLS-Hi-Bv2">
+                        <rect key="frame" x="16" y="22" width="98" height="26"/>
+                        <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="22"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0i-0G-BF4">
+                        <rect key="frame" x="358" y="21.5" width="49" height="27"/>
+                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="12"/>
+                        <state key="normal" title="Show All">
+                            <color key="titleColor" red="0.0" green="0.50196078431372548" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </state>
+                    </button>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gHq-KN-b9E">
+                        <rect key="frame" x="16" y="63" width="407" height="160"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="160" id="jlg-NO-JLZ"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Vb6-sQ-4Vg">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Global Newsroom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQq-QU-J3f">
+                        <rect key="frame" x="16" y="255" width="181.5" height="26"/>
+                        <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="22"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OyA-kk-dUC" customClass="RCustomButton" customModule="MECA" customModuleProvider="target">
+                        <rect key="frame" x="307" y="253" width="100" height="30"/>
+                        <color key="backgroundColor" red="0.14901960784313725" green="0.27843137254901962" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="4u3-TM-43k"/>
+                            <constraint firstAttribute="width" constant="100" id="voG-Fb-gBb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SFPro-Semibold" family="SF Pro" pointSize="12"/>
+                        <state key="normal" title="Create New">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <constraints>
+                    <constraint firstItem="iQq-QU-J3f" firstAttribute="top" secondItem="gHq-KN-b9E" secondAttribute="bottom" constant="32" id="0Wd-FL-UXX"/>
+                    <constraint firstItem="jLS-Hi-Bv2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="3Ox-QW-ZV3"/>
+                    <constraint firstItem="gHq-KN-b9E" firstAttribute="leading" secondItem="jLS-Hi-Bv2" secondAttribute="leading" id="EhH-np-Kpq"/>
+                    <constraint firstItem="OyA-kk-dUC" firstAttribute="centerY" secondItem="iQq-QU-J3f" secondAttribute="centerY" id="L4q-Xl-v4B"/>
+                    <constraint firstAttribute="trailing" secondItem="o0i-0G-BF4" secondAttribute="trailing" constant="16" id="Pfv-CB-5EK"/>
+                    <constraint firstItem="iQq-QU-J3f" firstAttribute="leading" secondItem="jLS-Hi-Bv2" secondAttribute="leading" id="Qj3-AE-i4U"/>
+                    <constraint firstAttribute="trailing" secondItem="OyA-kk-dUC" secondAttribute="trailing" constant="16" id="hA4-kD-0Hb"/>
+                    <constraint firstItem="jLS-Hi-Bv2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="n5f-vb-MPY"/>
+                    <constraint firstItem="gHq-KN-b9E" firstAttribute="top" secondItem="jLS-Hi-Bv2" secondAttribute="bottom" constant="15" id="rpd-6H-Kmn"/>
+                    <constraint firstAttribute="trailing" secondItem="gHq-KN-b9E" secondAttribute="trailing" id="ruY-6o-haa"/>
+                    <constraint firstItem="o0i-0G-BF4" firstAttribute="centerY" secondItem="jLS-Hi-Bv2" secondAttribute="centerY" id="x3s-Vn-8Lf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="collectionPick" destination="gHq-KN-b9E" id="DaT-mu-B5B"/>
+            </connections>
+            <point key="canvasLocation" x="-39.855072463768117" y="54.910714285714285"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="OyA-kk-dUC">
+            <size key="intrinsicContentSize" width="69" height="27"/>
+        </designable>
+    </designables>
+</document>

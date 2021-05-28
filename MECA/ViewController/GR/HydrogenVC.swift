@@ -53,6 +53,7 @@ class HydrogenVC: UIViewController {
         let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
      
        // vc.passcategoryvalue = categorytitle
+		vc.module = 7
 
         self.navigationController?.pushViewController(vc, animated: true)
     }

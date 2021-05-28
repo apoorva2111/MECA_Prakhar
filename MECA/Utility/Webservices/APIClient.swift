@@ -216,7 +216,6 @@ class APIClient {
                 }catch let error{
                     print(error)
                     GlobalObj.displayLoader(true, show: false)
-
                 }
             }
     }

@@ -673,7 +673,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="373"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Distributor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BB-49-3QT">
-                                                                <rect key="frame" x="16" y="27.5" width="168.5" height="26.5"/>
+                                                                <rect key="frame" x="16" y="27.5" width="160" height="26.5"/>
                                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="22"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -688,7 +688,7 @@
                                                                                 <rect key="frame" x="2" y="2" width="369" height="130"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Car Sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGV-nb-4eR">
-                                                                                        <rect key="frame" x="15" y="54.5" width="123.5" height="21.5"/>
+                                                                                        <rect key="frame" x="15" y="54.5" width="119" height="21"/>
                                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -778,7 +778,7 @@
                                                                                                 <rect key="frame" x="3" y="3" width="160" height="124"/>
                                                                                                 <subviews>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trade in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oY-rm-aNn">
-                                                                                                        <rect key="frame" x="15" y="27" width="69" height="21.5"/>
+                                                                                                        <rect key="frame" x="15" y="27" width="64" height="21"/>
                                                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
@@ -863,7 +863,7 @@
                                                                                                 <rect key="frame" x="20" y="3" width="160" height="124"/>
                                                                                                 <subviews>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcj-4o-Esw">
-                                                                                                        <rect key="frame" x="15" y="27" width="93" height="21.5"/>
+                                                                                                        <rect key="frame" x="15" y="27" width="85" height="21"/>
                                                                                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
                                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                         <nil key="highlightedColor"/>
@@ -1592,7 +1592,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Not Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cl2-Sf-30e">
-                                        <rect key="frame" x="156.5" y="439.5" width="101.5" height="17"/>
+                                        <rect key="frame" x="157" y="439.5" width="100" height="17"/>
                                         <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1645,7 +1645,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Car Sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tT-kJ-afj">
-                                                <rect key="frame" x="151.5" y="151.5" width="111.5" height="19"/>
+                                                <rect key="frame" x="154" y="151.5" width="106" height="19"/>
                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2912,7 +2912,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Car Sales" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8m-5S-rds">
-                                                <rect key="frame" x="151.5" y="151.5" width="111.5" height="19"/>
+                                                <rect key="frame" x="154" y="151.5" width="106" height="19"/>
                                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -3425,22 +3425,22 @@
     </scenes>
     <designables>
         <designable name="Dba-eJ-IEd">
-            <size key="intrinsicContentSize" width="74" height="28"/>
+            <size key="intrinsicContentSize" width="69" height="28"/>
         </designable>
         <designable name="F20-FG-OGB">
-            <size key="intrinsicContentSize" width="74" height="28"/>
+            <size key="intrinsicContentSize" width="69" height="28"/>
         </designable>
         <designable name="Sjn-c7-IWN">
-            <size key="intrinsicContentSize" width="74" height="28"/>
+            <size key="intrinsicContentSize" width="69" height="28"/>
         </designable>
         <designable name="WjA-Tw-i06">
-            <size key="intrinsicContentSize" width="111" height="34"/>
+            <size key="intrinsicContentSize" width="102" height="33"/>
         </designable>
         <designable name="h1z-3o-Khd">
-            <size key="intrinsicContentSize" width="74" height="28"/>
+            <size key="intrinsicContentSize" width="69" height="28"/>
         </designable>
         <designable name="r07-kr-Kx9">
-            <size key="intrinsicContentSize" width="125" height="34"/>
+            <size key="intrinsicContentSize" width="119" height="33"/>
         </designable>
     </designables>
     <resources>

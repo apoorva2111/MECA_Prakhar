@@ -122,6 +122,7 @@ class CategoryCommonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = CreateKaizenVM.init(controller: self)
+		registerNib()
         viewModel.callWebserviceForCategoryType(moduleId: String(module))
         screenSize = UIScreen.main.bounds
         screenWidth = screenSize.width
@@ -692,11 +693,11 @@ extension CategoryCommonViewController{
                 GlobalObj.showAlertVC(title: "Oops", message: "Please Enter the Start Date", controller: self)
                 
             }else{
-                if myTitle == "Add MEBIT Report"{
-                    viewModel.callWebserviceForAdddEvent()
-                }else{
+//                if myTitle == "Add MEBIT Report"{
+//                    viewModel.callWebserviceForAdddEvent()
+//                }else{
                     viewModel.callWebserviceForAddModuleItem(module: String(module))
-                }
+              //  }
             }
        }else{
             
@@ -716,11 +717,11 @@ extension CategoryCommonViewController{
                  GlobalObj.showAlertVC(title: "Oops", message: "Please Enter the Start Date", controller: self)
                  
              }else{
-                 if myTitle == "Add MEBIT Report"{
-                     viewModel.callWebserviceForAdddEvent()
-                 }else{
+//                 if myTitle == "Add MEBIT Report"{
+//                     viewModel.callWebserviceForAdddEvent()
+//                 }else{
                      viewModel.callWebserviceForAddModuleItem(module: String(module))
-                 }
+               //  }
              }
         }
        
