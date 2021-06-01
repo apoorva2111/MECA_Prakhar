@@ -243,10 +243,10 @@ extension MaasViewController :  UICollectionViewDelegate, UICollectionViewDataSo
         }
         if indexPath.row == index {
             cell.bottomlabel.isHidden = false
-            cell.titleLabel.font = UIFont.init(name: "SF Pro Text, Bold", size: 14)
+            cell.titleLabel.font = UIFont.init(name: "SFPro-Bold", size: 14)
 
         }else{
-            cell.titleLabel.font = UIFont.init(name: "SF Pro Text, Regular", size: 14)
+            cell.titleLabel.font = UIFont.init(name: "SFPro-Regular", size: 14)
             cell.bottomlabel.isHidden = true
 
         }

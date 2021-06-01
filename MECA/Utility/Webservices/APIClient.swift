@@ -1322,7 +1322,93 @@ class APIClient {
             }
         
     }
+    //NewsHomelist
+        
+        static func webserviceForNewsHome(completion:@escaping(News_Model) -> Void){
+               if !NetworkReachabilityManager()!.isReachable{
+                GlobalObj.displayLoader(true, show: false)
+
+                         GlobalObj.showNetworkAlert()
+                         return
+               }
+            //10/1
+               let url = BaseURL + NewSHome
+            print("Maas \(url)")
+               var headers = HTTPHeaders()
+
+               let accessToken = userDef.string(forKey: UserDefaultKey.token)
+                headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+    //           AF.request(url, method: .post, headers: headers)
+            AF.request(url, method: .post, parameters: [:], encoding: URLEncoding.default, headers: headers)
+                   .responseJSON { response in
+                    print(response.result)
+                       guard let dataResponse = response.data else {
+                           print("Response Error")
+                           return }
+
+                       do{
+                        print("dataResponse \(dataResponse)")
+                           let objRes: News_Model = try JSONDecoder().decode(News_Model.self, from: dataResponse)
+                        print("objRes \(objRes)")
+                           switch response.result{
+                                          case .success( _):
+                                                  completion(objRes)
+                                          case .failure(let error):
+                                              print(error)
+                                            GlobalObj.displayLoader(true, show: false)
+
+                                          }
+                       }catch let error{
+                           print(error)
+                        GlobalObj.displayLoader(true, show: false)
+
+                       }
+                   }
+           }
     
+    //NewslisWithCategoryt
+        
+        static func webserviceForNewsListWithCat(limit: String,page: String, params:[String:Any],completion:@escaping(News_Model) -> Void){
+               if !NetworkReachabilityManager()!.isReachable{
+                GlobalObj.displayLoader(true, show: false)
+
+                         GlobalObj.showNetworkAlert()
+                         return
+               }
+            //10/1
+               let url = BaseURL + newsList + limit + page
+            print("Maas \(url)")
+               var headers = HTTPHeaders()
+
+               let accessToken = userDef.string(forKey: UserDefaultKey.token)
+                headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+    //           AF.request(url, method: .post, headers: headers)
+            AF.request(url, method: .post, parameters: [:], encoding: URLEncoding.default, headers: headers)
+                   .responseJSON { response in
+                    print(response.result)
+                       guard let dataResponse = response.data else {
+                           print("Response Error")
+                           return }
+
+                       do{
+                        print("dataResponse \(dataResponse)")
+                           let objRes: News_Model = try JSONDecoder().decode(News_Model.self, from: dataResponse)
+                        print("objRes \(objRes)")
+                           switch response.result{
+                                          case .success( _):
+                                                  completion(objRes)
+                                          case .failure(let error):
+                                              print(error)
+                                            GlobalObj.displayLoader(true, show: false)
+
+                                          }
+                       }catch let error{
+                           print(error)
+                        GlobalObj.displayLoader(true, show: false)
+
+                       }
+                   }
+           }
 }
 
 

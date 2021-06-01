@@ -34,6 +34,9 @@
                 <constraint firstAttribute="trailing" secondItem="64g-v5-rWg" secondAttribute="trailing" constant="6" id="dzq-LJ-0My"/>
                 <constraint firstItem="64g-v5-rWg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="6" id="qbs-Oq-WBb"/>
             </constraints>
+            <connections>
+                <outlet property="imgPicks" destination="64g-v5-rWg" id="LXk-vj-gPu"/>
+            </connections>
             <point key="canvasLocation" x="46" y="79"/>
         </collectionViewCell>
     </objects>

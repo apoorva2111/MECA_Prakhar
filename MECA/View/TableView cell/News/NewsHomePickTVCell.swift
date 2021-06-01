@@ -10,6 +10,9 @@ import UIKit
 class NewsHomePickTVCell: UITableViewCell {
 
     @IBOutlet weak var collectionPick: UICollectionView!
+    @IBOutlet weak var btnshowAllPick: UIButton!
+    @IBOutlet weak var btnCreateNew: RCustomButton!
+    var arrPicks = [Ourpicks]()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,6 +28,17 @@ class NewsHomePickTVCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func setCell(newsObject:NewsData)  {
+        if arrPicks.count>0 {
+            arrPicks.removeAll()
+        }
+        if let picks =  newsObject.ourpicks{
+            arrPicks = picks
+        }
+        if arrPicks.count>0{
+            collectionPick.reloadData()
+        }
+    }
     
 }
 
@@ -33,11 +47,12 @@ class NewsHomePickTVCell: UITableViewCell {
 
 extension NewsHomePickTVCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return arrPicks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionPick.dequeueReusableCell(withReuseIdentifier: "OverPicksCVCell", for: indexPath) as! OverPicksCVCell
+        cell.setCell(objDict: arrPicks[indexPath.row])
         return cell
 
     }

@@ -47,3 +47,10 @@ let likesList = "mobile/user/likes/"
 let DeleteComment = "mobile/user/comment/"
 
 let MebitCategoryList = "mobile/user/category/list/"
+
+let NewSHome =  "mobile/user/news/home"
+
+let newsList = "mobile/user/news/list/"
+
+
+//10/1

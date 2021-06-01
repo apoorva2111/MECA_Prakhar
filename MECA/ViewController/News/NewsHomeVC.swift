@@ -16,28 +16,38 @@ class NewsHomeVC: UIViewController {
     @IBOutlet weak var subTypeColltection: UICollectionView!
     @IBOutlet weak var viewSubCollection: UIView!
     var viewModel : NewsHomeVM!
+    var index = 0
+    var indexSubCat = 0
+    var strCategory = ""
+    var currentPage : Int = 1
+    var checkPagination = ""
+
+    var arrSubCat = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSearch.isHidden = true
         viewSubCollection.isHidden = true
         viewModel = NewsHomeVM.init(controller: self)
+        viewModel.callWebserviceNewsCategory()
+      
+
         registernib()
         
     }
     func registernib() {
+        
+        tblList.register(UINib.init(nibName: "NewsHomePickTVCell", bundle: nil), forCellReuseIdentifier: "NewsHomePickTVCell")
+        tblList.register(UINib.init(nibName: "LatestNewsTVCell", bundle: nil), forCellReuseIdentifier: "LatestNewsTVCell")
+        typeCollection.register(MEBITCollectionViewCell.nib(), forCellWithReuseIdentifier: "MEBITCollectionViewCell")
+       
+        subTypeColltection.register(UINib.init(nibName: "SubTypeCVCell", bundle: nil), forCellWithReuseIdentifier: "SubTypeCVCell")
         tblList.delegate = self
         tblList.dataSource = self
         typeCollection.delegate = self
         typeCollection.dataSource = self
         subTypeColltection.delegate = self
         subTypeColltection.dataSource = self
-        tblList.register(UINib.init(nibName: "NewsHomePickTVCell", bundle: nil), forCellReuseIdentifier: "NewsHomePickTVCell")
-        tblList.register(UINib.init(nibName: "LatestNewsTVCell", bundle: nil), forCellReuseIdentifier: "LatestNewsTVCell")
-        typeCollection.register(MEBITCollectionViewCell.nib(), forCellWithReuseIdentifier: "MEBITCollectionViewCell")
-       
-        subTypeColltection.register(UINib.init(nibName: "SubTypeCVCell", bundle: nil), forCellWithReuseIdentifier: "SubTypeCVCell")
-
         
     }
     
@@ -76,76 +86,152 @@ extension NewsHomeVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         viewModel.getHeightForRowAt(indexPath, tableView: tblList)
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+//            if indexPath == lastVisibleIndexPath {
+//                if indexPath.row == arrList.count-1{
+//                    self.checkPagination = "pagination"
+//                    currentPage += 1
+//                    GlobalObj.run(after: 2) {
+//                        GlobalObj.displayLoader(true, show: true)
+//                        self.callSDGSLISTWebservice(type: Int(self.idvalue)!)
+//
+//                    }
+//                }
+//            }
+//        }
+    }
 }
 
 //MARK:- CollectionView Delegate
 extension NewsHomeVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        if collectionView == typeCollection{
+            return viewModel.arrNewsCat.count
+        }else{
+            return arrSubCat.count
+        }
+       
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == subTypeColltection{
             let cell = subTypeColltection.dequeueReusableCell(withReuseIdentifier: "SubTypeCVCell", for: indexPath) as! SubTypeCVCell
+            cell.lblSubCat.text = arrSubCat[indexPath.row]
+            if indexPath.row == indexSubCat{
+                cell.lblSubCat.backgroundColor = UIColor.getCustomBlueColor()
+            }else{
+                cell.lblSubCat.backgroundColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
+            }
+
             return cell
         }else{
             let cell = typeCollection.dequeueReusableCell(withReuseIdentifier: "MEBITCollectionViewCell", for: indexPath) as! MEBITCollectionViewCell
             cell.baseView.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.8588235294, blue: 0.8588235294, alpha: 1)
-            //        //cell.titleLabel.adjustsFontSizeToFitWidth = true
-            //        //cell.titleLabel.minimumScaleFactor = 0.5
-            //        if indexPath.row == 0{
-            //            cell.titleLabel.text = "All"
-            //        }else{
-            //            print("\(String(describing: arrList[indexPath.row - 1].lable))")
-            //        cell.titleLabel.text = arrList[indexPath.row - 1].label
-            //        }
-            //        if indexPath.row == index {
-            //            cell.bottomlabel.isHidden = false
-            //            cell.titleLabel.font = UIFont.init(name: "SF Pro Text, Bold", size: 14)
-            //
-            //        }else{
-            //            cell.titleLabel.font = UIFont.init(name: "SF Pro Text, Regular", size: 14)
-            //            cell.bottomlabel.isHidden = true
-            //
-            //        }
+                    if indexPath.row == 0{
+                        cell.titleLabel.text = "Home"
+                    }else{
+                        print("\(String(describing: viewModel.arrNewsCat[indexPath.row - 1].category))")
+                        cell.titleLabel.text = viewModel.arrNewsCat[indexPath.row - 1].category
+                    }
+
+                    if indexPath.row == index {
+                        cell.bottomlabel.isHidden = false
+                        cell.titleLabel.font = UIFont.init(name: "SFPro-Bold", size: 14)
+                      //
+            
+                    }else{
+                        cell.titleLabel.font = UIFont.init(name: "SFPro-Regular", size: 14)
+                        cell.bottomlabel.isHidden = true
+            
+                    }
             
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == typeCollection{
+            typeCollection.scrollToItem(at: indexPath, at: .left, animated: true)
+            index = indexPath.row
+            if index == 0 {
+                viewSubCollection.isHidden = true
+                indexSubCat = 0
 
-//        hydrogenCategoryCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
-//        index = indexPath.row
-//        if indexPath.row == 0{
-//            catID = ""
-//        }else{
-//            catID = arrList[indexPath.row - 1].id ?? ""
-//
-//            print("catID \(catID)")
-//        }
-//        self.checkPagination = "get"
-//        isFromCat = true
-//        if indexPath.row == 0{
-//            CallWebserviceHydrogenList(strType: "", sortkey: sortKey, sortorder: sortOrder)
-//
-//        }else{
-//            CallWebserviceHydrogenList(strType: catID, sortkey: sortKey, sortorder: sortOrder)
-//
-//        }
-//        hydrogenCategoryCollectionView.reloadData()
+            }else{
+                let obj = viewModel.arrNewsCat[indexPath.row - 1]
+                strCategory = obj.category ?? ""
+                indexSubCat = 0
+                if let subCat = obj.subcategories{
+                    if subCat.count>0{
+                        if arrSubCat.count>0{
+                            arrSubCat.removeAll()
+                        }
+                        arrSubCat = subCat
+                        viewSubCollection.isHidden = false
+                        subTypeColltection.reloadData()
+                        currentPage = 1
+                        self.checkPagination = "get"
+                        viewModel.callWebserviceForNewListWithCat(keyword: txtSearch.text!, category: strCategory, subcategory:obj.subcategories?[0] ?? "", page:String(currentPage))
+                    }else{
+                        currentPage = 1
+                        self.checkPagination = "get"
+                        viewSubCollection.isHidden = true
+                        viewModel.callWebserviceForNewListWithCat(keyword: txtSearch.text!, category: strCategory, subcategory: "", page:String(currentPage))
+                    }
+                    
+                }
+               
+                
+            }
 
+            typeCollection.reloadData()
+
+        }else{
+            subTypeColltection.scrollToItem(at: indexPath, at: .left, animated: true)
+            indexSubCat = indexPath.row
+            subTypeColltection.reloadData()
+        }
+        
         
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let label = UILabel(frame: CGRect.zero)
-//        let obj = self.arrFilter[indexPath.row]
-//        label.text = obj["name"] as? String
-//        label.sizeToFit()
-//        let itemWidth = label.frame.width + 40
-//        return CGSize(width: itemWidth  , height: 40)
-            return CGSize(width: 80, height: 35)
+        if collectionView == typeCollection{
+
+        let label = UILabel(frame: CGRect.zero)
+
+        if indexPath.row == 0{
+            label.text = "Home"
+            label.sizeToFit()
+            let itemWidth = label.frame.width + 20
+            return CGSize(width: itemWidth  , height: 40)
+        }else{
+            if viewModel.arrNewsCat.count>0{
+                let obj = viewModel.arrNewsCat[indexPath.row - 1 ].category
+                label.text = obj
+                label.sizeToFit()
+                let itemWidth = label.frame.width + 20
+                return CGSize(width: itemWidth  , height: 40)
+            }
         }
-    
-    
+            return CGSize(width: 0  , height: 0)
+            
+        }else{
+            
+            let label = UILabel(frame: CGRect.zero)
+                if arrSubCat.count>0{
+                    let obj = arrSubCat[indexPath.row]
+                    label.text = obj
+                    label.sizeToFit()
+                    let itemWidth = label.frame.width + 20
+                    return CGSize(width: itemWidth  , height: 50)
+                }
+            
+                return CGSize(width: 0  , height: 0)
+                
+            }
+    }
 }
+    
+

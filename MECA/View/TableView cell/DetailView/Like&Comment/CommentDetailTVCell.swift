@@ -101,7 +101,6 @@ class CommentDetailTVCell: UITableViewCell {
         let date = GlobalObj.convertToString(dateString: commentData.created_at ?? "")
             
         lblDay.text = date
-        
 
     }
 }

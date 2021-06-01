@@ -91,6 +91,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnCreateNew" destination="OyA-kk-dUC" id="0SR-Uo-hdq"/>
+                <outlet property="btnshowAllPick" destination="o0i-0G-BF4" id="YNv-ag-5K5"/>
                 <outlet property="collectionPick" destination="gHq-KN-b9E" id="DaT-mu-B5B"/>
             </connections>
             <point key="canvasLocation" x="-39.855072463768117" y="54.910714285714285"/>

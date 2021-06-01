@@ -28,9 +28,6 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VrN-fA-QHZ">
                                 <rect key="frame" x="8" y="8" width="64" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="01U-2i-Bbo"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="14"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -52,6 +49,7 @@
                             <constraint firstAttribute="trailing" secondItem="nbh-Wx-bXZ" secondAttribute="trailing" constant="10" id="Cux-2W-ng4"/>
                             <constraint firstAttribute="bottom" secondItem="nbh-Wx-bXZ" secondAttribute="bottom" id="LRP-iH-Ce7"/>
                             <constraint firstItem="VrN-fA-QHZ" firstAttribute="leading" secondItem="zG7-iI-BDa" secondAttribute="leading" constant="8" id="Pui-5a-k54"/>
+                            <constraint firstItem="nbh-Wx-bXZ" firstAttribute="top" secondItem="VrN-fA-QHZ" secondAttribute="bottom" constant="8" id="d6T-CD-7Hy"/>
                             <constraint firstItem="nbh-Wx-bXZ" firstAttribute="leading" secondItem="zG7-iI-BDa" secondAttribute="leading" constant="10" id="jju-xa-Q7C"/>
                             <constraint firstItem="VrN-fA-QHZ" firstAttribute="top" secondItem="zG7-iI-BDa" secondAttribute="top" constant="8" id="qFD-kK-DNs"/>
                             <constraint firstItem="VrN-fA-QHZ" firstAttribute="centerX" secondItem="zG7-iI-BDa" secondAttribute="centerX" id="rcw-6S-sKg"/>

@@ -8,31 +8,46 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro.ttf">
+            <string>SFPro-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddNewTagsCVCell" id="gTV-IL-0wX" customClass="AddNewTagsCVCell" customModule="MECA" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="174" height="51"/>
+            <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="174" height="51"/>
+                <rect key="frame" x="0.0" y="0.0" width="174" height="40"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXu-Ra-suD" customClass="RCustomView" customModule="MECA" customModuleProvider="target">
-                        <rect key="frame" x="10" y="10" width="154" height="31"/>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gXu-Ra-suD" customClass="RCustomView" customModule="MECA" customModuleProvider="target">
+                        <rect key="frame" x="10" y="5" width="154" height="30"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Plus_Tag" translatesAutoresizingMaskIntoConstraints="NO" id="y9h-ym-q3e">
-                                <rect key="frame" x="139" y="10.5" width="10" height="10"/>
+                                <rect key="frame" x="139" y="10" width="10" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="bz9-5X-QXQ"/>
                                     <constraint firstAttribute="width" constant="10" id="ixb-Uk-qZf"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlO-53-Smd">
+                                <rect key="frame" x="0.0" y="0.0" width="139" height="30"/>
+                                <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="12"/>
+                                <color key="textColor" red="0.17254901960784313" green="0.17254901960784313" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="zlO-53-Smd" firstAttribute="top" secondItem="gXu-Ra-suD" secondAttribute="top" id="DTX-td-OMW"/>
+                            <constraint firstItem="y9h-ym-q3e" firstAttribute="leading" secondItem="zlO-53-Smd" secondAttribute="trailing" id="NLj-wx-bXl"/>
                             <constraint firstItem="y9h-ym-q3e" firstAttribute="centerY" secondItem="gXu-Ra-suD" secondAttribute="centerY" id="Y3w-a7-p1F"/>
+                            <constraint firstAttribute="bottom" secondItem="zlO-53-Smd" secondAttribute="bottom" id="YGt-kA-eay"/>
                             <constraint firstAttribute="trailing" secondItem="y9h-ym-q3e" secondAttribute="trailing" constant="5" id="qML-Kx-TyA"/>
+                            <constraint firstItem="zlO-53-Smd" firstAttribute="leading" secondItem="gXu-Ra-suD" secondAttribute="leading" id="rxK-jk-JEp"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -42,25 +57,31 @@
                                 <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                <color key="value" red="0.67450980392156867" green="0.67450980392156867" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.67450980392156867" green="0.67450980392156867" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="gXu-Ra-suD" secondAttribute="trailing" constant="10" id="3PS-hr-3RV"/>
-                <constraint firstAttribute="bottom" secondItem="gXu-Ra-suD" secondAttribute="bottom" constant="10" id="Fjj-6j-Ccp"/>
+                <constraint firstAttribute="bottom" secondItem="gXu-Ra-suD" secondAttribute="bottom" constant="5" id="Fjj-6j-Ccp"/>
                 <constraint firstItem="gXu-Ra-suD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="ImQ-7x-IQI"/>
-                <constraint firstItem="gXu-Ra-suD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="h13-bX-GsS"/>
+                <constraint firstItem="gXu-Ra-suD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="h13-bX-GsS"/>
             </constraints>
             <size key="customSize" width="174" height="51"/>
+            <connections>
+                <outlet property="lblTagImgOutlet" destination="y9h-ym-q3e" id="EjL-fe-5wJ"/>
+                <outlet property="lblTagName" destination="zlO-53-Smd" id="epe-be-b27"/>
+                <outlet property="viewBG" destination="gXu-Ra-suD" id="7Jz-99-V1N"/>
+            </connections>
             <point key="canvasLocation" x="134.78260869565219" y="78.683035714285708"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Plus_Tag" width="12" height="12"/>
+        <image name="Plus_Tag" width="11.5" height="11.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

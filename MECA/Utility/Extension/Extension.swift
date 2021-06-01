@@ -106,6 +106,12 @@ class func convertFormatOfDate(date: String, originalFormat: String, destination
 
 }
 }
+extension Array where Element: Equatable {
+    func removing(_ obj: Element) -> [Element] {
+        return filter { $0 != obj }
+    }
+}
+
 
 extension UITextField {
     

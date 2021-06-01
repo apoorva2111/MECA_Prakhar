@@ -54,9 +54,9 @@ class CalenderVC: UIViewController {
         
         style.locale                   = Locale(identifier: "en_US")
         
-        style.cellFont = UIFont.init(name: "SF Pro, Regular", size: 16) ?? UIFont.systemFont(ofSize: 16.0)
+        style.cellFont = UIFont.init(name: "SFPro-Regular", size: 16) ?? UIFont.systemFont(ofSize: 16.0)
         style.headerFont = UIFont(name: ",Semibold", size: 20.0) ?? UIFont.systemFont(ofSize: 20.0)
-        style.weekdaysFont = UIFont.init(name: "SF Pro, Semibold", size: 14) ?? UIFont.systemFont(ofSize: 14.0)
+        style.weekdaysFont = UIFont.init(name: "SFPro-Semibold", size: 14) ?? UIFont.systemFont(ofSize: 14.0)
         
         calendarView.style = style
         calendarView.backgroundColor = darkGrey

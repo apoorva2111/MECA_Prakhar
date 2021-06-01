@@ -26,9 +26,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dN7-96-izq">
                         <rect key="frame" x="0.0" y="0.0" width="232" height="50"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFZ-JQ-kdx" customClass="RCustomLabel" customModule="MECA" customModuleProvider="target">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFZ-JQ-kdx" customClass="RCustomLabel" customModule="MECA" customModuleProvider="target">
                                 <rect key="frame" x="5" y="5" width="222" height="40"/>
-                                <color key="backgroundColor" red="0.14901960780000001" green="0.2784313725" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.67450980392156867" green="0.67450980392156867" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -57,12 +57,15 @@
                 <constraint firstAttribute="trailing" secondItem="dN7-96-izq" secondAttribute="trailing" id="qtT-TH-P8n"/>
             </constraints>
             <size key="customSize" width="232" height="50"/>
+            <connections>
+                <outlet property="lblSubCat" destination="fFZ-JQ-kdx" id="KDm-y7-uOR"/>
+            </connections>
             <point key="canvasLocation" x="176.81159420289856" y="72.991071428571431"/>
         </collectionViewCell>
     </objects>
     <designables>
         <designable name="fFZ-JQ-kdx">
-            <size key="intrinsicContentSize" width="33" height="16"/>
+            <size key="intrinsicContentSize" width="32" height="15.5"/>
         </designable>
     </designables>
     <resources>

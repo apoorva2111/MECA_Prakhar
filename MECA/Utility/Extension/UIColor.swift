@@ -4,7 +4,10 @@ extension UIColor {
     class func getCustomRedColor() -> UIColor{
             return UIColor(red: 0.9882352941, green: 0, blue: 0, alpha: 1)
         }
-        
+    class func getCustomGrayColor() -> UIColor{
+            return UIColor(red: 172, green: 172, blue: 172, alpha: 1)
+        }
+    
     class func getCustomBlueColor() -> UIColor{
             return UIColor(red: 0.1490196078, green: 0.2784313725, blue: 0.5529411765, alpha: 1)
     }

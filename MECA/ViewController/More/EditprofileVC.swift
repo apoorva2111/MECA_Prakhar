@@ -79,7 +79,6 @@ class EditprofileVC: UIViewController {
                                             self.editimg.sd_imageIndicator = SDWebImageActivityIndicator.gray
                                             self.editimg.sd_setImage(with: URL.init(string: url), completed: nil)
                                         }
-                        
                     }
                     
                 }
