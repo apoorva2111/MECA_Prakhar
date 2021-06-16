@@ -24,7 +24,8 @@ target 'MECA' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'JSQMessagesViewController'
-  
+  pod 'Tabman', '~> 2.9'
+
   # Pods for MECA
   
   target 'MECATests' do

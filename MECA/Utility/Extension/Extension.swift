@@ -83,6 +83,78 @@ func showToast(message : String) {
     })
 }
     
+//        func setTitle(title:String){
+//            self.navigationItem.title = title
+//            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//            self.navigationController?.navigationBar.isTranslucent = false
+//            self.navigationController?.navigationBar.barTintColor = Colors.DARK_BLUE
+//        }
+        func hideKeyboardWhenTappedAround() {
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+            tap.cancelsTouchesInView = false
+            view.addGestureRecognizer(tap)
+        }
+        
+        @objc func dismissKeyboard() {
+            view.endEditing(true)
+        }
+        func reloadViewFromNib() {
+            let parent = view.superview
+            view.removeFromSuperview()
+            view = nil
+            parent?.addSubview(view)
+        }
+        func topMostViewController() -> UIViewController {
+            if self.presentedViewController == nil {
+                return self
+            }
+            if let navigation = self.presentedViewController as? UINavigationController {
+                return navigation.visibleViewController!.topMostViewController()
+            }
+            if let tab = self.presentedViewController as? UITabBarController {
+                if let selectedTab = tab.selectedViewController {
+                    return selectedTab.topMostViewController()
+                }
+                return tab.topMostViewController()
+            }
+            return self.presentedViewController!.topMostViewController()
+        }
+        func configureChildViewController(childController: UIViewController, onView: UIView) {
+
+            childController.view.frame = CGRect(x: 0, y: 0, width: onView.frame.size.width, height: onView.frame.size.height)
+            addChild(childController)
+            onView.addSubview(childController.view)
+            constrainViewEqual(holderView: onView, view: childController.view)
+            childController.didMove(toParent: self)
+            childController.willMove(toParent: self)
+        }
+        
+        
+        func constrainViewEqual(holderView: UIView, view: UIView) {
+            view.translatesAutoresizingMaskIntoConstraints = false
+            //pin 100 points from the top of the super
+            let pinTop = NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal,
+                                            toItem: holderView, attribute: .top, multiplier: 1.0, constant: 0)
+            let pinBottom = NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal,
+                                               toItem: holderView, attribute: .bottom, multiplier: 1.0, constant: 0)
+            let pinLeft = NSLayoutConstraint(item: view, attribute: .left, relatedBy: .equal,
+                                             toItem: holderView, attribute: .left, multiplier: 1.0, constant: 0)
+            let pinRight = NSLayoutConstraint(item: view, attribute: .right, relatedBy: .equal,
+                                              toItem: holderView, attribute: .right, multiplier: 1.0, constant: 0)
+            
+            holderView.addConstraints([pinTop, pinBottom, pinLeft, pinRight])
+        }
+        
+        func removeChilds(){
+            if self.children.count > 0{
+                let viewControllers:[UIViewController] = self.children
+                for viewContoller in viewControllers{
+                    viewContoller.willMove(toParent: nil)
+                    viewContoller.view.removeFromSuperview()
+                    viewContoller.removeFromParent()
+                }
+            }
+        }
 }
 extension NSString {
 
@@ -111,7 +183,25 @@ extension Array where Element: Equatable {
         return filter { $0 != obj }
     }
 }
-
+extension Data {
+    var html2AttributedString: NSAttributedString? {
+        do {
+            return try NSAttributedString(data: self, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch {
+            print("error:", error)
+            return  nil
+        }
+    }
+    var html2String: String { html2AttributedString?.string ?? "" }
+}
+extension StringProtocol {
+    var html2AttributedString: NSAttributedString? {
+        Data(utf8).html2AttributedString
+    }
+    var html2String: String {
+        html2AttributedString?.string ?? ""
+    }
+}
 
 extension UITextField {
     

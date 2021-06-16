@@ -18,6 +18,7 @@ class VideoLinkTableViewCell: UITableViewCell {
     @IBOutlet weak var videoLinkLbl: UILabel!
     @IBOutlet weak var videoInfoLbl: UILabel!
     @IBOutlet weak var videoImg: UIImageView!
+    @IBOutlet weak var lblLink: UILabel!
     
     
     

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro.ttf">
+            <string>SFPro-Medium</string>
+            <string>SFPro-Regular</string>
+            <string>SFPro-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="90" id="KGk-i7-Jjw" customClass="TBPIndexCell" customModule="MECA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="369" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="369" height="90"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TxU-I4-SSI">
+                        <rect key="frame" x="0.0" y="0.0" width="369" height="90"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewW-LE-u0P">
+                                <rect key="frame" x="12" y="7" width="145" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="145" id="Yk0-MK-9JE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFPro-Medium" family="SF Pro" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6vE-Ik-oJY" customClass="RCustomView" customModule="MECA" customModuleProvider="target">
+                                <rect key="frame" x="8" y="32" width="353" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kea-Nv-5Sa" customClass="RCustomButton" customModule="MECA" customModuleProvider="target">
+                                        <rect key="frame" x="14" y="13" width="205" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SFPro-Semibold" family="SF Pro" pointSize="12"/>
+                                        <state key="normal" title="Upload">
+                                            <color key="titleColor" red="0.1843137255" green="0.32549019610000002" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.1843137255" green="0.32549019610000002" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vmq-zd-QMH">
+                                        <rect key="frame" x="283" y="13" width="70" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47H-A8-PwJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="download Documents_Blue"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLQ-RT-bkP">
+                                                <rect key="frame" x="38" y="0.0" width="30" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="download Documents_Blue"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PPz-Ap-NvD">
+                                <rect key="frame" x="8" y="83" width="353" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14901960784313725" green="0.27843137254901962" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTY-0k-ign">
+                                <rect key="frame" x="195" y="7" width="166" height="20"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="166" id="GE7-oq-009"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="gLB-wl-NsX"/>
+                                    <constraint firstAttribute="height" constant="20" id="xXU-qS-Ab5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bTY-0k-ign" firstAttribute="top" secondItem="TxU-I4-SSI" secondAttribute="top" constant="7" id="7L4-8L-KzW"/>
+                            <constraint firstAttribute="width" constant="369" id="BG8-IU-LIV"/>
+                            <constraint firstAttribute="trailing" secondItem="bTY-0k-ign" secondAttribute="trailing" constant="8" id="Wa4-J9-gcO"/>
+                            <constraint firstItem="ewW-LE-u0P" firstAttribute="leading" secondItem="TxU-I4-SSI" secondAttribute="leading" constant="12" id="YRd-nM-Hch"/>
+                            <constraint firstAttribute="height" constant="90" id="hGe-qE-bRG"/>
+                            <constraint firstItem="ewW-LE-u0P" firstAttribute="top" secondItem="TxU-I4-SSI" secondAttribute="top" constant="7" id="kZ4-zy-xAA"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="TxU-I4-SSI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="4br-69-1bY"/>
+                    <constraint firstItem="TxU-I4-SSI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Ag6-nK-JBv"/>
+                    <constraint firstAttribute="bottom" secondItem="TxU-I4-SSI" secondAttribute="bottom" id="K7w-AB-WkF"/>
+                    <constraint firstAttribute="trailing" secondItem="TxU-I4-SSI" secondAttribute="trailing" id="WHc-o8-dzM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="downloadlinkbtn" destination="NLQ-RT-bkP" id="hsw-e0-HUf"/>
+                <outlet property="filenamelbl" destination="bTY-0k-ign" id="yG9-Hj-xiC"/>
+                <outlet property="revisedlinkbtn" destination="47H-A8-PwJ" id="tEl-Q3-4cR"/>
+                <outlet property="titlelbl" destination="ewW-LE-u0P" id="ZXd-81-ZOf"/>
+                <outlet property="uploadbtn" destination="kea-Nv-5Sa" id="03O-jB-6B8"/>
+                <outlet property="videoView" destination="6vE-Ik-oJY" id="Kob-3R-ZKe"/>
+            </connections>
+            <point key="canvasLocation" x="83.333333333333343" y="109.82142857142857"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="kea-Nv-5Sa">
+            <size key="intrinsicContentSize" width="42" height="27"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="download Documents_Blue" width="30" height="30"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

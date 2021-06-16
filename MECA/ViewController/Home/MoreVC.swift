@@ -17,9 +17,23 @@ class MoreVC: UIViewController {
         viewFooter.footerTabViewDelegate = self
         viewFooter.imgMore.image = UIImage.init(named: "More_Active")
         viewFooter.imgHome.image = UIImage.init(named: "Home_Inactive")
-        
+       
+        viewFooter.lblHome.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        viewFooter.lblCalender.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        viewFooter.lblCategory.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        viewFooter.lblNotification.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        viewFooter.lblMore.font = UIFont.init(name: "SFPro-Bold", size: 12)
+
        
     }
+    @IBAction func btnCalendarAction(_ sender: UIButton) {
+        let story = UIStoryboard(name: "Home", bundle:nil)
+        let vc = story.instantiateViewController(withIdentifier: "Calendervc") as! CalenderVC
+        self.navigationController?.pushViewController(vc, animated: true)
+
+
+    }
+    
     @IBAction func btnprofileAction(_ sender: UIButton) {
         let story = UIStoryboard(name: "More", bundle:nil)
       //  let obj = arrList[indexPath.row]
@@ -105,7 +119,11 @@ class MoreVC: UIViewController {
                 GlobalObj.displayLoader(true, show: false)
                 if respCode == 200{
                     if let arrDate = result.data{
-                       
+                        print("getdata ...? \(arrDate)")
+                        userDef.setValue(arrDate.email, forKey: UserDefaultKey.firebaseemail)
+                        userDef.setValue(arrDate.firebasepassword, forKey: UserDefaultKey.firebasepassword)
+                        let finalname = arrDate.first_name! + " "  + arrDate.last_name!
+                        userDef.setValue(finalname, forKey: UserDefaultKey.loggedusername)
                         self.distributornamelbl.text! =  (arrDate.distributorinformation?.name)!
                     }
                     
@@ -140,7 +158,7 @@ extension MoreVC : FooterTabViewDelegate{
 
         }else if strType == "Calendar"{
             
-            let vc = FlowController().instantiateViewController(identifier: "Calendervc", storyBoard: "Home")
+            let vc = FlowController().instantiateViewController(identifier: "HomeVC", storyBoard: "Home")
             self.navigationController?.pushViewController(vc, animated:false)
             
         }else if strType == "Categories"{

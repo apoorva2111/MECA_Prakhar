@@ -1,9 +1,4 @@
-//
-//  NotificationVC.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 25/05/21.
-//
+
 
 import UIKit
 
@@ -21,6 +16,12 @@ class NotificationVC: UIViewController {
 //        viewFooter.imgMore.image = UIImage.init(named: "More")
 //        viewFooter.imgCalender.image = UIImage.init(named: "Calendar")
 //        viewFooter.imgHome.image = UIImage.init(named: "Home_Inactive")
+//        viewFooter.lblHome.font = UIFont.init(name: "SFPro-Regular", size: 12)
+//        viewFooter.lblCalender.font = UIFont.init(name: "SFPro-Regular", size: 12)
+//        viewFooter.lblCategory.font = UIFont.init(name: "SFPro-Regular", size: 12)
+//        viewFooter.lblNotification.font = UIFont.init(name: "SFPro-Bold", size: 12)
+//        viewFooter.lblMore.font = UIFont.init(name: "SFPro-Regular", size: 12)
+
     }
     
 }
@@ -43,7 +44,9 @@ extension NotificationVC : FooterTabViewDelegate{
 
         }else if strType == "Calendar"{
             
-            
+            let vc = FlowController().instantiateViewController(identifier: "HomeVC", storyBoard: "Home")
+            self.navigationController?.pushViewController(vc, animated:false)
+
             
         }else if strType == "Categories"{
 

@@ -11,53 +11,71 @@ import UIKit
 extension CalendarView: UICollectionViewDelegateFlowLayout {
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+       
+        print("multipleSelectionEnable///// ...\(multipleSelectionEnable)")
         guard let date = self.dateFromIndexPath(indexPath) else { return }
         
         if let index = selectedIndexPaths.firstIndex(of: indexPath) {
-            
+            print("index\(index)")
             delegate?.calendar(self, didDeselectDate: date)
             if enableDeselection {
                 // bug: when deselecting the second to last item programmatically, during
                 // didDeselectDate delegation, the index returned is out of the bounds of
                 // the selectedIndexPaths array.  This guard prevents the crash
-                guard index < selectedIndexPaths.count, index < selectedDates.count else {
-                    return
-                }
-                selectedIndexPaths.remove(at: index)
-                selectedDates.remove(at: index)
+//                guard index < selectedIndexPaths.count, index < selectedDates.count else {
+//                    return
+//                }
+//                selectedIndexPaths.remove(at: index)
+//                selectedDates.remove(at: index)
+                
             }
             
         } else {
-            if let currentCell = collectionView.cellForItem(at: indexPath) as? CalendarDayCell, currentCell.isOutOfRange || currentCell.isAdjacent {
-                self.reloadData()
-                return
-            }
-            
-            if !multipleSelectionEnable {
+//            if let currentCell = collectionView.cellForItem(at: indexPath) as? CalendarDayCell, currentCell.isOutOfRange || currentCell.isAdjacent {
+//                self.reloadData()
+//                return
+//            }
+            multipleSelectionEnable = false
+            print("!multipleSelectionEnable... \(multipleSelectionEnable)")
+            if multipleSelectionEnable == true {
 //                selectedIndexPaths.removeAll()
 //                selectedDates.removeAll()
+                selectedIndexPaths.removeAll()
+            selectedDates.removeAll()
+            }else{
+                selectedDates.removeAll()
+                
             }
+            
+            
+//            if enableDeselection {
+//                guard index < selectedIndexPaths.count, index < selectedDates.count else {
+//                    return
+//                }
+//                selectedIndexPaths.remove(at: index)
+//                selectedDates.remove(at: index)
+//            }
             
             selectedIndexPaths.append(indexPath)
             selectedDates.append(date)
             
-            let eventsForDaySelected = eventsByIndexPath[indexPath] ?? []
-            delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
-        }
+            }
+//            let eventsForDaySelected = eventsByIndexPath[indexPath] ?? []
+//            delegate?.calendar(self, didSelectDate: date, withEvents: eventsForDaySelected)
+    
         
         self.reloadData()
     }
     
     public func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        
+
         guard let dateBeingSelected = self.dateFromIndexPath(indexPath) else { return false }
-        
+
         if let delegate = self.delegate {
             return delegate.calendar(self, canSelectDate: dateBeingSelected)
         }
-   
-        return true // default
+
+        return false // default
     }
     
     // MARK: UIScrollViewDelegate
@@ -125,11 +143,11 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
 //    func callwedservicecalendardata(month: String, year: String)
 //    {
 //        GlobalObj.displayLoader(true, show: true)
-//        
+//
 //        APIClient.webserviceForCalendar(month: month, year: year){ (result) in
 //            print("result\(result)")
 //            if let respCode = result.resp_code{
-//                
+//
 //                if respCode == 200{
 //                    GlobalObj.displayLoader(true, show: false)
 //
@@ -140,24 +158,24 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
 //                        if arrDate.count>0{
 //                            self.callendararrList = arrDate
 //                            for objdate in self.callendararrList{
-//                                
-//                               
+//
+//
 //                                print("objdate....\(objdate.start_date)")
 //                                let formatter = DateFormatter()
 //                                // initially set the format based on your datepicker date / server String
 //                                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
 //                               // self.calendarView.selectedDates.append(formatter.date(from: objdate)!)
 //                                if objdate.start_date == "" {
-//                                    
+//
 //                                }else{
 //                                    self.calendarView.selectDate(formatter.date(from: objdate.start_date!)!)
 //                                }
 //                                if objdate.end_date == "" {
-//                                    
+//
 //                                }else{
 //                                    //self.calendarView.selectDate(formatter.date(from: objdate.end_date!)!)
 //                                }
-//                                
+//
 //                            }
 //                        }
 //                        //print("/......\(self.calendarView.selectDate)")
@@ -168,7 +186,7 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
 //
 //                }
 //            }
-//            
+//
 //            GlobalObj.displayLoader(true, show: false)
 //
 //        }

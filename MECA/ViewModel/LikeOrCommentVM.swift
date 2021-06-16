@@ -1,9 +1,4 @@
 //
-//  LikeOrCommentVM.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 12/05/21.
-//
 
 import UIKit
 import Alamofire

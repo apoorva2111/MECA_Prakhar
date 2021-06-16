@@ -12,6 +12,7 @@ struct Data_MEBITCat : Codable {
 	let videos : [String]?
     let sorting_options : [Sorting_options]?
     let modules : [Modules]?
+    let tbp : [Training_module]?
     
 	enum CodingKeys: String, CodingKey {
 
@@ -25,6 +26,7 @@ struct Data_MEBITCat : Codable {
 		case videos = "videos"
         case sorting_options = "sorting_options"
         case modules = "modules"
+        case tbp = "tbp"
         
     }
 
@@ -40,6 +42,7 @@ struct Data_MEBITCat : Codable {
 		videos = try values.decodeIfPresent([String].self, forKey: .videos)
         sorting_options = try values.decodeIfPresent([Sorting_options].self, forKey: .sorting_options)
         modules = try values.decodeIfPresent([Modules].self, forKey: .modules)
+        tbp = try values.decodeIfPresent([Training_module].self, forKey: .tbp)
 	}
 
 }

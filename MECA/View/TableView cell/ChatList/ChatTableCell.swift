@@ -16,6 +16,9 @@ class ChatTableCell: UITableViewCell {
     @IBOutlet weak var btnselect: UIButton!
     @IBOutlet weak var namelbl:UILabel!
     @IBOutlet weak var Badgebl:UILabel!
+    
+    var on3DotsClick: ((UIButton)->())?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,37 +26,25 @@ class ChatTableCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     
-    
     func setCellChatuser(feed:Recentchatmodel) {
-        if feed.is_admin_chat == 0 {
-            var firstname : String!
-            var lastname : String!
-            firstname = feed.userprofile!.first_name!
-            lastname = feed.userprofile!.last_name!
-            namelbl.text =  firstname + " " + lastname
-        }else{
-            namelbl.text = feed.userprofile?.username!
-        }
+        namelbl.text = feed.display_user_name!
         
-        if feed.unread! == 0  {
-            Badgebl.isHidden = true
-        }else{
-            Badgebl.text = String(feed.unread!)
-        }
+        let sec = feed.last_call_at!.msToSeconds
+        print("gfgfhghjgjhjh....\(sec)")
+        setBadge(count: feed.unread)
        // namelbl.text = feed.userprofile?.avatar!
-        if feed.userprofile?.avatar != "" {
-            let imgUrl = BaseURL + (feed.userprofile?.avatar!)!
+        if feed.avatar != "" {
+            let imgUrl = BaseURL + (feed.avatar!)
             chatprofileView.sd_imageIndicator = SDWebImageActivityIndicator.gray
             chatprofileView.sd_setImage(with: URL(string: imgUrl), completed: nil)
         }
     }
     func setCelladminChatuser(feed:Adminchatusers) {
-        Badgebl.isHidden = true
-       // namelbl.text = feed.userprofile?.avatar!
+        setBadge(count: 0)
+        namelbl.text = feed.display_user_name!
         if feed.avatar != "" {
             let imgUrl = BaseURL + (feed.avatar!)
             chatprofileView.sd_imageIndicator = SDWebImageActivityIndicator.gray
@@ -61,15 +52,23 @@ class ChatTableCell: UITableViewCell {
         }
     }
     func setCelluser(feed:Chatusers) {
-        
-        Badgebl.isHidden = true
-        namelbl.text = feed.first_name!  + feed.last_name!
+        setBadge(count: 0)
+        namelbl.text = feed.display_user_name!
         if feed.avatar != "" {
             let imgUrl = BaseURL + (feed.avatar!)
             chatprofileView.sd_imageIndicator = SDWebImageActivityIndicator.gray
             chatprofileView.sd_setImage(with: URL(string: imgUrl), completed: nil)
         }
     }
+    func setBadge(count: Int?) {
+        Badgebl.isHidden = count ?? 0 == 0
+        Badgebl.text = String(count ?? 0)
+    }
     
-    
+    @IBAction func onClick3Dots(_ sender: UIButton) {
+        on3DotsClick?(sender)
+    }
+}
+extension Int {
+    var msToSeconds: Double { Double(self) / 1000 }
 }

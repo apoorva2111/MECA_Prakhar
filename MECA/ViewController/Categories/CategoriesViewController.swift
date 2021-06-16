@@ -30,6 +30,12 @@ class CategoriesViewController: UIViewController {
         setupUI()
         footerView.footerTabViewDelegate = self
         footerView.imgHome.image = UIImage.init(named: "Home_Inactive")
+       
+        footerView.lblHome.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        footerView.lblCalender.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        footerView.lblCategory.font = UIFont.init(name: "SFPro-Bold", size: 12)
+        footerView.lblNotification.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        footerView.lblMore.font = UIFont.init(name: "SFPro-Regular", size: 12)
         // Do any additional setup after loading the view.
     }
     
@@ -79,7 +85,8 @@ extension CategoriesViewController: FooterTabViewDelegate{
         
         }else if strType == "Calendar"{
             
-            
+            let vc = FlowController().instantiateViewController(identifier: "HomeVC", storyBoard: "Home")
+                    self.navigationController?.pushViewController(vc, animated:false)
             
         }else if strType == "Categories"{
             

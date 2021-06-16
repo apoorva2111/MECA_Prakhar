@@ -256,6 +256,7 @@
                 <outlet property="externalLinkLbl" destination="HZd-we-BBB" id="ByW-KA-aQc"/>
                 <outlet property="externalTitleLbl" destination="VUP-pI-stK" id="O6A-c6-Lpj"/>
                 <outlet property="externalView" destination="MhS-ua-CHk" id="OSv-ST-dAO"/>
+                <outlet property="lblLink" destination="FC4-45-V72" id="dKA-np-C6g"/>
                 <outlet property="videoImg" destination="aS5-OR-5ke" id="pRz-Du-aFu"/>
                 <outlet property="videoInfoLbl" destination="kA3-GA-aMG" id="OgC-sk-2ba"/>
                 <outlet property="videoLinkLbl" destination="t9A-Ih-c7f" id="NsR-yl-br2"/>

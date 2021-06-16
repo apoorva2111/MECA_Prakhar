@@ -14,7 +14,12 @@ class FooterTabView: UIView {
     @IBOutlet weak var imgCategory: UIImageView!
     @IBOutlet weak var imgNotification: UIImageView!
     @IBOutlet weak var imgMore: UIImageView!
-  
+    @IBOutlet weak var lblHome: UILabel!
+    @IBOutlet weak var lblCalender: UILabel!
+    @IBOutlet weak var lblCategory: UILabel!
+    @IBOutlet weak var lblNotification: UILabel!
+    @IBOutlet weak var lblMore: UILabel!
+    
     let nibName = "FooterTabView"
     var contentView: UIView?
     var footerTabViewDelegate : FooterTabViewDelegate!

@@ -3,8 +3,8 @@ import UIKit
 
 class CategoriesVM: BaseCollectionViewVM {
 
-    var arrCat = ["News RC","MEBIT","MaaS","HYDROGEN","SDGS","GR"]
-    var arrcatImg = [UIImage.init(named: "News"),UIImage.init(named: "MEBIT"),UIImage.init(named: "MaaS"),UIImage.init(named: "Hydrogen"),UIImage.init(named: "SDGs"),UIImage.init(named: "GR")]
+    var arrCat = ["News RC","MEBIT","MaaS","HYDROGEN","SDGS","GR","Training"]
+    var arrcatImg = [UIImage.init(named: "News"),UIImage.init(named: "MEBIT"),UIImage.init(named: "MaaS"),UIImage.init(named: "Hydrogen"),UIImage.init(named: "SDGs"),UIImage.init(named: "GR"),UIImage.init(named: "Training_category")]
 
     
     override init(controller: UIViewController?) {
@@ -60,6 +60,12 @@ class CategoriesVM: BaseCollectionViewVM {
                        let vc = story.instantiateViewController(withIdentifier: "MEBITViewController") as! MEBITViewController
             vc.headerImageValue  = "5"
             GlobalValue.tabCategory = "GR"
+            (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
+        }else if indexPath.row == 6{
+            let story = UIStoryboard(name: "Category", bundle:nil)
+                       let vc = story.instantiateViewController(withIdentifier: "Trainingvc") as! TrainingVC
+            
+            GlobalValue.tabCategory = "Training"
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
         }
         

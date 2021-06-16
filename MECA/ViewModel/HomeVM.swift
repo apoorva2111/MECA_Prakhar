@@ -51,10 +51,7 @@ class HomeVM: BaseTableViewVM {
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 22)
         headerView.addSubview(label)
-
-        
-            return headerView
-
+        return headerView
 }
     
     func callHomeFeedWebservice() {

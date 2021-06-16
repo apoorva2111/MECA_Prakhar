@@ -53,6 +53,7 @@ class EditprofileVC: UIViewController {
                                             return
                                         }
                         self.lnameeditvalue = lname
+                        
                                         print("fname + lname\(fname + lname)")
                                         self.namelbl.text = fname + lname
                         

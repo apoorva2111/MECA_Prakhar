@@ -33,12 +33,11 @@ class PlusSelectCategoryVM: BaseCollectionViewVM {
     func didSelectRowAt(_ indexPath: IndexPath, collectionView: UICollectionView) {
 
         if indexPath.row == 0 {
-            let vc = FlowController().instantiateViewController(identifier: "AddNewsViewController", storyBoard: "Home")
+            let vc = FlowController().instantiateViewController(identifier: "AddNewsViewController", storyBoard: "Home") as! AddNewsViewController
             let objCat = arrCat[indexPath.row]
             for objModule in arrModule {
                 if objCat == objModule.module {
-                    print(objModule)
-                }
+                    vc.module = objModule.id ?? 0                }
             }
             (actualController as! PlusSelectCategoryVC).navigationController?.pushViewController(vc, animated: true)
         }else
@@ -129,7 +128,6 @@ class PlusSelectCategoryVM: BaseCollectionViewVM {
             APIClient.webserviceForCategoryList { (result) in
                 
                 if let respCode = result.resp_code{
-                    
                     if respCode == 200{
                         // GlobalObj.displayLoader(true, show: false)
                         

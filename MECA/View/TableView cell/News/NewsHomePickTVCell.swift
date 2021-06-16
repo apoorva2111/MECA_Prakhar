@@ -1,9 +1,4 @@
-//
-//  NewsHomeTVCell.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 28/05/21.
-//
+
 
 import UIKit
 
@@ -13,6 +8,7 @@ class NewsHomePickTVCell: UITableViewCell {
     @IBOutlet weak var btnshowAllPick: UIButton!
     @IBOutlet weak var btnCreateNew: RCustomButton!
     var arrPicks = [Ourpicks]()
+    var viewController = UIViewController()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -56,6 +52,14 @@ extension NewsHomePickTVCell : UICollectionViewDelegate, UICollectionViewDataSou
         return cell
 
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let obj = arrPicks[indexPath.row]
+        let vc = FlowController().instantiateViewController(identifier: "NewsDetailVC", storyBoard: "NewsRC") as! NewsDetailVC
+        vc.newsID = String(obj.id ?? 0)
+        viewController.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             return CGSize(width: 300, height: 160)
         }

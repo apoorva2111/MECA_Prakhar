@@ -132,7 +132,7 @@ public class CalendarView: UIView {
     // MARK: - public
     
     public internal(set) var displayDate: Date?
-    public var multipleSelectionEnable = true
+    public var multipleSelectionEnable = false
     public var enableDeselection = true
     public var marksWeekends = true
     

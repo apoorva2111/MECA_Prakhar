@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro.ttf">
+            <string>SFPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="watchvideoTableCell" rowHeight="73" id="KGk-i7-Jjw" customClass="watchvideoTableCell" customModule="MECA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXB-0C-AQH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watch videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8F-7X-CHL">
+                                <rect key="frame" x="14" y="9" width="93" height="17"/>
+                                <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9EB-dn-RnU">
+                                <rect key="frame" x="8" y="34" width="304" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LDM-Ma-L33"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="9EB-dn-RnU" secondAttribute="bottom" constant="-1" id="0MJ-Qt-jhg"/>
+                            <constraint firstItem="9EB-dn-RnU" firstAttribute="top" secondItem="l8F-7X-CHL" secondAttribute="bottom" constant="8" symbolic="YES" id="2Hc-zo-kbh"/>
+                            <constraint firstItem="9EB-dn-RnU" firstAttribute="leading" secondItem="qXB-0C-AQH" secondAttribute="leading" constant="8" id="4hf-HB-S9Z"/>
+                            <constraint firstAttribute="trailing" secondItem="l8F-7X-CHL" secondAttribute="trailing" constant="213" id="NFn-7c-eoC"/>
+                            <constraint firstItem="l8F-7X-CHL" firstAttribute="leading" secondItem="qXB-0C-AQH" secondAttribute="leading" constant="14" id="Tbc-oX-F2E"/>
+                            <constraint firstItem="l8F-7X-CHL" firstAttribute="top" secondItem="qXB-0C-AQH" secondAttribute="top" constant="9" id="dSA-UZ-khF"/>
+                            <constraint firstItem="9EB-dn-RnU" firstAttribute="top" secondItem="l8F-7X-CHL" secondAttribute="bottom" constant="8" symbolic="YES" id="g1H-zZ-bzS"/>
+                            <constraint firstAttribute="trailing" secondItem="9EB-dn-RnU" secondAttribute="trailing" constant="8" id="sDr-ac-HDs"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qXB-0C-AQH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="E5u-DY-GkO"/>
+                    <constraint firstAttribute="trailing" secondItem="qXB-0C-AQH" secondAttribute="trailing" id="GVi-sW-3ht"/>
+                    <constraint firstAttribute="bottom" secondItem="qXB-0C-AQH" secondAttribute="bottom" id="YpW-DS-FBD"/>
+                    <constraint firstItem="qXB-0C-AQH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nxu-dY-Lmu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="tblHeightConstraint" destination="LDM-Ma-L33" id="KyH-et-JK7"/>
+                <outlet property="videotblDocument" destination="9EB-dn-RnU" id="fgU-QS-ceO"/>
+            </connections>
+            <point key="canvasLocation" x="-1.4492753623188408" y="83.370535714285708"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

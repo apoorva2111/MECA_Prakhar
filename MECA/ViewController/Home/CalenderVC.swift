@@ -11,8 +11,10 @@ class CalenderVC: UIViewController {
     
     
     
+    @IBAction func btnBackAction(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
-    @IBOutlet weak var viewFooter: FooterTabView!
     @IBOutlet weak var calendertopView: UIView!
     @IBOutlet weak var rightarrowbtn:UIButton!
     @IBOutlet weak var leftarrowbtn:UIButton!
@@ -21,13 +23,15 @@ class CalenderVC: UIViewController {
     
     @IBOutlet weak var headerdatetitle:UILabel!
     let darkGrey = UIColor(hexString: "#26478D")
-    var datearr = ["2021-06-21 22:48:53","2021-06-25 22:48:53"]
+    var datearr: [String] = []
     //Schedule
     var monthtext = ""
     var callendararrList = [calendardata]()
     var viewModel : CalenderVM!
     var month = 0
     var year = 2021
+    var filterdatestr = ""
+    
     @IBOutlet weak var scheduletblview:UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +39,7 @@ class CalenderVC: UIViewController {
         let style = CalendarView.Style()
         
         style.cellShape = .round
-        
+        filterdatestr = ""
         style.cellColorDefault         = UIColor.clear
         style.cellColorToday           = UIColor.white
         style.cellSelectedBorderColor  = UIColor.white
@@ -54,9 +58,9 @@ class CalenderVC: UIViewController {
         
         style.locale                   = Locale(identifier: "en_US")
         
-        style.cellFont = UIFont.init(name: "SFPro-Regular", size: 16) ?? UIFont.systemFont(ofSize: 16.0)
+        style.cellFont = UIFont.init(name: "SF Pro, Regular", size: 16) ?? UIFont.systemFont(ofSize: 16.0)
         style.headerFont = UIFont(name: ",Semibold", size: 20.0) ?? UIFont.systemFont(ofSize: 20.0)
-        style.weekdaysFont = UIFont.init(name: "SFPro-Semibold", size: 14) ?? UIFont.systemFont(ofSize: 14.0)
+        style.weekdaysFont = UIFont.init(name: "SF Pro, Semibold", size: 14) ?? UIFont.systemFont(ofSize: 14.0)
         
         calendarView.style = style
         calendarView.backgroundColor = darkGrey
@@ -77,7 +81,7 @@ class CalenderVC: UIViewController {
         }
         setupUI()
         print("...  hjasdha \(monthtext)")
-        callwedservicecalendardata(month:monthtext, year: String(year))
+        
         // Do any additional setup after loading the view.
     }
     func setupUI()  {
@@ -87,28 +91,37 @@ class CalenderVC: UIViewController {
         calenderDirectionView.backgroundColor = darkGrey
         headerdatetitle.backgroundColor = darkGrey
         calendertopView.backgroundColor = darkGrey
-        viewFooter.footerTabViewDelegate = self
-        viewFooter.imgMore.image = UIImage.init(named: "More")
-        viewFooter.imgCalender.image = UIImage.init(named: "Calendar Active")
-        viewFooter.imgHome.image = UIImage.init(named: "Home_Inactive")
+     //   viewFooter.footerTabViewDelegate = self
+//        viewFooter.imgMore.image = UIImage.init(named: "More")
+//        viewFooter.imgCalender.image = UIImage.init(named: "Calendar Active")
+//        viewFooter.imgHome.image = UIImage.init(named: "Home_Inactive")
         self.calendertopView.roundCorners([.layerMinXMaxYCorner, .layerMaxXMaxYCorner], radius: 15.0, borderColor: UIColor.white, borderWidth: 1)
         scheduletblview.estimatedRowHeight = 80
         self.scheduletblview.rowHeight = UITableView.automaticDimension
         scheduletblview?.register(ScheduleTableCell.nib, forCellReuseIdentifier: ScheduleTableCell.identifier)
         scheduletblview?.dataSource = self
         scheduletblview?.delegate = self
-        calendarView.isUserInteractionEnabled = false
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
        
         let today = Date()
-        
+        callwedservicecalendardata(month:monthtext, year: String(year))
+//        for datearr in datearr {
+//            print("objdate....\(datearr)")
+//            let formatter = DateFormatter()
+//            // initially set the format based on your datepicker date / server String
+//            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//           // self.calendarView.selectedDates.append(formatter.date(from: objdate)!)
+//
+//            self.calendarView.selectDate(formatter.date(from: datearr)!)
+//        }
 //        var tomorrowComponents = DateComponents()
 //        tomorrowComponents.day = 1
-//        
-//        
+//
+//
 //        let tomorrow = self.calendarView.calendar.date(byAdding: tomorrowComponents, to: today)!
 //        self.calendarView.selectDate(tomorrow)
 
@@ -133,8 +146,8 @@ class CalenderVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated )
-        viewModel.callwedservicecalendardata(month:monthtext, year: String(year))
-
+        //viewModel.callwedservicecalendardata(month:monthtext, year: String(year))
+        
     }
     func callwedservicecalendardata(month: String, year: String)
     {
@@ -151,30 +164,66 @@ class CalenderVC: UIViewController {
                         if self.callendararrList.count>0{
                             self.callendararrList.removeAll()
                         }
+                        if self.viewModel.arrcalendarFeed.count>0{
+                            self.viewModel.arrcalendarFeed.removeAll()
+                        }
+                        if arrDate.count>0{
+                            if self.filterdatestr == "" {
+                                self.viewModel.arrcalendarFeed = arrDate
+                            }else{
+                                print("\(arrDate)")
+//                                for objdate in self.callendararrList{
+//                                    let dateFormatter = DateFormatter()
+//                                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//                                    dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+//                                    let datess = dateFormatter.date(from:objdate.start_date! )
+//                                    let timeStr = dateFormatter.string(from: datess!)
+//                                    if self.filterdatestr == timeStr {
+//                                        self.viewModel.arrcalendarFeed = [objdate]
+//                                    }
+//                                }
+                            }
+                            
+
+                        }
+
                         if arrDate.count>0{
                             self.callendararrList = arrDate
+                            
+                            
+                            if self.filterdatestr == "" {
+                                print("filterdatestr// response ...\(self.filterdatestr)")
+                            }
                             for objdate in self.callendararrList{
                                 
                                
                                 print("objdate....\(objdate.start_date)")
-                                let formatter = DateFormatter()
-                                // initially set the format based on your datepicker date / server String
-                                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                               // self.calendarView.selectedDates.append(formatter.date(from: objdate)!)
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                                dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+                                let date = dateFormatter.date(from:objdate.start_date! )
+                                let date1 = dateFormatter.date(from:objdate.end_date! )
+                                print("timeStamp date ...\(date)")
+                                // change to a readable time format and change to local time zone
+                                
+
                                 if objdate.start_date == "" {
                                     
                                 }else{
-                                    self.calendarView.selectDate(formatter.date(from: objdate.start_date!)!)
+                                   
+                                    self.calendarView.selectDate(date!)
                                 }
                                 if objdate.end_date == "" {
                                     
                                 }else{
-                                    //self.calendarView.selectDate(formatter.date(from: objdate.end_date!)!)
+                                    self.calendarView.selectDate(date1!)
                                 }
                                 
                             }
+                            
+                            
                         }
-                        print("/......\(self.calendarView.selectDate)")
+                        print("/......\(String(describing: self.calendarView.selectDate))")
                     }
                     self.scheduletblview.reloadData()
                 }else{
@@ -188,12 +237,14 @@ class CalenderVC: UIViewController {
         }
     }
     @IBAction func goToPreviousMonth(_ sender: Any) {
-        
+        filterdatestr = ""
         self.calendarView.goToPreviousMonth()
+        callwedservicecalendardata(month:monthtext, year: String(year))
     }
     @IBAction func goToNextMonth(_ sender: Any) {
-       
+       filterdatestr = ""
         self.calendarView.goToNextMonth()
+        callwedservicecalendardata(month:monthtext, year: String(year))
         
     }
     /*
@@ -241,14 +292,24 @@ extension CalenderVC: CalendarViewDelegate {
     func calendar(_ calendar: CalendarView, didSelectDate date : Date, withEvents events: [CalendarEvent]) {
            
            print("Did Select: \(date) with \(events.count) events")
-           for event in events {
-               print("\t\"\(event.title)\" - Starting at:\(event.startDate)")
-           }
+        
+        
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+        
+        
+        
+        let dateconvert = dateFormatter.string(from: date)
+        print("dateconvert...\(dateconvert)")
+        filterdatestr = dateconvert
            
+        
        }
        
        func calendar(_ calendar: CalendarView, didScrollToMonth date : Date) {
-           print(self.calendarView.selectedDates)
+           print("hjadfs ...\(self.calendarView.selectedDates)")
         
           // self.datePicker.setDate(date, animated: true)
        }
@@ -288,51 +349,53 @@ extension CalenderVC: CalendarViewDelegate {
 
 
 //MARK:- Footerview Delegate
-extension CalenderVC : FooterTabViewDelegate{
-    func footerBarAction(strType: String) {
-        if strType == "Home"{
-            let mainVC = FlowController().instantiateViewController(identifier: "HomeNav", storyBoard: "Home")
-            let appDel = UIApplication.shared.delegate as! AppDelegate
-            appDel.window?.rootViewController = mainVC
-            let options: UIView.AnimationOptions = .transitionCrossDissolve
-            let duration: TimeInterval = 0.3
-
-            UIView.transition(with: appDel.window!, duration: duration, options: options, animations: {}, completion:
-            { completed in
-                // maybe do something on completion here
-            })
-            appDel.window?.makeKeyAndVisible()
-
-        }else if strType == "Calendar"{
-            
-            
-            
-        }else if strType == "Categories"{
-
-            let mainVC = FlowController().instantiateViewController(identifier: "NavCategory", storyBoard: "Category")
-            let appDel = UIApplication.shared.delegate as! AppDelegate
-            appDel.window?.rootViewController = mainVC
-            let options: UIView.AnimationOptions = .transitionCrossDissolve
-            let duration: TimeInterval = 0.3
-
-            UIView.transition(with: appDel.window!, duration: duration, options: options, animations: {}, completion:
-            { completed in
-                // maybe do something on completion here
-            })
-            appDel.window?.makeKeyAndVisible()
-
-       
-        }else if strType == "Notification"{
-            let vc = FlowController().instantiateViewController(identifier: "NotificationVC", storyBoard: "Home")
-            self.navigationController?.pushViewController(vc, animated:false)
-        }else{
-            let vc = FlowController().instantiateViewController(identifier: "MoreVC", storyBoard: "Home")
-            self.navigationController?.pushViewController(vc, animated:false)
-        }
-    }
-    
-    
-}
+//extension CalenderVC : FooterTabViewDelegate{
+//    func footerBarAction(strType: String) {
+//        if strType == "Home"{
+//            let mainVC = FlowController().instantiateViewController(identifier: "HomeNav", storyBoard: "Home")
+//            let appDel = UIApplication.shared.delegate as! AppDelegate
+//            appDel.window?.rootViewController = mainVC
+//            let options: UIView.AnimationOptions = .transitionCrossDissolve
+//            let duration: TimeInterval = 0.3
+//
+//            UIView.transition(with: appDel.window!, duration: duration, options: options, animations: {}, completion:
+//            { completed in
+//                // maybe do something on completion here
+//            })
+//            appDel.window?.makeKeyAndVisible()
+//
+//        }else if strType == "Calendar"{
+////            let vc = FlowController().instantiateViewController(identifier: "Calendervc", storyBoard: "Home")
+////            self.navigationController?.pushViewController(vc, animated:false)
+//
+//
+//
+//        }else if strType == "Categories"{
+//
+//            let mainVC = FlowController().instantiateViewController(identifier: "NavCategory", storyBoard: "Category")
+//            let appDel = UIApplication.shared.delegate as! AppDelegate
+//            appDel.window?.rootViewController = mainVC
+//            let options: UIView.AnimationOptions = .transitionCrossDissolve
+//            let duration: TimeInterval = 0.3
+//
+//            UIView.transition(with: appDel.window!, duration: duration, options: options, animations: {}, completion:
+//            { completed in
+//                // maybe do something on completion here
+//            })
+//            appDel.window?.makeKeyAndVisible()
+//
+//
+//        }else if strType == "Notification"{
+//            let vc = FlowController().instantiateViewController(identifier: "NotificationVC", storyBoard: "Home")
+//            self.navigationController?.pushViewController(vc, animated:false)
+//        }else{
+//            let vc = FlowController().instantiateViewController(identifier: "MoreVC", storyBoard: "Home")
+//            self.navigationController?.pushViewController(vc, animated:false)
+//        }
+//    }
+//
+//
+//}
 
 //MARK:- UITableview Delegate Datasource
 extension CalenderVC:UITableViewDelegate,UITableViewDataSource{
@@ -426,7 +489,7 @@ extension CalenderVC:MonthVCDelegate{
     func monthValue(monthstr: String) {
         print("monthstr...\(monthstr)")
         monthtext = monthstr
-        callwedservicecalendardata(month:monthtext, year: String(year))
-        viewModel.callwedservicecalendardata(month:monthtext, year: String(year))
+        
+       
     }
 }

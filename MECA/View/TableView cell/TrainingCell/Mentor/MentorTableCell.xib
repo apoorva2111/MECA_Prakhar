@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro.ttf">
+            <string>SFPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="15" id="VSA-ng-x7u" customClass="MentorTableCell" customModule="MECA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="121"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VSA-ng-x7u" id="85N-C4-T6s">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="121"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPA-W4-Egv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="121"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invitation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgm-ua-SN5">
+                                <rect key="frame" x="14" y="0.0" width="382" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="YhO-zk-F9L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="14"/>
+                                <color key="textColor" red="0.34509803919999998" green="0.34901960780000002" blue="0.35686274509999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oVS-84-qKA">
+                                <rect key="frame" x="8" y="34" width="398" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="aw2-3W-s5k"/>
+                                </constraints>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye3-vE-DkA">
+                                <rect key="frame" x="325" y="71" width="57" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="pLP-Ip-u57"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="12"/>
+                                <color key="tintColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="See More">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.62352941179999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oVS-84-qKA" firstAttribute="leading" secondItem="Vgm-ua-SN5" secondAttribute="leading" constant="-6" id="5fv-Tl-s4q"/>
+                            <constraint firstItem="Ye3-vE-DkA" firstAttribute="top" secondItem="oVS-84-qKA" secondAttribute="bottom" constant="-3" id="97G-DY-2AW"/>
+                            <constraint firstItem="Vgm-ua-SN5" firstAttribute="top" secondItem="BPA-W4-Egv" secondAttribute="top" id="IKv-ub-Mbi"/>
+                            <constraint firstItem="Ye3-vE-DkA" firstAttribute="trailing" secondItem="oVS-84-qKA" secondAttribute="trailing" constant="-24" id="Q32-Jh-KIG"/>
+                            <constraint firstAttribute="bottom" secondItem="Ye3-vE-DkA" secondAttribute="bottom" constant="20" id="RW7-9e-ep5"/>
+                            <constraint firstAttribute="trailing" secondItem="Vgm-ua-SN5" secondAttribute="trailing" constant="18" id="UA6-9I-sWi"/>
+                            <constraint firstItem="Vgm-ua-SN5" firstAttribute="leading" secondItem="BPA-W4-Egv" secondAttribute="leading" constant="14" id="WcR-EB-a8y"/>
+                            <constraint firstItem="oVS-84-qKA" firstAttribute="top" secondItem="Vgm-ua-SN5" secondAttribute="bottom" constant="18" id="rgj-Nz-dnd"/>
+                            <constraint firstItem="oVS-84-qKA" firstAttribute="trailing" secondItem="Vgm-ua-SN5" secondAttribute="trailing" constant="10" id="tE5-Y4-fBO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="BPA-W4-Egv" secondAttribute="trailing" id="3AX-IP-2Rt"/>
+                    <constraint firstAttribute="bottom" secondItem="BPA-W4-Egv" secondAttribute="bottom" id="gw2-uw-rt0"/>
+                    <constraint firstItem="BPA-W4-Egv" firstAttribute="leading" secondItem="85N-C4-T6s" secondAttribute="leading" id="leT-oG-05f"/>
+                    <constraint firstItem="BPA-W4-Egv" firstAttribute="top" secondItem="85N-C4-T6s" secondAttribute="top" id="rXK-UG-8dU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="Qgb-eX-YES"/>
+            <connections>
+                <outlet property="btnSeeMoreOutlet" destination="Ye3-vE-DkA" id="sF9-zP-V4C"/>
+                <outlet property="seeMoreHeightConstraint" destination="pLP-Ip-u57" id="JIO-LB-FFY"/>
+                <outlet property="tblDocument" destination="oVS-84-qKA" id="RZv-Xu-MPQ"/>
+                <outlet property="tblHeightConstraint" destination="aw2-3W-s5k" id="GbW-NI-2uz"/>
+            </connections>
+            <point key="canvasLocation" x="15.942028985507248" y="60.602678571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

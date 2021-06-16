@@ -22,7 +22,14 @@ class HomeVC: UIViewController {
         tblView.delegate = self
         tblView.dataSource = self
         viewTabbar.footerTabViewDelegate = self
-        viewTabbar.imgHome.image = UIImage.init(named: "Home_active")
+        viewTabbar.imgCalender.image = UIImage.init(named: "new_active")
+        viewTabbar.imgHome.image = UIImage.init(named: "Home_Inactive")
+        viewTabbar.lblHome.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        viewTabbar.lblCalender.font = UIFont.init(name: "SFPro-Bold", size: 12)
+        viewTabbar.lblCategory.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        viewTabbar.lblNotification.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        viewTabbar.lblMore.font = UIFont.init(name: "SFPro-Regular", size: 12)
+
         pullControl.tintColor = UIColor.gray
         pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
         if #available(iOS 10.0, *) {
@@ -59,10 +66,22 @@ extension HomeVC{
 extension HomeVC: FooterTabViewDelegate{
     func footerBarAction(strType: String) {
         if strType == "Home"{
-
-        }else if strType == "Calendar"{
             
-            let vc = FlowController().instantiateViewController(identifier: "Calendervc", storyBoard: "Home")
+            let mainVC = FlowController().instantiateViewController(identifier: "HomeNav", storyBoard: "Home")
+            let appDel = UIApplication.shared.delegate as! AppDelegate
+            appDel.window?.rootViewController = mainVC
+            let options: UIView.AnimationOptions = .transitionCrossDissolve
+            let duration: TimeInterval = 0.3
+
+            UIView.transition(with: appDel.window!, duration: duration, options: options, animations: {}, completion:
+            { completed in
+                // maybe do something on completion here
+            })
+            appDel.window?.makeKeyAndVisible()
+    
+    }else if strType == "Calendar"{
+            
+            let vc = FlowController().instantiateViewController(identifier: "HomeVC", storyBoard: "Home")
             self.navigationController?.pushViewController(vc, animated:false)
             
         }else if strType == "Categories"{

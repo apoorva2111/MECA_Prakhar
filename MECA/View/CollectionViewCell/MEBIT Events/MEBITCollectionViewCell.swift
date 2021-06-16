@@ -17,6 +17,7 @@ class MEBITCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        titleLabel.sizeToFit()
         // Initialization code
     }
     static func nib() -> UINib {

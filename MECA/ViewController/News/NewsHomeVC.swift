@@ -1,9 +1,4 @@
-//
-//  NewsHomeVC.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 28/05/21.
-//
+
 
 import UIKit
 
@@ -19,6 +14,7 @@ class NewsHomeVC: UIViewController {
     var index = 0
     var indexSubCat = 0
     var strCategory = ""
+    var strSubCategory = ""
     var currentPage : Int = 1
     var checkPagination = ""
 
@@ -29,25 +25,33 @@ class NewsHomeVC: UIViewController {
         viewSearch.isHidden = true
         viewSubCollection.isHidden = true
         viewModel = NewsHomeVM.init(controller: self)
-        viewModel.callWebserviceNewsCategory()
-      
-
         registernib()
+
+        viewModel.callWebserviceNewsCategory()
+
+
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(BoolValue.isClickOnCategory)
+
     }
     func registernib() {
         
         tblList.register(UINib.init(nibName: "NewsHomePickTVCell", bundle: nil), forCellReuseIdentifier: "NewsHomePickTVCell")
         tblList.register(UINib.init(nibName: "LatestNewsTVCell", bundle: nil), forCellReuseIdentifier: "LatestNewsTVCell")
         typeCollection.register(MEBITCollectionViewCell.nib(), forCellWithReuseIdentifier: "MEBITCollectionViewCell")
-       
+
         subTypeColltection.register(UINib.init(nibName: "SubTypeCVCell", bundle: nil), forCellWithReuseIdentifier: "SubTypeCVCell")
+        
         tblList.delegate = self
         tblList.dataSource = self
         typeCollection.delegate = self
         typeCollection.dataSource = self
         subTypeColltection.delegate = self
         subTypeColltection.dataSource = self
+        txtSearch.delegate = self
         
     }
     
@@ -69,7 +73,21 @@ class NewsHomeVC: UIViewController {
     }
 }
 
-
+//MARK:- UITextfeild Delegate
+extension NewsHomeVC : UITextFieldDelegate{
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if index != 0 {
+        currentPage = 1
+        self.checkPagination = "get"
+        self.viewModel.callWebserviceForNewListWithCat(keyword: self.txtSearch.text!, category: self.strCategory, subcategory:self.strSubCategory, page:String(self.currentPage))
+        }else{
+            viewModel.callWebserviceNewsCategory()
+//            viewSearch.isHidden = true
+//            txtSearch.text = ""
+        }
+        
+    }
+}
 //MARK:- UITableview Delegate
 extension NewsHomeVC : UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -86,21 +104,27 @@ extension NewsHomeVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         viewModel.getHeightForRowAt(indexPath, tableView: tblList)
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectRowAt(indexPath, tableView: tblList)
+    }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
-//            if indexPath == lastVisibleIndexPath {
-//                if indexPath.row == arrList.count-1{
-//                    self.checkPagination = "pagination"
-//                    currentPage += 1
-//                    GlobalObj.run(after: 2) {
-//                        GlobalObj.displayLoader(true, show: true)
-//                        self.callSDGSLISTWebservice(type: Int(self.idvalue)!)
-//
-//                    }
-//                }
-//            }
-//        }
+        if BoolValue.isClickOnCategory{
+            
+            if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+                if indexPath == lastVisibleIndexPath {
+                    if indexPath.row == viewModel.arrCatList.count-1{
+                        self.checkPagination = "pagination"
+                        currentPage += 1
+                        GlobalObj.run(after: 2) {
+                            GlobalObj.displayLoader(true, show: true)
+                            self.viewModel.callWebserviceForNewListWithCat(keyword: self.txtSearch.text!, category: self.strCategory, subcategory:self.strSubCategory, page:String(self.currentPage))
+
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -156,12 +180,20 @@ extension NewsHomeVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
             typeCollection.scrollToItem(at: indexPath, at: .left, animated: true)
             index = indexPath.row
             if index == 0 {
+                BoolValue.isClickOnCategory = false
                 viewSubCollection.isHidden = true
                 indexSubCat = 0
+                viewModel.arrCatList.removeAll()
+                viewModel.callWebserviceForNewsHome()
 
             }else{
                 let obj = viewModel.arrNewsCat[indexPath.row - 1]
                 strCategory = obj.category ?? ""
+                if obj.subcategories!.count > 0{
+                    strSubCategory = obj.subcategories?[0] ?? ""
+                }else{
+                    strSubCategory =  ""
+                }
                 indexSubCat = 0
                 if let subCat = obj.subcategories{
                     if subCat.count>0{
@@ -173,6 +205,7 @@ extension NewsHomeVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
                         subTypeColltection.reloadData()
                         currentPage = 1
                         self.checkPagination = "get"
+                        
                         viewModel.callWebserviceForNewListWithCat(keyword: txtSearch.text!, category: strCategory, subcategory:obj.subcategories?[0] ?? "", page:String(currentPage))
                     }else{
                         currentPage = 1
@@ -191,6 +224,12 @@ extension NewsHomeVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
         }else{
             subTypeColltection.scrollToItem(at: indexPath, at: .left, animated: true)
             indexSubCat = indexPath.row
+            let obj = arrSubCat[indexPath.row]
+            strSubCategory = obj
+            currentPage = 1
+            self.checkPagination = "get"
+            viewModel.callWebserviceForNewListWithCat(keyword: txtSearch.text!, category: strCategory, subcategory: strSubCategory, page:String(currentPage))
+
             subTypeColltection.reloadData()
         }
         

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro.ttf">
+            <string>SFPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrainingTableCell" rowHeight="73" id="KGk-i7-Jjw" customClass="TrainingTableCell" customModule="MECA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="339" height="73"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="339" height="73"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zi2-vI-f4f" customClass="RCustomView" customModule="MECA" customModuleProvider="target">
+                        <rect key="frame" x="10" y="5" width="319" height="63"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSb-cQ-Mxm">
+                                <rect key="frame" x="14" y="21" width="259" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="259" id="9lf-lw-AHc"/>
+                                    <constraint firstAttribute="height" constant="21" id="ZgT-AG-8UU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQj-r6-ZAI">
+                                <rect key="frame" x="276" y="14" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="KKv-qJ-Qdv"/>
+                                    <constraint firstAttribute="height" constant="35" id="SvQ-wT-s9d"/>
+                                </constraints>
+                                <state key="normal" image="bluearrow"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fQj-r6-ZAI" firstAttribute="leading" secondItem="cSb-cQ-Mxm" secondAttribute="trailing" constant="3" id="7Tv-gI-EPC"/>
+                            <constraint firstAttribute="trailing" secondItem="fQj-r6-ZAI" secondAttribute="trailing" constant="8" id="7c8-CS-RMK"/>
+                            <constraint firstAttribute="bottom" secondItem="cSb-cQ-Mxm" secondAttribute="bottom" constant="21" id="Auf-FC-NYi"/>
+                            <constraint firstItem="cSb-cQ-Mxm" firstAttribute="top" secondItem="Zi2-vI-f4f" secondAttribute="top" constant="21" id="SW9-30-xam"/>
+                            <constraint firstItem="fQj-r6-ZAI" firstAttribute="top" secondItem="Zi2-vI-f4f" secondAttribute="top" constant="14" id="bOj-HP-7XH"/>
+                            <constraint firstAttribute="bottom" secondItem="fQj-r6-ZAI" secondAttribute="bottom" constant="14" id="kKz-tP-UY9"/>
+                            <constraint firstItem="cSb-cQ-Mxm" firstAttribute="leading" secondItem="Zi2-vI-f4f" secondAttribute="leading" constant="14" id="maP-WX-3yz"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="12"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="2" height="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="Zi2-vI-f4f" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="8Uu-bW-KQQ"/>
+                    <constraint firstAttribute="trailing" secondItem="Zi2-vI-f4f" secondAttribute="trailing" constant="10" id="ALe-JZ-Jm3"/>
+                    <constraint firstAttribute="bottom" secondItem="Zi2-vI-f4f" secondAttribute="bottom" constant="5" id="JS5-jU-fJJ"/>
+                    <constraint firstItem="Zi2-vI-f4f" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="j4m-41-VC3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="backView" destination="Zi2-vI-f4f" id="THa-Me-MyF"/>
+                <outlet property="titlelbl" destination="cSb-cQ-Mxm" id="8Oh-zW-EO5"/>
+            </connections>
+            <point key="canvasLocation" x="29.710144927536234" y="103.45982142857143"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bluearrow" width="14" height="14"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

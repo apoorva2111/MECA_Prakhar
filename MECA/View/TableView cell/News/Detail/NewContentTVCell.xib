@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro.ttf">
+            <string>SFPro-Bold</string>
+            <string>SFPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewContentTVCell" rowHeight="180" id="KGk-i7-Jjw" customClass="NewContentTVCell" customModule="MECA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmA-Nv-FPu">
+                        <rect key="frame" x="16" y="30" width="288" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="gkb-xR-fVO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="13"/>
+                        <color key="textColor" red="0.34509803921568627" green="0.34901960784313724" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o5x-lc-m4Q">
+                        <rect key="frame" x="16" y="56" width="288" height="78"/>
+                        <constraints>
+                            <constraint firstAttribute="height" priority="250" constant="78" id="vjq-JL-Krq"/>
+                        </constraints>
+                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </string>
+                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeK-gB-DT9">
+                        <rect key="frame" x="243" y="139" width="61" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="XAf-Lp-PtQ"/>
+                            <constraint firstAttribute="width" constant="61" id="j32-rY-9qP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="12"/>
+                        <state key="normal" title="Read More">
+                            <color key="titleColor" red="0.14901960780000001" green="0.2784313725" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaA-Wc-R9k">
+                        <rect key="frame" x="0.0" y="164" width="320" height="10"/>
+                        <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="Ts8-M8-BXw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="o5x-lc-m4Q" secondAttribute="trailing" constant="16" id="2rL-Kl-oRi"/>
+                    <constraint firstItem="o5x-lc-m4Q" firstAttribute="top" secondItem="jmA-Nv-FPu" secondAttribute="bottom" constant="10" id="5aU-8D-m5w"/>
+                    <constraint firstItem="jmA-Nv-FPu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="DGX-tL-WWF"/>
+                    <constraint firstItem="jaA-Wc-R9k" firstAttribute="top" secondItem="YeK-gB-DT9" secondAttribute="bottom" constant="10" id="FWk-aj-JBL"/>
+                    <constraint firstItem="o5x-lc-m4Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Qga-XM-mGI"/>
+                    <constraint firstItem="jaA-Wc-R9k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Shq-GA-TPB"/>
+                    <constraint firstAttribute="trailing" secondItem="YeK-gB-DT9" secondAttribute="trailing" constant="16" id="cFJ-br-YPQ"/>
+                    <constraint firstAttribute="trailing" secondItem="jmA-Nv-FPu" secondAttribute="trailing" constant="16" id="d0k-IK-M9E"/>
+                    <constraint firstItem="jmA-Nv-FPu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="kQL-yJ-aPZ"/>
+                    <constraint firstAttribute="bottom" secondItem="jaA-Wc-R9k" secondAttribute="bottom" constant="6" id="okr-h1-lS6"/>
+                    <constraint firstItem="YeK-gB-DT9" firstAttribute="top" secondItem="o5x-lc-m4Q" secondAttribute="bottom" constant="5" id="wEH-cj-2QZ"/>
+                    <constraint firstAttribute="trailing" secondItem="jaA-Wc-R9k" secondAttribute="trailing" id="yTF-rB-YVA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnReadMoreOutlet" destination="YeK-gB-DT9" id="Bih-fq-9oe"/>
+                <outlet property="lblContent" destination="o5x-lc-m4Q" id="fIc-bE-qM1"/>
+            </connections>
+            <point key="canvasLocation" x="34.782608695652179" y="69.642857142857139"/>
+        </tableViewCell>
+    </objects>
+</document>

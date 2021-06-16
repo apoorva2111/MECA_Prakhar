@@ -52,5 +52,26 @@ let NewSHome =  "mobile/user/news/home"
 
 let newsList = "mobile/user/news/list/"
 
+let NewsInfo = "mobile/user/news/info/"
 
-//10/1
+let videoList = "mobile/user/news/video/list"
+
+let videoInfo = "mobile/user/news/video/info/"
+let chatcreateuser = "mobile/user/chat/room/create"
+let chatroomupdate = "mobile/user/chat/room/"
+
+//training api's
+let TrainingList = "mobile/user/tbp/list/"
+let Traininginfo = "mobile/user/tbp/info/"
+let Trainingupload = "mobile/user/tbp/report/upload"
+let trainingwalloffame = "mobile/user/trainees/list/"
+let traininglistpdca = "mobile/user/pdca/list/"
+let TrainingPDCAinfo = "mobile/user/pdca/info/"
+let trianingviewedApi = "mobile/user/pdca/view/video"
+let Trainingpdacaupload = "mobile/user/pdca/report/upload"
+
+let newsDocumentUpload = "mobile/user/upload/module/document"
+
+let newHomeFeed = "mobile/user/feed/list/"
+let newHomeFeedLike = "mobile/user/feed/like/update"
+let newHomeCommentList = "mobile/user/feed/comments/list/"

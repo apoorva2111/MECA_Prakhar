@@ -1,9 +1,4 @@
-//
-//  LikeDetailTVCell.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 16/05/21.
-//
+
 
 import UIKit
 import SDWebImage

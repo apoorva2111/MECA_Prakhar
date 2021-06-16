@@ -1,9 +1,4 @@
-//
-//  LatestNewsTVCell.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 28/05/21.
-//
+
 
 import UIKit
 
@@ -12,6 +7,8 @@ class LatestNewsTVCell: UITableViewCell {
     @IBOutlet weak var btnLatestNewShowAll: UIButton!
     @IBOutlet weak var collectionLatestNews: UICollectionView!
     @IBOutlet weak var lblCategory: UILabel!
+    var viewController = UIViewController()
+    
     var arrNews =  [NSDictionary]()
 var sectionCount = 0
     var arrCategory = ["market_latest_news","toyota_latest_news","videos"]
@@ -74,6 +71,21 @@ extension LatestNewsTVCell : UICollectionViewDelegate, UICollectionViewDataSourc
             guard let url = URL(string: videoURL) else { return }
             UIApplication.shared.open(url)
         }
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let obj = arrNews[indexPath.row]
+        let vc = FlowController().instantiateViewController(identifier: "NewsDetailVC", storyBoard: "NewsRC") as! NewsDetailVC
+      //
+        let objCat = obj["catTitle"]as! String
+        if objCat == "Videos"{
+            vc.isFromVideoList = true
+        }else{
+            vc.isFromVideoList = false
+        }
+        //
+       vc.newsID = String(obj["id"]as! Int)
+        viewController.navigationController?.pushViewController(vc, animated: true)
+
     }
 }
 

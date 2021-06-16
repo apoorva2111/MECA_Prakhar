@@ -45,13 +45,13 @@
                                 <rect key="frame" x="0.0" y="160" width="290" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kenny Fujita (Admin)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhR-kF-UEA">
-                                        <rect key="frame" x="15" y="15" width="141" height="16"/>
+                                        <rect key="frame" x="15" y="15" width="141" height="17"/>
                                         <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="13"/>
                                         <color key="textColor" red="0.14901960780000001" green="0.2784313725" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17 January 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KSF-8i-dQy">
-                                        <rect key="frame" x="166" y="15" width="110" height="16"/>
+                                        <rect key="frame" x="166" y="15.5" width="110" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="FKP-aS-Usf"/>
                                         </constraints>
@@ -60,13 +60,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abu Dhabi 3 companies alliances to aim for export blue/green hydrogen as fuel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ivn-aG-bJE">
-                                        <rect key="frame" x="15" y="36" width="261" height="36"/>
+                                        <rect key="frame" x="15" y="37" width="261" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="7GW-Ym-qHX"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="15"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cz-dS-wjT">
-                                        <rect key="frame" x="15" y="77" width="261" height="1"/>
+                                        <rect key="frame" x="15" y="78" width="261" height="1"/>
                                         <color key="backgroundColor" red="0.67450980392156867" green="0.67450980392156867" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="Gl2-Rd-qdh"/>
@@ -75,9 +78,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Electric, Hydrogen, Energy, Environment, ProspectPartner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbA-TZ-Uf5">
-                                        <rect key="frame" x="15" y="84" width="261" height="11"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbA-TZ-Uf5">
+                                        <rect key="frame" x="15" y="85" width="261" height="15"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="yIx-Y0-S6u"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="9"/>
                                         <color key="textColor" red="0.0" green="0.50196078430000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -86,6 +92,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="0cz-dS-wjT" firstAttribute="leading" secondItem="ivn-aG-bJE" secondAttribute="leading" id="1lu-iE-xOj"/>
+                                    <constraint firstAttribute="bottom" secondItem="FbA-TZ-Uf5" secondAttribute="bottom" id="Bmd-hN-dgK"/>
                                     <constraint firstItem="ivn-aG-bJE" firstAttribute="trailing" secondItem="KSF-8i-dQy" secondAttribute="trailing" id="ElG-Y1-J43"/>
                                     <constraint firstItem="FbA-TZ-Uf5" firstAttribute="trailing" secondItem="ivn-aG-bJE" secondAttribute="trailing" id="LJe-Mw-zRv"/>
                                     <constraint firstItem="fhR-kF-UEA" firstAttribute="top" secondItem="lo9-Uz-ApU" secondAttribute="top" constant="15" id="NCa-tJ-HFQ"/>
@@ -133,8 +140,10 @@
                 <outlet property="btnPlayVideo" destination="chR-SV-sVZ" id="dXd-Fx-0gt"/>
                 <outlet property="imgNews" destination="RvF-Vl-Acq" id="Aki-NS-3Bo"/>
                 <outlet property="lblDate" destination="KSF-8i-dQy" id="1x4-nr-zjk"/>
+                <outlet property="lblTags" destination="FbA-TZ-Uf5" id="2dZ-jc-v6C"/>
                 <outlet property="lblTitle" destination="ivn-aG-bJE" id="VBj-e4-HHn"/>
                 <outlet property="lblWriterName" destination="fhR-kF-UEA" id="kZ5-HT-1a2"/>
+                <outlet property="viewBG" destination="HXj-Jf-cdy" id="mPx-bJ-bsh"/>
             </connections>
             <point key="canvasLocation" x="44.927536231884062" y="54.910714285714285"/>
         </collectionViewCell>

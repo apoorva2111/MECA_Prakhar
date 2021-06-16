@@ -1,9 +1,3 @@
-//
-//  CommentReplyTVCell.swift
-//  MECA
-//
-//  Created by Apoorva Gangrade on 20/05/21.
-//
 
 import UIKit
 import SDWebImage

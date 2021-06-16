@@ -525,7 +525,6 @@ class CategoryCommonViewController: UIViewController {
                             videoLinkTitle1.text = obj["title"] as? String
                             videoLinkInfo1.text = obj["info"] as? String
                             videoLink1.text = obj["link"] as? String
-
                             let urlYoutube = obj["link"] as? String
                             let urlID = urlYoutube?.youtubeID
                             let urlStr = "http://img.youtube.com/vi/\(urlID ?? "")/1.jpg"

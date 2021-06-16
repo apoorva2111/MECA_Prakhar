@@ -16,7 +16,7 @@ class DocumentContentCell: UITableViewCell {
             txtPresentation.layer.cornerRadius = 4
             txtPresentation.textColor = UIColor.getCustomRedColor()
             btnDownloadOutlet.setImage(#imageLiteral(resourceName: "download_document_Red"), for: .normal)
-        }else if GlobalValue.tabCategory == "Maas" || GlobalValue.tabCategory == "Hydrogen" || GlobalValue.tabCategory == "SDGS"{
+        }else if GlobalValue.tabCategory == "Maas" || GlobalValue.tabCategory == "Hydrogen" || GlobalValue.tabCategory == "SDGS" || GlobalValue.newsDetailDocument == "News Detail"{
             txtPresentation.layer.borderWidth = 1
             txtPresentation.layer.borderColor = UIColor.getCustomBlueColor().cgColor
             txtPresentation.layer.cornerRadius = 4
