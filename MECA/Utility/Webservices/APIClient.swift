@@ -2113,6 +2113,119 @@ class APIClient {
                 }
             }
     }
+    
+    //NewHomDeleteeFeed
+    static func wevserviceForNewHomeFeedDelete(feed:String,completion:@escaping(Any) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+            GlobalObj.showNetworkAlert()
+            return
+        }
+        let url = BaseURL + deleteFeed + feed
+        var headers = HTTPHeaders()
+
+       let accessToken = userDef.string(forKey: UserDefaultKey.token)
+        headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+
+       AF.request(url, method: .delete, parameters: [:], headers: headers)
+            .responseJSON { response in
+                
+                switch response.result{
+                case .success( _):
+                    completion(response.value!)
+                case .failure(let error):
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+                    
+                }
+                
+                
+            }
+    }
+    
+    
+    //Add Feed Comment 
+        static func webServicesForAddFeedComment(params:[String:Any],completion:@escaping(AddCommentModel) -> Void){
+            if !NetworkReachabilityManager()!.isReachable{
+                GlobalObj.displayLoader(true, show: false)
+
+                      GlobalObj.showNetworkAlert()
+                      return
+            }
+            let url = BaseURL + addCommentForFeed
+            print("AddComment url\(url)")
+            var headers = HTTPHeaders()
+
+            let accessToken = userDef.string(forKey: UserDefaultKey.token)
+             headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+            AF.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: headers)
+                .responseJSON { response in
+                    print("Chnagepassword datas\(response)")
+                    guard let dataResponse = response.data else {
+                        print("Response Error")
+                        GlobalObj.displayLoader(true, show: false)
+                        return }
+                    
+                    do{
+                        let objRes: AddCommentModel = try JSONDecoder().decode(AddCommentModel.self, from: dataResponse)
+    //                    completion(objRes)
+                        switch response.result{
+                                       case .success( _):
+
+                                               completion(objRes)
+                                       case .failure(let error):
+                                           print(error)
+                                        GlobalObj.displayLoader(true, show: false)
+
+                                       }
+                    }catch let error{
+                        print(error)
+                        GlobalObj.displayLoader(true, show: false)
+
+                    }
+                }
+    }
+    
+    
+    //NewHomeFeedInfo
+    static func wevserviceForNewHomeFeedInfo(feed:String, completion:@escaping(FeedInfoModel) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        let url = BaseURL + newHomeFeedInfo + feed
+       
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
+                    return }
+                
+                do{
+                    let objRes: FeedInfoModel = try JSONDecoder().decode(FeedInfoModel.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
+                                   }
+                }catch let error{
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+                }
+            }
+    }
 }
 
 

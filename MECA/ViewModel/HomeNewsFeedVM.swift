@@ -7,6 +7,10 @@ import UIKit
 
 class HomeNewsFeedVM: BaseTableViewVM {
     var arrFeed = [NewHomeData]()
+    var documentLink = ""
+    var feedId = ""
+    var arrLikedArr = [NewHomeData]()
+    
     
     override init(controller: UIViewController?) {
         super.init(controller: controller)
@@ -43,7 +47,7 @@ class HomeNewsFeedVM: BaseTableViewVM {
             cell.buttonPlayOutlet.addTarget(self, action: #selector(self.btnPlayVideoAction), for: .touchUpInside)
             cell.btnCommentOutllet.tag = indexPath.row
             cell.btnCommentOutllet.addTarget(self, action: #selector(self.btnCommentAction), for: .touchUpInside)
-            cell.setCell(objFeed: arrFeed[indexPath.row])
+            cell.setCell(objFeed: arrFeed[indexPath.row], arrID: arrLikedArr)
             return cell
         }else{
             
@@ -80,7 +84,7 @@ class HomeNewsFeedVM: BaseTableViewVM {
     @objc func btnMoreAction(sender : UIButton){
         
         let obj = arrFeed[sender.tag]
-     
+        feedId = String(obj.id!)
         if obj.isOwner == 0{
             (actualController as! HomeNewsFeedVC).viewDeletePost.isHidden = true
             (actualController as! HomeNewsFeedVC).viewEditPost.isHidden = true
@@ -90,9 +94,8 @@ class HomeNewsFeedVM: BaseTableViewVM {
             (actualController as! HomeNewsFeedVC).viewBackground.isHidden = false
             (actualController as! HomeNewsFeedVC).viewLike.isHidden = true
             (actualController as! HomeNewsFeedVC).viewMoreOption.isHidden = false
-
+            
         }
-        
       
         if obj.document_link == "" {
             (actualController as! HomeNewsFeedVC).viewDownload.isHidden = true
@@ -101,7 +104,8 @@ class HomeNewsFeedVM: BaseTableViewVM {
             (actualController as! HomeNewsFeedVC).viewBackground.isHidden = false
             (actualController as! HomeNewsFeedVC).viewLike.isHidden = true
             (actualController as! HomeNewsFeedVC).viewMoreOption.isHidden = false
-
+            documentLink = obj.document_link!
+            
         }
     }
     
@@ -116,19 +120,131 @@ class HomeNewsFeedVM: BaseTableViewVM {
     if let wantedIndexPath = (actualController as! HomeNewsFeedVC).tblFeed.indexPathForRow(at: point) {
         let cell = (actualController as! HomeNewsFeedVC).tblFeed.cellForRow(at: wantedIndexPath) as! HomeNewsFeedTVCell
         let obj = arrFeed[sender.tag]
-        if obj.isLiked == 0{
-            callWebserviceForLikeFeed(item: String(obj.id!), status: "1", like_type: "1")
-//            { (likeCount) in
-//                cell.lblLikeCount.text = String(likeCount)
-//            }
+        if arrLikedArr.count>0 {
+            for i in 0..<arrLikedArr.count {
+                let objDict = arrLikedArr[i]
+                if objDict.id == obj.id{
+                    if objDict.isLiked == 0{
+                        callWebserviceForLikeFeed(item: String(obj.id!), status: "1", like_type: "1"){ (likeCount) in
+                            if likeCount.likes! > 1 {
+                                cell.lblLikeCount.text = String(likeCount.likes!) + "Likes"
+                                
+                            }else{
+                                if likeCount.likes! >= 0 {
+                                cell.lblLikeCount.text = String(likeCount.likes!) + "Like"
+                                }
+                            }
+                            self.arrLikedArr.remove(at: i)
+
+                            self.arrLikedArr.insert(likeCount, at: i)
+                            
+                            cell.imgLike.image = #imageLiteral(resourceName: "likes_Blue")
+                        }
+                        //
+
+                    }else{
+                        callWebserviceForLikeFeed(item: String(obj.id!), status: "0", like_type: "1"){ (likeCount) in
+                            if likeCount.likes! > 1{
+                                cell.lblLikeCount.text = String(likeCount.likes!) + "Likes"
+                            }else{
+                                if likeCount.likes! >= 0 {
+                                cell.lblLikeCount.text = String(likeCount.likes!) + "Like"
+                                }
+                            }
+                            self.arrLikedArr.remove(at: i)
+                            self.arrLikedArr.insert(likeCount, at: i)
+                            cell.imgLike.image = #imageLiteral(resourceName: "Like_BlueBorder")
+                        }
+                    }
+                }else{
+                    if objDict.isLiked == 0{
+                        callWebserviceForLikeFeed(item: String(obj.id!), status: "1", like_type: "1"){ (likeCount) in
+                            if likeCount.likes! > 1{
+                                cell.lblLikeCount.text = String(likeCount.likes!) + "Likes"
+                                
+                            }else{
+                                if likeCount.likes! >= 0 {
+                                cell.lblLikeCount.text = String(likeCount.likes!) + "Like"
+                                }
+                            }
+                            self.arrLikedArr.append(likeCount)
+                            cell.imgLike.image = #imageLiteral(resourceName: "likes_Blue")
+                        }
+                    }else{
+                        callWebserviceForLikeFeed(item: String(obj.id!), status: "0", like_type: "1"){ (likeCount) in
+                            if likeCount.likes! > 1{
+                                cell.lblLikeCount.text = String(likeCount.likes!) + "Likes"
+                            }else{
+                                if likeCount.likes! >= 0 {
+                                cell.lblLikeCount.text = String(likeCount.likes!) + "Like"
+                                }
+                            }
+                            self.arrLikedArr.append(likeCount)
+                            cell.imgLike.image = #imageLiteral(resourceName: "Like_BlueBorder")
+                        }
+                    }
+                }
+            }
+            
         }else{
-            callWebserviceForLikeFeed(item: String(obj.id!), status: "0", like_type: "1")
-//            { (likeCount) in
-//                cell.lblLikeCount.text = String(likeCount)
-//            }
+            if obj.isLiked == 0{
+                callWebserviceForLikeFeed(item: String(obj.id!), status: "1", like_type: "1"){ (likeCount) in
+                    if likeCount.likes! > 1{
+                        cell.lblLikeCount.text = String(likeCount.likes!) + "Likes"
+                        
+                    }else{
+                        if likeCount.likes! >= 0 {
+                        cell.lblLikeCount.text = String(likeCount.likes!) + "Like"
+                        }
+                    }
+                    self.arrLikedArr.append(likeCount)
+                    cell.imgLike.image = #imageLiteral(resourceName: "likes_Blue")
+                }
+            }else{
+                callWebserviceForLikeFeed(item: String(obj.id!), status: "0", like_type: "1"){ (likeCount) in
+                    if likeCount.likes! > 1{
+                        cell.lblLikeCount.text = String(likeCount.likes!) + "Likes"
+                    }else{
+                        if likeCount.likes! >= 0 {
+                        cell.lblLikeCount.text = String(likeCount.likes!) + "Like"
+                        }
+                    }
+                    self.arrLikedArr.append(likeCount)
+                    cell.imgLike.image = #imageLiteral(resourceName: "Like_BlueBorder")
+                }
+            }
         }
-     
     }
+    
+    
+        
+   //     if arrLikeId.contains(obj.id!){
+//            callWebserviceForLikeFeed(item: String(obj.id!), status: "0", like_type: "1"){ (dict) in
+//                if dict.likes == 1{
+//                    cell.lblLikeCount.text = String(dict.likes!) + "Like"
+//                }else{
+//                    cell.lblLikeCount.text = String(dict.likes!) + "Likes"
+//                }
+//                cell.imgLike.image = #imageLiteral(resourceName: "Like_BlueBorder")
+////                if self.arrLikeId.contains(obj.id!){
+//                    let animals = self.arrLikeId.filter(){$0 != obj.id!}
+//print(animals)
+//   //
+// //               }
+//            }
+//        }else{
+//            callWebserviceForLikeFeed(item: String(obj.id!), status: "1", like_type: "1"){ (dict) in
+//                if dict.likes == 1{
+//                    cell.lblLikeCount.text = String(dict.likes!) + "Like"
+//
+//                }else{
+//                    cell.lblLikeCount.text = String(dict.likes) + "Likes"
+//                }
+//                cell.imgLike.image = #imageLiteral(resourceName: "likes_Blue")
+//                self.arrLikeId.append(obj.id!)
+//            }
+//        }
+  //  }
     }
     @objc func btnSeeMoreAction(sender: UIButton){
         
@@ -198,7 +314,7 @@ class HomeNewsFeedVM: BaseTableViewVM {
     }
     
     //completion:@escaping(Int) -> Void
-    func callWebserviceForLikeFeed(item:String,status:String,like_type:String) {
+    func callWebserviceForLikeFeed(item:String,status:String,like_type:String,completion:@escaping(NewHomeData) -> Void) {
         GlobalObj.displayLoader(true, show: true)
         let param : [String:Any] = ["item":item,
                                     "status":status,
@@ -208,42 +324,28 @@ class HomeNewsFeedVM: BaseTableViewVM {
             GlobalObj.displayLoader(true, show: false)
                     if respCode == 200{
                         if let objDate = result.data{
-                           // completion(objDate.likes ?? 0)
-                            self.callWebserviceForFeed(page: String((self.actualController as! HomeNewsFeedVC).currentPage))
+                            completion(objDate)
+                          //  self.callWebserviceForFeed(page: String((self.actualController as! HomeNewsFeedVC).currentPage))
                         }
                     }
                 }
                 
             }
-//        APIClient.webserviceForNewHomeFeed(limit: "10", page: page) { (result) in
-//
-//            if let respCode = result.resp_code{
-//                GlobalObj.displayLoader(true, show: false)
-//                if respCode == 200{
-//                    if let arrDate = result.data{
-//                        if (self.actualController as! HomeNewsFeedVC).checkPagination == "get" {
-//                            self.arrFeed.removeAll()
-//                            for objData in arrDate {
-//                                self.arrFeed.append(objData)
-//                            }
-//                            if self.arrFeed.count>0 {
-//                                (self.actualController as! HomeNewsFeedVC).tblFeed.reloadData()
-//                            }
-//                        }else{
-//
-//                            for objData in arrDate {
-//                                self.arrFeed.append(objData)
-//                            }
-//                        }
-//                        if arrDate.count>0 {
-//                            (self.actualController as! HomeNewsFeedVC).tblFeed.reloadData()
-//                        }
-//                    }else{
-//                        GlobalObj.displayLoader(true, show: false)
-//
-//                    }
-//                }
-//            }
-//        }
+    }
+    func callWebserviceFroDeleteComment(feedId:String) {
+        GlobalObj.displayLoader(true, show: true)
+        APIClient.wevserviceForNewHomeFeedDelete(feed: feedId) { (result) in
+            print(result)
+            let rslt = result as! NSDictionary
+            if let msg = rslt["message"] as? NSString{
+                if msg == "Feed deleted"{
+                    (self.actualController as! HomeNewsFeedVC).viewBackground.isHidden = true
+                    (self.actualController as! HomeNewsFeedVC).currentPage = 1
+                    (self.actualController as! HomeNewsFeedVC).checkPagination = "get"
+                    self.callWebserviceForFeed(page: String((self.actualController as! HomeNewsFeedVC).currentPage))
+                }
+            }
+            GlobalObj.displayLoader(true, show: false)
+        }
     }
 }

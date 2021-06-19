@@ -3,9 +3,9 @@
 import UIKit
 
 class PlusSelectCategoryVM: BaseCollectionViewVM {
-   
-    var arrCat = ["News","MEBIT","MaaS","Hydrogen","SDGs","GR"]
-    var arrcatImg = [UIImage.init(named: "News"),UIImage.init(named: "MEBIT"),UIImage.init(named: "MaaS"),UIImage.init(named: "Hydrogen"),UIImage.init(named: "SDGs"),UIImage.init(named: "GR")]
+    
+    var arrCat = ["MECA Post","News","MEBIT","MaaS","Hydrogen","SDGs","GR"]
+    var arrcatImg = [UIImage.init(named: "MECA Post"),UIImage.init(named: "News"),UIImage.init(named: "MEBIT"),UIImage.init(named: "MaaS"),UIImage.init(named: "Hydrogen"),UIImage.init(named: "SDGs"),UIImage.init(named: "GR")]
 //    var arrCat = ["MEBIT","MaaS","Hydrogen","SDGs","GR"]
 //    var arrcatImg = [UIImage.init(named: "MEBIT"),UIImage.init(named: "MaaS"),UIImage.init(named: "Hydrogen"),UIImage.init(named: "SDGs"),UIImage.init(named: "GR")]
 
@@ -31,8 +31,17 @@ class PlusSelectCategoryVM: BaseCollectionViewVM {
         
     }
     func didSelectRowAt(_ indexPath: IndexPath, collectionView: UICollectionView) {
-
+        
         if indexPath.row == 0 {
+       
+        let vc = FlowController().instantiateViewController(identifier: "MECAPostVC", storyBoard: "Home") as! MECAPostVC
+            for objModule in arrModule {
+                if objModule.module == "Feeds" {
+                    vc.module = objModule.id ?? 0                }
+            }
+        (actualController as! PlusSelectCategoryVC).navigationController?.pushViewController(vc, animated: true)
+        
+        }else if indexPath.row == 1 {
             let vc = FlowController().instantiateViewController(identifier: "AddNewsViewController", storyBoard: "Home") as! AddNewsViewController
             let objCat = arrCat[indexPath.row]
             for objModule in arrModule {
@@ -41,7 +50,7 @@ class PlusSelectCategoryVM: BaseCollectionViewVM {
             }
             (actualController as! PlusSelectCategoryVC).navigationController?.pushViewController(vc, animated: true)
         }else
-        if indexPath.row == 1{
+        if indexPath.row == 2{
             //CategoryCommonViewController
             let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
             
@@ -57,7 +66,7 @@ class PlusSelectCategoryVM: BaseCollectionViewVM {
             (actualController as! PlusSelectCategoryVC).navigationController?.pushViewController(vc, animated: true)
 
         }
-        else if indexPath.row == 2{
+        else if indexPath.row == 3{
             let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
             let objCat = arrCat[indexPath.row]
             for objModule in arrModule {
@@ -71,7 +80,7 @@ class PlusSelectCategoryVM: BaseCollectionViewVM {
             (actualController as! PlusSelectCategoryVC).navigationController?.pushViewController(vc, animated: true)
 
         }
-        else if indexPath.row == 3{
+        else if indexPath.row == 4{
             
             let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
             let objCat = arrCat[indexPath.row]
@@ -86,7 +95,7 @@ class PlusSelectCategoryVM: BaseCollectionViewVM {
             (actualController as! PlusSelectCategoryVC).navigationController?.pushViewController(vc, animated: true)
        
         }
-        else if indexPath.row == 4{
+        else if indexPath.row == 5{
             let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
             let objCat = arrCat[indexPath.row]
             for objModule in arrModule {
@@ -100,7 +109,7 @@ class PlusSelectCategoryVM: BaseCollectionViewVM {
             (actualController as! PlusSelectCategoryVC).navigationController?.pushViewController(vc, animated: true)
        
         }
-        else if indexPath.row == 5{
+        else if indexPath.row == 6{
 
             let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
             let objCat = arrCat[indexPath.row]
@@ -125,8 +134,9 @@ class PlusSelectCategoryVM: BaseCollectionViewVM {
     
         //Module
         func callWebserviceCategory() {
+            GlobalObj.displayLoader(true, show: true)
             APIClient.webserviceForCategoryList { (result) in
-                
+                GlobalObj.displayLoader(true, show: false)
                 if let respCode = result.resp_code{
                     if respCode == 200{
                         // GlobalObj.displayLoader(true, show: false)

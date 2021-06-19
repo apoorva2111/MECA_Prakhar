@@ -1,9 +1,6 @@
 //
 //  HomeNewsLikeTVCell.swift
 //  MECA
-//
-//  Created by Apoorva Gangrade on 15/06/21.
-//
 
 import UIKit
 

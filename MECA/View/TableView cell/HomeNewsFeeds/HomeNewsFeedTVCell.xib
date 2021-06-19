@@ -101,7 +101,7 @@
                                 </constraints>
                                 <state key="normal" image="Video ion"/>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9Z-r1-vre">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9Z-r1-vre">
                                 <rect key="frame" x="0.0" y="75" width="375" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -282,7 +282,7 @@
                 <outlet property="lblTime" destination="44H-Pz-1We" id="Xms-3Z-peX"/>
                 <outlet property="viewComment" destination="abM-vL-7EB" id="NfL-O2-2Z0"/>
                 <outlet property="viewCommentHeightConstraint" destination="Jgd-42-c0x" id="Jlr-bw-Xt6"/>
-                <outlet property="viewImgCollection" destination="r9Z-r1-vre" id="2xu-Gd-qF6"/>
+                <outlet property="viewImgCollection" destination="r9Z-r1-vre" id="pbY-GK-vq1"/>
                 <outlet property="viewLike" destination="0lY-o5-TuC" id="koA-FR-2UE"/>
                 <outlet property="viewLikeHeightConstraint" destination="Ijc-n6-qeE" id="6eS-Ig-1ah"/>
             </connections>

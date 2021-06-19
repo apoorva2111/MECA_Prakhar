@@ -19,14 +19,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewHomeCommentTVCell" rowHeight="240" id="5ld-ys-18o" customClass="NewHomeCommentTVCell" customModule="MECA" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5ld-ys-18o" id="hQq-bu-vBr">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZQ-mz-4la">
-                        <rect key="frame" x="16" y="0.0" width="288" height="180"/>
+                        <rect key="frame" x="16" y="0.0" width="288" height="210"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="editprofile" translatesAutoresizingMaskIntoConstraints="NO" id="Oje-GM-d0v" customClass="RCustomImageView" customModule="MECA" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="10" width="40" height="40"/>
@@ -151,11 +151,11 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yyn-Xc-2gG" customClass="customTblView" customModule="MECA" customModuleProvider="target">
-                                <rect key="frame" x="50" y="95" width="238" height="12"/>
+                                <rect key="frame" x="50" y="120" width="238" height="17"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ARa-Ef-Vfn">
-                                <rect key="frame" x="50" y="117" width="238" height="50"/>
+                                <rect key="frame" x="50" y="147" width="238" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9z-Qw-i2Z">
                                         <rect key="frame" x="208" y="10" width="30" height="30"/>
@@ -205,9 +205,20 @@
                                     <constraint firstItem="d9z-Qw-i2Z" firstAttribute="leading" secondItem="fX8-h3-792" secondAttribute="trailing" constant="5" id="vdj-O3-0uG"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXO-BR-b7M">
+                                <rect key="frame" x="50" y="90" width="58" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="QSo-KL-1zk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="11"/>
+                                <state key="normal" title="View Reply">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="PXO-BR-b7M" firstAttribute="top" secondItem="ADU-Tt-kq6" secondAttribute="bottom" constant="5" id="0G4-Md-ie8"/>
                             <constraint firstAttribute="bottom" secondItem="ARa-Ef-Vfn" secondAttribute="bottom" priority="250" constant="13" id="8Ly-sl-trC"/>
                             <constraint firstItem="ADU-Tt-kq6" firstAttribute="leading" secondItem="en0-uv-Cvd" secondAttribute="leading" id="AKE-Wb-eca"/>
                             <constraint firstItem="ADU-Tt-kq6" firstAttribute="top" secondItem="en0-uv-Cvd" secondAttribute="bottom" id="CEg-zE-E76"/>
@@ -218,7 +229,8 @@
                             <constraint firstItem="ADU-Tt-kq6" firstAttribute="trailing" secondItem="en0-uv-Cvd" secondAttribute="trailing" id="Ncr-vY-5QF"/>
                             <constraint firstAttribute="trailing" secondItem="en0-uv-Cvd" secondAttribute="trailing" id="Qev-Th-B8j"/>
                             <constraint firstItem="yyn-Xc-2gG" firstAttribute="leading" secondItem="ADU-Tt-kq6" secondAttribute="leading" id="WIf-2x-T7F"/>
-                            <constraint firstItem="yyn-Xc-2gG" firstAttribute="top" secondItem="ADU-Tt-kq6" secondAttribute="bottom" constant="10" id="awW-dd-Oe3"/>
+                            <constraint firstItem="PXO-BR-b7M" firstAttribute="leading" secondItem="ADU-Tt-kq6" secondAttribute="leading" id="dlL-dp-2se"/>
+                            <constraint firstItem="yyn-Xc-2gG" firstAttribute="top" secondItem="PXO-BR-b7M" secondAttribute="bottom" constant="10" id="iYq-XL-Zu7"/>
                             <constraint firstItem="Oje-GM-d0v" firstAttribute="leading" secondItem="lZQ-mz-4la" secondAttribute="leading" id="j4Y-OI-yh3"/>
                             <constraint firstItem="en0-uv-Cvd" firstAttribute="top" secondItem="Oje-GM-d0v" secondAttribute="top" id="qTl-9w-hCG"/>
                             <constraint firstItem="ARa-Ef-Vfn" firstAttribute="top" secondItem="yyn-Xc-2gG" secondAttribute="bottom" constant="10" id="vlD-sq-Azn"/>
@@ -238,6 +250,9 @@
                 <outlet property="btnDeleteOutlet" destination="Fwg-dK-SBQ" id="AhO-iv-9cG"/>
                 <outlet property="btnLikeOutlet" destination="K41-nN-gYg" id="BRq-Bk-rfa"/>
                 <outlet property="btnReplyOutlet" destination="DR0-EV-cvK" id="b7O-5j-HXZ"/>
+                <outlet property="btnSendReplyOutlet" destination="d9z-Qw-i2Z" id="nMy-iG-whs"/>
+                <outlet property="btnViewReplyHeightConstraint" destination="QSo-KL-1zk" id="uWK-CW-b1f"/>
+                <outlet property="btnViewReplyOutlet" destination="PXO-BR-b7M" id="iOu-Ci-hZf"/>
                 <outlet property="imgAvtar" destination="Oje-GM-d0v" id="Gy1-6x-5ld"/>
                 <outlet property="imgLike" destination="ffJ-JU-38G" id="lk3-Kq-qcd"/>
                 <outlet property="lblDescription" destination="aBI-7F-otg" id="ni0-rK-j0m"/>

@@ -10,6 +10,8 @@ class NewHomeCommentVC: UIViewController {
     @IBOutlet weak var txtComment: UITextView!
     var viewModel : NewHomeCommentVM!
     var feedDetail : NewHomeData!
+    var currentPage : Int = 1
+    var checkPagination = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,9 @@ class NewHomeCommentVC: UIViewController {
         
     }
     @IBAction func btnSendCommentAction(_ sender: UIButton) {
+        if txtComment.text != ""{
+            viewModel.addComment(feedId: String(feedDetail.id!), comment: txtComment.text!, parent: "0", is_reply: "0", isfile: "0")
+        }
     }
     @IBAction func btnBackAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -44,5 +49,24 @@ extension NewHomeCommentVC : UITableViewDelegate, UITableViewDataSource{
         viewModel.getCellForRowAt(indexPath, tableView: tbllComment)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if BoolValue.isClickOnCategory{
+            
+            if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+                if indexPath == lastVisibleIndexPath {
+                    if indexPath.row == viewModel.arrCommentList.count-1{
+                        self.checkPagination = "pagination"
+                        currentPage += 1
+                        GlobalObj.run(after: 2) {
+                            GlobalObj.displayLoader(true, show: true)
+                            self.viewModel.callWebserviceForCommentList(feed: String(self.feedDetail.id!), limit: "10", page: String(self.currentPage))
+
+
+                        }
+                    }
+                }
+            }
+        }
+    }
     
 }

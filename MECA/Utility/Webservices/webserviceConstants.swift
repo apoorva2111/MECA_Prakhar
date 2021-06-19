@@ -75,3 +75,8 @@ let newsDocumentUpload = "mobile/user/upload/module/document"
 let newHomeFeed = "mobile/user/feed/list/"
 let newHomeFeedLike = "mobile/user/feed/like/update"
 let newHomeCommentList = "mobile/user/feed/comments/list/"
+let deleteFeed = "mobile/user/feed/delete/"
+let addCommentForFeed = "mobile/user/feed/create/comment"
+let deleteFeedComment = "mobile/user/feed/comment/delete/"
+let newHomeFeedInfo = "mobile/user/feed/info/"
+

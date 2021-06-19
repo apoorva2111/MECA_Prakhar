@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newHomePagerCVCell" id="gTV-IL-0wX" customClass="newHomePagerCVCell" customModule="MECA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tQd-Bu-7w7">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                    </imageView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="ukQ-rs-7MQ">
+                        <rect key="frame" x="29.5" y="167" width="141" height="28"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="pageIndicatorTintColor" red="0.14901960780000001" green="0.2784313725" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    </pageControl>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="tQd-Bu-7w7" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="0SQ-oZ-2Oh"/>
+                <constraint firstItem="ukQ-rs-7MQ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="3cG-VW-EWb"/>
+                <constraint firstAttribute="bottom" secondItem="ukQ-rs-7MQ" secondAttribute="bottom" constant="5" id="7Z9-yq-QLt"/>
+                <constraint firstAttribute="bottom" secondItem="tQd-Bu-7w7" secondAttribute="bottom" id="8nP-Un-1ob"/>
+                <constraint firstAttribute="trailing" secondItem="tQd-Bu-7w7" secondAttribute="trailing" id="QVw-wg-NdN"/>
+                <constraint firstItem="tQd-Bu-7w7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="nej-na-FJe"/>
+            </constraints>
+            <connections>
+                <outlet property="imgFeed" destination="tQd-Bu-7w7" id="qKx-8y-Yff"/>
+                <outlet property="pageContrl" destination="ukQ-rs-7MQ" id="Vvh-na-Z8V"/>
+            </connections>
+            <point key="canvasLocation" x="41" y="74"/>
+        </collectionViewCell>
+    </objects>
+</document>

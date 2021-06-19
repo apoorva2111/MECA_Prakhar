@@ -15,7 +15,7 @@ struct NewHomeCommentData : Codable {
 	let writer_name : String?
 	let avatar : String?
 	let isOwner : Int?
-	let subcomments : [String]?
+	let subcomments : [NewHomeSubComment]?
 
 	enum CodingKeys: String, CodingKey {
 
@@ -50,7 +50,7 @@ struct NewHomeCommentData : Codable {
 		writer_name = try values.decodeIfPresent(String.self, forKey: .writer_name)
 		avatar = try values.decodeIfPresent(String.self, forKey: .avatar)
 		isOwner = try values.decodeIfPresent(Int.self, forKey: .isOwner)
-		subcomments = try values.decodeIfPresent([String].self, forKey: .subcomments)
+		subcomments = try values.decodeIfPresent([NewHomeSubComment].self, forKey: .subcomments)
 	}
 
 }
