@@ -3,13 +3,11 @@ import UIKit
 
 class NewsDetailVC: UIViewController {
 
-    @IBAction func btnBackAction(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
     @IBOutlet weak var tblNewsDetail: UITableView!
     var viewModel : NewsDetailVM!
     var newsID = ""
     var isFromVideoList = false
+    var isClickedRelatedNews = false
     
     
     override func viewDidLoad() {
@@ -32,6 +30,19 @@ class NewsDetailVC: UIViewController {
         tblNewsDetail.reloadData()
     }
 
+    @IBAction func btnBackAction(_ sender: UIButton) {
+        if isClickedRelatedNews{
+            isClickedRelatedNews = false
+            if isFromVideoList{
+                viewModel.callWebserviceFroVideoInfo(videoId: newsID)
+            }else{
+                viewModel.callWebserviceFroNewInfo(newsId: newsID)
+            }
+        }else{
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+    }
 }
 
 //Tableview Delegate

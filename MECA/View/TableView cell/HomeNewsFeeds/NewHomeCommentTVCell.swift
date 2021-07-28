@@ -20,7 +20,11 @@ class NewHomeCommentTVCell: UITableViewCell {
     @IBOutlet weak var txtComment: UITextView!
     @IBOutlet weak var btnViewReplyHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var btnViewReplyOutlet: UIButton!
+   
+  //  @IBOutlet weak var tblReplyHeightConstraint: NSLayoutConstraint!
+    
     var arrSubComment = [NewHomeSubComment]()
+    var tbleComment = UITableView()
     
     @IBOutlet weak var btnSendReplyOutlet: UIButton!
     override func awakeFromNib() {
@@ -47,33 +51,59 @@ class NewHomeCommentTVCell: UITableViewCell {
         }else{
             btnDeleteOutlet.isHidden = false
         }
-        
-//        if comment.likes == 0{
-//            imgLike.image = #imageLiteral(resourceName: "Like_BlueBorder")
-//        }else{
-//            imgLike.image = #imageLiteral(resourceName: "likes_Blue")
-//        }
+
         lblLikeCount.text = String(comment.likes ?? 0)
-        
+        tblReply.register(UINib.init(nibName: "NewHomeSubCommentTVCell", bundle: nil), forCellReuseIdentifier: "NewHomeSubCommentTVCell")
+
         if comment.subcomments?.count == 0{
             tblReply.isHidden = true
             viewReply.isHidden = true
-            viewReplyHeightConstraint.constant = 0
+            tblReply.delegate = self
+            tblReply.dataSource = self
+            tblReply.estimatedRowHeight = 0
+//            tblReply.reloadData()
+//            tblReply.layoutIfNeeded()
             btnViewReplyOutlet.isHidden = true
             btnViewReplyHeightConstraint.constant = 0
         }else{
             if arrSubComment.count > 0 {
                 arrSubComment.removeAll()
             }
-            tblReply.register(UINib.init(nibName: "NewHomeSubCommentTVCell", bundle: nil), forCellReuseIdentifier: "NewHomeSubCommentTVCell")
-            tblReply.delegate = self
-            tblReply.dataSource = self
-            arrSubComment = comment.subcomments!
+            for i in 0..<comment.subcomments!.count {
+                let objsubComment = comment.subcomments![i]
+                arrSubComment.insert(objsubComment, at: i)
+            }
+            //arrSubComment = comment.subcomments!
             btnViewReplyOutlet.isHidden = false
             btnViewReplyHeightConstraint.constant = 20
-            tblReply.isHidden = true
-            viewReply.isHidden = true
-            viewReplyHeightConstraint.constant = 0
+             if userDef.value(forKey: UserDefaultKey.replyView) != nil {
+                if userDef.value(forKey: UserDefaultKey.replyView) as! String == "hideTable"{
+                    tblReply.delegate = self
+                    tblReply.dataSource = self
+                    tblReply.reloadData()
+                    tblReply.layoutIfNeeded()
+                    tblReply.isHidden = true
+                    viewReply.isHidden = true
+                   // viewReplyHeightConstraint.constant = 0
+                }else{
+                    tblReply.delegate = self
+                    tblReply.dataSource = self
+                    tblReply.reloadData()
+                    tblReply.layoutIfNeeded()
+                    tblReply.isHidden = false
+                    viewReply.isHidden = false
+                }
+             }else{
+                userDef.setValue("hideTable", forKey: UserDefaultKey.replyView)
+                userDef.synchronize()
+                tblReply.delegate = self
+                tblReply.dataSource = self
+                tblReply.reloadData()
+                tblReply.isHidden = true
+                viewReply.isHidden = true
+             //   viewReplyHeightConstraint.constant = 0
+             }
+            
         }
     }
 }
@@ -88,7 +118,30 @@ extension NewHomeCommentTVCell : UITableViewDelegate, UITableViewDataSource {
         cell.setCell(objDict: arrSubComment[indexPath.row])
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
          return UITableView.automaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if userDef.value(forKey: UserDefaultKey.replyView) != nil {
+           if userDef.value(forKey: UserDefaultKey.replyView) as! String == "hideTable"{
+            viewReplyHeightConstraint.constant = 0
+            viewReply.isHidden = true
+            tblReply.isHidden = true
+            return 0
+           }else{
+            viewReplyHeightConstraint.constant = 60
+            return 100
+           }
+        }else{
+            viewReplyHeightConstraint.constant = 0
+            viewReply.isHidden = true
+            tblReply.isHidden = true
+            return 0
+        }
+        
+    }
+ 
 }
+

@@ -41,6 +41,7 @@ class NewHomeCommentVM: BaseTableViewVM {
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "NewHomeCommentTVCell", for: indexPath) as! NewHomeCommentTVCell
             let objComment = arrCommentList[indexPath.row - 1]
+            cell.tbleComment = (actualController as! NewHomeCommentVC).tbllComment
             cell.btnViewReplyOutlet.tag = indexPath.row
             cell.btnViewReplyOutlet.addTarget(self, action: #selector(self.btnviewReplyAction), for: .touchUpInside)
             cell.btnLikeOutlet.tag = indexPath.row
@@ -86,9 +87,7 @@ class NewHomeCommentVM: BaseTableViewVM {
                                BoolValue.isClickOnCategory = true
 
                                (self.actualController as! NewHomeCommentVC).tbllComment.reloadData()
-                               (self.actualController as! NewHomeCommentVC).tbllComment.isHidden = false
                             }else{
-                               (self.actualController as! NewHomeCommentVC).tbllComment.isHidden = true
 
                             }
                         }
@@ -110,7 +109,7 @@ class NewHomeCommentVM: BaseTableViewVM {
             }
         }
     }
-    
+
     func addComment(feedId:String,comment:String,parent:String,is_reply:String,isfile:String) {
         GlobalObj.displayLoader(true, show: true)
         let param: [String : Any] = ["feed":feedId,
@@ -134,27 +133,69 @@ class NewHomeCommentVM: BaseTableViewVM {
             }
         }
     }
+    //completion:@escaping(Int) -> Void
+    func callWebserviceForLikeFeed(item:String,status:String,like_type:String,completion:@escaping(NewHomeData) -> Void) {
+        GlobalObj.displayLoader(true, show: true)
+        let param : [String:Any] = ["item":item,
+                                    "status":status,
+                                    "like_type":like_type]
+            APIClient.webserviceForNewHomeLike(params: param) { (result) in
+                if let respCode = result.resp_code{
+            GlobalObj.displayLoader(true, show: false)
+                    if respCode == 200{
+                        if let objDate = result.data{
+                            completion(objDate)
+                          //  self.callWebserviceForFeed(page: String((self.actualController as! HomeNewsFeedVC).currentPage))
+                        }
+                    }
+                }
+
+                
+            }
+    }
+    
+    func callWebserviceFroDeleteComment(commentId:String) {
+        GlobalObj.displayLoader(true, show: true)
+        APIClient.wevserviceForNewHomeFeedCommentDelete(commentId: commentId) { (result) in
+            print(result)
+            let rslt = result as! NSDictionary
+            if let msg = rslt["message"] as? NSString{
+                if msg == "Comment deleted"{
+                    (self.actualController as! NewHomeCommentVC).showToast(message: msg as String)
+                    
+                    (self.actualController as! NewHomeCommentVC).currentPage = 1
+                    (self.actualController as! NewHomeCommentVC).checkPagination = "get"
+                    self.callWebserviceForCommentList(feed: String((self.actualController as! NewHomeCommentVC).feedDetail.id!), limit: "10", page: String((self.actualController as! NewHomeCommentVC).currentPage))
+                }
+            }
+            GlobalObj.displayLoader(true, show: false)
+        }
+    }
     
     @objc func btnviewReplyAction(sender : UIButton){
+        
         let point = (self.actualController as! NewHomeCommentVC).tbllComment.convert(sender.center, from: sender.superview!)
 
         if let wantedIndexPath = (actualController as! NewHomeCommentVC).tbllComment.indexPathForRow(at: point) {
             let cell = (actualController as! NewHomeCommentVC).tbllComment.cellForRow(at: wantedIndexPath) as! NewHomeCommentTVCell
-           // cell.tblReply.dataSource = self
-          //  cell.tblReply.delegate = self
-            cell.viewReplyHeightConstraint.constant = 40
-            cell.viewReply.isHidden = false
+        
             cell.btnViewReplyOutlet.isHidden = true
             cell.btnViewReplyHeightConstraint.constant = 0
-            (actualController as! NewHomeCommentVC).tbllComment.beginUpdates()
-            (actualController as! NewHomeCommentVC).tbllComment.endUpdates()
             cell.tblReply.isHidden = false
-            cell.tblReply.estimatedRowHeight = 100
-            cell.tblReply.rowHeight = UITableView.automaticDimension
+            cell.tblReply.delegate = cell.self
+            cell.tblReply.dataSource = cell.self
+            
             cell.btnReplyOutlet.isSelected = true
             cell.btnReplyOutlet.setTitle("Cancel", for: .normal)
+            userDef.setValue("showTable", forKey: UserDefaultKey.replyView)
+            userDef.synchronize()
+            cell.viewReply.isHidden = false
+            (actualController as! NewHomeCommentVC).tbllComment.beginUpdates()
             cell.tblReply.reloadData()
             cell.tblReply.layoutIfNeeded()
+            (actualController as! NewHomeCommentVC).tbllComment.endUpdates()
+            
+
         }
     }
     @objc func btnSeeMoreAction(sender: UIButton){
@@ -188,10 +229,28 @@ class NewHomeCommentVM: BaseTableViewVM {
         UIApplication.shared.open(url)
     }
     @objc func btnLikeCommentAction (sender : UIButton){
+        let point = (self.actualController as! NewHomeCommentVC).tbllComment.convert(sender.center, from: sender.superview!)
         
+        if let wantedIndexPath = (actualController as! NewHomeCommentVC).tbllComment.indexPathForRow(at: point) {
+            let cell = (actualController as! NewHomeCommentVC).tbllComment.cellForRow(at: wantedIndexPath) as! NewHomeCommentTVCell
+            let obj = arrCommentList[sender.tag - 1]
+            if obj.isLiked == 1{
+                callWebserviceForLikeFeed(item: String((actualController as! NewHomeCommentVC).feedDetail.id!), status: "0", like_type: "2") { (feedDict) in
+                    print(feedDict)
+                    cell.btnLikeOutlet.setTitle("Like", for: .normal)
+                }
+            }else{
+                callWebserviceForLikeFeed(item: String((actualController as! NewHomeCommentVC).feedDetail.id!), status: "1", like_type: "2") { (feedDict) in
+                    print(feedDict)
+                    cell.btnLikeOutlet.setTitle("Unlike", for: .normal)
+                }
+            }
+        }
     }
     @objc func btnDelectCommentAction (sender : UIButton){
-        
+        let obj = arrCommentList[sender.tag - 1]
+
+        callWebserviceFroDeleteComment(commentId: String(obj.id!))
     }
     @objc func btnReplyAction (sender : UIButton){
         
@@ -202,35 +261,77 @@ class NewHomeCommentVM: BaseTableViewVM {
         
                 if sender.isSelected{
                 sender.isSelected = false
-                cell.viewReplyHeightConstraint.constant = 0
-                cell.viewReply.isHidden = true
-                   if cell.arrSubComment.count > 0 {
-                    cell.btnViewReplyOutlet.isHidden = false
-                    cell.btnViewReplyHeightConstraint.constant = 20
-                   }else{
+//                cell.viewReply.isHidden = true
+//                   if cell.arrSubComment.count > 0 {
+//                    cell.btnViewReplyOutlet.isHidden = false
+//                    cell.btnViewReplyHeightConstraint.constant = 20
+//                   }else{
+//                    cell.btnViewReplyOutlet.isHidden = true
+//                    cell.btnViewReplyHeightConstraint.constant = 0
+//                   }
+//                (actualController as! NewHomeCommentVC).tbllComment.beginUpdates()
+//                    cell.tblReply.reloadData()
+//                    cell.tblReply.layoutIfNeeded()
+//                (actualController as! NewHomeCommentVC).tbllComment.endUpdates()
+//                cell.tblReply.isHidden = true
+//                cell.btnReplyOutlet.setTitle("Reply", for: .normal)
+//                userDef.setValue("hideTable", forKey: UserDefaultKey.replyView)
+//                userDef.synchronize()
                     cell.btnViewReplyOutlet.isHidden = true
                     cell.btnViewReplyHeightConstraint.constant = 0
-                   }
-               
-                (actualController as! NewHomeCommentVC).tbllComment.beginUpdates()
-                (actualController as! NewHomeCommentVC).tbllComment.endUpdates()
-                cell.tblReply.isHidden = true
-                cell.btnReplyOutlet.setTitle("Reply", for: .normal)
+                    cell.tblReply.isHidden = true
+                    cell.tblReply.delegate = cell.self
+                    cell.tblReply.dataSource = cell.self
+                    cell.btnReplyOutlet.setTitle("Reply", for: .normal)
+                    userDef.setValue("hideTable", forKey: UserDefaultKey.replyView)
+                    userDef.synchronize()
+                    cell.viewReply.isHidden = true
+                    if cell.arrSubComment.count > 0 {
+                        cell.btnViewReplyOutlet.isHidden = false
+                        cell.btnViewReplyHeightConstraint.constant = 20
+                    }else{
+                        cell.btnViewReplyOutlet.isHidden = true
+                        cell.btnViewReplyHeightConstraint.constant = 0
+                    }
+                    (actualController as! NewHomeCommentVC).tbllComment.beginUpdates()
+                    cell.tblReply.reloadData()
+                    cell.tblReply.layoutIfNeeded()
+                    (actualController as! NewHomeCommentVC).tbllComment.endUpdates()
             }else{
                 sender.isSelected = true
-                cell.viewReplyHeightConstraint.constant = 40
-                cell.viewReply.isHidden = false
+               // cell.viewReplyHeightConstraint.constant = 40
+//                cell.viewReply.isHidden = false
+//                cell.btnViewReplyOutlet.isHidden = true
+//                cell.btnViewReplyHeightConstraint.constant = 0
+//
+//                cell.tblReply.isHidden = false
+//                cell.tblReply.delegate = cell.self
+//                cell.tblReply.dataSource = cell.self
+//                cell.btnReplyOutlet.isSelected = true
+//                cell.btnReplyOutlet.setTitle("Cancel", for: .normal)
+//                (actualController as! NewHomeCommentVC).tbllComment.beginUpdates()
+//                cell.tblReply.reloadData()
+//                cell.tblReply.layoutIfNeeded()
+//                (actualController as! NewHomeCommentVC).tbllComment.endUpdates()
+//
+//                userDef.setValue("showTable", forKey: UserDefaultKey.replyView)
+//                userDef.synchronize()
                 cell.btnViewReplyOutlet.isHidden = true
                 cell.btnViewReplyHeightConstraint.constant = 0
-                (actualController as! NewHomeCommentVC).tbllComment.beginUpdates()
-                (actualController as! NewHomeCommentVC).tbllComment.endUpdates()
                 cell.tblReply.isHidden = false
-                cell.tblReply.estimatedRowHeight = 100
-                cell.tblReply.rowHeight = UITableView.automaticDimension
+                cell.tblReply.delegate = cell.self
+                cell.tblReply.dataSource = cell.self
+                
                 cell.btnReplyOutlet.isSelected = true
                 cell.btnReplyOutlet.setTitle("Cancel", for: .normal)
+                userDef.setValue("showTable", forKey: UserDefaultKey.replyView)
+                userDef.synchronize()
+                cell.viewReply.isHidden = false
+                (actualController as! NewHomeCommentVC).tbllComment.beginUpdates()
                 cell.tblReply.reloadData()
                 cell.tblReply.layoutIfNeeded()
+                (actualController as! NewHomeCommentVC).tbllComment.endUpdates()
+
             }
         }
         

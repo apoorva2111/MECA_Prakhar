@@ -40,7 +40,7 @@ class HydrogenVC: UIViewController {
     var checkPagination = ""
     var updatedText = ""
     var sortingArr = [Sorting_options]()
-
+    var module = 0
     var isFromCat = false
     
     @IBAction func btnCreateNewAction(_ sender: RCustomButton) {

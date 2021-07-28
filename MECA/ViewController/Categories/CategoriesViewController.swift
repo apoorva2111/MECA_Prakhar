@@ -6,7 +6,6 @@ class CategoriesViewController: UIViewController {
 
     @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
-    
     @IBOutlet weak var footerView: FooterTabView!
     
     var screenSize: CGRect!

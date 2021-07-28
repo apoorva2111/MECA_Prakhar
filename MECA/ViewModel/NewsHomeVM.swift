@@ -81,7 +81,6 @@ class NewsHomeVM: BaseTableViewVM {
         }
     }
     
-    
     override func getHeightForRowAt(_ indexPath: IndexPath, tableView: UITableView) -> CGFloat {
         if BoolValue.isClickOnCategory{
             return 300

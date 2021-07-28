@@ -43,7 +43,8 @@ class MaasViewController: UIViewController {
     var checkPagination = ""
     var updatedText = ""
     var isFromCat = false
-    
+    var module = 0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

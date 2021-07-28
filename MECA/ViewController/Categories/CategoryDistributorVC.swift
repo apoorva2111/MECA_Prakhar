@@ -5,7 +5,8 @@ import UIKit
 class CategoryDistributorVC: UIViewController {
  
     @IBOutlet weak var footerView: OrangeFooterView!
-  
+    var module = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         footerView.orangeFooterViewDelegate = self
@@ -42,6 +43,7 @@ class CategoryDistributorVC: UIViewController {
             let vc = FlowController().instantiateViewController(identifier: "NewCarSalesViewController", storyBoard: "Category") as! NewCarSalesViewController
             vc.strComeFrom = "Distributor"
             vc.type = 1
+            vc.module = module
             self.navigationController?.pushViewController(vc, animated: true)
             
         }else if  sender.tag == 20 {
@@ -49,7 +51,7 @@ class CategoryDistributorVC: UIViewController {
             let vc = FlowController().instantiateViewController(identifier: "NewCarSalesViewController", storyBoard: "Category") as! NewCarSalesViewController
             vc.strComeFrom = "Distributor"
             vc.type = 2
-
+            vc.module = module
             self.navigationController?.pushViewController(vc, animated: true)
 
         }else if sender.tag == 30 {
@@ -58,6 +60,7 @@ class CategoryDistributorVC: UIViewController {
             
             vc.strComeFrom = "Distributor"
             vc.type = 3
+            vc.module = module
             self.navigationController?.pushViewController(vc, animated: true)
 
         }else if sender.tag == 40 {
@@ -65,6 +68,7 @@ class CategoryDistributorVC: UIViewController {
             
             vc.strComeFrom = "Distributor"
             vc.type = 4
+            vc.module = module
             self.navigationController?.pushViewController(vc, animated: true)
             //BitFoundation
         }else if sender.tag == 50 {

@@ -15,6 +15,8 @@ struct NewHomeCommentData : Codable {
 	let writer_name : String?
 	let avatar : String?
 	let isOwner : Int?
+    let isLiked : Int?
+
 	let subcomments : [NewHomeSubComment]?
 
 	enum CodingKeys: String, CodingKey {
@@ -33,6 +35,7 @@ struct NewHomeCommentData : Codable {
 		case avatar = "avatar"
 		case isOwner = "isOwner"
 		case subcomments = "subcomments"
+        case isLiked = "isLiked"
 	}
 
 	init(from decoder: Decoder) throws {
@@ -51,6 +54,7 @@ struct NewHomeCommentData : Codable {
 		avatar = try values.decodeIfPresent(String.self, forKey: .avatar)
 		isOwner = try values.decodeIfPresent(Int.self, forKey: .isOwner)
 		subcomments = try values.decodeIfPresent([NewHomeSubComment].self, forKey: .subcomments)
+        isLiked = try values.decodeIfPresent(Int.self, forKey: .isLiked)
 	}
 
 }

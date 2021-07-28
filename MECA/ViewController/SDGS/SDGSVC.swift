@@ -16,6 +16,8 @@ class SDGSVC: UIViewController  {
     @IBOutlet weak var SDGSTableView: UITableView!
     @IBOutlet weak var footerView: BlueFooterview!
     var viewModel : SDGSHomeVM!
+    var module = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = SDGSHomeVM.init(controller: self)

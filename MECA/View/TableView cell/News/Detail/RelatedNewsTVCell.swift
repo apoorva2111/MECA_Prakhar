@@ -8,6 +8,7 @@ import UIKit
 class RelatedNewsTVCell: UITableViewCell {
     @IBOutlet weak var relatedNewsCollection: UICollectionView!
     var arrRelated = [Related]()
+    var viewController : NewsDetailVC!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -60,4 +61,13 @@ extension RelatedNewsTVCell : UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             return CGSize(width: 350, height: 280)
         }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let obj = arrRelated[indexPath.row]
+        viewController.isClickedRelatedNews = true
+        if viewController.isFromVideoList{
+            viewController.viewModel.callWebserviceFroVideoInfo(videoId: String(obj.id!))
+        }else{
+            viewController.viewModel.callWebserviceFroNewInfo(newsId: String(obj.id!))
+        }
+    }
 }

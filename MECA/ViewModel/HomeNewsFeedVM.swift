@@ -78,6 +78,8 @@ class HomeNewsFeedVM: BaseTableViewVM {
         let obj = arrFeed[sender.tag]
         let vc = FlowController().instantiateViewController(identifier: "NewHomeCommentVC", storyBoard: "Home") as! NewHomeCommentVC
         vc.feedDetail = obj
+        userDef.setValue("hideTable", forKey: UserDefaultKey.replyView)
+        userDef.synchronize()
         (actualController as! HomeNewsFeedVC).navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -215,37 +217,7 @@ class HomeNewsFeedVM: BaseTableViewVM {
             }
         }
     }
-    
-    
-        
-   //     if arrLikeId.contains(obj.id!){
-//            callWebserviceForLikeFeed(item: String(obj.id!), status: "0", like_type: "1"){ (dict) in
-//                if dict.likes == 1{
-//                    cell.lblLikeCount.text = String(dict.likes!) + "Like"
-//                }else{
-//                    cell.lblLikeCount.text = String(dict.likes!) + "Likes"
-//                }
-//                cell.imgLike.image = #imageLiteral(resourceName: "Like_BlueBorder")
-////                if self.arrLikeId.contains(obj.id!){
-//                    let animals = self.arrLikeId.filter(){$0 != obj.id!}
-//print(animals)
-//   //
-// //               }
-//            }
-//        }else{
-//            callWebserviceForLikeFeed(item: String(obj.id!), status: "1", like_type: "1"){ (dict) in
-//                if dict.likes == 1{
-//                    cell.lblLikeCount.text = String(dict.likes!) + "Like"
-//
-//                }else{
-//                    cell.lblLikeCount.text = String(dict.likes) + "Likes"
-//                }
-//                cell.imgLike.image = #imageLiteral(resourceName: "likes_Blue")
-//                self.arrLikeId.append(obj.id!)
-//            }
-//        }
-  //  }
-    }
+}
     @objc func btnSeeMoreAction(sender: UIButton){
         
         let point = (self.actualController as! HomeNewsFeedVC).tblFeed.convert(sender.center, from: sender.superview!)

@@ -13,7 +13,8 @@ class MEBITViewController: UIViewController {
     var headerImageValue = ""
     var currentPage : Int = 1
     var checkPagination = ""
-    
+    var module = 0
+
     var viewModel : MEBITHomeVM!
     private var pullControl = UIRefreshControl()
 
@@ -147,7 +148,8 @@ extension  MEBITViewController : OrangeFooterViewDelegate{
         }else if strType == "FromDistributor"{
             print("Type2")
             if GlobalValue.tabCategory == "MEBIT"{
-                let vc = FlowController().instantiateViewController(identifier: "CategoryDistributorVC", storyBoard: "Category")
+                let vc = FlowController().instantiateViewController(identifier: "CategoryDistributorVC", storyBoard: "Category") as! CategoryDistributorVC
+                vc.module = module
                 self.navigationController?.pushViewController(vc, animated: false)
                 
             }else if GlobalValue.tabCategory == "GR"{
@@ -159,7 +161,8 @@ extension  MEBITViewController : OrangeFooterViewDelegate{
         }else if strType == "FromTMC"{
             print("Type3")
             if GlobalValue.tabCategory == "MEBIT"{
-                let vc = FlowController().instantiateViewController(identifier: "TMCViewController", storyBoard: "Category")
+                let vc = FlowController().instantiateViewController(identifier: "TMCViewController", storyBoard: "Category") as! TMCViewController
+                vc.module = module
                 self.navigationController?.pushViewController(vc, animated: false)
 
             }else if GlobalValue.tabCategory == "GR"{

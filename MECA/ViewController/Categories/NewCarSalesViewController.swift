@@ -15,10 +15,12 @@ class NewCarSalesViewController: UIViewController {
     var updatedText = ""
     var currentPage : Int = 1
     var checkPagination = ""
-
+    var module = 0
+    
     
     @IBAction func btnCreateNewAction(_ sender: RCustomButton) {
-        let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home")
+        let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
+        vc.module = module
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -2144,6 +2144,34 @@ class APIClient {
     }
     
     
+    //NewHomDeleteeFeedComment
+    static func wevserviceForNewHomeFeedCommentDelete(commentId:String,completion:@escaping(Any) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+            GlobalObj.showNetworkAlert()
+            return
+        }
+        let url = BaseURL + deleteFeedComment + commentId
+        var headers = HTTPHeaders()
+
+       let accessToken = userDef.string(forKey: UserDefaultKey.token)
+        headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+
+       AF.request(url, method: .delete, parameters: [:], headers: headers)
+            .responseJSON { response in
+                
+                switch response.result{
+                case .success( _):
+                    completion(response.value!)
+                case .failure(let error):
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+                    
+                }
+                
+                
+            }
+    }
     //Add Feed Comment 
         static func webServicesForAddFeedComment(params:[String:Any],completion:@escaping(AddCommentModel) -> Void){
             if !NetworkReachabilityManager()!.isReachable{
