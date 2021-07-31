@@ -8,7 +8,7 @@ class NewCarSalesViewController: UIViewController {
     private var pullControl = UIRefreshControl()
     @IBOutlet weak var txtSearch: UITextField!
     
-    var viewModel : HomeVM!
+    var viewModel : WhatsNewVM!
     var strComeFrom = ""
     var type  = 0
     var arrList = [DataKaizen]()
@@ -16,7 +16,6 @@ class NewCarSalesViewController: UIViewController {
     var currentPage : Int = 1
     var checkPagination = ""
     var module = 0
-    
     
     @IBAction func btnCreateNewAction(_ sender: RCustomButton) {
         let vc = FlowController().instantiateViewController(identifier: "CategoryCommonViewController", storyBoard: "Home") as! CategoryCommonViewController
@@ -146,9 +145,6 @@ extension NewCarSalesViewController:UITableViewDelegate,UITableViewDataSource{
         vc.module = "kaizen"
         vc.Maasview = false
         self.navigationController?.pushViewController(vc, animated: true)
-        
-        
-        
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

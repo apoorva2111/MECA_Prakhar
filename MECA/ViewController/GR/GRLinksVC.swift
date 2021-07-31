@@ -18,6 +18,8 @@ class GRLinksVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
 
         pullControl.tintColor = UIColor.gray
         pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
@@ -39,17 +41,22 @@ class GRLinksVC: UIViewController {
     }
     func setupUI() {
         tblLinks.register(GRLinksTVCell.nib(), forCellReuseIdentifier: "GRLinksTVCell")
+        tblLinks.register(Connecttblcell.nib(), forCellReuseIdentifier: "Connecttblcell")
         tblLinks.delegate = self
         tblLinks.dataSource = self
         viewModel = GRLinksVM.init(controller: self)
-        
+        footerView.lblTMC.sizeToFit()
+        footerView.lblDistributor.sizeToFit()
+        footerView.lblSpecialsite.sizeToFit()
+        footerView.lblWhatsNew.sizeToFit()
         footerView.orangeFooterViewDelegate = self
         footerView.imgWhatsnew.image = UIImage.init(named: "Whats New")
         footerView.imgFromDistributor.image = UIImage.init(named: "Activity_Report")
         footerView.imgFromTMC.image = UIImage.init(named: "Linkes_Active")
         footerView.lblWhatsNew.text = "What's New"
         footerView.lblDistributor.text = "Activity Report"
-        footerView.lblTMC.text = "Links"
+        footerView.lblTMC.text = "Official Site"
+            footerView.lblSpecialsite.text = "Special Site"
         footerView.bgView.backgroundColor = #colorLiteral(red: 0.9882352941, green: 0, blue: 0, alpha: 1)
     }
 
@@ -72,7 +79,7 @@ extension GRLinksVC : OrangeFooterViewDelegate{
     
     
     func footerBarAction1(strType: String){
-   
+        print("GRLinksVC>>>>>\(strType)")
         if strType == "WhatsNew"{
             print("Type1")
             
@@ -86,13 +93,25 @@ extension GRLinksVC : OrangeFooterViewDelegate{
 
            
         }else if strType == "FromTMC"{
-            print("Type3")
+            print("Type Official")
+            
 
+        }
+        else if strType == "Special Sites"{
+            print("Special")
+            let vc = FlowController().instantiateViewController(identifier: "Specialsitesvc", storyBoard: "GR")
+            self.navigationController?.pushViewController(vc, animated: false)
+
+        }else{
+            print("check")
         }
     }
 }
 //MARK:- UITableview Delegate DataSourcew
 extension GRLinksVC: UITableViewDelegate,UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.getNumbersOfRows(in: section)
     }
@@ -108,6 +127,10 @@ extension GRLinksVC: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //MoveupBounce tableview
+        let animation = TableAnimationFactory.makeMoveUpBounceAnimation(rowHeight: viewModel.getHeightForRowAt(indexPath, tableView: tblLinks), duration: 0.5, delayFactor: 0.05)
+        let animator = Animator(animation: animation)
+        animator.animate(cell: cell, at: indexPath, in: tableView)
         if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
             if indexPath == lastVisibleIndexPath {
                 if indexPath.row == viewModel.arrLinkList.count-1{

@@ -43,11 +43,13 @@ class MECAPostVC: UIViewController {
     var arrImgData = [Data]()
     var selecteFeedType = ""
     var documentFileName = ""
-    var feedId = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
         viewModel = MECAPostVM.init(controller: self)
         // Do any additional setup after loading the view.
         collectionImgs.register(UINib.init(nibName: "AddImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddImageCollectionViewCell")
@@ -64,10 +66,6 @@ class MECAPostVC: UIViewController {
         screenSize = UIScreen.main.bounds
         screenWidth = screenSize.width
         screenHeight = screenSize.height
-       
-        if feedId != ""{
-        viewModel.callWebserviceForNewHomeFeedInfo()
-        }
     }
 }
 

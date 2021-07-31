@@ -17,5 +17,13 @@ class SignUpListTVCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func setCell(dict:NotificationList_Data)  {
+        lblTitle.text = dict.message
+        if dict.status == 1{
+           contentView.backgroundColor = .white
+        }else{
+            contentView.backgroundColor = #colorLiteral(red: 0.862745098, green: 0.8941176471, blue: 0.9607843137, alpha: 1)
+        }
+    }
     
 }

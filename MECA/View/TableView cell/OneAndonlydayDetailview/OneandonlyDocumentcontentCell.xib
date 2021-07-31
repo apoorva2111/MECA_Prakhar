@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro.ttf">
+            <string>SFPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="OneandonlyDocumentcontentCell" rowHeight="60" id="RmV-sk-N78" customClass="OneandonlyDocumentcontentCell" customModule="MECA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RmV-sk-N78" id="1v2-sf-Nzh">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfE-zj-ciO">
+                        <rect key="frame" x="0.0" y="5" width="320" height="33"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Presentation Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dct-tU-dhG">
+                                <rect key="frame" x="0.0" y="1.5" width="280" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hfk-DC-VPb"/>
+                                </constraints>
+                                <color key="textColor" red="0.98039215690000003" green="0.62352941179999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="11"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ds-Gh-a1Q">
+                                <rect key="frame" x="290" y="1.5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SMX-4G-P1x"/>
+                                    <constraint firstAttribute="width" constant="30" id="kiX-wZ-Yza"/>
+                                </constraints>
+                                <state key="normal" image="download document"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0ds-Gh-a1Q" firstAttribute="leading" secondItem="dct-tU-dhG" secondAttribute="trailing" constant="10" id="28h-vd-xjQ"/>
+                            <constraint firstItem="dct-tU-dhG" firstAttribute="leading" secondItem="jfE-zj-ciO" secondAttribute="leading" id="7mT-DO-dST"/>
+                            <constraint firstAttribute="height" constant="33" id="8Y6-wA-wn1"/>
+                            <constraint firstItem="dct-tU-dhG" firstAttribute="top" secondItem="jfE-zj-ciO" secondAttribute="top" constant="1.5" id="B4r-r3-Bsd"/>
+                            <constraint firstItem="dct-tU-dhG" firstAttribute="centerY" secondItem="0ds-Gh-a1Q" secondAttribute="centerY" id="IXJ-vO-mz2"/>
+                            <constraint firstAttribute="trailing" secondItem="0ds-Gh-a1Q" secondAttribute="trailing" id="Qbs-KI-T8H"/>
+                            <constraint firstAttribute="bottom" secondItem="dct-tU-dhG" secondAttribute="bottom" constant="1.5" id="uyf-bT-4sc"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="jfE-zj-ciO" secondAttribute="bottom" constant="5" id="9T2-eZ-Vbj"/>
+                    <constraint firstItem="jfE-zj-ciO" firstAttribute="leading" secondItem="1v2-sf-Nzh" secondAttribute="leading" id="qye-bc-1A5"/>
+                    <constraint firstAttribute="trailing" secondItem="jfE-zj-ciO" secondAttribute="trailing" id="tPM-NT-BxU"/>
+                    <constraint firstItem="jfE-zj-ciO" firstAttribute="top" secondItem="1v2-sf-Nzh" secondAttribute="top" constant="5" id="vQ7-qn-5uv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="lKt-tA-tRt"/>
+            <connections>
+                <outlet property="btnDownloadOutlet" destination="0ds-Gh-a1Q" id="XfZ-co-0L9"/>
+                <outlet property="txtPresentation" destination="dct-tU-dhG" id="K20-hc-HX9"/>
+            </connections>
+            <point key="canvasLocation" x="17" y="66"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="download document" width="30" height="30"/>
+    </resources>
+</document>

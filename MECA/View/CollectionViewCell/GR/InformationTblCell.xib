@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro.ttf">
+            <string>SFPro-Bold</string>
+            <string>SFPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="InformationTblCell" rowHeight="292" id="Jqc-0C-zRQ" customClass="InformationTblCell" customModule="MECA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="292"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jqc-0C-zRQ" id="mHv-dj-c5m">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="292"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zBA-Fk-xnG" customClass="RCustomView" customModule="MECA" customModuleProvider="target">
+                        <rect key="frame" x="16" y="12" width="288" height="268"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_1" translatesAutoresizingMaskIntoConstraints="NO" id="PJ3-bK-0H4">
+                                <rect key="frame" x="0.0" y="0.0" width="288" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="Yqy-yK-Ny3"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEBIT Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1z-Nj-LP9">
+                                <rect key="frame" x="15" y="175" width="258" height="17"/>
+                                <fontDescription key="fontDescription" name="SFPro-Regular" family="SF Pro" pointSize="14"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Toyota Way 2001" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GH7-cs-6Mo">
+                                <rect key="frame" x="15" y="198" width="258" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="3FX-EI-U73"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new" translatesAutoresizingMaskIntoConstraints="NO" id="QKO-0P-cbY">
+                                <rect key="frame" x="229" y="-1" width="60" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="R4e-0X-FsU"/>
+                                    <constraint firstAttribute="height" constant="50" id="Xdg-TC-pqx"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PJ3-bK-0H4" firstAttribute="top" secondItem="zBA-Fk-xnG" secondAttribute="top" id="Ig7-E0-ZVR"/>
+                            <constraint firstItem="h1z-Nj-LP9" firstAttribute="leading" secondItem="zBA-Fk-xnG" secondAttribute="leading" constant="15" id="SXA-lT-8Lc"/>
+                            <constraint firstItem="PJ3-bK-0H4" firstAttribute="leading" secondItem="zBA-Fk-xnG" secondAttribute="leading" id="X9A-bu-Unk"/>
+                            <constraint firstAttribute="trailing" secondItem="PJ3-bK-0H4" secondAttribute="trailing" id="c6P-fi-zwK"/>
+                            <constraint firstAttribute="trailing" secondItem="h1z-Nj-LP9" secondAttribute="trailing" constant="15" id="cgK-Sy-mBD"/>
+                            <constraint firstItem="h1z-Nj-LP9" firstAttribute="top" secondItem="PJ3-bK-0H4" secondAttribute="bottom" constant="15" id="jiN-pm-aBW"/>
+                            <constraint firstItem="GH7-cs-6Mo" firstAttribute="top" secondItem="h1z-Nj-LP9" secondAttribute="bottom" constant="6" id="liA-f4-lqG"/>
+                            <constraint firstItem="GH7-cs-6Mo" firstAttribute="leading" secondItem="h1z-Nj-LP9" secondAttribute="leading" id="ntg-wR-Qkv"/>
+                            <constraint firstItem="GH7-cs-6Mo" firstAttribute="trailing" secondItem="h1z-Nj-LP9" secondAttribute="trailing" id="sZb-gq-bEW"/>
+                            <constraint firstItem="QKO-0P-cbY" firstAttribute="top" secondItem="zBA-Fk-xnG" secondAttribute="top" constant="-1" id="ubI-UA-W1E"/>
+                            <constraint firstAttribute="trailing" secondItem="QKO-0P-cbY" secondAttribute="trailing" constant="-1" id="wub-VW-i7t"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="16"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="2" height="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="zBA-Fk-xnG" firstAttribute="leading" secondItem="mHv-dj-c5m" secondAttribute="leading" constant="16" id="64s-Fr-0iM"/>
+                    <constraint firstItem="zBA-Fk-xnG" firstAttribute="top" secondItem="mHv-dj-c5m" secondAttribute="top" constant="12" id="Su8-F0-Li4"/>
+                    <constraint firstAttribute="bottom" secondItem="zBA-Fk-xnG" secondAttribute="bottom" constant="12" id="XRt-QS-7id"/>
+                    <constraint firstAttribute="trailing" secondItem="zBA-Fk-xnG" secondAttribute="trailing" constant="16" id="dJq-70-YQ3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="4Ym-MM-TDS"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="imgFeed" destination="PJ3-bK-0H4" id="IKK-Ko-2JG"/>
+                <outlet property="lblEventName" destination="h1z-Nj-LP9" id="T5e-uc-rQU"/>
+                <outlet property="lblTitle" destination="GH7-cs-6Mo" id="nm4-qu-B2F"/>
+                <outlet property="newImage" destination="QKO-0P-cbY" id="rG4-1q-k2E"/>
+            </connections>
+            <point key="canvasLocation" x="34.782608695652179" y="70.3125"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="image_1" width="361" height="178"/>
+        <image name="new" width="50" height="50"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

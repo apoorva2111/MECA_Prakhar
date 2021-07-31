@@ -86,7 +86,11 @@ class CategoryCommonViewController: UIViewController {
     @IBOutlet weak var txtviewPopopInfo: UITextView!
     @IBOutlet weak var txtPopupTitle: UITextField!
   
- 
+    @IBOutlet weak var lblTypeTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var lblTypeHieghtConstraint: NSLayoutConstraint!
+    @IBOutlet weak var txtChooseTypeTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var txtChooseTypeHeightConstraint: NSLayoutConstraint!
+    
     
     var screenSize: CGRect!
     var screenWidth: CGFloat!
@@ -167,6 +171,21 @@ class CategoryCommonViewController: UIViewController {
         setupCollectionView5()
     }
     func setupUI(){
+        if myTitle == "Add New GR" {
+            lblTypeTopConstraint.constant = 0
+            lblTypeHieghtConstraint.constant = 0
+            typeLabelRef.isHidden = true
+            txtChooseTypeTopConstraint.constant = 0
+            txtChooseTypeHeightConstraint.constant = 0
+            chooseTypeTextField.isHidden = true
+        }else{
+            lblTypeTopConstraint.constant = 25
+            lblTypeHieghtConstraint.constant = 21
+            typeLabelRef.isHidden = false
+            txtChooseTypeTopConstraint.constant = 10
+            txtChooseTypeHeightConstraint.constant = 40
+            chooseTypeTextField.isHidden = false
+        }
         titleInputTextField.layer.borderWidth = 1
         titleInputTextField.layer.borderColor = #colorLiteral(red: 0.6745098039, green: 0.6745098039, blue: 0.6745098039, alpha: 1)
         titleInputTextField.layer.cornerRadius = 8
@@ -249,7 +268,7 @@ class CategoryCommonViewController: UIViewController {
         videoLinkbtnOutletSeeMore.isHidden = true
         videoLinkStackviewHeightConstraint.constant = 0
         viewAlertAddLinks.isHidden = true
-        
+       
         
     }
     
@@ -677,7 +696,7 @@ extension CategoryCommonViewController{
 
 extension CategoryCommonViewController{
     func createKaizen(){
-        if myTitle == "GR"{
+        if myTitle == "Add New GR"{
             
             if titleInputTextField.text == "" && descriptionTextView.text == ""  && startDateTextField.text == "" {
                 GlobalObj.showAlertVC(title: "Oops", message: "Please Enter All Feilds", controller: self)

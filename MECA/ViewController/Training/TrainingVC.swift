@@ -37,6 +37,9 @@ class TrainingVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
         trainingCategoryCollectionView.register(MEBITCollectionViewCell.nib(), forCellWithReuseIdentifier: "MEBITCollectionViewCell")
         trainingCategoryCollectionView.delegate = self
         trainingCategoryCollectionView.dataSource = self

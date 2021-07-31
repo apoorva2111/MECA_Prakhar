@@ -19,7 +19,7 @@ class FooterTabView: UIView {
     @IBOutlet weak var lblCategory: UILabel!
     @IBOutlet weak var lblNotification: UILabel!
     @IBOutlet weak var lblMore: UILabel!
-    
+    @IBOutlet weak var cateforyview:RCustomView!
     let nibName = "FooterTabView"
     var contentView: UIView?
     var footerTabViewDelegate : FooterTabViewDelegate!
@@ -47,7 +47,7 @@ class FooterTabView: UIView {
         }else if sender.tag == 30 {
             footerTabViewDelegate.footerBarAction(strType: "Categories")
         }else if sender.tag == 40 {
-            footerTabViewDelegate.footerBarAction(strType: "Notification")
+            footerTabViewDelegate.footerBarAction(strType: "FROM TMC")
         }else if sender.tag == 50 {
             footerTabViewDelegate.footerBarAction(strType: "More")
         }

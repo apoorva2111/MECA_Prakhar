@@ -80,7 +80,6 @@ class NewsDetailVM: BaseTableViewVM {
             }else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "RelatedNewsTVCell", for: indexPath) as! RelatedNewsTVCell
                 if newsData != nil{
-                    cell.viewController = (actualController as? NewsDetailVC).self
                     cell.setNewsRelatedNewsData(grData: newsData!)
                 }
                 return cell
@@ -177,25 +176,27 @@ class NewsDetailVM: BaseTableViewVM {
                 if respCode == 200{
                     
                     if let objDate = result.data {
+                        
                         self.newsData = objDate
+                        
                         GlobalObj.displayLoader(true, show: false)
                         (self.actualController as! NewsDetailVC).tblNewsDetail.isHidden = false
                         (self.actualController as! NewsDetailVC).tblNewsDetail.reloadData()
-                        
-                        if (self.actualController as! NewsDetailVC).tblNewsDetail.numberOfRows(inSection: 0) != 0 {
-                            (self.actualController as! NewsDetailVC).tblNewsDetail.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-                        }
                     }else{
                         (self.actualController as! NewsDetailVC).tblNewsDetail.isHidden = false
                         
                         GlobalObj.displayLoader(true, show: false)
                     }
+                    
                 }
                 
                 GlobalObj.displayLoader(true, show: false)
+                
             }
+            
         }
     }
+    
     
     func callWebserviceFroVideoInfo(videoId:String) {
         GlobalObj.displayLoader(true, show: true)
@@ -213,12 +214,6 @@ class NewsDetailVM: BaseTableViewVM {
                         GlobalObj.displayLoader(true, show: false)
                         (self.actualController as! NewsDetailVC).tblNewsDetail.isHidden = false
                         (self.actualController as! NewsDetailVC).tblNewsDetail.reloadData()
-                        
-                        if (self.actualController as! NewsDetailVC).tblNewsDetail.numberOfRows(inSection: 0) != 0 {
-                            (self.actualController as! NewsDetailVC).tblNewsDetail.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-                        }
-                      
-                        
                     }else{
                         (self.actualController as! NewsDetailVC).tblNewsDetail.isHidden = false
                         

@@ -29,6 +29,8 @@ class HomeNewsFeedVC: UIViewController {
     private var pullControl = UIRefreshControl()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
 
         viewBackground.isHidden = true
     }
@@ -41,7 +43,9 @@ class HomeNewsFeedVC: UIViewController {
         viewModel = HomeNewsFeedVM.init(controller: self)
         
         tblFeed.register(UINib.init(nibName: "HomeNewsFeedTVCell", bundle: nil), forCellReuseIdentifier: "HomeNewsFeedTVCell")
-            //
+        tblFeed.register(UINib.init(nibName: "WhatsNewTVCell", bundle: nil), forCellReuseIdentifier: "WhatsNewTVCell")
+
+        
         tblLikeList.register(UINib.init(nibName: "HomeNewsLikeTVCell", bundle: nil), forCellReuseIdentifier: "HomeNewsLikeTVCell")
 
         tblFeed.delegate = self
@@ -78,8 +82,7 @@ class HomeNewsFeedVC: UIViewController {
            }
        }
     @IBAction func btnEditPost(_ sender: UIButton) {
-        let vc = FlowController().instantiateViewController(identifier: "MECAPostVC", storyBoard: "Home")as! MECAPostVC
-        vc.feedId = viewModel.feedId
+        let vc = FlowController().instantiateViewController(identifier: "PlusSelectCategoryVC", storyBoard: "Home")
         self.navigationController?.pushViewController(vc, animated: true)
 
     }
@@ -187,9 +190,19 @@ extension HomeNewsFeedVC: FooterTabViewDelegate{
 
         }else if strType == "Calendar"{
             
-            let vc = FlowController().instantiateViewController(identifier: "HomeVC", storyBoard: "Home")
+            let vc = FlowController().instantiateViewController(identifier: "Chatvcmain", storyBoard: "Home")
             self.navigationController?.pushViewController(vc, animated:false)
-            
+//            let mainVC = FlowController().instantiateViewController(identifier: "More", storyBoard: "Chatvc")
+//            let appDel = UIApplication.shared.delegate as! AppDelegate
+//            appDel.window?.rootViewController = mainVC
+//            let options: UIView.AnimationOptions = .transitionCrossDissolve
+//            let duration: TimeInterval = 0.3
+//
+//            UIView.transition(with: appDel.window!, duration: duration, options: options, animations: {}, completion:
+//            { completed in
+//                // maybe do something on completion here
+//            })
+//            appDel.window?.makeKeyAndVisible()
         }else if strType == "Categories"{
 
             let mainVC = FlowController().instantiateViewController(identifier: "NavCategory", storyBoard: "Category")
@@ -205,11 +218,9 @@ extension HomeNewsFeedVC: FooterTabViewDelegate{
             appDel.window?.makeKeyAndVisible()
 
        
-        }else if strType == "Notification"{
-            
-            let vc = FlowController().instantiateViewController(identifier: "NotificationVC", storyBoard: "Home")
+        }else if strType == "FROM TMC"{
+            let vc = FlowController().instantiateViewController(identifier: "FromTMCvc", storyBoard: "Home")
             self.navigationController?.pushViewController(vc, animated:false)
-         
         }else{
             let vc = FlowController().instantiateViewController(identifier: "MoreVC", storyBoard: "Home")
             self.navigationController?.pushViewController(vc, animated:false)
@@ -219,6 +230,9 @@ extension HomeNewsFeedVC: FooterTabViewDelegate{
 
 //MARK:- UITableview Delegate
 extension HomeNewsFeedVC: UITableViewDelegate, UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        viewModel.getNumbersOfSections()
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.getNumbersOfRows(in: section)
     }
@@ -232,7 +246,10 @@ extension HomeNewsFeedVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        
+        //MoveupBounce tableview
+        let animation = TableAnimationFactory.makeMoveUpBounceAnimation(rowHeight: viewModel.getHeightForRowAt(indexPath, tableView: tableView), duration: 0.5, delayFactor: 0.05)
+        let animator = Animator(animation: animation)
+        animator.animate(cell: cell, at: indexPath, in: tableView)
         if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
             if indexPath == lastVisibleIndexPath {
                 if indexPath.row == viewModel.arrFeed.count-1{

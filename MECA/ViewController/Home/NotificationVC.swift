@@ -4,26 +4,28 @@ import UIKit
 
 class NotificationVC: UIViewController {
     @IBOutlet weak var viewFooter: FooterTabView!
-
-    @IBAction func btnBackAction(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
+    @IBOutlet weak var tblNotification: UITableView!
+    var viewModel : NotificationVM!
+    var currentPage : Int = 1
+    var checkPagination = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        viewFooter.footerTabViewDelegate = self
-//        viewFooter.imgMore.image = UIImage.init(named: "More")
-//        viewFooter.imgCalender.image = UIImage.init(named: "Calendar")
-//        viewFooter.imgHome.image = UIImage.init(named: "Home_Inactive")
-//        viewFooter.lblHome.font = UIFont.init(name: "SFPro-Regular", size: 12)
-//        viewFooter.lblCalender.font = UIFont.init(name: "SFPro-Regular", size: 12)
-//        viewFooter.lblCategory.font = UIFont.init(name: "SFPro-Regular", size: 12)
-//        viewFooter.lblNotification.font = UIFont.init(name: "SFPro-Bold", size: 12)
-//        viewFooter.lblMore.font = UIFont.init(name: "SFPro-Regular", size: 12)
-
+        viewModel = NotificationVM.init(controller: self)
+        viewFooter.footerTabViewDelegate = self
+        viewFooter.imgMore.image = UIImage.init(named: "More")
+        viewFooter.imgCalender.image = UIImage.init(named: "Calendar")
+        viewFooter.imgHome.image = UIImage.init(named: "Home_Inactive")
+        viewFooter.imgNotification.image = UIImage.init(named: "Notification Active")
+        viewFooter.lblHome.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        viewFooter.lblCalender.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        viewFooter.lblCategory.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        viewFooter.lblNotification.font = UIFont.init(name: "SFPro-Bold", size: 12)
+        viewFooter.lblMore.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        
+        tblNotification.register(SignUpListTVCell.nib(), forCellReuseIdentifier: "SignUpListTVCell")
     }
-    
 }
 
 //MARK:- Footerview Delegate
@@ -63,14 +65,53 @@ extension NotificationVC : FooterTabViewDelegate{
             appDel.window?.makeKeyAndVisible()
 
        
-        }else if strType == "Notification"{
-            let vc = FlowController().instantiateViewController(identifier: "NotificationVC", storyBoard: "Home")
+        }else if strType == "FROM TMC"{
+            let vc = FlowController().instantiateViewController(identifier: "FromTMCvc", storyBoard: "Home")
             self.navigationController?.pushViewController(vc, animated:false)
         }else{
             let vc = FlowController().instantiateViewController(identifier: "MoreVC", storyBoard: "Home")
             self.navigationController?.pushViewController(vc, animated:false)
         }
     }
+}
+
+extension NotificationVC : UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.getNumbersOfRows(in: section)
+    }
     
-    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        viewModel.getCellForRowAt(indexPath, tableView: tblNotification)
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectRowAt(indexPath, tableView: tblNotification)
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        viewModel.getHeightForRowAt(indexPath, tableView: tblNotification)
+    }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+            
+            if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+                if indexPath == lastVisibleIndexPath {
+                    if indexPath.row == viewModel.arrNoticationList.count-1{
+                        self.checkPagination = "pagination"
+                        currentPage += 1
+                        GlobalObj.displayLoader(true, show: true)
+                        GlobalObj.run(after: 2) {
+                            self.viewModel.callWebserviceForNotificationList(limit: "10", page: String(self.currentPage))
+                    }
+                }
+            }
+        }
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+          
+          if editingStyle == .delete {
+//               terms.remove(at: indexPath.row)
+//               tableView.deleteRows(at: [indexPath], with: .bottom)
+          }
+      }
 }

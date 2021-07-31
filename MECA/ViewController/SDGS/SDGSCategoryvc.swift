@@ -23,6 +23,8 @@ class SDGSCategoryvc: UIViewController  {
     var categorylist = [[String:Any]]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
 
         footerView.blueFooterViewDelegate = self
         footerView.imgWhatsnew.image = #imageLiteral(resourceName: "Whats New")

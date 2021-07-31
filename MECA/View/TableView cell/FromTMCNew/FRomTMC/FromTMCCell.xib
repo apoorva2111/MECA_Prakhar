@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro.ttf">
+            <string>SFPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FromTMCCell" rowHeight="15" id="l2y-Ad-P76" customClass="FromTMCCell" customModule="MECA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="121"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l2y-Ad-P76" id="FFR-H4-pcA">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="121"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bY8-dV-SYM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="121"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From TMC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4S-3f-hsW">
+                                <rect key="frame" x="14" y="15" width="382" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="Pju-YI-ne8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="14"/>
+                                <color key="textColor" red="0.1843137255" green="0.32549019610000002" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fYO-LW-Eos">
+                                <rect key="frame" x="8" y="34" width="398" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="cDD-hQ-Qbd"/>
+                                </constraints>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5c-UV-SDM">
+                                <rect key="frame" x="325" y="71" width="57" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="MaA-7z-aUr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="12"/>
+                                <color key="tintColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="See More">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.62352941179999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="B4S-3f-hsW" firstAttribute="leading" secondItem="bY8-dV-SYM" secondAttribute="leading" constant="14" id="5vo-9M-rDy"/>
+                            <constraint firstItem="p5c-UV-SDM" firstAttribute="top" secondItem="fYO-LW-Eos" secondAttribute="bottom" constant="-3" id="KfF-Y1-VU5"/>
+                            <constraint firstItem="fYO-LW-Eos" firstAttribute="trailing" secondItem="B4S-3f-hsW" secondAttribute="trailing" constant="10" id="N8k-gJ-fPn"/>
+                            <constraint firstAttribute="bottom" secondItem="p5c-UV-SDM" secondAttribute="bottom" constant="20" id="NaT-Z3-qQ8"/>
+                            <constraint firstItem="B4S-3f-hsW" firstAttribute="top" secondItem="bY8-dV-SYM" secondAttribute="top" constant="15" id="O4D-qu-SAX"/>
+                            <constraint firstItem="p5c-UV-SDM" firstAttribute="trailing" secondItem="fYO-LW-Eos" secondAttribute="trailing" constant="-24" id="Tg3-Ec-bdO"/>
+                            <constraint firstItem="fYO-LW-Eos" firstAttribute="top" secondItem="B4S-3f-hsW" secondAttribute="bottom" constant="3" id="kcY-RI-07B"/>
+                            <constraint firstItem="fYO-LW-Eos" firstAttribute="leading" secondItem="B4S-3f-hsW" secondAttribute="leading" constant="-6" id="m3h-e8-dwq"/>
+                            <constraint firstAttribute="trailing" secondItem="B4S-3f-hsW" secondAttribute="trailing" constant="18" id="vJE-EU-Xbl"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="bY8-dV-SYM" secondAttribute="bottom" id="CLA-qe-lTY"/>
+                    <constraint firstItem="bY8-dV-SYM" firstAttribute="top" secondItem="FFR-H4-pcA" secondAttribute="top" id="NyU-k3-CcZ"/>
+                    <constraint firstAttribute="trailing" secondItem="bY8-dV-SYM" secondAttribute="trailing" id="bKV-Qu-e2S"/>
+                    <constraint firstItem="bY8-dV-SYM" firstAttribute="leading" secondItem="FFR-H4-pcA" secondAttribute="leading" id="lXI-Ac-v0L"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="Fbv-4x-Www"/>
+            <connections>
+                <outlet property="btnSeeMoreOutlet" destination="p5c-UV-SDM" id="8A0-EL-oXP"/>
+                <outlet property="seeMoreHeightConstraint" destination="MaA-7z-aUr" id="Lbp-Cj-5fF"/>
+                <outlet property="tblDocument" destination="fYO-LW-Eos" id="ojV-Il-kwE"/>
+                <outlet property="tblHeightConstraint" destination="cDD-hQ-Qbd" id="hUC-DY-Ug0"/>
+            </connections>
+            <point key="canvasLocation" x="15.942028985507248" y="60.602678571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

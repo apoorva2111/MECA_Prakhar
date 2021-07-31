@@ -3,11 +3,11 @@ import UIKit
 
 class CategoriesVM: BaseCollectionViewVM {
 
-    var arrCat = ["News RC","MEBIT","MaaS","HYDROGEN","SDGS","GR","Training"]
-    var arrcatImg = [UIImage.init(named: "News"),UIImage.init(named: "MEBIT"),UIImage.init(named: "MaaS"),UIImage.init(named: "Hydrogen"),UIImage.init(named: "SDGs"),UIImage.init(named: "GR"),UIImage.init(named: "Training_category")]
+    var arrCat = ["News RC","MEBIT","MaaS","HYDROGEN","SDGS","GR","Training","One & Only"]
+    var arrcatImg = [UIImage.init(named: "News"),UIImage.init(named: "MEBIT"),UIImage.init(named: "MaaS"),UIImage.init(named: "Hydrogen"),UIImage.init(named: "SDGs"),UIImage.init(named: "GR"),UIImage.init(named: "Training_category"),UIImage.init(named: "one_and_only Category")]
 
     var arrModule = [Modules]()
-
+    
     override init(controller: UIViewController?) {
         super.init(controller: controller)
       actualController = controller
@@ -100,6 +100,13 @@ class CategoriesVM: BaseCollectionViewVM {
             GlobalValue.tabCategory = "Training"
             (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
         }
+        else if indexPath.row == 7{
+            let story = UIStoryboard(name: "Home", bundle:nil)
+                       let vc = story.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+            
+            GlobalValue.tabCategory = "One & Only"
+            (actualController as! CategoriesViewController).navigationController?.pushViewController(vc, animated: true)
+        }
         
         
     }
@@ -107,6 +114,7 @@ class CategoriesVM: BaseCollectionViewVM {
         return CGSize(width: (actualController as! CategoriesViewController).screenWidth/2, height: 220)
 
     }
+    
     
         //Module
         func callWebserviceCategory() {

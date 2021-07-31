@@ -16,8 +16,12 @@ target 'MECA' do
   pod 'KRProgressHUD'
   pod 'ObjectMapper'
   pod 'SDWebImage', '~> 5.0'
+  
+  #Firebase
   pod 'Firebase'
   pod 'Firebase/InAppMessaging'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
   pod 'Firebase/Core'
   pod 'Firebase/Storage'
@@ -25,7 +29,8 @@ target 'MECA' do
   pod 'Firebase/Database'
   pod 'JSQMessagesViewController'
   pod 'Tabman', '~> 2.9'
-
+  pod 'FSCalendar'
+  pod 'VersaPlayer'
   # Pods for MECA
   
   target 'MECATests' do

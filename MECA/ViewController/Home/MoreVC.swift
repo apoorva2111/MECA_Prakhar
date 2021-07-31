@@ -45,13 +45,13 @@ class MoreVC: UIViewController {
     
     }
     @IBAction func btnChatAction(_ sender: UIButton) {
-        let story = UIStoryboard(name: "More", bundle:nil)
-      //  let obj = arrList[indexPath.row]
-        let vc = story.instantiateViewController(withIdentifier: "Chatvc") as! ChatVC
-
-
-
-        self.navigationController?.pushViewController(vc, animated: true)
+//        let story = UIStoryboard(name: "More", bundle:nil)
+//      //  let obj = arrList[indexPath.row]
+//        let vc = story.instantiateViewController(withIdentifier: "Chatvc") as! ChatVC
+//
+//
+//
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func btnreminderAction(_ sender: UIButton) {
         let story = UIStoryboard(name: "More", bundle:nil)
@@ -158,11 +158,12 @@ extension MoreVC : FooterTabViewDelegate{
 
         }else if strType == "Calendar"{
             
-            let vc = FlowController().instantiateViewController(identifier: "HomeVC", storyBoard: "Home")
+            let vc = FlowController().instantiateViewController(identifier: "Chatvcmain", storyBoard: "Home")
             self.navigationController?.pushViewController(vc, animated:false)
             
         }else if strType == "Categories"{
-
+            print("Type2")
+            
             let mainVC = FlowController().instantiateViewController(identifier: "NavCategory", storyBoard: "Category")
             let appDel = UIApplication.shared.delegate as! AppDelegate
             appDel.window?.rootViewController = mainVC
@@ -174,10 +175,8 @@ extension MoreVC : FooterTabViewDelegate{
                 // maybe do something on completion here
             })
             appDel.window?.makeKeyAndVisible()
-
-       
-        }else if strType == "Notification"{
-            let vc = FlowController().instantiateViewController(identifier: "NotificationVC", storyBoard: "Home")
+        }else if strType == "FROM TMC"{
+            let vc = FlowController().instantiateViewController(identifier: "FromTMCvc", storyBoard: "Home")
             self.navigationController?.pushViewController(vc, animated:false)
         }else{
             

@@ -14,10 +14,11 @@ class ScheduleTableCell: UITableViewCell {
     @IBOutlet weak var schedulenamelbl:UILabel!
     @IBOutlet weak var schedulebtn:UIButton!
     @IBOutlet weak var topView: RCustomView!
+    var FromCalendarVC : CalenderVC? 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-       // self.topView.roundCorners([.layerMinXMaxYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMinYCorner], radius: 12.0, borderColor: UIColor.white, borderWidth: 1)
+        self.topView.roundCorners([.layerMinXMaxYCorner, .layerMaxXMaxYCorner,.layerMaxXMinYCorner, .layerMinXMinYCorner], radius: 12.0, borderColor: UIColor.white, borderWidth: 1)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,7 +28,25 @@ class ScheduleTableCell: UITableViewCell {
     }
     func setCellcalendarvalue(feed:calendardata) {
         
-        print("calendar feed...\(feed)")
+        print("calendar unselected feed...\(feed)")
+        schedulenamelbl.text = feed.title
+        
+        let sdate = feed.start_date!
+        let edate = feed.end_date!
+        let convertedsdate =  GlobalObj.convertToStringforcalendar(dateString:sdate)
+       // let convertededate =  GlobalObj.convertToString(dateString:edate)
+        if edate == ""  {
+            
+            datelbl.text! = convertedsdate
+        }else{
+            
+            datelbl.text! = convertedsdate
+        }
+        
+    }
+    func setCellSelectcalendarvalue(feed:calendardata) {
+        
+        print("calendar selected feed...\(feed)")
         schedulenamelbl.text = feed.title
         
         let sdate = feed.start_date!

@@ -17,6 +17,8 @@ class SupportVC: UIViewController {
     var supportarrList = [Supportdatas]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
 
         supporttblview.estimatedRowHeight = 125
         self.supporttblview.rowHeight = UITableView.automaticDimension

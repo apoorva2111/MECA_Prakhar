@@ -22,6 +22,9 @@ class TrainingdetailVC: UIViewController {
     private var pullControl = UIRefreshControl()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
         trainingdetailtblview.isHidden = true
         trainingviewModel = TrainingDetailVM.init(controller: self)
         

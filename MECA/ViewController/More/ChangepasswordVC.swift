@@ -20,6 +20,8 @@ class ChangepasswordVC: UIViewController {
     var reenternewiconClick = true
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
 
         // Do any additional setup after loading the view.
     }

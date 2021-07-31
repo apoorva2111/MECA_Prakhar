@@ -52,6 +52,9 @@ var companyName, profession, avatar: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
         if  frame == 1 {
             frameimge.image = UIImage.init(named: "Frame-Gold")
             badgeimge.image = UIImage.init(named: "Badge-Gold")

@@ -14,6 +14,8 @@ class ReminderVC: UIViewController {
     var reminderarrList = [Reminderdata]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
 
         remindertblview.estimatedRowHeight = 70
         self.remindertblview.rowHeight = UITableView.automaticDimension

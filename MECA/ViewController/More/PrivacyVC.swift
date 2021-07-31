@@ -12,6 +12,9 @@ class PrivacyVC: UIViewController,WKUIDelegate {
         var videoId: String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
         let url = URL(string: "http://mecacampus.com/API/mobile/user/privacypolicy")
         webview2.load(URLRequest(url: url!))
         // Do any additional setup after loading the view.

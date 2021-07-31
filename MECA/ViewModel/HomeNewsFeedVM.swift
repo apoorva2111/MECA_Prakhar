@@ -10,52 +10,72 @@ class HomeNewsFeedVM: BaseTableViewVM {
     var documentLink = ""
     var feedId = ""
     var arrLikedArr = [NewHomeData]()
-    
+    var arrHomeFeed:[Data_Home] = []
+
     
     override init(controller: UIViewController?) {
         super.init(controller: controller)
         (actualController as! HomeNewsFeedVC).currentPage = 1
         (actualController as! HomeNewsFeedVC).checkPagination = "get"
         callWebserviceForFeed(page: String((actualController as! HomeNewsFeedVC).currentPage))
+        callWhatsNewWebservice()
     }
     
     
     override func getNumbersOfSections()-> Int{
-        return 1//self.arrVideoList.count
+        return 2//self.arrVideoList.count
     }
     
     override func getNumbersOfRows(in section: Int) -> Int {
-        return arrFeed.count
-        
-    }
-    override func getCellForRowAt(_ indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
-        
-        if tableView == (actualController as! HomeNewsFeedVC).tblFeed{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeNewsFeedTVCell", for: indexPath) as! HomeNewsFeedTVCell
-            cell.viewcontrollerHome = (actualController as! HomeNewsFeedVC).self
-            cell.btnMoreOutlet.tag = indexPath.row
-            cell.btnMoreOutlet.addTarget(self, action: #selector(self.btnMoreAction), for: .touchUpInside)
-           
-            cell.btnLikeOutlet.tag = indexPath.row
-            cell.btnLikeOutlet.addTarget(self, action: #selector(self.btnlikeCountAction), for: .touchUpInside)
-            
-            cell.btnLikeUnlikeOutlet.tag = indexPath.row
-            cell.btnLikeUnlikeOutlet.addTarget(self, action: #selector(self.btnLikeunlikeAction), for: .touchUpInside)
-            cell.btnSeeMoreOutlet.tag = indexPath.row
-            cell.btnSeeMoreOutlet.addTarget(self, action: #selector(self.btnSeeMoreAction), for: .touchUpInside)
-            cell.buttonPlayOutlet.tag = indexPath.row
-            cell.buttonPlayOutlet.addTarget(self, action: #selector(self.btnPlayVideoAction), for: .touchUpInside)
-            cell.btnCommentOutllet.tag = indexPath.row
-            cell.btnCommentOutllet.addTarget(self, action: #selector(self.btnCommentAction), for: .touchUpInside)
-            cell.setCell(objFeed: arrFeed[indexPath.row], arrID: arrLikedArr)
-            return cell
+        if section == 0 {
+            return 1
         }else{
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeNewsLikeTVCell", for: indexPath) as! HomeNewsLikeTVCell
-            return cell
+            return arrFeed.count
         }
     }
-    
+    override func getCellForRowAt(_ indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
+        if indexPath.section == 0 {
+          //  let cell = tableView.dequeueReusableCell(withIdentifier: "WhatsNewTVCell", for: indexPath) as! WhatsNewTVCell
+            if tableView == (actualController as! HomeNewsFeedVC).tblFeed{
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "WhatsNewTVCell", for: indexPath) as! WhatsNewTVCell
+                
+                cell.setCell(feed: arrHomeFeed)
+                cell.viewController = (actualController as! HomeNewsFeedVC).self
+                cell.btnShowAllOutlet.addTarget(self, action: #selector(btnShowAllAction), for: .touchUpInside)
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "HomeNewsLikeTVCell", for: indexPath) as! HomeNewsLikeTVCell
+                return cell
+            }
+
+        }else{
+            if tableView == (actualController as! HomeNewsFeedVC).tblFeed{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "HomeNewsFeedTVCell", for: indexPath) as! HomeNewsFeedTVCell
+                cell.viewcontrollerHome = (actualController as! HomeNewsFeedVC).self
+                cell.btnMoreOutlet.tag = indexPath.row
+                cell.btnMoreOutlet.addTarget(self, action: #selector(self.btnMoreAction), for: .touchUpInside)
+                
+                cell.btnLikeOutlet.tag = indexPath.row
+                cell.btnLikeOutlet.addTarget(self, action: #selector(self.btnlikeCountAction), for: .touchUpInside)
+                
+                cell.btnLikeUnlikeOutlet.tag = indexPath.row
+                cell.btnLikeUnlikeOutlet.addTarget(self, action: #selector(self.btnLikeunlikeAction), for: .touchUpInside)
+                cell.btnSeeMoreOutlet.tag = indexPath.row
+                cell.btnSeeMoreOutlet.addTarget(self, action: #selector(self.btnSeeMoreAction), for: .touchUpInside)
+                cell.buttonPlayOutlet.tag = indexPath.row
+                cell.buttonPlayOutlet.addTarget(self, action: #selector(self.btnPlayVideoAction), for: .touchUpInside)
+                cell.btnCommentOutllet.tag = indexPath.row
+                cell.btnCommentOutllet.addTarget(self, action: #selector(self.btnCommentAction), for: .touchUpInside)
+                cell.setCell(objFeed: arrFeed[indexPath.row], arrID: arrLikedArr)
+                return cell
+            }else{
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "HomeNewsLikeTVCell", for: indexPath) as! HomeNewsLikeTVCell
+                return cell
+            }
+        }
+    }
     override func didSelectRowAt(_ indexPath: IndexPath, tableView: UITableView) {
         //        let vc = FlowController().instantiateViewController(identifier: "NewsDetailVC", storyBoard: "NewsRC") as! NewsDetailVC
         //        let obj = arrVideoList[indexPath.section].videos?[indexPath.row]
@@ -73,13 +93,15 @@ class HomeNewsFeedVM: BaseTableViewVM {
     }
     
     //
-    
+    @objc func btnShowAllAction (sender : UIButton){
+        let story = UIStoryboard(name: "Home", bundle:nil)
+        let vc = story.instantiateViewController(withIdentifier: "WhatsNewVC") as! WhatsNewVC
+        (actualController as! HomeNewsFeedVC).navigationController?.pushViewController(vc, animated: true)
+    }
     @objc func btnCommentAction (sender : UIButton){
         let obj = arrFeed[sender.tag]
         let vc = FlowController().instantiateViewController(identifier: "NewHomeCommentVC", storyBoard: "Home") as! NewHomeCommentVC
         vc.feedDetail = obj
-        userDef.setValue("hideTable", forKey: UserDefaultKey.replyView)
-        userDef.synchronize()
         (actualController as! HomeNewsFeedVC).navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -217,7 +239,37 @@ class HomeNewsFeedVM: BaseTableViewVM {
             }
         }
     }
-}
+    
+    
+        
+   //     if arrLikeId.contains(obj.id!){
+//            callWebserviceForLikeFeed(item: String(obj.id!), status: "0", like_type: "1"){ (dict) in
+//                if dict.likes == 1{
+//                    cell.lblLikeCount.text = String(dict.likes!) + "Like"
+//                }else{
+//                    cell.lblLikeCount.text = String(dict.likes!) + "Likes"
+//                }
+//                cell.imgLike.image = #imageLiteral(resourceName: "Like_BlueBorder")
+////                if self.arrLikeId.contains(obj.id!){
+//                    let animals = self.arrLikeId.filter(){$0 != obj.id!}
+//print(animals)
+//   //
+// //               }
+//            }
+//        }else{
+//            callWebserviceForLikeFeed(item: String(obj.id!), status: "1", like_type: "1"){ (dict) in
+//                if dict.likes == 1{
+//                    cell.lblLikeCount.text = String(dict.likes!) + "Like"
+//
+//                }else{
+//                    cell.lblLikeCount.text = String(dict.likes) + "Likes"
+//                }
+//                cell.imgLike.image = #imageLiteral(resourceName: "likes_Blue")
+//                self.arrLikeId.append(obj.id!)
+//            }
+//        }
+  //  }
+    }
     @objc func btnSeeMoreAction(sender: UIButton){
         
         let point = (self.actualController as! HomeNewsFeedVC).tblFeed.convert(sender.center, from: sender.superview!)
@@ -285,6 +337,32 @@ class HomeNewsFeedVM: BaseTableViewVM {
         }
     }
     
+    func callWhatsNewWebservice() {
+        GlobalObj.displayLoader(true, show: true)
+        APIClient.wevserviceForHomeFeed { (result) in
+
+            if let respCode = result.resp_code{
+                GlobalObj.displayLoader(true, show: false)
+                if respCode == 200{
+                    if let arrDate = result.data{
+                        if self.arrHomeFeed.count>0{
+                            self.arrHomeFeed.removeAll()
+                        }
+                        for objData in arrDate {
+                            self.arrHomeFeed.append(objData)
+                        }
+                    }
+                    (self.actualController as! HomeNewsFeedVC).tblFeed.reloadData()
+                }else{
+                    GlobalObj.displayLoader(true, show: false)
+
+                }
+            }
+            
+            GlobalObj.displayLoader(true, show: false)
+
+        }
+    }
     //completion:@escaping(Int) -> Void
     func callWebserviceForLikeFeed(item:String,status:String,like_type:String,completion:@escaping(NewHomeData) -> Void) {
         GlobalObj.displayLoader(true, show: true)

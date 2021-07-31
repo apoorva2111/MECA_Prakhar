@@ -18,7 +18,9 @@ class GRActivityReportVC: UIViewController {
     private var pullControl = UIRefreshControl()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
         setupUI()
         pullControl.tintColor = UIColor.gray
         pullControl.addTarget(self, action: #selector(refreshListData(_:)), for: .valueChanged)
@@ -41,7 +43,10 @@ class GRActivityReportVC: UIViewController {
         tblActivity.dataSource = self
         viewModel = GRActivityReportVM.init(controller: self)
         
-        
+        footerView.lblTMC.sizeToFit()
+        footerView.lblDistributor.sizeToFit()
+        footerView.lblSpecialsite.sizeToFit()
+        footerView.lblWhatsNew.sizeToFit()
         
         footerView.orangeFooterViewDelegate = self
         footerView.imgWhatsnew.image = UIImage.init(named: "Whats New")
@@ -49,7 +54,8 @@ class GRActivityReportVC: UIViewController {
         footerView.imgFromTMC.image = UIImage.init(named: "Linkes")
         footerView.lblWhatsNew.text = "What's New"
         footerView.lblDistributor.text = "Activity Report"
-        footerView.lblTMC.text = "Links"
+        footerView.lblTMC.text = "Official Site"
+            footerView.lblSpecialsite.text = "Special Site"
         footerView.bgView.backgroundColor = #colorLiteral(red: 0.9882352941, green: 0, blue: 0, alpha: 1)
     }
   
@@ -72,7 +78,7 @@ extension GRActivityReportVC : OrangeFooterViewDelegate{
     
     
     func footerBarAction1(strType: String){
-   
+        print("GRActivityReportVC ...? \(strType)")
         if strType == "WhatsNew"{
             print("Type1")
             
@@ -86,6 +92,10 @@ extension GRActivityReportVC : OrangeFooterViewDelegate{
             print("Type3")
                 let vc = FlowController().instantiateViewController(identifier: "GRLinksVC", storyBoard: "GR")
                 self.navigationController?.pushViewController(vc, animated: false)
+        }else if strType == "Special Sites"{
+            print("activity select in special sites")
+            let vc = FlowController().instantiateViewController(identifier: "Specialsitesvc", storyBoard: "GR")
+            self.navigationController?.pushViewController(vc, animated: false)
         }
     }
 }
@@ -107,6 +117,10 @@ extension GRActivityReportVC: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //MoveupBounce tableview
+        let animation = TableAnimationFactory.makeMoveUpBounceAnimation(rowHeight: viewModel.getHeightForRowAt(indexPath, tableView: tblActivity), duration: 0.5, delayFactor: 0.05)
+        let animator = Animator(animation: animation)
+        animator.animate(cell: cell, at: indexPath, in: tableView)
         if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
             if indexPath == lastVisibleIndexPath {
                 if indexPath.row == viewModel.arrGRList.count-1{

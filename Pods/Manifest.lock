@@ -19,6 +19,9 @@ PODS:
   - Firebase/InAppMessaging (7.9.0):
     - Firebase/CoreOnly
     - FirebaseInAppMessaging (~> 7.9.0-beta)
+  - Firebase/Messaging (7.9.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 7.9.0)
   - Firebase/Storage (7.9.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 7.9.0)
@@ -61,9 +64,22 @@ PODS:
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/UserDefaults (~> 7.0)
     - PromisesObjC (~> 1.2)
+  - FirebaseInstanceID (7.11.0):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstallations (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/UserDefaults (~> 7.0)
+  - FirebaseMessaging (7.9.0):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstanceID (~> 7.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Reachability (~> 7.0)
+    - GoogleUtilities/UserDefaults (~> 7.0)
   - FirebaseStorage (7.9.0):
     - FirebaseCore (~> 7.0)
     - GTMSessionFetcher/Core (~> 1.4)
+  - FSCalendar (2.8.2)
   - GoogleAppMeasurement (7.9.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
     - GoogleUtilities/MethodSwizzler (~> 7.0)
@@ -119,6 +135,7 @@ PODS:
   - SwiftyJSON (5.0.0)
   - Tabman (2.11.1):
     - Pageboy (~> 3.6.0)
+  - VersaPlayer (3.0.2)
 
 DEPENDENCIES:
   - Alamofire
@@ -129,7 +146,9 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/InAppMessaging
+  - Firebase/Messaging
   - Firebase/Storage
+  - FSCalendar
   - IQKeyboardManagerSwift
   - JSQMessagesViewController
   - KRProgressHUD
@@ -138,6 +157,7 @@ DEPENDENCIES:
   - SDWebImage (~> 5.0)
   - SwiftyJSON
   - Tabman (~> 2.9)
+  - VersaPlayer
 
 SPEC REPOS:
   trunk:
@@ -152,7 +172,10 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseInAppMessaging
     - FirebaseInstallations
+    - FirebaseInstanceID
+    - FirebaseMessaging
     - FirebaseStorage
+    - FSCalendar
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
@@ -171,6 +194,7 @@ SPEC REPOS:
     - SDWebImage
     - SwiftyJSON
     - Tabman
+    - VersaPlayer
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
@@ -184,7 +208,10 @@ SPEC CHECKSUMS:
   FirebaseDatabase: b62e6e05aac439fe603d7ba68a2c764ca7357a58
   FirebaseInAppMessaging: bb400ae6c860425d6185eddd1a2f9aac58bf7349
   FirebaseInstallations: 5e777e6640fa060405cc7632447b6c5ca5af4742
+  FirebaseInstanceID: ad5135045a498d7775903efd39762d2cdfa1be27
+  FirebaseMessaging: 5f83f200a251c44f647f36cb43e557be09889e8d
   FirebaseStorage: 0646be9a7552aac5703d095961081942e693967d
+  FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
   GoogleAppMeasurement: 120eec8803fe65a4a7475fb3d3d59a61d0e1a866
   GoogleDataTransport: b006084b73915a42c28a3466961a4edda3065da6
   GoogleUtilities: e1d9ed4e544fc32a93e00e721400cbc3f377200d
@@ -203,7 +230,8 @@ SPEC CHECKSUMS:
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Tabman: 792ac76fd1ec95af175c93db880a3c47cabedc91
+  VersaPlayer: 0e9a0ea7da786729ffb377dbd17b34641a8265e4
 
-PODFILE CHECKSUM: ed2417cff73d93401f373d831a59a08f910b2d13
+PODFILE CHECKSUM: 621fae94c911a01027795413ea4dfac4376cb0d5
 
 COCOAPODS: 1.10.1

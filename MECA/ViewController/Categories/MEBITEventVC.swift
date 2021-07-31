@@ -412,6 +412,10 @@ extension MEBITEventVC : UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //MoveupBounce tableview
+        let animation = TableAnimationFactory.makeMoveUpBounceAnimation(rowHeight: 280, duration: 0.5, delayFactor: 0.05)
+        let animator = Animator(animation: animation)
+        animator.animate(cell: cell, at: indexPath, in: tableView)
         if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
             if indexPath == lastVisibleIndexPath {
                 if indexPath.row == self.arrAllData.count-1{

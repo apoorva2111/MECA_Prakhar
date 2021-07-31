@@ -29,25 +29,18 @@ class NewHomeSubCommentTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setCell(objDict:NewHomeSubComment) {
-        print(objDict)
         lblDescription.text = objDict.comment
         if let imgAvtar = objDict.avatar{
             self.imgAvtar.sd_imageIndicator = SDWebImageActivityIndicator.gray
             self.imgAvtar.sd_setImage(with: URL.init(string: BaseURL + imgAvtar), completed: nil)
         }
         lblUserName.text = objDict.writer_name
-//
-//        if objDict.likes == 0{
-//            imgLike.image = #imageLiteral(resourceName: "Like_BlueBorder")
-//        }else{
-//            imgLike.image = #imageLiteral(resourceName: "likes_Blue")
-//        }
-        lblLikeCount.text = String(objDict.likes ?? 0)
+       
+        if objDict.likes == 0{
+            imgLike.image = #imageLiteral(resourceName: "Like_BlueBorder")
+        }else{
+            imgLike.image = #imageLiteral(resourceName: "likes_Blue")
+        }
         
-//        if objDict.is_admin{
-//
-//        }
-//
-        print(objDict.is_admin)
     }
 }

@@ -20,6 +20,9 @@ class SDGSListvc: UIViewController {
     var updatedText = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
         varsdgslistTblView.register(UINib.init(nibName: "MaasListTVCell", bundle: nil), forCellReuseIdentifier: "MaasListTVCell")
         varsdgslistTblView.delegate = self
         varsdgslistTblView.dataSource = self

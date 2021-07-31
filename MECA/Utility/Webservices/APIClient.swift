@@ -1281,6 +1281,33 @@ class APIClient {
              }
      }
     
+    
+    //Delete feed post
+    static func webServiceFordeleteFeedComment(commentId : String ,completion:@escaping(Any) -> Void){
+         if !NetworkReachabilityManager()!.isReachable{
+             GlobalObj.displayLoader(true, show: false)
+             GlobalObj.showNetworkAlert()
+             return
+         }
+         let url = BaseURL + deleteFeedComment + commentId
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+
+        AF.request(url, method: .delete, parameters: [:], headers: headers)
+             .responseJSON { response in
+ //                completion(response)
+                 switch response.result{
+                 case .success( _):
+                     completion(response.value!)
+                 case .failure(let error):
+                     print(error)
+                     GlobalObj.displayLoader(true, show: false)
+
+                 }
+             }
+     }
     //reminder Api
     
     static func webserviceForReminder(completion:@escaping(Reminderlistdata) -> Void){
@@ -2144,34 +2171,6 @@ class APIClient {
     }
     
     
-    //NewHomDeleteeFeedComment
-    static func wevserviceForNewHomeFeedCommentDelete(commentId:String,completion:@escaping(Any) -> Void){
-        if !NetworkReachabilityManager()!.isReachable{
-            GlobalObj.displayLoader(true, show: false)
-            GlobalObj.showNetworkAlert()
-            return
-        }
-        let url = BaseURL + deleteFeedComment + commentId
-        var headers = HTTPHeaders()
-
-       let accessToken = userDef.string(forKey: UserDefaultKey.token)
-        headers = ["Authorization":"Bearer \(accessToken ?? "")"]
-
-       AF.request(url, method: .delete, parameters: [:], headers: headers)
-            .responseJSON { response in
-                
-                switch response.result{
-                case .success( _):
-                    completion(response.value!)
-                case .failure(let error):
-                    print(error)
-                    GlobalObj.displayLoader(true, show: false)
-                    
-                }
-                
-                
-            }
-    }
     //Add Feed Comment 
         static func webServicesForAddFeedComment(params:[String:Any],completion:@escaping(AddCommentModel) -> Void){
             if !NetworkReachabilityManager()!.isReachable{
@@ -2216,7 +2215,7 @@ class APIClient {
     
     
     //NewHomeFeedInfo
-    static func wevserviceForNewHomeFeedInfo(feed:String, completion:@escaping(FeedInfoModel) -> Void){
+    static func wevserviceForNewHomeFeedInfo(feed:String, completion:@escaping(NewHomeModel) -> Void){
         if !NetworkReachabilityManager()!.isReachable{
             GlobalObj.displayLoader(true, show: false)
 
@@ -2239,7 +2238,7 @@ class APIClient {
                     return }
                 
                 do{
-                    let objRes: FeedInfoModel = try JSONDecoder().decode(FeedInfoModel.self, from: dataResponse)
+                    let objRes: NewHomeModel = try JSONDecoder().decode(NewHomeModel.self, from: dataResponse)
                     switch response.result{
                                    case .success( _):
                                            completion(objRes)
@@ -2254,7 +2253,288 @@ class APIClient {
                 }
             }
     }
+    
+    //NotificationList
+    static func wevserviceForNotificationList(limit:String, page:String, completion:@escaping(NotificationList_Module) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        let url = BaseURL + notificationList + limit + "/" + page
+       
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
+                    return }
+                
+                do{
+                    let objRes: NotificationList_Module = try JSONDecoder().decode(NotificationList_Module.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
+                                   }
+                }catch let error{
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+                }
+            }
+    }
+    
+    //NotificationRead
+    
+    static func wevserviceForNotificationRead(notificationId:String, completion:@escaping(NotificationRead_Model) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        let url = BaseURL + notificationRead + notificationId
+       
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .post, headers: headers)
+            .responseJSON { response in
+                
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
+                    return }
+                
+                do{
+                    let objRes: NotificationRead_Model = try JSONDecoder().decode(NotificationRead_Model.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
+                                   }
+                }catch let error{
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+                }
+            }
+    }
+    
+    static func webserviceForoneandonlylistapi(limit: String,page: String, params:[String:Any],completion:@escaping(allOneandonlyday) -> Void){
+           if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                     GlobalObj.showNetworkAlert()
+                     return
+           }
+           let url = BaseURL + oneandonlydayApi + limit + "/" + page
+          print("oneandonlydayApi\(url)")
+           var headers = HTTPHeaders()
+
+           let accessToken = userDef.string(forKey: UserDefaultKey.token)
+            headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+//           AF.request(url, method: .post, headers: headers)
+        AF.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: headers)
+               .responseJSON { response in
+                print(response)
+                   guard let dataResponse = response.data else {
+                       print("Response Error")
+                       return }
+
+                   do{
+                       let objRes: allOneandonlyday = try JSONDecoder().decode(allOneandonlyday.self, from: dataResponse)
+                       switch response.result{
+                                      case .success( _):
+                                              completion(objRes)
+                                      case .failure(let error):
+                                          print(error)
+                                        GlobalObj.displayLoader(true, show: false)
+
+                                      }
+                   }catch let error{
+                       print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                   }
+               }
+       }
+    
+    
+    //one &onlyinfo
+    static func webserviceForoneandonlyInfo(eventId: String = "5",completion:@escaping(KaizenInfoModel) -> Void){
+     if !NetworkReachabilityManager()!.isReachable{
+         GlobalObj.displayLoader(true, show: false)
+
+               GlobalObj.showNetworkAlert()
+               return
+     }
+     let url = BaseURL + oneandonlyInfo + eventId
+    
+     var headers = HTTPHeaders()
+
+     let accessToken = userDef.string(forKey: UserDefaultKey.token)
+      headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+     AF.request(url, method: .get, headers: headers)
+         .responseJSON { response in
+             print("Response \(response)")
+             guard let dataResponse = response.data else {
+                 print("Response Error")
+                 return }
+             
+             do{
+                 let objRes: KaizenInfoModel = try JSONDecoder().decode(KaizenInfoModel.self, from: dataResponse)
+                 switch response.result{
+                                case .success( _):
+                                        completion(objRes)
+                                case .failure(let error):
+                                    print(error)
+                                 GlobalObj.displayLoader(true, show: false)
+
+                                }
+             }catch let error{
+                 print(error)
+                 GlobalObj.displayLoader(true, show: false)
+             }
+         }
+ }
+    
+    static func webserviceForFromTMClistapi(limit: String,page: String, params:[String:Any],completion:@escaping(AllValuesFromTMC) -> Void){
+           if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+
+                     GlobalObj.showNetworkAlert()
+                     return
+           }
+           let url = BaseURL + fromtmclistApi 
+          print("oneandonlydayApi\(url)")
+           var headers = HTTPHeaders()
+
+           let accessToken = userDef.string(forKey: UserDefaultKey.token)
+            headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+//           AF.request(url, method: .post, headers: headers)
+        AF.request(url, method: .get, parameters: params, encoding: URLEncoding.default, headers: headers)
+               .responseJSON { response in
+                print(response)
+                   guard let dataResponse = response.data else {
+                       print("Response Error")
+                       return }
+
+                   do{
+                       let objRes: AllValuesFromTMC = try JSONDecoder().decode(AllValuesFromTMC.self, from: dataResponse)
+                       switch response.result{
+                                      case .success( _):
+                                              completion(objRes)
+                                      case .failure(let error):
+                                          print(error)
+                                        GlobalObj.displayLoader(true, show: false)
+
+                                      }
+                   }catch let error{
+                       print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                   }
+               }
+       }
+    
+    static func webserviceForGRSpecialsiteList(limit: String,page: String, params:[String:Any],completion:@escaping(AllvaluesSpecialsite) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+         GlobalObj.displayLoader(true, show: false)
+
+                  GlobalObj.showNetworkAlert()
+                  return
+        }
+        let url = BaseURL + SpecailsiteList
+       print("siteurl/./././ \(url)")
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+//           AF.request(url, method: .post, headers: headers)
+     AF.request(url, method: .get, parameters: params, encoding: URLEncoding.default, headers: headers)
+            .responseJSON { response in
+             print(response)
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                 GlobalObj.displayLoader(true, show: false)
+
+                    return }
+
+                do{
+                    let objRes: AllvaluesSpecialsite = try JSONDecoder().decode(AllvaluesSpecialsite.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                     GlobalObj.displayLoader(true, show: false)
+
+                                   }
+                }catch let error{
+                    print(error)
+                 GlobalObj.displayLoader(true, show: false)
+
+                }
+            }
+    }
+    
+    
+    //GrSupportApi call
+    static func webserviceForGRSupportApi(completion:@escaping(GrSupportModel) -> Void){
+        if !NetworkReachabilityManager()!.isReachable{
+            GlobalObj.displayLoader(true, show: false)
+            GlobalObj.showNetworkAlert()
+            return
+        }
+        let url = BaseURL + GrsupportList
+        print("Support Api url\(url)")
+        var headers = HTTPHeaders()
+
+        let accessToken = userDef.string(forKey: UserDefaultKey.token)
+         headers = ["Authorization":"Bearer \(accessToken ?? "")"]
+        AF.request(url, method: .get, headers: headers)
+            .responseJSON { response in
+                print("Support Api response\(response)")
+                guard let dataResponse = response.data else {
+                    print("Response Error")
+                    GlobalObj.displayLoader(true, show: false)
+
+                    return }
+                
+                do{
+                    let objRes: GrSupportModel = try JSONDecoder().decode(GrSupportModel.self, from: dataResponse)
+                    switch response.result{
+                                   case .success( _):
+                                           completion(objRes)
+                                   case .failure(let error):
+                                       print(error)
+                                    GlobalObj.displayLoader(true, show: false)
+
+                                   }
+                }catch let error{
+                    print(error)
+                    GlobalObj.displayLoader(true, show: false)
+
+                }
+            }
+        
+    }
 }
 
-
+//notificationID
 

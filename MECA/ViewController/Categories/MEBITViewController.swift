@@ -15,11 +15,15 @@ class MEBITViewController: UIViewController {
     var checkPagination = ""
     var module = 0
 
+    
     var viewModel : MEBITHomeVM!
     private var pullControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
         viewModel = MEBITHomeVM.init(controller: self)
         MEBITTableView.register(HomeTVCell.nib(), forCellReuseIdentifier: "HomeTVCell")
         MEBITTableView.delegate = self
@@ -96,6 +100,8 @@ class MEBITViewController: UIViewController {
         }
         
         if GlobalValue.tabCategory == "MEBIT"{
+            
+            footerView.viewFromSpecialsite.isHidden = true
         footerView.imgWhatsnew.image = UIImage.init(named: "Whats New active")
         footerView.imgFromDistributor.image = UIImage.init(named: "From Distributor")
         footerView.imgFromTMC.image = UIImage.init(named: "From TMC")
@@ -106,12 +112,18 @@ class MEBITViewController: UIViewController {
        
         }else if GlobalValue.tabCategory == "GR"{
        
+            footerView.lblTMC.sizeToFit()
+            footerView.lblDistributor.sizeToFit()
+            footerView.lblSpecialsite.sizeToFit()
+            footerView.lblWhatsNew.sizeToFit()
         footerView.imgWhatsnew.image = UIImage.init(named: "Whats New active")
         footerView.imgFromDistributor.image = UIImage.init(named: "Activity_Report")
         footerView.imgFromTMC.image = UIImage.init(named: "Linkes")
         footerView.lblWhatsNew.text = "What's New"
         footerView.lblDistributor.text = "Activity Report"
-        footerView.lblTMC.text = "Links"
+        footerView.lblTMC.text = "Official Site"
+            footerView.lblSpecialsite.text = "Special Site"
+            
         footerView.bgView.backgroundColor = #colorLiteral(red: 0.9882352941, green: 0, blue: 0, alpha: 1)
             
         }
@@ -139,7 +151,7 @@ extension  MEBITViewController : OrangeFooterViewDelegate{
    
 
     func footerBarAction1(strType: String){
-   
+        
         if strType == "WhatsNew"{
             print("Type1")
             
@@ -169,6 +181,17 @@ extension  MEBITViewController : OrangeFooterViewDelegate{
                 let vc = FlowController().instantiateViewController(identifier: "GRLinksVC", storyBoard: "GR")
                 self.navigationController?.pushViewController(vc, animated: false)
             }
+        }
+        else if strType == "Special Sites"{
+            if GlobalValue.tabCategory == "MEBIT"{
+                
+            }else if GlobalValue.tabCategory == "GR"{
+                
+                print("special selected ")
+                let vc = FlowController().instantiateViewController(identifier: "Specialsitesvc", storyBoard: "GR")
+                self.navigationController?.pushViewController(vc, animated: false)
+            }
+            
         }
    
     }

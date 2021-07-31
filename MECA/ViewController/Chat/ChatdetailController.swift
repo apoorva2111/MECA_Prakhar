@@ -56,6 +56,9 @@ class ChatdetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
         titlelbl.text! = oppName
         if oppImage != "" {
             let imgurl = BaseURL + oppImage

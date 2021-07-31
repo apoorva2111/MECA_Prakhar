@@ -18,7 +18,9 @@ class EditprofileVC: UIViewController {
     var imageditvalue = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
         self.editimg.layer.cornerRadius = 12
         self.editimg.clipsToBounds = true
         

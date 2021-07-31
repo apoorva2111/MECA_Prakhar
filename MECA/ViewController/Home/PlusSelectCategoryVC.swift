@@ -11,6 +11,9 @@ class PlusSelectCategoryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
         viewModel = PlusSelectCategoryVM.init(controller: self)
         self.collectionSelectCategory.register(UINib(nibName: "PlusSelectCategoryCVCell", bundle: nil), forCellWithReuseIdentifier: "PlusSelectCategoryCVCell")
         

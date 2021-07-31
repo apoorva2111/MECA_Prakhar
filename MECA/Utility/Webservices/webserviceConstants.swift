@@ -3,7 +3,8 @@
 import Foundation
 
 // API Base URLS
-let BaseURL : String = "https://mecacampus.com/API/"
+let BaseURL : String = //"https://sanofi.n360.info/Toyota/API/"
+    "https://mecacampus.com/API/"
 //let BaseURL : String = "http://67.205.159.216:8001/Toyota/API/"
 
 
@@ -79,4 +80,18 @@ let deleteFeed = "mobile/user/feed/delete/"
 let addCommentForFeed = "mobile/user/feed/create/comment"
 let deleteFeedComment = "mobile/user/feed/comment/delete/"
 let newHomeFeedInfo = "mobile/user/feed/info/"
+let notificationList  = "mobile/user/notification/list/"
+let notificationRead = "mobile/user/notification/read/"
+//oneand only day
+let oneandonlydayApi = "mobile/user/onlyday/list/"
+let oneandonlyInfo = "mobile/user/onlyday/"
+
+//FromTMC
+let fromtmclistApi = "mobile/user/fromTMC"
+//Specailsite
+let SpecailsiteList  = "mobile/user/gr/specialsites/list"
+let GrsupportList  = "mobile/user/gr/contacts/list"
+
+
+//https://sanofi.n360.info/Toyota/API/mobile/user/feed/comment/delete/{commentId}
 

@@ -6,7 +6,7 @@ class CategoryDistributorVC: UIViewController {
  
     @IBOutlet weak var footerView: OrangeFooterView!
     var module = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         footerView.orangeFooterViewDelegate = self
@@ -15,7 +15,7 @@ class CategoryDistributorVC: UIViewController {
     }
     
     func setValue()  {
-        
+        footerView.viewFromSpecialsite.isHidden = true
         footerView.imgWhatsnew.image = UIImage.init(named: "Whats New")
         footerView.imgFromDistributor.image = UIImage.init(named: "From Distributor active")
         footerView.imgFromTMC.image = UIImage.init(named: "From TMC")
@@ -84,9 +84,10 @@ extension CategoryDistributorVC : OrangeFooterViewDelegate{
     func footerBarAction1(strType: String) {
         if strType == "WhatsNew"{
             print("Type1")
-            let vc = FlowController().instantiateViewController(identifier: "MEBITViewController", storyBoard: "Category")
+            let vc = FlowController().instantiateViewController(identifier: "MEBITViewController", storyBoard: "Category") as! MEBITViewController
+            vc.module = module
             self.navigationController?.pushViewController(vc, animated: false)
-
+            
             
         }else if strType == "FromDistributor"{
             print("Type2")
@@ -95,13 +96,9 @@ extension CategoryDistributorVC : OrangeFooterViewDelegate{
         }else if strType == "FromTMC"{
             print("Type3")
             
-            let vc = FlowController().instantiateViewController(identifier: "TMCViewController", storyBoard: "Category")
+            let vc = FlowController().instantiateViewController(identifier: "TMCViewController", storyBoard: "Category") as! TMCViewController
+            vc.module = module
             self.navigationController?.pushViewController(vc, animated: false)
-
         }
-        
-        
     }
-    
-    
 }

@@ -12,6 +12,7 @@ class ReminderTableCell: UITableViewCell {
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
     @IBOutlet weak var remindertitleLbl: UILabel!
     @IBOutlet weak var reminderdateLbl: UILabel!
+    @IBOutlet weak var reminderimgview: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,6 +24,12 @@ class ReminderTableCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func setCellreminderdetails(feed:Reminderdata) {
+        
+        if feed.status == 1 {
+            reminderimgview.image = UIImage(named: "done")
+        }else{
+            reminderimgview.image = UIImage(named: "to_do")
+        }
         reminderdateLbl.text! = feed.due_date!
         remindertitleLbl.text! = feed.title!
         

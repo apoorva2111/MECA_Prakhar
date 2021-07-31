@@ -24,7 +24,7 @@ class HydrogenVC: UIViewController {
     
     private var pullControl = UIRefreshControl()
     var actualController:UIViewController!
-    var viewModel : HomeVM!
+    var viewModel : WhatsNewVM!
     var strComeFrom = ""
     var type  = 0
     var arrAllData =  [Datahydrogen]()
@@ -41,6 +41,7 @@ class HydrogenVC: UIViewController {
     var updatedText = ""
     var sortingArr = [Sorting_options]()
     var module = 0
+
     var isFromCat = false
     
     @IBAction func btnCreateNewAction(_ sender: RCustomButton) {
@@ -59,6 +60,9 @@ class HydrogenVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
         categorytitle.append("All")
         //callmodulecategory()
         viewFilter.isHidden = true
@@ -331,6 +335,10 @@ extension HydrogenVC:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //MoveupBounce tableview
+        let animation = TableAnimationFactory.makeMoveUpBounceAnimation(rowHeight: 292, duration: 0.5, delayFactor: 0.05)
+        let animator = Animator(animation: animation)
+        animator.animate(cell: cell, at: indexPath, in: tableView)
         if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
             if indexPath == lastVisibleIndexPath {
                 if indexPath.row == arrAllData.count-1{

@@ -26,7 +26,7 @@ class MaasViewController: UIViewController {
     private var pullControl = UIRefreshControl()
 
     var actualController:UIViewController!
-    var viewModel : HomeVM!
+    var viewModel : WhatsNewVM!
     var strComeFrom = ""
     var type  = 0
     var arrAllData =  [DataMaas]()
@@ -48,6 +48,9 @@ class MaasViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.barTintColor = UIColor.red
         searchController.searchBar.tintColor = UIColor.white
@@ -315,6 +318,10 @@ extension MaasViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //MoveupBounce tableview
+        let animation = TableAnimationFactory.makeMoveUpBounceAnimation(rowHeight: 292, duration: 0.5, delayFactor: 0.05)
+        let animator = Animator(animation: animation)
+        animator.animate(cell: cell, at: indexPath, in: tableView)
         if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
             if indexPath == lastVisibleIndexPath {
                 if indexPath.row == arrAllData.count-1{

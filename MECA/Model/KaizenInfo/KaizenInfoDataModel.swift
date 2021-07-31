@@ -13,6 +13,7 @@ struct KaizenInfoDataModel : Codable {
     let kaizen_files : [String]?
     let video_links : [KaizenVideoLinkModel]?
     let kaizen_documents : [Event_documents]?
+    let oneandonly_documents : [Event_documents]?
     let document_links : [Document_links]?
     let status : Int?
     let is_admin : Int?
@@ -56,6 +57,7 @@ struct KaizenInfoDataModel : Codable {
         case event_videos = "event_videos"
         case event_images = "event_images"
         case comments_count = "comments_count"
+        case oneandonly_documents = "event_documents"
 
 
     }
@@ -73,6 +75,7 @@ struct KaizenInfoDataModel : Codable {
         kaizen_files = try values.decodeIfPresent([String].self, forKey: .kaizen_files)
         video_links = try values.decodeIfPresent([KaizenVideoLinkModel].self, forKey: .video_links)
         kaizen_documents = try values.decodeIfPresent([Event_documents].self, forKey: .kaizen_documents)
+        oneandonly_documents = try values.decodeIfPresent([Event_documents].self, forKey: .oneandonly_documents)
         document_links = try values.decodeIfPresent([Document_links].self, forKey: .document_links)
         status = try values.decodeIfPresent(Int.self, forKey: .status)
         is_admin = try values.decodeIfPresent(Int.self, forKey: .is_admin)

@@ -12,6 +12,7 @@ class GRActivityReportVM: BaseTableViewVM {
     override init(controller: UIViewController?) {
         super.init(controller: controller)
     (self.actualController as! GRActivityReportVC).checkPagination = "get"
+        
         GlobalObj.displayLoader(true, show: true)
 
         callWebserviceForGRActivityVM()

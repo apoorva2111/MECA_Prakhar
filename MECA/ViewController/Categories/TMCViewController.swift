@@ -3,8 +3,6 @@
 import UIKit
 
 class TMCViewController: UIViewController {
-    
-    var module = 0
 
     @IBOutlet weak var newCarSalesView: RCustomView!
     
@@ -13,6 +11,7 @@ class TMCViewController: UIViewController {
     @IBOutlet weak var afterSalesView: RCustomView!
   
     @IBOutlet weak var viewFooter: OrangeFooterView!
+    var module = 0
     @IBAction func btnSelectAction(_ sender: UIButton) {
         if sender.tag == 10{
             let story = UIStoryboard(name: "Category", bundle:nil)
@@ -31,11 +30,11 @@ class TMCViewController: UIViewController {
 
         }else if sender.tag == 40 {
             let story = UIStoryboard(name: "Category", bundle:nil)
-            let vc = story.instantiateViewController(withIdentifier: "NewCarSalesViewController") as! NewCarSalesViewController
-            vc.strComeFrom = "TMC"
-            vc.type = 4
+                        let vc = story.instantiateViewController(withIdentifier: "NewCarSalesViewController") as! NewCarSalesViewController
+                    vc.strComeFrom = "TMC"
+                    vc.type = 4
             vc.module = module
-            self.navigationController?.pushViewController(vc, animated: true)
+                    self.navigationController?.pushViewController(vc, animated: true)
         }else if sender.tag == 50 {
             
         }
@@ -57,6 +56,7 @@ class TMCViewController: UIViewController {
 
         
         viewFooter.orangeFooterViewDelegate = self
+        viewFooter.viewFromSpecialsite.isHidden = true
         viewFooter.imgWhatsnew.image = UIImage.init(named: "Whats New")
         viewFooter.imgFromDistributor.image = UIImage.init(named: "From Distributor")
         viewFooter.imgFromTMC.image = UIImage.init(named: "From TMC active")
@@ -106,6 +106,7 @@ class TMCViewController: UIViewController {
         appDel.window?.makeKeyAndVisible()
         
     }
+    
 }
 
 extension TMCViewController : OrangeFooterViewDelegate{

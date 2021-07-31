@@ -18,6 +18,9 @@ class OrangeFooterView: UIView {
     @IBOutlet weak var lblWhatsNew: UILabel!
     @IBOutlet weak var imgFromDistributor: UIImageView!
     @IBOutlet weak var imgFromTMC: UIImageView!
+    @IBOutlet weak var lblSpecialsite: UILabel!
+    @IBOutlet weak var imgFromSpecialsite: UIImageView!
+    @IBOutlet weak var viewFromSpecialsite: UIView!
     @IBOutlet weak var bgView: RCustomView!
     let nibName = "OrangeFooterView"
     var contentView: UIView?
@@ -43,9 +46,13 @@ class OrangeFooterView: UIView {
         if sender.tag == 10{
             orangeFooterViewDelegate.footerBarAction1(strType: "WhatsNew")
         }else if sender.tag == 20 {
+            
             orangeFooterViewDelegate.footerBarAction1(strType: "FromDistributor")
         }else if sender.tag == 30 {
             orangeFooterViewDelegate.footerBarAction1(strType: "FromTMC")
+        }
+        else if sender.tag == 40 {
+            orangeFooterViewDelegate.footerBarAction1(strType: "Special Sites")
         }
     }
 

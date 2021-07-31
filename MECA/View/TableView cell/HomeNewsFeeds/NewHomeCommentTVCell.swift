@@ -5,6 +5,11 @@
 
 import UIKit
 import SDWebImage
+protocol NewHomeCommentTVCellDelegate{
+    func didSelectReply(index:String,sender:UIButton)
+    func didSelectDelete(index:String)
+
+}
 class NewHomeCommentTVCell: UITableViewCell {
     @IBOutlet weak var imgAvtar: RCustomImageView!
     @IBOutlet weak var lblUserName: UILabel!
@@ -20,12 +25,10 @@ class NewHomeCommentTVCell: UITableViewCell {
     @IBOutlet weak var txtComment: UITextView!
     @IBOutlet weak var btnViewReplyHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var btnViewReplyOutlet: UIButton!
-   
-  //  @IBOutlet weak var tblReplyHeightConstraint: NSLayoutConstraint!
-    
     var arrSubComment = [NewHomeSubComment]()
-    var tbleComment = UITableView()
-    
+    var viewContrl = UIViewController()
+    var delegate:NewHomeCommentTVCellDelegate?
+
     @IBOutlet weak var btnSendReplyOutlet: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,59 +54,33 @@ class NewHomeCommentTVCell: UITableViewCell {
         }else{
             btnDeleteOutlet.isHidden = false
         }
-
+        
+//        if comment.likes == 0{
+//            imgLike.image = #imageLiteral(resourceName: "Like_BlueBorder")
+//        }else{
+//            imgLike.image = #imageLiteral(resourceName: "likes_Blue")
+//        }
         lblLikeCount.text = String(comment.likes ?? 0)
-        tblReply.register(UINib.init(nibName: "NewHomeSubCommentTVCell", bundle: nil), forCellReuseIdentifier: "NewHomeSubCommentTVCell")
-
+        
         if comment.subcomments?.count == 0{
             tblReply.isHidden = true
             viewReply.isHidden = true
-            tblReply.delegate = self
-            tblReply.dataSource = self
-            tblReply.estimatedRowHeight = 0
-//            tblReply.reloadData()
-//            tblReply.layoutIfNeeded()
+            viewReplyHeightConstraint.constant = 0
             btnViewReplyOutlet.isHidden = true
             btnViewReplyHeightConstraint.constant = 0
         }else{
             if arrSubComment.count > 0 {
                 arrSubComment.removeAll()
             }
-            for i in 0..<comment.subcomments!.count {
-                let objsubComment = comment.subcomments![i]
-                arrSubComment.insert(objsubComment, at: i)
-            }
-            //arrSubComment = comment.subcomments!
+            tblReply.register(UINib.init(nibName: "NewHomeSubCommentTVCell", bundle: nil), forCellReuseIdentifier: "NewHomeSubCommentTVCell")
+            tblReply.delegate = self
+            tblReply.dataSource = self
+            arrSubComment = comment.subcomments!
             btnViewReplyOutlet.isHidden = false
             btnViewReplyHeightConstraint.constant = 20
-             if userDef.value(forKey: UserDefaultKey.replyView) != nil {
-                if userDef.value(forKey: UserDefaultKey.replyView) as! String == "hideTable"{
-                    tblReply.delegate = self
-                    tblReply.dataSource = self
-                    tblReply.reloadData()
-                    tblReply.layoutIfNeeded()
-                    tblReply.isHidden = true
-                    viewReply.isHidden = true
-                   // viewReplyHeightConstraint.constant = 0
-                }else{
-                    tblReply.delegate = self
-                    tblReply.dataSource = self
-                    tblReply.reloadData()
-                    tblReply.layoutIfNeeded()
-                    tblReply.isHidden = false
-                    viewReply.isHidden = false
-                }
-             }else{
-                userDef.setValue("hideTable", forKey: UserDefaultKey.replyView)
-                userDef.synchronize()
-                tblReply.delegate = self
-                tblReply.dataSource = self
-                tblReply.reloadData()
-                tblReply.isHidden = true
-                viewReply.isHidden = true
-             //   viewReplyHeightConstraint.constant = 0
-             }
-            
+            tblReply.isHidden = true
+            viewReply.isHidden = true
+            viewReplyHeightConstraint.constant = 0
         }
     }
 }
@@ -116,32 +93,36 @@ extension NewHomeCommentTVCell : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tblReply.dequeueReusableCell(withIdentifier: "NewHomeSubCommentTVCell", for: indexPath) as! NewHomeSubCommentTVCell
         cell.setCell(objDict: arrSubComment[indexPath.row])
+        cell.btnReplyOutlet.tag = indexPath.row
+        cell.btnReplyOutlet.addTarget(self, action: #selector(self.btnReplyAction), for: .touchUpInside)
+        cell.btnDeleteOutlet.tag = indexPath.row
+        cell.btnDeleteOutlet.addTarget(self, action: #selector(self.btnDelectCommentAction), for: .touchUpInside)
+
         return cell
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
          return UITableView.automaticDimension
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        if userDef.value(forKey: UserDefaultKey.replyView) != nil {
-           if userDef.value(forKey: UserDefaultKey.replyView) as! String == "hideTable"{
-            viewReplyHeightConstraint.constant = 0
-            viewReply.isHidden = true
-            tblReply.isHidden = true
-            return 0
-           }else{
-            viewReplyHeightConstraint.constant = 60
-            return 100
-           }
+    @objc func btnReplyAction (sender : UIButton){
+//        let obj = arrSubComment[sender.tag]
+//        delegate?.didSelectReply(index: String(obj.id!), sender: sender)
+        if sender.isSelected{
+            sender.isSelected = false
+            viewReply.isHidden = false
+            viewReplyHeightConstraint.constant = 40
         }else{
-            viewReplyHeightConstraint.constant = 0
+            sender.isSelected = true
             viewReply.isHidden = true
-            tblReply.isHidden = true
-            return 0
+            viewReplyHeightConstraint.constant = 0
         }
         
     }
- 
-}
+    
+    @objc func btnDelectCommentAction (sender : UIButton){
+        let obj = arrSubComment[sender.tag]
 
+        delegate?.didSelectDelete(index: String(obj.id!))
+        
+    }
+}

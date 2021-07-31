@@ -13,20 +13,33 @@ class ChatVC: UIViewController {
     @IBOutlet weak var chatheaderView: RCustomView!
     @IBOutlet weak var chattblview:UITableView!
     var keywordtext = ""
-    
+    @IBOutlet weak var viewTabbar: FooterTabView!
     var recentvalue = [Recentchatmodel]()
     var uservalue = [Chatusers]()
     var adminuservalue = [Adminchatusers]()
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+//            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
         chattblview.estimatedRowHeight = 75
         chattblview.rowHeight = UITableView.automaticDimension
         chattblview.register(ChatTableCell.nib, forCellReuseIdentifier: ChatTableCell.identifier)
         chattblview.dataSource = self
         chattblview.delegate = self
+        setupview()
         // Do any additional setup after loading the view.
     }
-    
+    func setupview()  {
+        viewTabbar.footerTabViewDelegate = self
+        viewTabbar.imgCalender.image = UIImage.init(named: "chat_active")
+        viewTabbar.imgHome.image = UIImage.init(named: "Home_Inactive")
+        viewTabbar.lblHome.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        viewTabbar.lblCalender.font = UIFont.init(name: "SFPro-Bold", size: 12)
+        viewTabbar.lblCategory.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        viewTabbar.lblNotification.font = UIFont.init(name: "SFPro-Regular", size: 12)
+        viewTabbar.lblMore.font = UIFont.init(name: "SFPro-Regular", size: 12)
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         ChatlistApicall(Keyword: keywordtext)
@@ -67,7 +80,14 @@ class ChatVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 }
-
+//MARK:- UIButton Action
+extension ChatVC{
+    @IBAction func btnPlusAction(_ sender: UIButton) {
+        
+        let vc = FlowController().instantiateViewController(identifier: "PlusSelectCategoryVC", storyBoard: "Home")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
 //Mark: - Tableview Datasource Methods
 extension ChatVC: UITableViewDataSource {
     
@@ -137,7 +157,69 @@ extension ChatVC: UITableViewDataSource {
 //        }
     }
 }
+//MARK:- Footerview Delegate
+extension ChatVC: FooterTabViewDelegate{
+    func footerBarAction(strType: String) {
+        if strType == "Home"{
+            
+            let mainVC = FlowController().instantiateViewController(identifier: "HomeNav", storyBoard: "Home")
+            let appDel = UIApplication.shared.delegate as! AppDelegate
+            appDel.window?.rootViewController = mainVC
+            let options: UIView.AnimationOptions = .transitionCrossDissolve
+            let duration: TimeInterval = 0.3
 
+            UIView.transition(with: appDel.window!, duration: duration, options: options, animations: {}, completion:
+            { completed in
+                // maybe do something on completion here
+            })
+            appDel.window?.makeKeyAndVisible()
+    
+    }else if strType == "Calendar"{
+            
+//            let vc = FlowController().instantiateViewController(identifier: "HomeVC", storyBoard: "Home")
+//            self.navigationController?.pushViewController(vc, animated:false)
+        
+        
+            
+        }else if strType == "Categories"{
+
+            let mainVC = FlowController().instantiateViewController(identifier: "NavCategory", storyBoard: "Category")
+            let appDel = UIApplication.shared.delegate as! AppDelegate
+            appDel.window?.rootViewController = mainVC
+            let options: UIView.AnimationOptions = .transitionCrossDissolve
+            let duration: TimeInterval = 0.3
+
+            UIView.transition(with: appDel.window!, duration: duration, options: options, animations: {}, completion:
+            { completed in
+                // maybe do something on completion here
+            })
+            appDel.window?.makeKeyAndVisible()
+
+       
+        }else if strType == "FROM TMC"{
+            
+            let vc = FlowController().instantiateViewController(identifier: "FromTMCvc", storyBoard: "Home")
+            self.navigationController?.pushViewController(vc, animated:false)
+//            let mainVC = FlowController().instantiateViewController(identifier: "FromTMCvc", storyBoard: "FromTMCvc")
+//            let appDel = UIApplication.shared.delegate as! AppDelegate
+//            appDel.window?.rootViewController = mainVC
+//            let options: UIView.AnimationOptions = .transitionCrossDissolve
+//            let duration: TimeInterval = 0.3
+//
+//            UIView.transition(with: appDel.window!, duration: duration, options: options, animations: {}, completion:
+//            { completed in
+//                // maybe do something on completion here
+//            })
+//            appDel.window?.makeKeyAndVisible()
+         
+        }else{
+            let vc = FlowController().instantiateViewController(identifier: "MoreVC", storyBoard: "Home")
+            self.navigationController?.pushViewController(vc, animated:false)
+        }
+    }
+    
+    
+}
 //MARK: - TableView Delegate Methods
 extension ChatVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

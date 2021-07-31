@@ -23,6 +23,9 @@ class NewDetailVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+
         tblDetailView.isHidden = true
 
         viewModel = NewDetailVM.init(controller: self)

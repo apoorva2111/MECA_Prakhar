@@ -6,7 +6,7 @@
 
 import UIKit
 import SDWebImage
-class HomeNewsFeedTVCell: UITableViewCell {
+class HomeNewsFeedTVCell: UITableViewCell, SDWebImageManagerDelegate {
 
     @IBOutlet weak var imgProfile: RCustomImageView!
     @IBOutlet weak var btnMoreOutlet: UIButton!
@@ -59,6 +59,8 @@ class HomeNewsFeedTVCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        SDWebImageManager.shared.delegate = self
+        
         // Initialization code
         collectionviewPager.register(UINib.init(nibName: "newHomePagerCVCell", bundle: nil), forCellWithReuseIdentifier: "newHomePagerCVCell")
     }
@@ -68,11 +70,42 @@ class HomeNewsFeedTVCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage!
+        }
     func setCell(objFeed:NewHomeData, arrID:[NewHomeData])  {
         print(objFeed)
         if let imgAvtar = objFeed.avatar{
+           
+            
             imgProfile.sd_imageIndicator = SDWebImageActivityIndicator.gray
-            imgProfile.sd_setImage(with: URL.init(string: BaseURL + imgAvtar), completed: nil)
+          //  imgProfile.sd_setImage(with: URL.init(string: BaseURL + imgAvtar), placeholderImage: nil, context: [.imageTransformer: transformer])
+//                .resizeImage(UIImage(named: "yourImageName")!, targetSize: CGSizeMake(200.0, 200.0))
+//            imgProfile.sd_setImage(with: NSURL(string: BaseURL + imgAvtar) as URL?, completed: {
+//                            (image, error, cacheType, url) in
+//                            // your code
+//
+//                self.imgProfile.image = self.resizeImage(image: image!, targetSize: CGSize(width: 375, height: 200))
+//
+//                        })
+            imgProfile.sd_setImage(with: NSURL(string: BaseURL + imgAvtar) as URL?, placeholderImage: nil) { (image: UIImage?, error: Error?, cacheType:SDImageCacheType!, imageURL: URL?) in
+
+                    //new size
+                if image != nil{
+                    self.imgProfile.image = self.resizeImage(image: image!, newWidth: 375)
+                }
+
+                    //original size
+                    //self.img.image = image
+                }
         }
         if objFeed.type == 1{
             
@@ -84,11 +117,13 @@ class HomeNewsFeedTVCell: UITableViewCell {
                     }
                     viewImgCollection.isHidden = false
                     self.imgFeed.isHidden = true
-                    startTimer()
+                  //  startTimer()
                     imgPageControl.numberOfPages = arrImgPage.count
                     imgPageControl.currentPage = 0
                     applyConstraints()
+
                     collectionviewPager.reloadData()
+                   // collectionviewPager.scrollToItem(at: 0, at: .left, animated: true)
                 }
                 buttonPlayOutlet.isHidden = true
 //                self.imgFeed.sd_imageIndicator = SDWebImageActivityIndicator.gray
@@ -102,7 +137,13 @@ class HomeNewsFeedTVCell: UITableViewCell {
             let urlStr = "http://img.youtube.com/vi/\(urlID ?? "")/1.jpg"
             let url = URL(string: urlStr)!
             imgFeed.sd_imageIndicator = SDWebImageActivityIndicator.gray
-            imgFeed.sd_setImage(with: url, completed: nil)
+//            imgFeed.sd_setImage(with:url, placeholderImage: nil) { (image: UIImage?, error: Error?, cacheType:SDImageCacheType!, imageURL: URL?) in
+//
+//                                        //new size
+//                                        self.imgFeed.image = self.resizeImage(image: image!, newWidth: UIScreen.main.bounds.width)
+//                                    }
+            let transformer = SDImageResizingTransformer(size: CGSize(width: 375, height: 200), scaleMode: .fill)
+            imgFeed.sd_setImage(with: url, placeholderImage: nil, context: [.imageTransformer: transformer])
             buttonPlayOutlet.isHidden = false
         }
         
@@ -216,7 +257,14 @@ extension HomeNewsFeedTVCell:UICollectionViewDelegate, UICollectionViewDataSourc
         let cell = collectionviewPager.dequeueReusableCell(withReuseIdentifier: "newHomePagerCVCell", for: indexPath) as! newHomePagerCVCell
         let obj = arrImgPage[indexPath.row]
         cell.imgFeed.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        cell.imgFeed.sd_setImage(with: URL.init(string: BaseURL + obj), completed: nil)
+//        cell.imgFeed.sd_setImage(with: NSURL(string: BaseURL + obj) as URL?, placeholderImage: nil) { (image: UIImage?, error: Error?, cacheType:SDImageCacheType!, imageURL: URL?) in
+//
+//            //new size
+//            self.imgFeed.image = self.resizeImage(image: image!, newWidth: UIScreen.main.bounds.width)
+//        }
+        let transformer = SDImageResizingTransformer(size: CGSize(width: 375, height: 200), scaleMode: .fill)
+        cell.imgFeed.sd_setImage(with: URL.init(string: BaseURL + obj), placeholderImage: nil, context: [.imageTransformer: transformer])
+        //cell.imgFeed.sd_setImage(with: URL.init(string: BaseURL + obj), completed: nil)
         if arrImgPage.count > 1 {
             cell.pageContrl.numberOfPages = arrImgPage.count
             cell.pageContrl.isHidden = false

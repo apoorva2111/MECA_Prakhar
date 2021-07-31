@@ -7,37 +7,51 @@
 
 import UIKit
 import EventKit
-class CalenderVC: UIViewController {
-    
-    
-    
+import FSCalendar
+
+
+class CalenderVC: UIViewController , FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
+   
     @IBAction func btnBackAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    
     @IBOutlet weak var calendertopView: UIView!
     @IBOutlet weak var rightarrowbtn:UIButton!
     @IBOutlet weak var leftarrowbtn:UIButton!
     @IBOutlet weak var calenderDirectionView: UIView!
-    @IBOutlet weak var calendarView: CalendarView!
-    
+    @IBOutlet weak var calendarView: FSCalendar!
+    let formatter = DateFormatter()
     @IBOutlet weak var headerdatetitle:UILabel!
     let darkGrey = UIColor(hexString: "#26478D")
     var datearr: [String] = []
     //Schedule
     var monthtext = ""
     var callendararrList = [calendardata]()
+    var arrSortEvent = [calendardata]()
+    var isDateSelect = false
     var viewModel : CalenderVM!
+    
+    
     var month = 0
     var year = 2021
     var filterdatestr = ""
-    
+    var isCalenderSelect = false
+    var selectedDate = Date()
+    var startDateDataArray = [Date]()
+    var endDateDataArray = [Date]()
+    var startDateArray = [Int]()
+    var endDateArray = [Int]()
+    var todayDate:Date = Date()
+    fileprivate let gregorian: Calendar = Calendar(identifier: .gregorian)
     @IBOutlet weak var scheduletblview:UITableView!
+    var datesWithEvent = [3, 19, 25, 30]
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.calendarView.selectedDates.removeAll()
+        //self.calendarView.selectedDates.removeAll()
         let style = CalendarView.Style()
-        
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+       
         style.cellShape = .round
         filterdatestr = ""
         style.cellColorDefault         = UIColor.clear
@@ -50,7 +64,6 @@ class CalenderVC: UIViewController {
         style.cellTextColorToday       = darkGrey
         style.cellTextColorWeekend     = UIColor.white
         style.cellColorOutOfRange      = UIColor.red
-            
         style.headerBackgroundColor    = darkGrey
        
         style.weekdaysBackgroundColor  = darkGrey
@@ -62,16 +75,23 @@ class CalenderVC: UIViewController {
         style.headerFont = UIFont(name: ",Semibold", size: 20.0) ?? UIFont.systemFont(ofSize: 20.0)
         style.weekdaysFont = UIFont.init(name: "SF Pro, Semibold", size: 14) ?? UIFont.systemFont(ofSize: 14.0)
         
-        calendarView.style = style
         calendarView.backgroundColor = darkGrey
         calendarView.dataSource = self
         calendarView.delegate = self
-        calendarView.delegates = self
+        calendarView.allowsMultipleSelection = false
+        calendarView.placeholderType = .none
+        calendarView.headerHeight = 0.0
+        calendarView.appearance.headerTitleColor = UIColor.gray
+        calendarView.appearance.weekdayTextColor = UIColor.darkGray
+        calendarView.appearance.caseOptions = FSCalendarCaseOptions.weekdayUsesUpperCase
+        calendarView.appearance.weekdayFont = UIFont.init(name: "SF Pro, Semibold", size: 14) ?? UIFont.systemFont(ofSize: 14.0)
+        calendarView.appearance.todaySelectionColor = UIColor.white
+        calendarView.appearance.titleTodayColor = UIColor.blue
+        /*calendarView.delegates = self
         calendarView.delegatesmonth = self
         calendarView.direction = .horizontal
         calendarView.multipleSelectionEnable = false
-        calendarView.marksWeekends = true
-        let today = Date()
+        calendarView.marksWeekends = true*/
        // calendarView.displayDateOnHeader(today)
         
         let monthInt = Calendar.current.component(.month, from: Date())
@@ -91,10 +111,6 @@ class CalenderVC: UIViewController {
         calenderDirectionView.backgroundColor = darkGrey
         headerdatetitle.backgroundColor = darkGrey
         calendertopView.backgroundColor = darkGrey
-     //   viewFooter.footerTabViewDelegate = self
-//        viewFooter.imgMore.image = UIImage.init(named: "More")
-//        viewFooter.imgCalender.image = UIImage.init(named: "Calendar Active")
-//        viewFooter.imgHome.image = UIImage.init(named: "Home_Inactive")
         self.calendertopView.roundCorners([.layerMinXMaxYCorner, .layerMaxXMaxYCorner], radius: 15.0, borderColor: UIColor.white, borderWidth: 1)
         scheduletblview.estimatedRowHeight = 80
         self.scheduletblview.rowHeight = UITableView.automaticDimension
@@ -107,8 +123,9 @@ class CalenderVC: UIViewController {
         
         super.viewDidAppear(animated)
        
-        let today = Date()
-        callwedservicecalendardata(month:monthtext, year: String(year))
+        todayDate = Date()
+        setMonthAndYearOnHeader(date: todayDate)
+       // callwedservicecalendardata(month:monthtext, year: String(year))
 //        for datearr in datearr {
 //            print("objdate....\(datearr)")
 //            let formatter = DateFormatter()
@@ -137,7 +154,7 @@ class CalenderVC: UIViewController {
         #endif
         
         
-        self.calendarView.setDisplayDate(today)
+        //self.calendarView.setDisplayDate(today)
         
 //        self.datePicker.locale = self.calendarView.style.locale
 //        self.datePicker.timeZone = self.calendarView.calendar.timeZone
@@ -146,13 +163,13 @@ class CalenderVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated )
-        //viewModel.callwedservicecalendardata(month:monthtext, year: String(year))
-        
+        callwedservicecalendardata(month:monthtext, year: String(year))
     }
     func callwedservicecalendardata(month: String, year: String)
     {
         GlobalObj.displayLoader(true, show: true)
-        
+        self.isCalenderSelect = false
+        arrSortEvent.removeAll()
         APIClient.webserviceForCalendar(month: month, year: year){ (result) in
             print("result\(result)")
             if let respCode = result.resp_code{
@@ -186,8 +203,12 @@ class CalenderVC: UIViewController {
                             
 
                         }
-
+                        if self.callendararrList.count>0{
+                            self.callendararrList.removeAll()
+                            self.arrSortEvent.removeAll()
+                        }
                         if arrDate.count>0{
+                            print("\(arrDate)")
                             self.callendararrList = arrDate
                             
                             
@@ -197,56 +218,215 @@ class CalenderVC: UIViewController {
                             for objdate in self.callendararrList{
                                 
                                
-                                print("objdate....\(objdate.start_date)")
+                                print("objdate....\(objdate)")
                                 let dateFormatter = DateFormatter()
                                 dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
                                 dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
                                 let date = dateFormatter.date(from:objdate.start_date! )
                                 let date1 = dateFormatter.date(from:objdate.end_date! )
-                                print("timeStamp date ...\(date)")
+                                print("timeStamp start date ...\(date)")
+                                print("timeStamp end date ...\(date1)")
                                 // change to a readable time format and change to local time zone
+                               
                                 
-
                                 if objdate.start_date == "" {
                                     
                                 }else{
-                                   
-                                    self.calendarView.selectDate(date!)
+                                    self.selectedDate = date!
+                                   // self.calendarView.select(date!)
+                                    let calendar = Calendar.current
+                                    let components = calendar.dateComponents([.year, .month, .day], from: date!)
+                                    self.startDateArray.append(components.day ?? 0)
+                                    self.startDateDataArray.append((date)!)
                                 }
                                 if objdate.end_date == "" {
                                     
                                 }else{
-                                    self.calendarView.selectDate(date1!)
+                                    //self.calendarView.select(date1!)
+                                    let calendar = Calendar.current
+                                    let components = calendar.dateComponents([.year, .month, .day], from: date1!)
+                                    self.endDateArray.append(components.day ?? 0)
+                                    self.endDateDataArray.append((date1)!)
                                 }
-                                
+                             //   self.viewModel.arrcalendarFeed.append(objdate)
+                                self.scheduletblview.reloadData()
+                            }
+                            
+//                            for i in 0..<self.callendararrList.count {
+//                                arrIndex.append(i)
+//                            }
+                            self.scheduletblview.reloadData()
+
+                            if (self.callendararrList.last != nil){
+                                self.isCalenderSelect = true
                             }
                             
                             
                         }
-                        print("/......\(String(describing: self.calendarView.selectDate))")
+                        //print("/......\(String(describing: self.calendarView.selectDate))")
+                        self.scheduletblview.reloadData()
+                        self.calendarView.reloadData()
                     }
-                    self.scheduletblview.reloadData()
                 }else{
                     GlobalObj.displayLoader(true, show: false)
+                    self.calendarView.reloadData()
 
                 }
             }
             
             GlobalObj.displayLoader(true, show: false)
+            self.calendarView.reloadData()
 
         }
     }
+    
+    
+   
     @IBAction func goToPreviousMonth(_ sender: Any) {
         filterdatestr = ""
-        self.calendarView.goToPreviousMonth()
+        self.calendarView.setCurrentPage(getPreviousMonth(date: self.calendarView.currentPage), animated: true)
+        let monthInt = Calendar.current.component(.month, from: self.calendarView.currentPage)
+        monthtext = String(monthInt)
+        if viewModel.calendarselecteddate.count>0{
+            isDateSelect = false
+        }else{
+            isDateSelect = true
+        }
+//        scheduletblview.reloadData()
         callwedservicecalendardata(month:monthtext, year: String(year))
+//        viewModel.callwedservicecalendardata(month:monthtext, year: String(year))
+
     }
     @IBAction func goToNextMonth(_ sender: Any) {
-       filterdatestr = ""
-        self.calendarView.goToNextMonth()
-        callwedservicecalendardata(month:monthtext, year: String(year))
-        
+        filterdatestr = ""
+        self.calendarView.setCurrentPage(getNextMonth(date: self.calendarView.currentPage), animated: true)
+        let monthInt = Calendar.current.component(.month, from: self.calendarView.currentPage)
+        monthtext = String(monthInt)
+        if viewModel.calendarselecteddate.count>0{
+            isDateSelect = false
+        }else{
+            isDateSelect = true
+        }
+    callwedservicecalendardata(month:monthtext, year: String(year))
     }
+    func getNextMonth(date:Date)->Date {
+        return  Calendar.current.date(byAdding: .month, value: 1, to:date)!
+    }
+
+    func currentmont(date:Date) -> Date {
+        return Calendar.current.date(byAdding: .month, value: 0, to: date)!
+    }
+    func getPreviousMonth(date:Date)->Date {
+        return  Calendar.current.date(byAdding: .month, value: -1, to:date)!
+    }
+    
+    func setMonthAndYearOnHeader(date: Date) {
+        let yearFormatter = DateFormatter()
+        yearFormatter.dateFormat = "yyyy"
+        let monthFormatter = DateFormatter()
+        monthFormatter.dateFormat = "LLLL"
+        headerdatetitle.text = monthFormatter.string(from: date) + " " + yearFormatter.string(from: date)
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
+        /*if Calendar.current.isDate(date, equalTo: todayDate, toGranularity: .day) {
+            return UIColor.white
+        }*/
+        print("select date ...\(date)")
+        return UIColor.gray
+    }
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        /*let dateString = self.dateFormatter2.string(from: date)
+        if self.datesWithEvent.contains(dateString) {
+            return 1
+        }
+        if self.datesWithMultipleEvents.contains(dateString) {
+            return 3
+        }*/
+        
+        return 0
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
+        if Calendar.current.isDate(date, equalTo: todayDate, toGranularity: .day) {
+            return UIColor.white
+        }
+        if Calendar.current.isDate(date, equalTo: self.selectedDate, toGranularity: .day) {
+            print("self./././?\(self.selectedDate)")
+            return nil
+        }
+        return nil
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderDefaultColorFor date: Date) -> UIColor? {
+        print("self.startDateArray >>> \(self.startDateArray)")
+        if self.startDateArray.contains((self.gregorian.component(.day, from: date))) {
+            return UIColor.white
+        }
+        print("self.endDateArray >>> \(self.endDateArray)")
+        if self.endDateArray.contains((self.gregorian.component(.day, from: date))) {
+            return UIColor.white
+        }
+        return nil
+        //return UIColor.yellow
+    }
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+            // print(date)
+        
+        print("didselect\(dateStringFromDate(date))")
+        viewModel.calendarselecteddate = dateStringFromDate(date)
+//        if viewModel.calendarselecteddate.count>0{
+//            isDateSelect = true
+//        }else{
+//            isDateSelect = false
+//        }
+        self.scheduletblview.reloadData()
+//        if monthPosition == .previous || monthPosition == .next {
+//            calendar.setCurrentPage(date, animated: true)
+//        }
+     
+    }
+    func dateStringFromDate(_ inputDate: Date) -> String {
+        let df = DateFormatter()
+      
+        df.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let dateString = df.string(from: inputDate)
+        return dateString
+    }
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderSelectionColorFor date: Date) -> UIColor? {
+        
+        if Calendar.current.isDate(date, equalTo: self.selectedDate, toGranularity: .day) {
+            return nil
+        }
+        return UIColor.darkGray
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderRadiusFor date: Date) -> CGFloat {
+        return 2.0
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
+        if Calendar.current.isDate(date, equalTo: todayDate, toGranularity: .day) {
+            return UIColor.black
+        }
+        return UIColor.white
+    }
+    
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        startDateDataArray.removeAll()
+        endDateDataArray.removeAll()
+        startDateArray.removeAll()
+        endDateArray.removeAll()
+        setMonthAndYearOnHeader(date: calendar.currentPage)
+        let monthInt = Calendar.current.component(.month, from: self.calendarView.currentPage)
+        let yearInt = Calendar.current.component(.year, from: self.calendarView.currentPage)
+        monthtext = String(monthInt)
+        callwedservicecalendardata(month:String(monthInt), year: String(yearInt))
+    }
+    
+    //FSCalender Delegate Methods
+    
     /*
     // MARK: - Navigation
 
@@ -258,7 +438,7 @@ class CalenderVC: UIViewController {
     */
 
 }
-extension CalenderVC: CalendarViewDataSource {
+/*extension CalenderVC: CalendarViewDataSource {
     
       func startDate() -> Date {
           
@@ -267,9 +447,15 @@ extension CalenderVC: CalendarViewDataSource {
           
           let today = Date()
           print("startDate dateComponents\(dateComponents)")
-          let threeMonthsAgo = self.calendarView.calendar.date(byAdding: dateComponents, to: today)!
+        
+          //let threeMonthsAgo = self.calendarView.calendar.date(byAdding: dateComponents, to: today)!
           
-          return threeMonthsAgo
+          //return threeMonthsAgo
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+        let date = dateFormatter.date(from:"2021-06-14 00:00:00")
+        return date!
       }
       
       func endDate() -> Date {
@@ -279,21 +465,32 @@ extension CalenderVC: CalendarViewDataSource {
           dateComponents.month = 12
           let today = Date()
           
-          let twoYearsFromNow = self.calendarView.calendar.date(byAdding: dateComponents, to: today)!
+          //let twoYearsFromNow = self.calendarView.calendar.date(byAdding: dateComponents, to: today)!
           
-          return twoYearsFromNow
+          //return twoYearsFromNow
+          
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+        let date = dateFormatter.date(from:"2021-06-15 00:00:00")
+        return date!
     
       }
     
-}
+}*/
 
-extension CalenderVC: CalendarViewDelegate {
-    
+/*extension CalenderVC: CalendarViewDelegate {
+   
     func calendar(_ calendar: CalendarView, didSelectDate date : Date, withEvents events: [CalendarEvent]) {
            
            print("Did Select: \(date) with \(events.count) events")
-        
-        
+     
+       /* if (!startDateDataArray.isEmpty) {
+            self.calendarView.selectDate(startDateDataArray[0])
+        }*/
+         
+        //self.calendarView.deselectDate(selectedDate)
+         // selectedDate = date
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -304,8 +501,20 @@ extension CalenderVC: CalendarViewDelegate {
         let dateconvert = dateFormatter.string(from: date)
         print("dateconvert...\(dateconvert)")
         filterdatestr = dateconvert
-           
+           //start_date
+        print(dateconvert)
+        if isCalenderSelect{
+            arrSortEvent.removeAll()
+            arrSortEvent = self.callendararrList.filter({($0.start_date!.localizedCaseInsensitiveContains(dateconvert))})
+            
+        scheduletblview.reloadData()
+        }else{
+            arrSortEvent = callendararrList
+            scheduletblview.reloadData()
+        }
         
+        
+       
        }
        
        func calendar(_ calendar: CalendarView, didScrollToMonth date : Date) {
@@ -343,59 +552,9 @@ extension CalenderVC: CalendarViewDelegate {
            
        }
     
-}
+}*/
 
 
-
-
-//MARK:- Footerview Delegate
-//extension CalenderVC : FooterTabViewDelegate{
-//    func footerBarAction(strType: String) {
-//        if strType == "Home"{
-//            let mainVC = FlowController().instantiateViewController(identifier: "HomeNav", storyBoard: "Home")
-//            let appDel = UIApplication.shared.delegate as! AppDelegate
-//            appDel.window?.rootViewController = mainVC
-//            let options: UIView.AnimationOptions = .transitionCrossDissolve
-//            let duration: TimeInterval = 0.3
-//
-//            UIView.transition(with: appDel.window!, duration: duration, options: options, animations: {}, completion:
-//            { completed in
-//                // maybe do something on completion here
-//            })
-//            appDel.window?.makeKeyAndVisible()
-//
-//        }else if strType == "Calendar"{
-////            let vc = FlowController().instantiateViewController(identifier: "Calendervc", storyBoard: "Home")
-////            self.navigationController?.pushViewController(vc, animated:false)
-//
-//
-//
-//        }else if strType == "Categories"{
-//
-//            let mainVC = FlowController().instantiateViewController(identifier: "NavCategory", storyBoard: "Category")
-//            let appDel = UIApplication.shared.delegate as! AppDelegate
-//            appDel.window?.rootViewController = mainVC
-//            let options: UIView.AnimationOptions = .transitionCrossDissolve
-//            let duration: TimeInterval = 0.3
-//
-//            UIView.transition(with: appDel.window!, duration: duration, options: options, animations: {}, completion:
-//            { completed in
-//                // maybe do something on completion here
-//            })
-//            appDel.window?.makeKeyAndVisible()
-//
-//
-//        }else if strType == "Notification"{
-//            let vc = FlowController().instantiateViewController(identifier: "NotificationVC", storyBoard: "Home")
-//            self.navigationController?.pushViewController(vc, animated:false)
-//        }else{
-//            let vc = FlowController().instantiateViewController(identifier: "MoreVC", storyBoard: "Home")
-//            self.navigationController?.pushViewController(vc, animated:false)
-//        }
-//    }
-//
-//
-//}
 
 //MARK:- UITableview Delegate Datasource
 extension CalenderVC:UITableViewDelegate,UITableViewDataSource{

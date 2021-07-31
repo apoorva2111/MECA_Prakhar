@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro.ttf">
+            <string>SFPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WhatsNewCVCell" id="gTV-IL-0wX" customClass="WhatsNewCVCell" customModule="MECA" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="160"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="250" height="160"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nav-A6-qub">
+                        <rect key="frame" x="10" y="10" width="230" height="140"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rtM-Bz-xHj" customClass="RCustomImageView" customModule="MECA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="230" height="140"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVD-9g-FtI" customClass="GradientView" customModule="MECA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="230" height="140"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcF-DB-dtG">
+                                <rect key="frame" x="10" y="112" width="210" height="18"/>
+                                <fontDescription key="fontDescription" name="SFPro-Bold" family="SF Pro" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mVD-9g-FtI" secondAttribute="trailing" id="3ce-fY-hvy"/>
+                            <constraint firstAttribute="bottom" secondItem="rtM-Bz-xHj" secondAttribute="bottom" id="6A6-25-2vz"/>
+                            <constraint firstAttribute="bottom" secondItem="WcF-DB-dtG" secondAttribute="bottom" constant="10" id="E3q-WS-cDH"/>
+                            <constraint firstAttribute="trailing" secondItem="rtM-Bz-xHj" secondAttribute="trailing" id="UbA-fc-u3Z"/>
+                            <constraint firstAttribute="trailing" secondItem="WcF-DB-dtG" secondAttribute="trailing" constant="10" id="WMU-OO-uvO"/>
+                            <constraint firstItem="rtM-Bz-xHj" firstAttribute="leading" secondItem="nav-A6-qub" secondAttribute="leading" id="Xfi-kB-kfm"/>
+                            <constraint firstItem="mVD-9g-FtI" firstAttribute="top" secondItem="nav-A6-qub" secondAttribute="top" id="dLC-ds-7h3"/>
+                            <constraint firstItem="WcF-DB-dtG" firstAttribute="leading" secondItem="nav-A6-qub" secondAttribute="leading" constant="10" id="n47-pj-3hn"/>
+                            <constraint firstAttribute="bottom" secondItem="mVD-9g-FtI" secondAttribute="bottom" id="p3C-kR-9x3"/>
+                            <constraint firstItem="mVD-9g-FtI" firstAttribute="leading" secondItem="nav-A6-qub" secondAttribute="leading" id="q3K-2c-Jqk"/>
+                            <constraint firstItem="rtM-Bz-xHj" firstAttribute="top" secondItem="nav-A6-qub" secondAttribute="top" id="rve-oF-PRU"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="nav-A6-qub" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="DpS-9p-Haq"/>
+                <constraint firstAttribute="trailing" secondItem="nav-A6-qub" secondAttribute="trailing" constant="10" id="Fem-Qj-lq6"/>
+                <constraint firstAttribute="bottom" secondItem="nav-A6-qub" secondAttribute="bottom" constant="10" id="WuB-oD-51F"/>
+                <constraint firstItem="nav-A6-qub" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="jLw-pw-dxr"/>
+            </constraints>
+            <size key="customSize" width="165" height="109"/>
+            <connections>
+                <outlet property="imgWhatsNew" destination="rtM-Bz-xHj" id="eVZ-Q4-nE0"/>
+                <outlet property="imgview" destination="mVD-9g-FtI" id="neg-Rf-bjA"/>
+                <outlet property="lblTitle" destination="WcF-DB-dtG" id="klN-Uq-kDa"/>
+            </connections>
+            <point key="canvasLocation" x="123.18840579710145" y="87.053571428571431"/>
+        </collectionViewCell>
+    </objects>
+</document>

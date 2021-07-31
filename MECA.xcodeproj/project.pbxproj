@@ -93,7 +93,7 @@
 		E32AED4A260754F000AEAB6F /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32AED49260754F000AEAB6F /* AppConstant.swift */; };
 		E32AED4F2607550900AEAB6F /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32AED4E2607550900AEAB6F /* FlowController.swift */; };
 		E32AED542607589200AEAB6F /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E32AED532607589200AEAB6F /* Category.storyboard */; };
-		E32AED5A26075B4200AEAB6F /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32AED5926075B4200AEAB6F /* HomeVM.swift */; };
+		E32AED5A26075B4200AEAB6F /* WhatsNewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32AED5926075B4200AEAB6F /* WhatsNewVM.swift */; };
 		E32AED6226075FE300AEAB6F /* PlusSelectCategoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32AED6126075FE300AEAB6F /* PlusSelectCategoryVM.swift */; };
 		E32AED6726075FFC00AEAB6F /* BaseCollectionViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32AED6626075FFC00AEAB6F /* BaseCollectionViewVM.swift */; };
 		E32F3BD0262AF20E0000D92A /* VideoLinkVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32F3BCF262AF20E0000D92A /* VideoLinkVC.swift */; };
@@ -143,6 +143,9 @@
 		E34B0036266A2E0C00978628 /* NewsVideoListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34B0035266A2E0C00978628 /* NewsVideoListVM.swift */; };
 		E34B0068266A510D00978628 /* VideoInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34B0066266A510C00978628 /* VideoInfoData.swift */; };
 		E34B0069266A510D00978628 /* VideoInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34B0067266A510D00978628 /* VideoInfoModel.swift */; };
+		E364CD37268B3750000DBAE5 /* NotificationList_lData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E364CD35268B374F000DBAE5 /* NotificationList_lData.swift */; };
+		E364CD38268B3750000DBAE5 /* NotificationList_Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = E364CD36268B3750000DBAE5 /* NotificationList_Module.swift */; };
+		E364CD3D268B396C000DBAE5 /* NotificationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E364CD3C268B396C000DBAE5 /* NotificationVM.swift */; };
 		E373B53626115B3D00BEC2B5 /* CreateKaizenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E373B53526115B3D00BEC2B5 /* CreateKaizenVM.swift */; };
 		E374598F2639F2B10021F51D /* AddNewsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E374598E2639F2B10021F51D /* AddNewsVM.swift */; };
 		E375EA22262EABD900646A0A /* NewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375EA21262EABD900646A0A /* NewDetailVC.swift */; };
@@ -196,6 +199,12 @@
 		E389941A2660E24300F59772 /* NewsHomePickTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E38994182660E24300F59772 /* NewsHomePickTVCell.xib */; };
 		E38994262660ED4200F59772 /* LatestNewsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38994242660ED4200F59772 /* LatestNewsTVCell.swift */; };
 		E38994272660ED4200F59772 /* LatestNewsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E38994252660ED4200F59772 /* LatestNewsTVCell.xib */; };
+		E38BDB6326A82A6C00498037 /* WhatsNewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38BDB6226A82A6C00498037 /* WhatsNewVC.swift */; };
+		E38BDB7026A831CE00498037 /* WhatsNewTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38BDB6E26A831CE00498037 /* WhatsNewTVCell.swift */; };
+		E38BDB7126A831CE00498037 /* WhatsNewTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E38BDB6F26A831CE00498037 /* WhatsNewTVCell.xib */; };
+		E38BDB8126A83A2000498037 /* WhatsNewCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38BDB7F26A83A2000498037 /* WhatsNewCVCell.swift */; };
+		E38BDB8226A83A2000498037 /* WhatsNewCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E38BDB8026A83A2000498037 /* WhatsNewCVCell.xib */; };
+		E38EEEFA268C47AF00C4A914 /* NotificationRead_Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38EEEF9268C47AF00C4A914 /* NotificationRead_Model.swift */; };
 		E393D628263FD6B4003895ED /* GRHomeLisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E393D626263FD6B4003895ED /* GRHomeLisModel.swift */; };
 		E393D629263FD6B4003895ED /* GRHomeLis_Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E393D627263FD6B4003895ED /* GRHomeLis_Data.swift */; };
 		E393D64526400BF7003895ED /* GRDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E393D64226400BF6003895ED /* GRDetailModel.swift */; };
@@ -293,7 +302,6 @@
 		E3E96664267BEEBD00A82FEB /* NewHomeSubCommentTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3E96662267BEEBD00A82FEB /* NewHomeSubCommentTVCell.xib */; };
 		E3ECC5F226119A3E002E1BE1 /* CategoryDistributorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ECC5F126119A3E002E1BE1 /* CategoryDistributorVC.swift */; };
 		E3F11539267DCF5100F75D6A /* MECAPostVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F11538267DCF5100F75D6A /* MECAPostVM.swift */; };
-		E3F11541267E302B00F75D6A /* FeedInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F11540267E302B00F75D6A /* FeedInfoModel.swift */; };
 		E3F12B11262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F12B0F262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift */; };
 		E3F12B12262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3F12B10262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib */; };
 		E3F131ED2655158600F396BA /* Modules.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F131EC2655158600F396BA /* Modules.swift */; };
@@ -323,6 +331,96 @@
 		E3F7C5F926145F6F0018C377 /* DataKaizen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7C5F426145F6F0018C377 /* DataKaizen.swift */; };
 		E3FCCDFE265B90960011714B /* Like_ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCDFC265B90960011714B /* Like_ListModel.swift */; };
 		E3FCCDFF265B90960011714B /* Like_ListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FCCDFD265B90960011714B /* Like_ListData.swift */; };
+		F432B17626AAC64E00AB2CD1 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F432B17526AAC64E00AB2CD1 /* GradientView.swift */; };
+		F438A71826943CD200C8A71F /* allOneandonlyday.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A71626943CD000C8A71F /* allOneandonlyday.swift */; };
+		F438A71926943CD200C8A71F /* oneandonlyvalues.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A71726943CD200C8A71F /* oneandonlyvalues.swift */; };
+		F438A71B26943CEF00C8A71F /* oneandonlydetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A71A26943CEF00C8A71F /* oneandonlydetailVM.swift */; };
+		F438A71D26943D0D00C8A71F /* OneandonlydayVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A71C26943D0D00C8A71F /* OneandonlydayVM.swift */; };
+		F438A72126943EDC00C8A71F /* OneandonlyTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A71F26943EDA00C8A71F /* OneandonlyTVCell.swift */; };
+		F438A72226943EDC00C8A71F /* OneandonlyTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438A72026943EDC00C8A71F /* OneandonlyTVCell.xib */; };
+		F438A72626943F0000C8A71F /* detailcoverimgcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A72426943EFE00C8A71F /* detailcoverimgcell.swift */; };
+		F438A72726943F0000C8A71F /* detailcoverimgcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438A72526943F0000C8A71F /* detailcoverimgcell.xib */; };
+		F438A72A26943F1100C8A71F /* oneandonlyContentTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A72826943F0E00C8A71F /* oneandonlyContentTVCell.swift */; };
+		F438A72B26943F1100C8A71F /* oneandonlyContentTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438A72926943F1100C8A71F /* oneandonlyContentTVCell.xib */; };
+		F438A73226943F2A00C8A71F /* OneandonlyDocumentcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438A72C26943F1E00C8A71F /* OneandonlyDocumentcell.xib */; };
+		F438A73326943F2A00C8A71F /* OneandonlyDocumentcontentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438A72D26943F2100C8A71F /* OneandonlyDocumentcontentCell.xib */; };
+		F438A73426943F2A00C8A71F /* oneandonlylikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438A72E26943F2300C8A71F /* oneandonlylikeCell.xib */; };
+		F438A73526943F2A00C8A71F /* OneandonlyDocumentcontentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A72F26943F2500C8A71F /* OneandonlyDocumentcontentCell.swift */; };
+		F438A73626943F2A00C8A71F /* oneandonlylikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A73026943F2800C8A71F /* oneandonlylikeCell.swift */; };
+		F438A73726943F2A00C8A71F /* OneandonlyDocumentcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A73126943F2A00C8A71F /* OneandonlyDocumentcell.swift */; };
+		F438A73926943FC000C8A71F /* FromTMCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A73826943FC000C8A71F /* FromTMCVC.swift */; };
+		F438A73D26943FEE00C8A71F /* oneandonlyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A73B26943FEC00C8A71F /* oneandonlyVC.swift */; };
+		F438A73E26943FEE00C8A71F /* oneandonlydetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A73C26943FEE00C8A71F /* oneandonlydetailVC.swift */; };
+		F438A74126944CC000C8A71F /* FromTMCVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A74026944CC000C8A71F /* FromTMCVM.swift */; };
+		F438A74526944D6600C8A71F /* FromTmcPromotionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A74326944D6600C8A71F /* FromTmcPromotionCell.swift */; };
+		F438A74626944D6600C8A71F /* FromTmcPromotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438A74426944D6600C8A71F /* FromTmcPromotionCell.xib */; };
+		F438A74926944EAC00C8A71F /* AllValuesFromTMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A74826944EAC00C8A71F /* AllValuesFromTMC.swift */; };
+		F438A74B26944EEF00C8A71F /* ValuesFromTMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A74A26944EEF00C8A71F /* ValuesFromTMC.swift */; };
+		F438A74D26944FA800C8A71F /* ForPromotionsvalue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A74C26944FA800C8A71F /* ForPromotionsvalue.swift */; };
+		F438A74F2694508000C8A71F /* ForTMCSValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A74E2694508000C8A71F /* ForTMCSValue.swift */; };
+		F438A75126945D3C00C8A71F /* DatafromTMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A75026945D3B00C8A71F /* DatafromTMC.swift */; };
+		F438A75426945D4A00C8A71F /* Tmcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A75226945D4800C8A71F /* Tmcs.swift */; };
+		F438A75526945D4A00C8A71F /* Promotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A75326945D4900C8A71F /* Promotion.swift */; };
+		F438A75926948D7600C8A71F /* FromTMCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A75726948D7600C8A71F /* FromTMCCell.swift */; };
+		F438A75A26948D7600C8A71F /* FromTMCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438A75826948D7600C8A71F /* FromTMCCell.xib */; };
+		F438A75D269585A500C8A71F /* FromtmcindexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A75B269585A500C8A71F /* FromtmcindexCell.swift */; };
+		F438A75E269585A500C8A71F /* FromtmcindexCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438A75C269585A500C8A71F /* FromtmcindexCell.xib */; };
+		F438A7652695CBBC00C8A71F /* VersaPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A7642695CBBC00C8A71F /* VersaPlayerView.swift */; };
+		F438A7672695CBCA00C8A71F /* VersaPlayerPlaybackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A7662695CBCA00C8A71F /* VersaPlayerPlaybackError.swift */; };
+		F438A76C2695CBE400C8A71F /* VersaPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A7682695CBDA00C8A71F /* VersaPlayerItem.swift */; };
+		F438A76D2695CBE400C8A71F /* VersaPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A7692695CBDE00C8A71F /* VersaPlayer.swift */; };
+		F438A76E2695CBE400C8A71F /* VersaPlayerCaptionStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A76A2695CBE100C8A71F /* VersaPlayerCaptionStyling.swift */; };
+		F438A76F2695CBE400C8A71F /* VersaPlayerMediaTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A76B2695CBE400C8A71F /* VersaPlayerMediaTrack.swift */; };
+		F438A7732695CBFB00C8A71F /* VersaPlayerPlaybackDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A7702695CBF300C8A71F /* VersaPlayerPlaybackDelegate.swift */; };
+		F438A7742695CBFB00C8A71F /* VersaPlayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A7712695CBF700C8A71F /* VersaPlayerExtension.swift */; };
+		F438A7752695CBFB00C8A71F /* VersaPlayerDecryptionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A7722695CBFB00C8A71F /* VersaPlayerDecryptionDelegate.swift */; };
+		F438A7772695CC3000C8A71F /* VersaPlayerRenderingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A7762695CC3000C8A71F /* VersaPlayerRenderingView.swift */; };
+		F438A77A2695CC4E00C8A71F /* VersaPlayerControlsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A7782695CC4C00C8A71F /* VersaPlayerControlsCoordinator.swift */; };
+		F438A77B2695CC4E00C8A71F /* VersaPlayerControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A7792695CC4E00C8A71F /* VersaPlayerControls.swift */; };
+		F438A7802695CC6A00C8A71F /* VersaSeekbarSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A77D2695CC6600C8A71F /* VersaSeekbarSlider.swift */; };
+		F438A7812695CC6A00C8A71F /* VersaStatefulButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A77E2695CC6800C8A71F /* VersaStatefulButton.swift */; };
+		F438A7822695CC6A00C8A71F /* VersaTimeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A77F2695CC6A00C8A71F /* VersaTimeLabel.swift */; };
+		F438A7872695CC8700C8A71F /* VersaPlayerControlsBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A7842695CC8200C8A71F /* VersaPlayerControlsBehaviour.swift */; };
+		F438A7882695CC8700C8A71F /* VersaPlayerGestureRecieverViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A7852695CC8400C8A71F /* VersaPlayerGestureRecieverViewDelegate.swift */; };
+		F438A7892695CC8700C8A71F /* VersaPlayerGestureRecieverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438A7862695CC8700C8A71F /* VersaPlayerGestureRecieverView.swift */; };
+		F438A7922695CCBC00C8A71F /* VersaPlayer-iOS.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F438A78B2695CCB000C8A71F /* VersaPlayer-iOS.debug.xcconfig */; };
+		F438A7932695CCBC00C8A71F /* VersaPlayer-iOS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F438A78E2695CCB600C8A71F /* VersaPlayer-iOS-Info.plist */; };
+		F438A7942695CCBC00C8A71F /* VersaPlayer-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F438A7902695CCBA00C8A71F /* VersaPlayer-iOS-dummy.m */; };
+		F438A7952695CCBC00C8A71F /* VersaPlayer-iOS.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F438A7912695CCBC00C8A71F /* VersaPlayer-iOS.release.xcconfig */; };
+		F438FD8F26A6B52A00BCDF6D /* SpecialsitesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FD8E26A6B52A00BCDF6D /* SpecialsitesVC.swift */; };
+		F438FD9226A6CA0100BCDF6D /* AllvaluesSpecialsite.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FD9126A6CA0100BCDF6D /* AllvaluesSpecialsite.swift */; };
+		F438FD9426A6CA5D00BCDF6D /* SpecialsiteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FD9326A6CA5D00BCDF6D /* SpecialsiteData.swift */; };
+		F438FD9626A6CABF00BCDF6D /* Distributor_information.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FD9526A6CABF00BCDF6D /* Distributor_information.swift */; };
+		F438FD9926A6CACD00BCDF6D /* Mecad_information.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FD9726A6CACA00BCDF6D /* Mecad_information.swift */; };
+		F438FD9A26A6CACD00BCDF6D /* Special_sites.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FD9826A6CACC00BCDF6D /* Special_sites.swift */; };
+		F438FD9C26A6CC5800BCDF6D /* SpecialsiteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FD9B26A6CC5800BCDF6D /* SpecialsiteVM.swift */; };
+		F438FDA026A6D05F00BCDF6D /* SpecialsiteLinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FD9E26A6D05F00BCDF6D /* SpecialsiteLinkCell.swift */; };
+		F438FDA126A6D05F00BCDF6D /* SpecialsiteLinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438FD9F26A6D05F00BCDF6D /* SpecialsiteLinkCell.xib */; };
+		F438FDA426A6D2C700BCDF6D /* SitetableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FDA226A6D2C700BCDF6D /* SitetableCell.swift */; };
+		F438FDA526A6D2C700BCDF6D /* SitetableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438FDA326A6D2C700BCDF6D /* SitetableCell.xib */; };
+		F438FDA826A6F2C400BCDF6D /* GrSiteselectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FDA626A6F2C400BCDF6D /* GrSiteselectionCell.swift */; };
+		F438FDA926A6F2C400BCDF6D /* GrSiteselectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438FDA726A6F2C400BCDF6D /* GrSiteselectionCell.xib */; };
+		F438FDAC26A7481C00BCDF6D /* InformationTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FDAA26A7481C00BCDF6D /* InformationTblCell.swift */; };
+		F438FDAD26A7481C00BCDF6D /* InformationTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438FDAB26A7481C00BCDF6D /* InformationTblCell.xib */; };
+		F438FDB026A7529D00BCDF6D /* SpecialInfnTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FDAE26A7529D00BCDF6D /* SpecialInfnTblCell.swift */; };
+		F438FDB126A7529D00BCDF6D /* SpecialInfnTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438FDAF26A7529D00BCDF6D /* SpecialInfnTblCell.xib */; };
+		F438FDB426A7FCC600BCDF6D /* Connecttblcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FDB226A7FCC600BCDF6D /* Connecttblcell.swift */; };
+		F438FDB526A7FCC600BCDF6D /* Connecttblcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438FDB326A7FCC600BCDF6D /* Connecttblcell.xib */; };
+		F438FDB826A800A100BCDF6D /* GrSupportLInkTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FDB626A800A100BCDF6D /* GrSupportLInkTblCell.swift */; };
+		F438FDB926A800A100BCDF6D /* GrSupportLInkTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F438FDB726A800A100BCDF6D /* GrSupportLInkTblCell.xib */; };
+		F438FDBB26A8062500BCDF6D /* GRSupportvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FDBA26A8062500BCDF6D /* GRSupportvc.swift */; };
+		F438FDBE26A8078600BCDF6D /* GrSupportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FDBD26A8078600BCDF6D /* GrSupportModel.swift */; };
+		F438FDC026A807DC00BCDF6D /* GRSupportdatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438FDBF26A807DC00BCDF6D /* GRSupportdatas.swift */; };
+		F4A4D236267E4933006F66E7 /* AnimationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D230267E4920006F66E7 /* AnimationType.swift */; };
+		F4A4D237267E4933006F66E7 /* UITableView + ViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D231267E4924006F66E7 /* UITableView + ViewAnimator.swift */; };
+		F4A4D238267E4933006F66E7 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D232267E4927006F66E7 /* Animation.swift */; };
+		F4A4D239267E4933006F66E7 /* UICollectionView + ViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D233267E492B006F66E7 /* UICollectionView + ViewAnimator.swift */; };
+		F4A4D23A267E4933006F66E7 /* ViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D234267E4930006F66E7 /* ViewAnimator.swift */; };
+		F4A4D23B267E4933006F66E7 /* ViewAnimatorConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D235267E4933006F66E7 /* ViewAnimatorConfig.swift */; };
+		F4A4D240267E496F006F66E7 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D23E267E496D006F66E7 /* Animator.swift */; };
+		F4A4D241267E496F006F66E7 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D23F267E496F006F66E7 /* UITableView+Ext.swift */; };
+		F4A4D244267E4983006F66E7 /* Tables.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D242267E497E006F66E7 /* Tables.swift */; };
+		F4A4D245267E4983006F66E7 /* TableAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D243267E4983006F66E7 /* TableAnimations.swift */; };
 		F4A575EC2658006E0010085F /* CalendarView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A575E3265800640010085F /* CalendarView+Extensions.swift */; };
 		F4A575ED2658006E0010085F /* EventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A575E4265800650010085F /* EventsManager.swift */; };
 		F4A575EE2658006E0010085F /* CalendarView+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A575E5265800670010085F /* CalendarView+DataSource.swift */; };
@@ -555,7 +653,7 @@
 		E32AED49260754F000AEAB6F /* AppConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		E32AED4E2607550900AEAB6F /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		E32AED532607589200AEAB6F /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
-		E32AED5926075B4200AEAB6F /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		E32AED5926075B4200AEAB6F /* WhatsNewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewVM.swift; sourceTree = "<group>"; };
 		E32AED6126075FE300AEAB6F /* PlusSelectCategoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusSelectCategoryVM.swift; sourceTree = "<group>"; };
 		E32AED6626075FFC00AEAB6F /* BaseCollectionViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewVM.swift; sourceTree = "<group>"; };
 		E32F3BCF262AF20E0000D92A /* VideoLinkVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoLinkVC.swift; sourceTree = "<group>"; };
@@ -605,6 +703,10 @@
 		E34B0035266A2E0C00978628 /* NewsVideoListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVideoListVM.swift; sourceTree = "<group>"; };
 		E34B0066266A510C00978628 /* VideoInfoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoInfoData.swift; sourceTree = "<group>"; };
 		E34B0067266A510D00978628 /* VideoInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoInfoModel.swift; sourceTree = "<group>"; };
+		E364CCFA268B1DF4000DBAE5 /* MECA.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MECA.entitlements; sourceTree = "<group>"; };
+		E364CD35268B374F000DBAE5 /* NotificationList_lData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationList_lData.swift; sourceTree = "<group>"; };
+		E364CD36268B3750000DBAE5 /* NotificationList_Module.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationList_Module.swift; sourceTree = "<group>"; };
+		E364CD3C268B396C000DBAE5 /* NotificationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVM.swift; sourceTree = "<group>"; };
 		E373B53526115B3D00BEC2B5 /* CreateKaizenVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateKaizenVM.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		E374598E2639F2B10021F51D /* AddNewsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsVM.swift; sourceTree = "<group>"; };
 		E375EA21262EABD900646A0A /* NewDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDetailVC.swift; sourceTree = "<group>"; };
@@ -658,6 +760,12 @@
 		E38994182660E24300F59772 /* NewsHomePickTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsHomePickTVCell.xib; sourceTree = "<group>"; };
 		E38994242660ED4200F59772 /* LatestNewsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestNewsTVCell.swift; sourceTree = "<group>"; };
 		E38994252660ED4200F59772 /* LatestNewsTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LatestNewsTVCell.xib; sourceTree = "<group>"; };
+		E38BDB6226A82A6C00498037 /* WhatsNewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewVC.swift; sourceTree = "<group>"; };
+		E38BDB6E26A831CE00498037 /* WhatsNewTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewTVCell.swift; sourceTree = "<group>"; };
+		E38BDB6F26A831CE00498037 /* WhatsNewTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WhatsNewTVCell.xib; sourceTree = "<group>"; };
+		E38BDB7F26A83A2000498037 /* WhatsNewCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewCVCell.swift; sourceTree = "<group>"; };
+		E38BDB8026A83A2000498037 /* WhatsNewCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WhatsNewCVCell.xib; sourceTree = "<group>"; };
+		E38EEEF9268C47AF00C4A914 /* NotificationRead_Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationRead_Model.swift; sourceTree = "<group>"; };
 		E393D626263FD6B4003895ED /* GRHomeLisModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRHomeLisModel.swift; sourceTree = "<group>"; };
 		E393D627263FD6B4003895ED /* GRHomeLis_Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRHomeLis_Data.swift; sourceTree = "<group>"; };
 		E393D64226400BF6003895ED /* GRDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GRDetailModel.swift; sourceTree = "<group>"; };
@@ -755,7 +863,6 @@
 		E3E96662267BEEBD00A82FEB /* NewHomeSubCommentTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewHomeSubCommentTVCell.xib; sourceTree = "<group>"; };
 		E3ECC5F126119A3E002E1BE1 /* CategoryDistributorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDistributorVC.swift; sourceTree = "<group>"; };
 		E3F11538267DCF5100F75D6A /* MECAPostVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MECAPostVM.swift; sourceTree = "<group>"; };
-		E3F11540267E302B00F75D6A /* FeedInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedInfoModel.swift; sourceTree = "<group>"; };
 		E3F12B0F262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDocumentLinkTVCell.swift; sourceTree = "<group>"; };
 		E3F12B10262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailDocumentLinkTVCell.xib; sourceTree = "<group>"; };
 		E3F131EC2655158600F396BA /* Modules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modules.swift; sourceTree = "<group>"; };
@@ -786,6 +893,99 @@
 		E3FCCDFC265B90960011714B /* Like_ListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Like_ListModel.swift; sourceTree = "<group>"; };
 		E3FCCDFD265B90960011714B /* Like_ListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Like_ListData.swift; sourceTree = "<group>"; };
 		E5463E498DB5BF78569E8411 /* Pods-MECA-MECAUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MECA-MECAUITests.debug.xcconfig"; path = "Target Support Files/Pods-MECA-MECAUITests/Pods-MECA-MECAUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F432B17526AAC64E00AB2CD1 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		F438A71626943CD000C8A71F /* allOneandonlyday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allOneandonlyday.swift; sourceTree = "<group>"; };
+		F438A71726943CD200C8A71F /* oneandonlyvalues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneandonlyvalues.swift; sourceTree = "<group>"; };
+		F438A71A26943CEF00C8A71F /* oneandonlydetailVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneandonlydetailVM.swift; sourceTree = "<group>"; };
+		F438A71C26943D0D00C8A71F /* OneandonlydayVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneandonlydayVM.swift; sourceTree = "<group>"; };
+		F438A71F26943EDA00C8A71F /* OneandonlyTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneandonlyTVCell.swift; sourceTree = "<group>"; };
+		F438A72026943EDC00C8A71F /* OneandonlyTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneandonlyTVCell.xib; sourceTree = "<group>"; };
+		F438A72426943EFE00C8A71F /* detailcoverimgcell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailcoverimgcell.swift; sourceTree = "<group>"; };
+		F438A72526943F0000C8A71F /* detailcoverimgcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = detailcoverimgcell.xib; sourceTree = "<group>"; };
+		F438A72826943F0E00C8A71F /* oneandonlyContentTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneandonlyContentTVCell.swift; sourceTree = "<group>"; };
+		F438A72926943F1100C8A71F /* oneandonlyContentTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = oneandonlyContentTVCell.xib; sourceTree = "<group>"; };
+		F438A72C26943F1E00C8A71F /* OneandonlyDocumentcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneandonlyDocumentcell.xib; sourceTree = "<group>"; };
+		F438A72D26943F2100C8A71F /* OneandonlyDocumentcontentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneandonlyDocumentcontentCell.xib; sourceTree = "<group>"; };
+		F438A72E26943F2300C8A71F /* oneandonlylikeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = oneandonlylikeCell.xib; sourceTree = "<group>"; };
+		F438A72F26943F2500C8A71F /* OneandonlyDocumentcontentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneandonlyDocumentcontentCell.swift; sourceTree = "<group>"; };
+		F438A73026943F2800C8A71F /* oneandonlylikeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneandonlylikeCell.swift; sourceTree = "<group>"; };
+		F438A73126943F2A00C8A71F /* OneandonlyDocumentcell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneandonlyDocumentcell.swift; sourceTree = "<group>"; };
+		F438A73826943FC000C8A71F /* FromTMCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromTMCVC.swift; sourceTree = "<group>"; };
+		F438A73B26943FEC00C8A71F /* oneandonlyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneandonlyVC.swift; sourceTree = "<group>"; };
+		F438A73C26943FEE00C8A71F /* oneandonlydetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = oneandonlydetailVC.swift; sourceTree = "<group>"; };
+		F438A74026944CC000C8A71F /* FromTMCVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromTMCVM.swift; sourceTree = "<group>"; };
+		F438A74326944D6600C8A71F /* FromTmcPromotionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromTmcPromotionCell.swift; sourceTree = "<group>"; };
+		F438A74426944D6600C8A71F /* FromTmcPromotionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FromTmcPromotionCell.xib; sourceTree = "<group>"; };
+		F438A74826944EAC00C8A71F /* AllValuesFromTMC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllValuesFromTMC.swift; sourceTree = "<group>"; };
+		F438A74A26944EEF00C8A71F /* ValuesFromTMC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuesFromTMC.swift; sourceTree = "<group>"; };
+		F438A74C26944FA800C8A71F /* ForPromotionsvalue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForPromotionsvalue.swift; sourceTree = "<group>"; };
+		F438A74E2694508000C8A71F /* ForTMCSValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForTMCSValue.swift; sourceTree = "<group>"; };
+		F438A75026945D3B00C8A71F /* DatafromTMC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatafromTMC.swift; sourceTree = "<group>"; };
+		F438A75226945D4800C8A71F /* Tmcs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tmcs.swift; sourceTree = "<group>"; };
+		F438A75326945D4900C8A71F /* Promotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promotion.swift; sourceTree = "<group>"; };
+		F438A75726948D7600C8A71F /* FromTMCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromTMCCell.swift; sourceTree = "<group>"; };
+		F438A75826948D7600C8A71F /* FromTMCCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FromTMCCell.xib; sourceTree = "<group>"; };
+		F438A75B269585A500C8A71F /* FromtmcindexCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromtmcindexCell.swift; sourceTree = "<group>"; };
+		F438A75C269585A500C8A71F /* FromtmcindexCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FromtmcindexCell.xib; sourceTree = "<group>"; };
+		F438A7642695CBBC00C8A71F /* VersaPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerView.swift; sourceTree = "<group>"; };
+		F438A7662695CBCA00C8A71F /* VersaPlayerPlaybackError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerPlaybackError.swift; sourceTree = "<group>"; };
+		F438A7682695CBDA00C8A71F /* VersaPlayerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerItem.swift; sourceTree = "<group>"; };
+		F438A7692695CBDE00C8A71F /* VersaPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayer.swift; sourceTree = "<group>"; };
+		F438A76A2695CBE100C8A71F /* VersaPlayerCaptionStyling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerCaptionStyling.swift; sourceTree = "<group>"; };
+		F438A76B2695CBE400C8A71F /* VersaPlayerMediaTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerMediaTrack.swift; sourceTree = "<group>"; };
+		F438A7702695CBF300C8A71F /* VersaPlayerPlaybackDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerPlaybackDelegate.swift; sourceTree = "<group>"; };
+		F438A7712695CBF700C8A71F /* VersaPlayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerExtension.swift; sourceTree = "<group>"; };
+		F438A7722695CBFB00C8A71F /* VersaPlayerDecryptionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerDecryptionDelegate.swift; sourceTree = "<group>"; };
+		F438A7762695CC3000C8A71F /* VersaPlayerRenderingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerRenderingView.swift; sourceTree = "<group>"; };
+		F438A7782695CC4C00C8A71F /* VersaPlayerControlsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerControlsCoordinator.swift; sourceTree = "<group>"; };
+		F438A7792695CC4E00C8A71F /* VersaPlayerControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerControls.swift; sourceTree = "<group>"; };
+		F438A77D2695CC6600C8A71F /* VersaSeekbarSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaSeekbarSlider.swift; sourceTree = "<group>"; };
+		F438A77E2695CC6800C8A71F /* VersaStatefulButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaStatefulButton.swift; sourceTree = "<group>"; };
+		F438A77F2695CC6A00C8A71F /* VersaTimeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaTimeLabel.swift; sourceTree = "<group>"; };
+		F438A7842695CC8200C8A71F /* VersaPlayerControlsBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerControlsBehaviour.swift; sourceTree = "<group>"; };
+		F438A7852695CC8400C8A71F /* VersaPlayerGestureRecieverViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerGestureRecieverViewDelegate.swift; sourceTree = "<group>"; };
+		F438A7862695CC8700C8A71F /* VersaPlayerGestureRecieverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersaPlayerGestureRecieverView.swift; sourceTree = "<group>"; };
+		F438A78B2695CCB000C8A71F /* VersaPlayer-iOS.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "VersaPlayer-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F438A78C2695CCB200C8A71F /* VersaPlayer-iOS-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VersaPlayer-iOS-umbrella.h"; sourceTree = "<group>"; };
+		F438A78D2695CCB400C8A71F /* VersaPlayer-iOS-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VersaPlayer-iOS-prefix.pch"; sourceTree = "<group>"; };
+		F438A78E2695CCB600C8A71F /* VersaPlayer-iOS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "VersaPlayer-iOS-Info.plist"; sourceTree = "<group>"; };
+		F438A78F2695CCB800C8A71F /* VersaPlayer-iOS.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = "VersaPlayer-iOS.modulemap"; sourceTree = "<group>"; };
+		F438A7902695CCBA00C8A71F /* VersaPlayer-iOS-dummy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "VersaPlayer-iOS-dummy.m"; sourceTree = "<group>"; };
+		F438A7912695CCBC00C8A71F /* VersaPlayer-iOS.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "VersaPlayer-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		F438FD8E26A6B52A00BCDF6D /* SpecialsitesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialsitesVC.swift; sourceTree = "<group>"; };
+		F438FD9126A6CA0100BCDF6D /* AllvaluesSpecialsite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllvaluesSpecialsite.swift; sourceTree = "<group>"; };
+		F438FD9326A6CA5D00BCDF6D /* SpecialsiteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialsiteData.swift; sourceTree = "<group>"; };
+		F438FD9526A6CABF00BCDF6D /* Distributor_information.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Distributor_information.swift; sourceTree = "<group>"; };
+		F438FD9726A6CACA00BCDF6D /* Mecad_information.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mecad_information.swift; sourceTree = "<group>"; };
+		F438FD9826A6CACC00BCDF6D /* Special_sites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Special_sites.swift; sourceTree = "<group>"; };
+		F438FD9B26A6CC5800BCDF6D /* SpecialsiteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialsiteVM.swift; sourceTree = "<group>"; };
+		F438FD9E26A6D05F00BCDF6D /* SpecialsiteLinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialsiteLinkCell.swift; sourceTree = "<group>"; };
+		F438FD9F26A6D05F00BCDF6D /* SpecialsiteLinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecialsiteLinkCell.xib; sourceTree = "<group>"; };
+		F438FDA226A6D2C700BCDF6D /* SitetableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitetableCell.swift; sourceTree = "<group>"; };
+		F438FDA326A6D2C700BCDF6D /* SitetableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SitetableCell.xib; sourceTree = "<group>"; };
+		F438FDA626A6F2C400BCDF6D /* GrSiteselectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrSiteselectionCell.swift; sourceTree = "<group>"; };
+		F438FDA726A6F2C400BCDF6D /* GrSiteselectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GrSiteselectionCell.xib; sourceTree = "<group>"; };
+		F438FDAA26A7481C00BCDF6D /* InformationTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTblCell.swift; sourceTree = "<group>"; };
+		F438FDAB26A7481C00BCDF6D /* InformationTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationTblCell.xib; sourceTree = "<group>"; };
+		F438FDAE26A7529D00BCDF6D /* SpecialInfnTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialInfnTblCell.swift; sourceTree = "<group>"; };
+		F438FDAF26A7529D00BCDF6D /* SpecialInfnTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpecialInfnTblCell.xib; sourceTree = "<group>"; };
+		F438FDB226A7FCC600BCDF6D /* Connecttblcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connecttblcell.swift; sourceTree = "<group>"; };
+		F438FDB326A7FCC600BCDF6D /* Connecttblcell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Connecttblcell.xib; sourceTree = "<group>"; };
+		F438FDB626A800A100BCDF6D /* GrSupportLInkTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrSupportLInkTblCell.swift; sourceTree = "<group>"; };
+		F438FDB726A800A100BCDF6D /* GrSupportLInkTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GrSupportLInkTblCell.xib; sourceTree = "<group>"; };
+		F438FDBA26A8062500BCDF6D /* GRSupportvc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRSupportvc.swift; sourceTree = "<group>"; };
+		F438FDBD26A8078600BCDF6D /* GrSupportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrSupportModel.swift; sourceTree = "<group>"; };
+		F438FDBF26A807DC00BCDF6D /* GRSupportdatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRSupportdatas.swift; sourceTree = "<group>"; };
+		F4A4D230267E4920006F66E7 /* AnimationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationType.swift; sourceTree = "<group>"; };
+		F4A4D231267E4924006F66E7 /* UITableView + ViewAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView + ViewAnimator.swift"; sourceTree = "<group>"; };
+		F4A4D232267E4927006F66E7 /* Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		F4A4D233267E492B006F66E7 /* UICollectionView + ViewAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView + ViewAnimator.swift"; sourceTree = "<group>"; };
+		F4A4D234267E4930006F66E7 /* ViewAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAnimator.swift; sourceTree = "<group>"; };
+		F4A4D235267E4933006F66E7 /* ViewAnimatorConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAnimatorConfig.swift; sourceTree = "<group>"; };
+		F4A4D23E267E496D006F66E7 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		F4A4D23F267E496F006F66E7 /* UITableView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
+		F4A4D242267E497E006F66E7 /* Tables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tables.swift; sourceTree = "<group>"; };
+		F4A4D243267E4983006F66E7 /* TableAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableAnimations.swift; sourceTree = "<group>"; };
 		F4A575E3265800640010085F /* CalendarView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+Extensions.swift"; sourceTree = "<group>"; };
 		F4A575E4265800650010085F /* EventsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsManager.swift; sourceTree = "<group>"; };
 		F4A575E5265800670010085F /* CalendarView+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CalendarView+DataSource.swift"; sourceTree = "<group>"; };
@@ -1092,6 +1292,7 @@
 		E3045C652603D17B00D1A678 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F438A73A26943FDF00C8A71F /* Oneandonlyday */,
 				F4AA1844266D266500C36887 /* Training */,
 				E38994082660E01700F59772 /* News */,
 				F4A5765B265C97230010085F /* Chat */,
@@ -1160,6 +1361,9 @@
 		E30F661726033A970036D183 /* MECA */ = {
 			isa = PBXGroup;
 			children = (
+				F438A7632695CB9A00C8A71F /* Versaplayer */,
+				E364CCFA268B1DF4000DBAE5 /* MECA.entitlements */,
+				F4A4D22E267E48FC006F66E7 /* Animation */,
 				E3045C652603D17B00D1A678 /* ViewController */,
 				E3045C302603C4A600D1A678 /* Storyboard */,
 				E3045C362603C90800D1A678 /* View */,
@@ -1204,7 +1408,6 @@
 				E3264048267A494B00B6731F /* NewHomeLikeModel.swift */,
 				E31DFCF32678E89600023CFA /* NewHomeData.swift */,
 				E31DFCF22678E89500023CFA /* NewHomeModel.swift */,
-				E3F11540267E302B00F75D6A /* FeedInfoModel.swift */,
 			);
 			path = NewHome;
 			sourceTree = "<group>";
@@ -1229,7 +1432,7 @@
 				E32AECEF26073E3000AEAB6F /* LoginVM.swift */,
 				E32AECEE26073E3000AEAB6F /* SignUpListViewVM.swift */,
 				E32AECF126073E3000AEAB6F /* SignUpVM.swift */,
-				E32AED5926075B4200AEAB6F /* HomeVM.swift */,
+				E32AED5926075B4200AEAB6F /* WhatsNewVM.swift */,
 				E32AED6126075FE300AEAB6F /* PlusSelectCategoryVM.swift */,
 				E31F1DCE2607BF8800830F2B /* CategoriesVM.swift */,
 				5CD5B270260F992F00D63564 /* MEBITHomeVM.swift */,
@@ -1249,6 +1452,11 @@
 				E30337292677644E00B9DDE6 /* HomeNewsFeedVM.swift */,
 				E3264052267A7C4E00B6731F /* NewHomeCommentVM.swift */,
 				E3F11538267DCF5100F75D6A /* MECAPostVM.swift */,
+				E364CD3C268B396C000DBAE5 /* NotificationVM.swift */,
+				F438A71A26943CEF00C8A71F /* oneandonlydetailVM.swift */,
+				F438A71C26943D0D00C8A71F /* OneandonlydayVM.swift */,
+				F438A74026944CC000C8A71F /* FromTMCVM.swift */,
+				F438FD9B26A6CC5800BCDF6D /* SpecialsiteVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1389,6 +1597,16 @@
 			path = SDGSList;
 			sourceTree = "<group>";
 		};
+		E364CD34268B3743000DBAE5 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				E38EEEF9268C47AF00C4A914 /* NotificationRead_Model.swift */,
+				E364CD35268B374F000DBAE5 /* NotificationList_lData.swift */,
+				E364CD36268B3750000DBAE5 /* NotificationList_Module.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		E375EA2B262EACD800646A0A /* DetailView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1469,6 +1687,10 @@
 		E387A9A326047B4400CC675A /* TableView cell */ = {
 			isa = PBXGroup;
 			children = (
+				E38BDB6D26A8316700498037 /* WhatsNew */,
+				F438A74226944D4600C8A71F /* FromTMCNew */,
+				F438A72326943EEB00C8A71F /* OneAndonlydayDetailview */,
+				F438A71E26943ECD00C8A71F /* OneandonlyTVcell */,
 				E303372F267780F300B9DDE6 /* HomeNewsFeeds */,
 				F4AA184C266D272B00C36887 /* TrainingCell */,
 				E38994162660E22700F59772 /* News */,
@@ -1523,6 +1745,24 @@
 			path = News;
 			sourceTree = "<group>";
 		};
+		E38BDB6D26A8316700498037 /* WhatsNew */ = {
+			isa = PBXGroup;
+			children = (
+				E38BDB6E26A831CE00498037 /* WhatsNewTVCell.swift */,
+				E38BDB6F26A831CE00498037 /* WhatsNewTVCell.xib */,
+			);
+			path = WhatsNew;
+			sourceTree = "<group>";
+		};
+		E38BDB7E26A83A0500498037 /* WhatsNew */ = {
+			isa = PBXGroup;
+			children = (
+				E38BDB7F26A83A2000498037 /* WhatsNewCVCell.swift */,
+				E38BDB8026A83A2000498037 /* WhatsNewCVCell.xib */,
+			);
+			path = WhatsNew;
+			sourceTree = "<group>";
+		};
 		E3936BC32603497F006ACF47 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -1543,6 +1783,8 @@
 				E30337242677632A00B9DDE6 /* HomeNewsFeedVC.swift */,
 				E326404D267A7AEB00B6731F /* NewHomeCommentVC.swift */,
 				E325B6D6267D278100B080D3 /* MECAPostVC.swift */,
+				F438A73826943FC000C8A71F /* FromTMCVC.swift */,
+				E38BDB6226A82A6C00498037 /* WhatsNewVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1550,6 +1792,8 @@
 		E3AE791F2604C6E3004B83C9 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				E38BDB7E26A83A0500498037 /* WhatsNew */,
+				F438FD9D26A6CFE300BCDF6D /* GR */,
 				E325B59D267CCDB000B080D3 /* NewHome */,
 				E3D700DF265FA7B3000F7B85 /* NEWs */,
 				E32F3BF4262AFCD40000D92A /* MEBIT Events */,
@@ -1602,6 +1846,8 @@
 		E3C29DA5263F44A900239707 /* GR */ = {
 			isa = PBXGroup;
 			children = (
+				F438FDBC26A8073600BCDF6D /* GRSupport */,
+				F438FD9026A6C9CA00BCDF6D /* SpecialSites */,
 				E393D64426400BF6003895ED /* GRDetail_Data.swift */,
 				E393D64226400BF6003895ED /* GRDetailModel.swift */,
 				E393D64326400BF6003895ED /* GRDocument_links.swift */,
@@ -1726,6 +1972,7 @@
 				E32AED382607549300AEAB6F /* Extension */,
 				E32AED48260754DA00AEAB6F /* Constant */,
 				E3E2CBF9260B48AF009BDB6E /* Webservices */,
+				F432B17526AAC64E00AB2CD1 /* GradientView.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -1742,6 +1989,9 @@
 		E3E2CC2A260B4FE5009BDB6E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F438A74726944E8900C8A71F /* FromTMCModel */,
+				F438A71526943CC200C8A71F /* OneandonlydayModel */,
+				E364CD34268B3743000DBAE5 /* Notification */,
 				E31DFCF12678E86D00023CFA /* NewHome */,
 				F4AA18C7266FF16600C36887 /* ChatcreateModel */,
 				F4AA18A8266D294E00C36887 /* TrainingModel */,
@@ -1816,6 +2066,8 @@
 				E32FEA7D263F390B0083056E /* GRLinksVC.swift */,
 				E34507E726430CD800C17E91 /* HydrogenVC.swift */,
 				E34507FB264310BA00C17E91 /* MaasViewController.swift */,
+				F438FD8E26A6B52A00BCDF6D /* SpecialsitesVC.swift */,
+				F438FDBA26A8062500BCDF6D /* GRSupportvc.swift */,
 			);
 			path = GR;
 			sourceTree = "<group>";
@@ -1850,6 +2102,224 @@
 				D349929F1D641DA57D095FFC /* Pods_MECATests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F438A71526943CC200C8A71F /* OneandonlydayModel */ = {
+			isa = PBXGroup;
+			children = (
+				F438A71626943CD000C8A71F /* allOneandonlyday.swift */,
+				F438A71726943CD200C8A71F /* oneandonlyvalues.swift */,
+			);
+			path = OneandonlydayModel;
+			sourceTree = "<group>";
+		};
+		F438A71E26943ECD00C8A71F /* OneandonlyTVcell */ = {
+			isa = PBXGroup;
+			children = (
+				F438A71F26943EDA00C8A71F /* OneandonlyTVCell.swift */,
+				F438A72026943EDC00C8A71F /* OneandonlyTVCell.xib */,
+			);
+			path = OneandonlyTVcell;
+			sourceTree = "<group>";
+		};
+		F438A72326943EEB00C8A71F /* OneAndonlydayDetailview */ = {
+			isa = PBXGroup;
+			children = (
+				F438A73126943F2A00C8A71F /* OneandonlyDocumentcell.swift */,
+				F438A72C26943F1E00C8A71F /* OneandonlyDocumentcell.xib */,
+				F438A72F26943F2500C8A71F /* OneandonlyDocumentcontentCell.swift */,
+				F438A72D26943F2100C8A71F /* OneandonlyDocumentcontentCell.xib */,
+				F438A73026943F2800C8A71F /* oneandonlylikeCell.swift */,
+				F438A72E26943F2300C8A71F /* oneandonlylikeCell.xib */,
+				F438A72826943F0E00C8A71F /* oneandonlyContentTVCell.swift */,
+				F438A72926943F1100C8A71F /* oneandonlyContentTVCell.xib */,
+				F438A72426943EFE00C8A71F /* detailcoverimgcell.swift */,
+				F438A72526943F0000C8A71F /* detailcoverimgcell.xib */,
+			);
+			path = OneAndonlydayDetailview;
+			sourceTree = "<group>";
+		};
+		F438A73A26943FDF00C8A71F /* Oneandonlyday */ = {
+			isa = PBXGroup;
+			children = (
+				F438A73C26943FEE00C8A71F /* oneandonlydetailVC.swift */,
+				F438A73B26943FEC00C8A71F /* oneandonlyVC.swift */,
+			);
+			path = Oneandonlyday;
+			sourceTree = "<group>";
+		};
+		F438A74226944D4600C8A71F /* FromTMCNew */ = {
+			isa = PBXGroup;
+			children = (
+				F438A75626948D5300C8A71F /* FRomTMC */,
+				F438A74326944D6600C8A71F /* FromTmcPromotionCell.swift */,
+				F438A74426944D6600C8A71F /* FromTmcPromotionCell.xib */,
+			);
+			path = FromTMCNew;
+			sourceTree = "<group>";
+		};
+		F438A74726944E8900C8A71F /* FromTMCModel */ = {
+			isa = PBXGroup;
+			children = (
+				F438A75026945D3B00C8A71F /* DatafromTMC.swift */,
+				F438A75326945D4900C8A71F /* Promotion.swift */,
+				F438A75226945D4800C8A71F /* Tmcs.swift */,
+				F438A74826944EAC00C8A71F /* AllValuesFromTMC.swift */,
+				F438A74E2694508000C8A71F /* ForTMCSValue.swift */,
+				F438A74A26944EEF00C8A71F /* ValuesFromTMC.swift */,
+				F438A74C26944FA800C8A71F /* ForPromotionsvalue.swift */,
+			);
+			path = FromTMCModel;
+			sourceTree = "<group>";
+		};
+		F438A75626948D5300C8A71F /* FRomTMC */ = {
+			isa = PBXGroup;
+			children = (
+				F438A75726948D7600C8A71F /* FromTMCCell.swift */,
+				F438A75826948D7600C8A71F /* FromTMCCell.xib */,
+				F438A75B269585A500C8A71F /* FromtmcindexCell.swift */,
+				F438A75C269585A500C8A71F /* FromtmcindexCell.xib */,
+			);
+			path = FRomTMC;
+			sourceTree = "<group>";
+		};
+		F438A7632695CB9A00C8A71F /* Versaplayer */ = {
+			isa = PBXGroup;
+			children = (
+				F438A78A2695CCA300C8A71F /* Support Files */,
+				F438A7832695CC7300C8A71F /* Core */,
+				F438A77C2695CC5900C8A71F /* Controls */,
+				F438A7642695CBBC00C8A71F /* VersaPlayerView.swift */,
+				F438A7662695CBCA00C8A71F /* VersaPlayerPlaybackError.swift */,
+				F438A7692695CBDE00C8A71F /* VersaPlayer.swift */,
+				F438A76A2695CBE100C8A71F /* VersaPlayerCaptionStyling.swift */,
+				F438A7682695CBDA00C8A71F /* VersaPlayerItem.swift */,
+				F438A76B2695CBE400C8A71F /* VersaPlayerMediaTrack.swift */,
+				F438A7722695CBFB00C8A71F /* VersaPlayerDecryptionDelegate.swift */,
+				F438A7712695CBF700C8A71F /* VersaPlayerExtension.swift */,
+				F438A7702695CBF300C8A71F /* VersaPlayerPlaybackDelegate.swift */,
+				F438A7792695CC4E00C8A71F /* VersaPlayerControls.swift */,
+				F438A7782695CC4C00C8A71F /* VersaPlayerControlsCoordinator.swift */,
+				F438A7762695CC3000C8A71F /* VersaPlayerRenderingView.swift */,
+			);
+			path = Versaplayer;
+			sourceTree = "<group>";
+		};
+		F438A77C2695CC5900C8A71F /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				F438A77D2695CC6600C8A71F /* VersaSeekbarSlider.swift */,
+				F438A77E2695CC6800C8A71F /* VersaStatefulButton.swift */,
+				F438A77F2695CC6A00C8A71F /* VersaTimeLabel.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		F438A7832695CC7300C8A71F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F438A7842695CC8200C8A71F /* VersaPlayerControlsBehaviour.swift */,
+				F438A7862695CC8700C8A71F /* VersaPlayerGestureRecieverView.swift */,
+				F438A7852695CC8400C8A71F /* VersaPlayerGestureRecieverViewDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F438A78A2695CCA300C8A71F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F438A7902695CCBA00C8A71F /* VersaPlayer-iOS-dummy.m */,
+				F438A78E2695CCB600C8A71F /* VersaPlayer-iOS-Info.plist */,
+				F438A78D2695CCB400C8A71F /* VersaPlayer-iOS-prefix.pch */,
+				F438A78C2695CCB200C8A71F /* VersaPlayer-iOS-umbrella.h */,
+				F438A78B2695CCB000C8A71F /* VersaPlayer-iOS.debug.xcconfig */,
+				F438A78F2695CCB800C8A71F /* VersaPlayer-iOS.modulemap */,
+				F438A7912695CCBC00C8A71F /* VersaPlayer-iOS.release.xcconfig */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		F438FD9026A6C9CA00BCDF6D /* SpecialSites */ = {
+			isa = PBXGroup;
+			children = (
+				F438FD9726A6CACA00BCDF6D /* Mecad_information.swift */,
+				F438FD9826A6CACC00BCDF6D /* Special_sites.swift */,
+				F438FD9526A6CABF00BCDF6D /* Distributor_information.swift */,
+				F438FD9126A6CA0100BCDF6D /* AllvaluesSpecialsite.swift */,
+				F438FD9326A6CA5D00BCDF6D /* SpecialsiteData.swift */,
+			);
+			path = SpecialSites;
+			sourceTree = "<group>";
+		};
+		F438FD9D26A6CFE300BCDF6D /* GR */ = {
+			isa = PBXGroup;
+			children = (
+				F438FD9E26A6D05F00BCDF6D /* SpecialsiteLinkCell.swift */,
+				F438FD9F26A6D05F00BCDF6D /* SpecialsiteLinkCell.xib */,
+				F438FDA226A6D2C700BCDF6D /* SitetableCell.swift */,
+				F438FDA326A6D2C700BCDF6D /* SitetableCell.xib */,
+				F438FDA626A6F2C400BCDF6D /* GrSiteselectionCell.swift */,
+				F438FDA726A6F2C400BCDF6D /* GrSiteselectionCell.xib */,
+				F438FDAA26A7481C00BCDF6D /* InformationTblCell.swift */,
+				F438FDAB26A7481C00BCDF6D /* InformationTblCell.xib */,
+				F438FDAE26A7529D00BCDF6D /* SpecialInfnTblCell.swift */,
+				F438FDAF26A7529D00BCDF6D /* SpecialInfnTblCell.xib */,
+				F438FDB226A7FCC600BCDF6D /* Connecttblcell.swift */,
+				F438FDB326A7FCC600BCDF6D /* Connecttblcell.xib */,
+				F438FDB626A800A100BCDF6D /* GrSupportLInkTblCell.swift */,
+				F438FDB726A800A100BCDF6D /* GrSupportLInkTblCell.xib */,
+			);
+			path = GR;
+			sourceTree = "<group>";
+		};
+		F438FDBC26A8073600BCDF6D /* GRSupport */ = {
+			isa = PBXGroup;
+			children = (
+				F438FDBD26A8078600BCDF6D /* GrSupportModel.swift */,
+				F438FDBF26A807DC00BCDF6D /* GRSupportdatas.swift */,
+			);
+			path = GRSupport;
+			sourceTree = "<group>";
+		};
+		F4A4D22E267E48FC006F66E7 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				F4A4D23C267E4950006F66E7 /* Tableview_Animation */,
+				F4A4D22F267E490D006F66E7 /* Collectionview_animation */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		F4A4D22F267E490D006F66E7 /* Collectionview_animation */ = {
+			isa = PBXGroup;
+			children = (
+				F4A4D232267E4927006F66E7 /* Animation.swift */,
+				F4A4D230267E4920006F66E7 /* AnimationType.swift */,
+				F4A4D233267E492B006F66E7 /* UICollectionView + ViewAnimator.swift */,
+				F4A4D231267E4924006F66E7 /* UITableView + ViewAnimator.swift */,
+				F4A4D234267E4930006F66E7 /* ViewAnimator.swift */,
+				F4A4D235267E4933006F66E7 /* ViewAnimatorConfig.swift */,
+			);
+			path = Collectionview_animation;
+			sourceTree = "<group>";
+		};
+		F4A4D23C267E4950006F66E7 /* Tableview_Animation */ = {
+			isa = PBXGroup;
+			children = (
+				F4A4D243267E4983006F66E7 /* TableAnimations.swift */,
+				F4A4D242267E497E006F66E7 /* Tables.swift */,
+				F4A4D23D267E495E006F66E7 /* Slide_in */,
+			);
+			path = Tableview_Animation;
+			sourceTree = "<group>";
+		};
+		F4A4D23D267E495E006F66E7 /* Slide_in */ = {
+			isa = PBXGroup;
+			children = (
+				F4A4D23E267E496D006F66E7 /* Animator.swift */,
+				F4A4D23F267E496F006F66E7 /* UITableView+Ext.swift */,
+			);
+			path = Slide_in;
 			sourceTree = "<group>";
 		};
 		F4A575E12658003C0010085F /* Calender */ = {
@@ -2314,6 +2784,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F438A74626944D6600C8A71F /* FromTmcPromotionCell.xib in Resources */,
 				E3B33DDA2668EDCE00DE6764 /* NewsCatTVCell.xib in Resources */,
 				E3D70161265FD544000F7B85 /* SF-Pro-Display-SemiboldItalic.otf in Resources */,
 				E37A2FE42614AEAD00C6CA57 /* DistributorListTVCell.xib in Resources */,
@@ -2329,15 +2800,20 @@
 				E3D700DB265F9A82000F7B85 /* NewsRC.storyboard in Resources */,
 				E3D70164265FD544000F7B85 /* SF-Pro-Text-BoldItalic.otf in Resources */,
 				E3138076266123D700A3A3F0 /* LatestNewsCVCell.xib in Resources */,
+				F438A73326943F2A00C8A71F /* OneandonlyDocumentcontentCell.xib in Resources */,
 				E3AE79242604C711004B83C9 /* PlusSelectCategoryCVCell.xib in Resources */,
 				F4AA1879266D288900C36887 /* wallofframeindexCell.xib in Resources */,
 				F4AA188B266D28C400C36887 /* PdcauploadindexTableCell.xib in Resources */,
+				E38BDB7126A831CE00498037 /* WhatsNewTVCell.xib in Resources */,
 				E3F12B12262E0A8A0055D875 /* DetailDocumentLinkTVCell.xib in Resources */,
 				E32F3BD8262AF24B0000D92A /* VideoLinkTableViewCell.xib in Resources */,
 				E3D70176265FD544000F7B85 /* SF-Pro-Display-UltralightItalic.otf in Resources */,
 				E326405A267A7CEE00B6731F /* NewHomeCommentTVCell.xib in Resources */,
+				F438A7922695CCBC00C8A71F /* VersaPlayer-iOS.debug.xcconfig in Resources */,
 				F4AA1865266D280F00C36887 /* watchvideoTableCell.xib in Resources */,
+				F438FDA126A6D05F00BCDF6D /* SpecialsiteLinkCell.xib in Resources */,
 				E34508442643168C00C17E91 /* SDGSListTableCell.xib in Resources */,
+				F438A7932695CCBC00C8A71F /* VersaPlayer-iOS-Info.plist in Resources */,
 				E3D7015A265FD544000F7B85 /* SF-Pro-Text-SemiboldItalic.otf in Resources */,
 				E3D70172265FD544000F7B85 /* SF-Pro-Text-MediumItalic.otf in Resources */,
 				F4A57609265801480010085F /* ScheduleHeaderView.xib in Resources */,
@@ -2356,7 +2832,9 @@
 				E3D7016A265FD544000F7B85 /* SF-Pro.ttf in Resources */,
 				E32FEA8B263F3C5F0083056E /* GRLinksTVCell.xib in Resources */,
 				E3D7015D265FD544000F7B85 /* SF-Pro-Display-Regular.otf in Resources */,
+				F438A75A26948D7600C8A71F /* FromTMCCell.xib in Resources */,
 				E3D70156265FD536000F7B85 /* SF-Pro-Display-BlackItalic.otf in Resources */,
+				E38BDB8226A83A2000498037 /* WhatsNewCVCell.xib in Resources */,
 				E3D70182265FD544000F7B85 /* SF-Pro-Display-MediumItalic.otf in Resources */,
 				E3D70167265FD544000F7B85 /* SF-Pro-Text-Regular.otf in Resources */,
 				E3F6A861263EC9D900FAE93E /* GR.storyboard in Resources */,
@@ -2366,17 +2844,20 @@
 				E3045C722603D87A00D1A678 /* HomeTVCell.xib in Resources */,
 				E38383482655BABB008DA03E /* CommentReplyTVCell.xib in Resources */,
 				F4A57673265CC7F00010085F /* chat.json in Resources */,
+				F438A75E269585A500C8A71F /* FromtmcindexCell.xib in Resources */,
 				E375EA55262ECD2600646A0A /* DocumentContentCell.xib in Resources */,
 				E3D7016B265FD544000F7B85 /* SF-Pro-Text-LightItalic.otf in Resources */,
 				E3D70180265FD544000F7B85 /* SF-Pro-Rounded-Light.otf in Resources */,
 				F4AA1887266D28C400C36887 /* youtubevideocell.xib in Resources */,
 				F4AA188F266D28C400C36887 /* pdcauploadTableCell.xib in Resources */,
 				F4A5765D265C97400010085F /* Chat.storyboard in Resources */,
+				F438A73426943F2A00C8A71F /* oneandonlylikeCell.xib in Resources */,
 				E3D70169265FD544000F7B85 /* SF-Pro-Text-Semibold.otf in Resources */,
 				E375EA5C262ED59600646A0A /* DetailVideoLinkTVCell.xib in Resources */,
 				E313804226610A2600A3A3F0 /* SubTypeCVCell.xib in Resources */,
 				E30F662526033A970036D183 /* LaunchScreen.storyboard in Resources */,
 				E3045C422603C96C00D1A678 /* FooterTabView.xib in Resources */,
+				F438A73226943F2A00C8A71F /* OneandonlyDocumentcell.xib in Resources */,
 				E3D70185265FD544000F7B85 /* SF-Pro-Text-Bold.otf in Resources */,
 				E375EA2F262EADAE00646A0A /* DetailCoverImageTVCell.xib in Resources */,
 				F4A57642265A8FF70010085F /* ScheduleCell.xib in Resources */,
@@ -2397,12 +2878,15 @@
 				E3D70186265FD544000F7B85 /* SF-Pro-Text-UltralightItalic.otf in Resources */,
 				E3D70177265FD544000F7B85 /* SF-Pro-Display-Heavy.otf in Resources */,
 				E3E042652650538000F1ED2F /* LikeDetailTVCell.xib in Resources */,
+				F438FDB126A7529D00BCDF6D /* SpecialInfnTblCell.xib in Resources */,
 				E34508302643134200C17E91 /* MaasListTVCell.xib in Resources */,
 				5CED90FA2605A67F001053DD /* AddImageCollectionViewCell.xib in Resources */,
 				F4AA1859266D27A400C36887 /* InvitatioTableCell.xib in Resources */,
+				F438A7952695CCBC00C8A71F /* VersaPlayer-iOS.release.xcconfig in Resources */,
 				E32AED102607538500AEAB6F /* BaseTableHeaderView.xib in Resources */,
 				F4AA186F266D285300C36887 /* TBPIndexCell.xib in Resources */,
 				F4AA185F266D27EB00C36887 /* DescriptionTableCell.xib in Resources */,
+				F438FDAD26A7481C00BCDF6D /* InformationTblCell.xib in Resources */,
 				E3D700E3265FA7E1000F7B85 /* AddNewTagsCVCell.xib in Resources */,
 				E375EA70262EDC0C00646A0A /* DetailDocLinkTVCell.xib in Resources */,
 				F4AA1868266D280F00C36887 /* TrainingvideoTableCell.xib in Resources */,
@@ -2410,11 +2894,14 @@
 				E375EA7A262EE9B100646A0A /* DetailCommentLikeTVCell.xib in Resources */,
 				E3E96664267BEEBD00A82FEB /* NewHomeSubCommentTVCell.xib in Resources */,
 				E34508382643158800C17E91 /* BlueFooterview.xib in Resources */,
+				F438FDA926A6F2C400BCDF6D /* GrSiteselectionCell.xib in Resources */,
 				E3D70160265FD544000F7B85 /* SF-Pro-Text-Thin.otf in Resources */,
 				F4A57635265805CC0010085F /* ReminderTableCell.xib in Resources */,
 				E30F662226033A970036D183 /* Assets.xcassets in Resources */,
 				E3481BBE26518EA200D2DC5D /* CommentDetailTVCell.xib in Resources */,
+				F438FDB926A800A100BCDF6D /* GrSupportLInkTblCell.xib in Resources */,
 				E3D70168265FD544000F7B85 /* SF-Pro-Text-Heavy.otf in Resources */,
+				F438FDA526A6D2C700BCDF6D /* SitetableCell.xib in Resources */,
 				E3D70175265FD544000F7B85 /* SF-Pro-Text-BlackItalic.otf in Resources */,
 				E32F3BF7262AFCDC0000D92A /* MEBITCollectionViewCell.xib in Resources */,
 				E3D7017E265FD544000F7B85 /* SF-Pro-Display-Ultralight.otf in Resources */,
@@ -2422,6 +2909,7 @@
 				E3F3DE80266788AE005839D2 /* RelatedNewsTVCell.xib in Resources */,
 				E30F662026033A970036D183 /* Main.storyboard in Resources */,
 				E30337332677812200B9DDE6 /* HomeNewsFeedTVCell.xib in Resources */,
+				F438A72B26943F1100C8A71F /* oneandonlyContentTVCell.xib in Resources */,
 				E3F3DE6826677C17005839D2 /* NewsImageTVCell.xib in Resources */,
 				E375EA40262EB7C600646A0A /* DetailAboutEventTVCell.xib in Resources */,
 				F4AA186E266D285300C36887 /* TBPReportTableCell.xib in Resources */,
@@ -2432,14 +2920,17 @@
 				E375EA47262EB93600646A0A /* DetailImagesAndVideosCell.xib in Resources */,
 				E3D7016E265FD544000F7B85 /* SF-Pro-Rounded-Ultralight.otf in Resources */,
 				5CA339A22605F6AA008774FE /* SelectCategoryCollectionViewCell.xib in Resources */,
+				F438A72726943F0000C8A71F /* detailcoverimgcell.xib in Resources */,
 				E3F3DE72266782BC005839D2 /* NewContentTVCell.xib in Resources */,
 				E3045C322603C4BF00D1A678 /* Home.storyboard in Resources */,
 				5CED910F2605C8D2001053DD /* OrangeFooterView.xib in Resources */,
 				E3D7015C265FD544000F7B85 /* SF-Pro-Display-BoldItalic.otf in Resources */,
+				F438A72226943EDC00C8A71F /* OneandonlyTVCell.xib in Resources */,
 				E3D7017C265FD544000F7B85 /* SF-Pro-Display-Semibold.otf in Resources */,
 				E3D7015E265FD544000F7B85 /* SF-Pro-Display-ThinItalic.otf in Resources */,
 				E3D7017F265FD544000F7B85 /* SF-Pro-Rounded-Heavy.otf in Resources */,
 				E375EA4E262EBC8500646A0A /* DetailEventContentTVCell.xib in Resources */,
+				F438FDB526A7FCC600BCDF6D /* Connecttblcell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2586,6 +3077,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E375EA8B262F3E4900646A0A /* Event_MEBITCat.swift in Sources */,
+				F438FD8F26A6B52A00BCDF6D /* SpecialsitesVC.swift in Sources */,
 				E3C734AC264BD8AD003580C8 /* LikeOrCommentVC.swift in Sources */,
 				E3CE0FC12621D694009947F6 /* Event_videos.swift in Sources */,
 				F4AA185E266D27EB00C36887 /* DescriptionTableCell.swift in Sources */,
@@ -2603,13 +3095,16 @@
 				E3AE79232604C711004B83C9 /* PlusSelectCategoryCVCell.swift in Sources */,
 				E3450816264312E000C17E91 /* MaasWriterinfo.swift in Sources */,
 				E38994192660E24300F59772 /* NewsHomePickTVCell.swift in Sources */,
+				F438A7882695CC8700C8A71F /* VersaPlayerGestureRecieverViewDelegate.swift in Sources */,
 				E375EA5B262ED59600646A0A /* DetailVideoLinkTVCell.swift in Sources */,
 				E32F3BDD262AF2660000D92A /* VideoLinkVM.swift in Sources */,
+				F438A7872695CC8700C8A71F /* VersaPlayerControlsBehaviour.swift in Sources */,
 				E38383472655BABB008DA03E /* CommentReplyTVCell.swift in Sources */,
 				E34508042643110D00C17E91 /* SDGSVC.swift in Sources */,
 				E34B0069266A510D00978628 /* VideoInfoModel.swift in Sources */,
 				F4A57603265801170010085F /* CalenderVC.swift in Sources */,
 				5CA339A12605F6AA008774FE /* SelectCategoryCollectionViewCell.swift in Sources */,
+				F438A75926948D7600C8A71F /* FromTMCCell.swift in Sources */,
 				E3254459261098910083BDD9 /* Ownerprofile.swift in Sources */,
 				E3B33DD22668ED4700DE6764 /* NewsListModel.swift in Sources */,
 				E3E2CCD0260B6029009BDB6E /* Divisioninformation.swift in Sources */,
@@ -2629,9 +3124,12 @@
 				E387A99F26047ACF00CC675A /* SignUpListViewVC.swift in Sources */,
 				F4AA18A3266D294000C36887 /* AllTrainingdetails.swift in Sources */,
 				F4A57678265CD62D0010085F /* Reminderdata.swift in Sources */,
+				F438A76F2695CBE400C8A71F /* VersaPlayerMediaTrack.swift in Sources */,
 				F4AA188A266D28C400C36887 /* PdcaTableCell.swift in Sources */,
 				E3F3DE6726677C17005839D2 /* NewsImageTVCell.swift in Sources */,
+				F438A75426945D4A00C8A71F /* Tmcs.swift in Sources */,
 				E375EA8E262F3E4900646A0A /* Data_MEBITCat.swift in Sources */,
+				F438FDA026A6D05F00BCDF6D /* SpecialsiteLinkCell.swift in Sources */,
 				E375EA38262EB19E00646A0A /* DetailLocationTVCell.swift in Sources */,
 				E32FEA79263F35700083056E /* GRActivityReportVM.swift in Sources */,
 				E3F35A1F265D055000A419B5 /* NotificationVC.swift in Sources */,
@@ -2639,6 +3137,7 @@
 				F4AA18B4266D299700C36887 /* walloffame_detailModel.swift in Sources */,
 				E325445A261098910083BDD9 /* Video_links.swift in Sources */,
 				E3264060267A8AAC00B6731F /* NewHomeCommentData.swift in Sources */,
+				F438A73E26943FEE00C8A71F /* oneandonlydetailVC.swift in Sources */,
 				F4A57670265CC7D90010085F /* Spinner.swift in Sources */,
 				5CD5B264260F96FC00D63564 /* MEBITModel.swift in Sources */,
 				E3ECC5F226119A3E002E1BE1 /* CategoryDistributorVC.swift in Sources */,
@@ -2647,21 +3146,29 @@
 				E375EA27262EABEE00646A0A /* NewDetailVM.swift in Sources */,
 				E34B0031266A2D5200978628 /* NewsVideoListVC.swift in Sources */,
 				E3F12B11262E0A8A0055D875 /* DetailDocumentLinkTVCell.swift in Sources */,
+				F438A7772695CC3000C8A71F /* VersaPlayerRenderingView.swift in Sources */,
 				E34507E226430CCB00C17E91 /* Datahydrogen.swift in Sources */,
 				5CF4679A2606E40C004C4CBE /* ImageVideoCollectionViewCell.swift in Sources */,
 				E345081A264312E000C17E91 /* DataMaas.swift in Sources */,
+				F438FDBE26A8078600BCDF6D /* GrSupportModel.swift in Sources */,
 				E30337252677632A00B9DDE6 /* HomeNewsFeedVC.swift in Sources */,
 				E37A2FDC26149F1900C6CA57 /* WriterinfoNewCar.swift in Sources */,
+				F438FD9A26A6CACD00BCDF6D /* Special_sites.swift in Sources */,
 				E3138075266123D700A3A3F0 /* LatestNewsCVCell.swift in Sources */,
 				E3F7C5BF26144F380018C377 /* MoreVC.swift in Sources */,
 				E3C28C9F261EF69E00E54359 /* OwnerprofileKaizen.swift in Sources */,
+				F4A4D240267E496F006F66E7 /* Animator.swift in Sources */,
+				F438A73526943F2A00C8A71F /* OneandonlyDocumentcontentCell.swift in Sources */,
 				E30F661926033A970036D183 /* AppDelegate.swift in Sources */,
+				F4A4D23A267E4933006F66E7 /* ViewAnimator.swift in Sources */,
 				F4A5766E265CC7D90010085F /* BaseCells.swift in Sources */,
+				F438A73726943F2A00C8A71F /* OneandonlyDocumentcell.swift in Sources */,
 				E3E96663267BEEBD00A82FEB /* NewHomeSubCommentTVCell.swift in Sources */,
 				E3B33DD92668EDCE00DE6764 /* NewsCatTVCell.swift in Sources */,
 				E34B002C266A2BED00978628 /* VideoNewListModel.swift in Sources */,
 				F4A5761B265802480010085F /* CalenderVM.swift in Sources */,
 				E3F6AA2D263F2B3000FAE93E /* GRActivityReportVC.swift in Sources */,
+				F438FDB426A7FCC600BCDF6D /* Connecttblcell.swift in Sources */,
 				E30337322677812200B9DDE6 /* HomeNewsFeedTVCell.swift in Sources */,
 				E3E2CBFC260B48C6009BDB6E /* webserviceConstants.swift in Sources */,
 				E38994262660ED4200F59772 /* LatestNewsTVCell.swift in Sources */,
@@ -2673,7 +3180,10 @@
 				E3F3DE902667AA7F005839D2 /* Related.swift in Sources */,
 				F4A5760D265801740010085F /* ChatTableCell.swift in Sources */,
 				E32AECF426073E3000AEAB6F /* BaseTableViewVM.swift in Sources */,
+				E38EEEFA268C47AF00C4A914 /* NotificationRead_Model.swift in Sources */,
 				E32AED3B260754A100AEAB6F /* Extension.swift in Sources */,
+				F438A7752695CBFB00C8A71F /* VersaPlayerDecryptionDelegate.swift in Sources */,
+				F4A4D245267E4983006F66E7 /* TableAnimations.swift in Sources */,
 				F4AA1867266D280F00C36887 /* watchvideoTableCell.swift in Sources */,
 				E3254458261098910083BDD9 /* Data_Event.swift in Sources */,
 				E39467862614EA3400B9503B /* DataMedbiList.swift in Sources */,
@@ -2681,7 +3191,9 @@
 				E32F3BD7262AF24B0000D92A /* VideoLinkTableViewCell.swift in Sources */,
 				E325B5A0267CCDCD00B080D3 /* newHomePagerCVCell.swift in Sources */,
 				E30751AF260F3908000EB1EA /* Data_Home.swift in Sources */,
+				F4A4D238267E4933006F66E7 /* Animation.swift in Sources */,
 				E3F11539267DCF5100F75D6A /* MECAPostVM.swift in Sources */,
+				F438A76C2695CBE400C8A71F /* VersaPlayerItem.swift in Sources */,
 				F4AA189B266D291900C36887 /* Pdca_uploadModel.swift in Sources */,
 				F4A575EC2658006E0010085F /* CalendarView+Extensions.swift in Sources */,
 				E3F3DE952667AD54005839D2 /* Document_News.swift in Sources */,
@@ -2710,30 +3222,47 @@
 				5C021C52261027E600759B96 /* KaizenInfoDataModel.swift in Sources */,
 				F4A575FD265800AD0010085F /* ChatVC.swift in Sources */,
 				E31DFCF42678E89600023CFA /* NewHomeModel.swift in Sources */,
+				F4A4D23B267E4933006F66E7 /* ViewAnimatorConfig.swift in Sources */,
+				F438A74526944D6600C8A71F /* FromTmcPromotionCell.swift in Sources */,
 				F4AA18C9266FF18D00C36887 /* chatcreateallvalue.swift in Sources */,
+				F4A4D237267E4933006F66E7 /* UITableView + ViewAnimator.swift in Sources */,
 				F4AA1847266D26A300C36887 /* WallofframedetailVC.swift in Sources */,
+				F438A71B26943CEF00C8A71F /* oneandonlydetailVM.swift in Sources */,
 				E32AECF526073E3000AEAB6F /* SignUpVM.swift in Sources */,
+				F438A7742695CBFB00C8A71F /* VersaPlayerExtension.swift in Sources */,
+				F438A7812695CC6A00C8A71F /* VersaStatefulButton.swift in Sources */,
 				E3F3DE8E2667AA7F005839D2 /* NewsDetail_Data.swift in Sources */,
 				E34507FC264310BA00C17E91 /* MaasViewController.swift in Sources */,
+				F438A74B26944EEF00C8A71F /* ValuesFromTMC.swift in Sources */,
 				F4AA1877266D288900C36887 /* WalltitleTableCell.swift in Sources */,
 				E32FEA7E263F390B0083056E /* GRLinksVC.swift in Sources */,
 				E3F3DE78266785A9005839D2 /* DocumentTVCell.swift in Sources */,
+				F438FDA426A6D2C700BCDF6D /* SitetableCell.swift in Sources */,
 				5CED91142605CAFD001053DD /* OrangeFooterView.swift in Sources */,
 				E3A71279261F560D00D6A961 /* Document_links.swift in Sources */,
 				E32AED4F2607550900AEAB6F /* FlowController.swift in Sources */,
+				F4A4D239267E4933006F66E7 /* UICollectionView + ViewAnimator.swift in Sources */,
 				5C021C4A2610258500759B96 /* KaizenInfoModel.swift in Sources */,
+				F438A77B2695CC4E00C8A71F /* VersaPlayerControls.swift in Sources */,
 				E325B6D7267D278100B080D3 /* MECAPostVC.swift in Sources */,
+				F438A74F2694508000C8A71F /* ForTMCSValue.swift in Sources */,
 				E3E2CC4B260B537C009BDB6E /* Global.swift in Sources */,
 				E3F3DE71266782BC005839D2 /* NewContentTVCell.swift in Sources */,
 				E34508052643110D00C17E91 /* SDGSCategoryvc.swift in Sources */,
+				F438FDB826A800A100BCDF6D /* GrSupportLInkTblCell.swift in Sources */,
 				E387A989260476BB00CC675A /* SignUpVC.swift in Sources */,
-				E3F11541267E302B00F75D6A /* FeedInfoModel.swift in Sources */,
 				E3BBB0CB2662BEEF00F052FD /* News_Model.swift in Sources */,
 				5CD5B271260F992F00D63564 /* MEBITHomeVM.swift in Sources */,
 				E3F7C5F726145F6F0018C377 /* OwnerprofileNewCar.swift in Sources */,
 				F4A575F32658006E0010085F /* CalendarDayCell.swift in Sources */,
+				F438FD9626A6CABF00BCDF6D /* Distributor_information.swift in Sources */,
+				F438A73D26943FEE00C8A71F /* oneandonlyVC.swift in Sources */,
+				F438FDB026A7529D00BCDF6D /* SpecialInfnTblCell.swift in Sources */,
 				E3F3DE5A26677B1C005839D2 /* NewsDetailVC.swift in Sources */,
+				F438A7892695CC8700C8A71F /* VersaPlayerGestureRecieverView.swift in Sources */,
 				E3F3DE5F26677B7C005839D2 /* NewsDetailVM.swift in Sources */,
+				F438A74D26944FA800C8A71F /* ForPromotionsvalue.swift in Sources */,
+				F438A7822695CC6A00C8A71F /* VersaTimeLabel.swift in Sources */,
 				E375EA4D262EBC8500646A0A /* DetailEventContentTVCell.swift in Sources */,
 				F4AA188C266D28C400C36887 /* PdcaindexCell.swift in Sources */,
 				E3F7C5F526145F6F0018C377 /* Kaizen_documents.swift in Sources */,
@@ -2744,35 +3273,46 @@
 				E375EA95262F44C300646A0A /* Data_CatList.swift in Sources */,
 				E38383392655AC34008DA03E /* CommentListModel.swift in Sources */,
 				E393D629263FD6B4003895ED /* GRHomeLis_Data.swift in Sources */,
+				F438A75D269585A500C8A71F /* FromtmcindexCell.swift in Sources */,
 				E3B33DD32668ED4700DE6764 /* NewsListData.swift in Sources */,
+				F438A75526945D4A00C8A71F /* Promotion.swift in Sources */,
 				E34508372643158800C17E91 /* BlueFooterview.swift in Sources */,
 				E3D700E2265FA7E1000F7B85 /* AddNewTagsCVCell.swift in Sources */,
 				E3045C712603D87A00D1A678 /* HomeTVCell.swift in Sources */,
 				E3450813264312E000C17E91 /* MaasVideo_links.swift in Sources */,
 				E37A2FE92614BE6A00C6CA57 /* PDFReaderVC.swift in Sources */,
-				E32AED5A26075B4200AEAB6F /* HomeVM.swift in Sources */,
+				E32AED5A26075B4200AEAB6F /* WhatsNewVM.swift in Sources */,
 				E3450818264312E000C17E91 /* Maasallvalue.swift in Sources */,
+				E38BDB8126A83A2000498037 /* WhatsNewCVCell.swift in Sources */,
 				5C021C2B2610125400759B96 /* EventInfoModel.swift in Sources */,
 				E3BBB0CD2662BEEF00F052FD /* Toyota_latest_news.swift in Sources */,
+				F438FDA826A6F2C400BCDF6D /* GrSiteselectionCell.swift in Sources */,
 				E34B0068266A510D00978628 /* VideoInfoData.swift in Sources */,
 				F4A57628265802740010085F /* Recentchatmodel.swift in Sources */,
 				E32AED6226075FE300AEAB6F /* PlusSelectCategoryVM.swift in Sources */,
+				F438A7802695CC6A00C8A71F /* VersaSeekbarSlider.swift in Sources */,
 				E326404E267A7AEB00B6731F /* NewHomeCommentVC.swift in Sources */,
 				E32FEA8A263F3C5F0083056E /* GRLinksTVCell.swift in Sources */,
+				E38BDB7026A831CE00498037 /* WhatsNewTVCell.swift in Sources */,
 				E3045C7A2603DD7E00D1A678 /* HomeVC.swift in Sources */,
 				E3254457261098910083BDD9 /* Event_documents.swift in Sources */,
 				F4A576152658019B0010085F /* Supporttblcell.swift in Sources */,
 				E32AED6726075FFC00AEAB6F /* BaseCollectionViewVM.swift in Sources */,
+				F438A72626943F0000C8A71F /* detailcoverimgcell.swift in Sources */,
 				E375EA94262F44C300646A0A /* CatListModel.swift in Sources */,
 				F4A57626265802740010085F /* Chatallvalue.swift in Sources */,
 				E3E9665A267BEA8B00A82FEB /* NewHomeSubComment.swift in Sources */,
 				F4A57636265805CC0010085F /* ReminderTableCell.swift in Sources */,
+				F438FD9926A6CACD00BCDF6D /* Mecad_information.swift in Sources */,
+				F438A7732695CBFB00C8A71F /* VersaPlayerPlaybackDelegate.swift in Sources */,
 				E375EA79262EE9B100646A0A /* DetailCommentLikeTVCell.swift in Sources */,
 				F4A57600265800AD0010085F /* UpdateprofileVC.swift in Sources */,
+				F438FDAC26A7481C00BCDF6D /* InformationTblCell.swift in Sources */,
 				F4A5763B26580BF10010085F /* Supportdatas.swift in Sources */,
 				F4A57679265CD62D0010085F /* Reminderlistdata.swift in Sources */,
 				5CED911A2605DF0F001053DD /* MEBITViewController.swift in Sources */,
 				F4AA18BA266D29B400C36887 /* Invitationsdata.swift in Sources */,
+				E364CD3D268B396C000DBAE5 /* NotificationVM.swift in Sources */,
 				E375EA8D262F3E4900646A0A /* MEBITCat_Model.swift in Sources */,
 				F4A575F12658006E0010085F /* CalendarView+Delegate.swift in Sources */,
 				5C021C572610280500759B96 /* KaizenVideoLinkModel.swift in Sources */,
@@ -2781,6 +3321,7 @@
 				F4A575ED2658006E0010085F /* EventsManager.swift in Sources */,
 				E3FCCDFE265B90960011714B /* Like_ListModel.swift in Sources */,
 				F4AA18A5266D294000C36887 /* Detailsinfo.swift in Sources */,
+				E364CD38268B3750000DBAE5 /* NotificationList_Module.swift in Sources */,
 				E3264053267A7C4E00B6731F /* NewHomeCommentVM.swift in Sources */,
 				F4A57627265802740010085F /* Adminchatusers.swift in Sources */,
 				E3450819264312E000C17E91 /* Maas_DocumentLinks.swift in Sources */,
@@ -2791,6 +3332,7 @@
 				E32AED4A260754F000AEAB6F /* AppConstant.swift in Sources */,
 				E375EA2E262EADAE00646A0A /* DetailCoverImageTVCell.swift in Sources */,
 				E32FEA83263F3B4A0083056E /* GRLinksVM.swift in Sources */,
+				F438A76D2695CBE400C8A71F /* VersaPlayer.swift in Sources */,
 				E325B564267C7AE700B080D3 /* AddCommentModel.swift in Sources */,
 				E3045C3D2603C95E00D1A678 /* FooterTabView.swift in Sources */,
 				E3BBB0CC2662BEEF00F052FD /* Market_latest_news.swift in Sources */,
@@ -2805,12 +3347,14 @@
 				E3958A94265D631500D53772 /* CategoryListModel.swift in Sources */,
 				5C1A09DE260C353500223D3D /* DivisionModel.swift in Sources */,
 				E375EA3F262EB7C600646A0A /* DetailAboutEventTVCell.swift in Sources */,
+				F438A75126945D3C00C8A71F /* DatafromTMC.swift in Sources */,
 				F4A57649265ADA190010085F /* PrivacyVC.swift in Sources */,
 				F4AA18BD266D29CC00C36887 /* Training_module.swift in Sources */,
 				E3C29DA9263F44B300239707 /* LinkModel.swift in Sources */,
 				E304B8572665FE9D00E649C7 /* CloseButton.swift in Sources */,
 				5CED90F92605A67F001053DD /* AddImageCollectionViewCell.swift in Sources */,
 				E31CCE832613037F006D97AC /* NewCarSalesViewController.swift in Sources */,
+				F438A72A26943F1100C8A71F /* oneandonlyContentTVCell.swift in Sources */,
 				F4AA1888266D28C400C36887 /* PdcauploadindexTableCell.swift in Sources */,
 				E345083D264315AB00C17E91 /* SDGSHomeVM.swift in Sources */,
 				E389940D2660E03300F59772 /* NewsHomeVC.swift in Sources */,
@@ -2821,7 +3365,9 @@
 				E375EA6F262EDC0C00646A0A /* DetailDocLinkTVCell.swift in Sources */,
 				E34508452643168C00C17E91 /* SDGSListTableCell.swift in Sources */,
 				F4A57645265A97880010085F /* calendarlistdata.swift in Sources */,
+				E38BDB6326A82A6C00498037 /* WhatsNewVC.swift in Sources */,
 				F4A57601265800AD0010085F /* EditprofileVC.swift in Sources */,
+				F438A71826943CD200C8A71F /* allOneandonlyday.swift in Sources */,
 				E32F3BEF262AFCA90000D92A /* MEBITEventTableViewCell.swift in Sources */,
 				F4A57629265802740010085F /* Chatusers.swift in Sources */,
 				F4A575FE265800AD0010085F /* ChangepasswordVC.swift in Sources */,
@@ -2829,23 +3375,33 @@
 				F4A575EF2658006E0010085F /* CalendarView.swift in Sources */,
 				F4AA184B266D26B700C36887 /* TrainingVC.swift in Sources */,
 				E3F131ED2655158600F396BA /* Modules.swift in Sources */,
+				F438A73626943F2A00C8A71F /* oneandonlylikeCell.swift in Sources */,
 				F4AA18B9266D29B400C36887 /* Trainingdatalist.swift in Sources */,
+				F438A71D26943D0D00C8A71F /* OneandonlydayVM.swift in Sources */,
+				F438FD9C26A6CC5800BCDF6D /* SpecialsiteVM.swift in Sources */,
 				E34B0036266A2E0C00978628 /* NewsVideoListVM.swift in Sources */,
+				F438A77A2695CC4E00C8A71F /* VersaPlayerControlsCoordinator.swift in Sources */,
 				E32AED3C260754A100AEAB6F /* UIColor.swift in Sources */,
 				F4A5761C265802480010085F /* ScheduleTableViewVM.swift in Sources */,
+				E364CD37268B3750000DBAE5 /* NotificationList_lData.swift in Sources */,
 				E3E2CCCF260B6029009BDB6E /* LoginUserModel.swift in Sources */,
 				E393D64726400BF7003895ED /* GRDetail_Data.swift in Sources */,
 				F4A575F02658006E0010085F /* CalendarFlowLayout.swift in Sources */,
 				F4AA184A266D26B700C36887 /* TrainingdetailVC.swift in Sources */,
 				E30751B0260F3908000EB1EA /* HomeModel.swift in Sources */,
+				F438FDBB26A8062500BCDF6D /* GRSupportvc.swift in Sources */,
+				F438A74926944EAC00C8A71F /* AllValuesFromTMC.swift in Sources */,
+				F438A71926943CD200C8A71F /* oneandonlyvalues.swift in Sources */,
 				E304B8562665FE9D00E649C7 /* TagListView.swift in Sources */,
 				F4AA1854266D277700C36887 /* MentorTableCell.swift in Sources */,
 				E375EA88262F3E4900646A0A /* Maas_MEBITCat.swift in Sources */,
 				E3AE791B2604C5F4004B83C9 /* PlusSelectCategoryVC.swift in Sources */,
 				E32AECF326073E3000AEAB6F /* LoginVM.swift in Sources */,
+				F4A4D244267E4983006F66E7 /* Tables.swift in Sources */,
 				F4AA18B3266D299700C36887 /* walloffame_datas.swift in Sources */,
 				E31DFCF52678E89600023CFA /* NewHomeData.swift in Sources */,
 				E3C734D8264C0311003580C8 /* LikeOrCommentVM.swift in Sources */,
+				F438A73926943FC000C8A71F /* FromTMCVC.swift in Sources */,
 				E3FCCDFF265B90960011714B /* Like_ListData.swift in Sources */,
 				5CED90F226059540001053DD /* CategoryCommonViewController.swift in Sources */,
 				F4A57625265802740010085F /* Chatlistmodel.swift in Sources */,
@@ -2853,11 +3409,16 @@
 				E3BBB0CE2662BEEF00F052FD /* Ourpicks.swift in Sources */,
 				E34508062643110D00C17E91 /* SDGSListvc.swift in Sources */,
 				F4A5763926580B520010085F /* Supportmodel.swift in Sources */,
+				F4A4D241267E496F006F66E7 /* UITableView+Ext.swift in Sources */,
+				F438A76E2695CBE400C8A71F /* VersaPlayerCaptionStyling.swift in Sources */,
 				F4AA189C266D291900C36887 /* Pdca_VideosModel.swift in Sources */,
 				E375EA87262F3E4900646A0A /* Kaizen_MEBITCat.swift in Sources */,
 				E375EA54262ECD2600646A0A /* DocumentContentCell.swift in Sources */,
+				F438A72126943EDC00C8A71F /* OneandonlyTVCell.swift in Sources */,
 				E3264049267A494B00B6731F /* NewHomeLikeModel.swift in Sources */,
 				E373B53626115B3D00BEC2B5 /* CreateKaizenVM.swift in Sources */,
+				F438A7652695CBBC00C8A71F /* VersaPlayerView.swift in Sources */,
+				F438FD9426A6CA5D00BCDF6D /* SpecialsiteData.swift in Sources */,
 				E32AED0F2607538500AEAB6F /* BaseTableHeaderView.swift in Sources */,
 				F4AA18B2266D299700C36887 /* Wall_of_fameListModel.swift in Sources */,
 				E38383342655AC2B008DA03E /* CommentListData.swift in Sources */,
@@ -2867,6 +3428,7 @@
 				F4AA1898266D291900C36887 /* sessionFilemodel.swift in Sources */,
 				E325445B261098910083BDD9 /* EventInfoModel.swift in Sources */,
 				E375EA8C262F3E4900646A0A /* News_MEBITCat.swift in Sources */,
+				F438A7672695CBCA00C8A71F /* VersaPlayerPlaybackError.swift in Sources */,
 				E3F7C5F626145F6F0018C377 /* NewCarKaizenModel.swift in Sources */,
 				E34507E826430CD800C17E91 /* HydrogenVC.swift in Sources */,
 				F4AA1850266D274100C36887 /* TrainingTableCell.swift in Sources */,
@@ -2875,15 +3437,21 @@
 				E303372A2677644E00B9DDE6 /* HomeNewsFeedVM.swift in Sources */,
 				E304B8582665FE9D00E649C7 /* TagView.swift in Sources */,
 				E3E042642650538000F1ED2F /* LikeDetailTVCell.swift in Sources */,
+				F438FD9226A6CA0100BCDF6D /* AllvaluesSpecialsite.swift in Sources */,
 				E39467852614EA3400B9503B /* MedbiListModel.swift in Sources */,
 				E37A2FD7261498C800C6CA57 /* Kaizen_DocumentLinks.swift in Sources */,
+				F4A4D236267E4933006F66E7 /* AnimationType.swift in Sources */,
 				E3C29DA8263F44B300239707 /* Link_Data.swift in Sources */,
+				F432B17626AAC64E00AB2CD1 /* GradientView.swift in Sources */,
+				F438A7942695CCBC00C8A71F /* VersaPlayer-iOS-dummy.m in Sources */,
 				E393D64526400BF7003895ED /* GRDetailModel.swift in Sources */,
 				F4AA18BB266D29B400C36887 /* Datatraining.swift in Sources */,
+				F438FDC026A807DC00BCDF6D /* GRSupportdatas.swift in Sources */,
 				E39467872614EA3400B9503B /* Pdf_links.swift in Sources */,
 				F4AA1891266D28F200C36887 /* TrainingDetailVM.swift in Sources */,
 				E31CCE7E2613031C006D97AC /* TMCViewController.swift in Sources */,
 				E313804826610E3100A3A3F0 /* OverPicksCVCell.swift in Sources */,
+				F438A74126944CC000C8A71F /* FromTMCVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3058,8 +3626,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7FE522E2E6FF1631AE49AED2 /* Pods-MECA.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MECA/MECA.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -3070,7 +3640,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MECA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3084,8 +3654,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D700C3D0B650360B031EF7A4 /* Pods-MECA.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MECA/MECA.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -3096,7 +3668,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0;
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.MECA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

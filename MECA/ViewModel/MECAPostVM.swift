@@ -15,7 +15,7 @@ import MobileCoreServices
 import AVFoundation
 
 class MECAPostVM: BaseCollectionViewVM {
-    var feedInfoDict : NewHomeData!
+  
     override init(controller: UIViewController?) {
         
         super.init(controller: controller)
@@ -110,106 +110,6 @@ class MECAPostVM: BaseCollectionViewVM {
             }
         })
         print("error")
-    }
-    
-    //wevserviceForNewHomeFeedInfo
-    func callWebserviceForNewHomeFeedInfo(){
-        GlobalObj.displayLoader(true, show: true)
-        APIClient.wevserviceForNewHomeFeedInfo(feed: (actualController as! MECAPostVC).feedId) { (result) in
-            GlobalObj.displayLoader(true, show: false)
-
-            if let respCode = result.resp_code{
-                GlobalObj.displayLoader(true, show: false)
-                if respCode == 200{
-                    if let dictFeed = result.data{
-                        self.feedInfoDict = dictFeed
-                        (self.actualController as! MECAPostVC).txtViewContent.text = dictFeed.content
-                        if dictFeed.type == 1{
-                            if let arrImgs = dictFeed.images{
-                                print(arrImgs)
-                                if (self.actualController as! MECAPostVC).arrFeedImage.count>0{
-                                    (self.actualController as! MECAPostVC).arrFeedImage.removeAll()
-                                    (self.actualController as! MECAPostVC).arrImgData.removeAll()
-                                }
-                                for objImg in arrImgs{
-                                   // imgview.sd_setImage(with: URL.init(string: url), completed: nil)
-                                    let url = URL(string:BaseURL + objImg)
-                                        if let data = try? Data(contentsOf: url!)
-                                        {
-                                            let image: UIImage = UIImage(data: data)!
-                                            (self.actualController as! MECAPostVC).arrFeedImage.append(image)
-                                            let data = image.jpegData(compressionQuality: 0.7)
-                                            (self.actualController as! MECAPostVC).arrImgData.append(data!)
-                                        }
-                                    print((self.actualController as! MECAPostVC).arrFeedImage)
-                                }
-                                (self.actualController as! MECAPostVC).collectionImgs.isHidden = false
-                            }
-                            (self.actualController as! MECAPostVC).collectionImgs.delegate = (self.actualController as! MECAPostVC).self
-                            (self.actualController as! MECAPostVC).collectionImgs.dataSource = (self.actualController as! MECAPostVC).self
-                            (self.actualController as! MECAPostVC).collectionImgs.reloadData()
-                            (self.actualController as! MECAPostVC).viewAddImg.isHidden = false
-                            (self.actualController as! MECAPostVC).selecteFeedType = "1"
-                            (self.actualController as! MECAPostVC).btnFeedImgOutlet.backgroundColor = #colorLiteral(red: 0.1490196078, green: 0.2784313725, blue: 0.5529411765, alpha: 1)
-                            (self.actualController as! MECAPostVC).btnFeedImgOutlet.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-                            (self.actualController as! MECAPostVC).btnFeedVideoOutlet.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.8588235294, blue: 0.8588235294, alpha: 1)
-                            (self.actualController as! MECAPostVC).btnFeedVideoOutlet.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-
-                            (self.actualController as! MECAPostVC).viewVideoLink.isHidden = true
-                            if (self.actualController as! MECAPostVC).arrFeedImage.count>0{
-                                (self.actualController as! MECAPostVC).collectionviewHeightConstraint.constant = 70
-                                (self.actualController as! MECAPostVC).viewAddImgHeightConstraint.constant = 157
-                            }else{
-                                (self.actualController as! MECAPostVC).collectionviewHeightConstraint.constant = 0
-                                (self.actualController as! MECAPostVC).viewAddImgHeightConstraint.constant = 87
-                            }
-                        }else if dictFeed.type == 2{
-                            if let url = dictFeed.video_link{
-                                (self.actualController as! MECAPostVC).txtVideoLink.text = url
-                            }
-                            (self.actualController as! MECAPostVC).selecteFeedType = "2"
-                            (self.actualController as! MECAPostVC).viewAddImg.isHidden = true
-                            (self.actualController as! MECAPostVC).viewVideoLink.isHidden = false
-                            (self.actualController as! MECAPostVC).btnFeedVideoOutlet.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-                            (self.actualController as! MECAPostVC).btnFeedImgOutlet.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-
-                            (self.actualController as! MECAPostVC).btnFeedVideoOutlet.backgroundColor = #colorLiteral(red: 0.1490196078, green: 0.2784313725, blue: 0.5529411765, alpha: 1)
-                            (self.actualController as! MECAPostVC).btnFeedImgOutlet.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.8588235294, blue: 0.8588235294, alpha: 1)
-                        }
-//
-                      //  let testImage = NSData(contentsOf: URL.init(string: BaseURL + dictFeed.document_link!)!)
-                        if let url = URL(string: BaseURL + dictFeed.document_link!){
-                            print(url)
-                            GlobalObj.run(after: 1) {
-                                guard let url = URL(string: BaseURL + dictFeed.document_link!)else{return}
-                                
-                                
-                                
-                                FileDownloader.loadFileAsync(url: url) { (path, error) in
-                                    print("PDF File downloaded to : \(path!)")
-                                    let url = URL.init(string: path!)
-                                    let filename = url!.lastPathComponent  // pdfURL is your file url
-
-                            //                arrFileName.append(filename)
-                                    (self.actualController as! MECAPostVC).documentFileName = filename
-                                    (self.actualController as! MECAPostVC).btnDocumentOutlet.setTitle(filename, for: .normal)
-                                    do {
-                                        let docData = try Data(contentsOf: url! as URL)
-                                        (self.actualController as! MECAPostVC).documentdata = docData
-                                    } catch {
-                                        print("Unable to load data: \(error)")
-                                    }
-                                    
-                                    }
-
-                                }
-                            }
-                        }
-                }
-            }else{
-                GlobalObj.displayLoader(true, show: false)
-            }
-        }
     }
 }
 

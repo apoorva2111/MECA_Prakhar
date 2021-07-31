@@ -6,6 +6,7 @@ class CategoriesViewController: UIViewController {
 
     @IBOutlet weak var baseView: UIView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
+    
     @IBOutlet weak var footerView: FooterTabView!
     
     var screenSize: CGRect!
@@ -14,29 +15,31 @@ class CategoriesViewController: UIViewController {
     var viewModel : CategoriesVM!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-       
-        viewModel = CategoriesVM.init(controller: self)
-       
-        self.categoryCollectionView.register(UINib(nibName: "SelectCategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SelectCategoryCollectionViewCell")
-       
-        categoryCollectionView.dataSource = self
-        categoryCollectionView.delegate = self
-      
-        screenSize = UIScreen.main.bounds
-        screenWidth = screenSize.width
-        screenHeight = screenSize.height
-        setupUI()
-        footerView.footerTabViewDelegate = self
-        footerView.imgHome.image = UIImage.init(named: "Home_Inactive")
-       
-        footerView.lblHome.font = UIFont.init(name: "SFPro-Regular", size: 12)
-        footerView.lblCalender.font = UIFont.init(name: "SFPro-Regular", size: 12)
-        footerView.lblCategory.font = UIFont.init(name: "SFPro-Bold", size: 12)
-        footerView.lblNotification.font = UIFont.init(name: "SFPro-Regular", size: 12)
-        footerView.lblMore.font = UIFont.init(name: "SFPro-Regular", size: 12)
-        // Do any additional setup after loading the view.
-    }
+            super.viewDidLoad()
+           
+            viewModel = CategoriesVM.init(controller: self)
+           
+            self.categoryCollectionView.register(UINib(nibName: "SelectCategoryCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SelectCategoryCollectionViewCell")
+           
+            categoryCollectionView.dataSource = self
+            categoryCollectionView.delegate = self
+          
+            screenSize = UIScreen.main.bounds
+            screenWidth = screenSize.width
+            screenHeight = screenSize.height
+            setupUI()
+            footerView.footerTabViewDelegate = self
+            footerView.imgHome.image = UIImage.init(named: "Home_Inactive")
+            footerView.imgCategory.image = UIImage.init(named: "Categories active")
+            footerView.cateforyview.backgroundColor = #colorLiteral(red: 0.1490196078, green: 0.2784313725, blue: 0.5529411765, alpha: 1)
+            footerView.cateforyview.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            footerView.lblHome.font = UIFont.init(name: "SFPro-Regular", size: 12)
+            footerView.lblCalender.font = UIFont.init(name: "SFPro-Regular", size: 12)
+            footerView.lblCategory.font = UIFont.init(name: "SFPro-Bold", size: 12)
+            footerView.lblNotification.font = UIFont.init(name: "SFPro-Regular", size: 12)
+            footerView.lblMore.font = UIFont.init(name: "SFPro-Regular", size: 12)
+            // Do any additional setup after loading the view.
+        }
     
     func setupUI(){
                let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -84,13 +87,13 @@ extension CategoriesViewController: FooterTabViewDelegate{
         
         }else if strType == "Calendar"{
             
-            let vc = FlowController().instantiateViewController(identifier: "HomeVC", storyBoard: "Home")
-                    self.navigationController?.pushViewController(vc, animated:false)
+            let vc = FlowController().instantiateViewController(identifier: "Chatvcmain", storyBoard: "Home")
+            self.navigationController?.pushViewController(vc, animated:false)
             
         }else if strType == "Categories"{
             
-        }else if strType == "Notification"{
-            let vc = FlowController().instantiateViewController(identifier: "NotificationVC", storyBoard: "Home")
+        }else if strType == "FROM TMC"{
+            let vc = FlowController().instantiateViewController(identifier: "FromTMCvc", storyBoard: "Home")
             self.navigationController?.pushViewController(vc, animated:false)
         }else{
             let vc = FlowController().instantiateViewController(identifier: "MoreVC", storyBoard: "Home")
